@@ -1,0 +1,19 @@
+<div th:fragment="header">
+    <div class="top">
+        <div class="header">
+            <h1>TRAINING DAY - your personal trainer</h1>
+        </div>
+        <div class="navigation">
+            <div class="sidebar">
+                <ul>
+                    <li><a th:href="@{/home}">Home</a></li>
+                    <li><a th:href="@{/catalog}">Catalog</a></li>
+                    <li><a th:href="@{/add_program}">Add new program</a></li>
+                    <li><a href="">Search</a></li>
+                    <li><a th:href="@{/auth/login}"><img th:src="@{/img/img_235476.png}" alt="Sign in" class="sign"></a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="space"></div>
+</div>

@@ -1,0 +1,30 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <title th:text="'Details of '+${name}"></title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+<div class="wrapper">
+    <div th:insert="fragments/header.html::header"></div>
+    <div th:each="prog:${program}">
+        <h3 class="program-name" th:text="${prog.name}"/><hr>
+        <div class="padding">
+            <p>Duration(in days):</p>
+            <p class="article" th:text="${prog.duration}"/>
+            <p>Muscle group:</p>
+            <p class="article" th:text="${prog.group}"/>
+            <p>Program:</p>
+            <div class="article" th:text="${prog.description}"/>
+            <table>
+                <tr><button class="edit"><a th:href="'/catalog/'+${prog.id}+'/edit'">Edit</a></button>
+                <form th:action="'/catalog/'+${prog.id}+'/remove'" method="post">
+                    <button type="submit" class="remove">Remove</button>
+                </form></tr>
+            </table>
+        </div><hr>
+    </div>
+</div>
+<div th:insert="fragments/footer.html::footer"></div>
+</body>
+</html>

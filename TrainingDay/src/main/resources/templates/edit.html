@@ -1,0 +1,27 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <title th:text="'Edit '+${name}"></title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+<div class="wrapper">
+    <div th:insert="fragments/header.html::header"></div>
+
+    <h2>Update new info about the program</h2><hr>
+    <form class="form-control" method="post">
+        <div th:each="prog:${program}">
+            <label for="name">Name:</label>
+            <input type="text" th:value="${prog.name}" id="name" name="name" placeholder="Update new name of the program"><br>
+            <label for="duration">Duration(in days):</label>
+            <input type="number" th:value="${prog.duration}" id="duration" name="duration" placeholder="Update new duration"><br>
+            <label for="description">Description:</label>
+            <textarea id="description" name="description" rows=7 placeholder="Update description of program" required th:text="${prog.description}"/><br>
+            <button class="edit" type="submit">Update</button>
+        </div>
+    </form>
+
+</div>
+<div th:insert="fragments/footer.html::footer"></div>
+</body>
+</html>

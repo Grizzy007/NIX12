@@ -1,0 +1,67 @@
+.btn {
+    padding: 10px 25px;
+    font-family: "Roboto", sans-serif;
+    font-weight: 500;
+    background: transparent;
+    outline: none !important;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    display: inline-block;
+  }
+  
+  .button {
+    border: 2px solid blueviolet;
+    font-weight: 700;
+    z-index: 1;
+    color:blueviolet;
+  }
+  
+  .button:after {
+    position: absolute;
+    content: "";
+    width: 0;
+    height: 100%;
+    top: 0;
+    left: 0;
+    direction: rtl;
+    z-index: -1;
+    background: blueviolet;
+    transition: all 0.3s ease;
+  }
+  
+  .button:hover {
+    color: rgb(0, 0, 0);
+  }
+  
+  .button:hover:after {
+    left: auto;
+    right: 0;
+    width: 100%;
+  }
+  
+  .button:active {
+    top: 2px;
+  }
+.form-signin{
+    padding-top: 30px;
+    padding-bottom: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items:center;
+    border: 1px solid blue;
+    background-color: antiquewhite;
+    border-radius:10%;
+}
+.form-signin-heading{
+    padding-top: 20px;
+    font-size: 32px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+.sr-only{
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+.form-control{
+    height: 30px;
+    width: 200px;
+}

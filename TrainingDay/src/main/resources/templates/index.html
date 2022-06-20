@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="utf-8">
+        <title>Training day</title>
+        <link rel="stylesheet" th:href="@{/css/style.css}">
+    </head>
+    <body>
+        <div class="wrapper">
+            <div th:insert="fragments/header.html::header"></div>
+            <div class="main-body">
+                <div class="article">
+                    <p>On this website you could find different physical trainings.</p>
+                    <img th:src="@{/img/workout.jpg}" alt="Workout" class = "workout">
+                    <p>Catalog of our programs include both gym programs and home workouts.</p>
+                    <p>Our trainers are working to produce the best trainings. In our team we have only high qualified trainers,
+                        so you don't need to worry about the quality of trainings.
+                    </p>
+                    <p>Our team supports all our programs. If user want to suggest own program someone from our 
+                        trainers will check this program and give a decision to add this program to our web site or maybe it should
+                        be corrected or decline it.
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div th:insert="fragments/footer.html::footer"></div>
+    </body>
+</html>

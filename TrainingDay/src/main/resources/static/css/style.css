@@ -1,0 +1,195 @@
+body{
+    font-family: 'Open Sans', Helvetica, Arial, sans-serif;
+    background-color:azure;
+    margin: 0;
+}
+h2{
+    color: turquoise;
+    display: flex;
+    justify-content: center;
+}
+.padding{
+    padding-left: 20px;
+}
+.top{
+    position: fixed;
+    background-color:khaki;
+    top: 0;
+    left: 0;
+    right: 0;
+}
+.space{
+    margin-top: 170px;
+}
+.header h1 {
+    display: flex;
+    font-size: 36px;
+    color:darkorchid;
+    text-transform: uppercase;
+    font-weight: bold;
+    padding: 0px 20px 0px 20px;
+    clear: both;
+    justify-content: center;
+}
+.button{
+    width: 100px;
+    height: 35px;
+    margin-top: 20px;
+    background-color: gold;
+}
+.button a{
+    text-decoration: none;
+}
+.sidebar {
+    margin: 0px;
+    display: flex;
+    width:100%;
+    justify-content: center;
+    background-color:cornflowerblue;
+    border-top: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+}
+.sidebar li {
+    float: left;
+    list-style: none;   
+}
+.sidebar a {
+    color: black;
+    padding: 15px 45px;
+    text-decoration: none;
+    border-right: 1px solid #ccc;
+}
+.sidebar li:last-child a {
+    border-right: none; 
+}
+.sidebar a:hover {
+    font-weight: bold;
+}
+.sidebar:after {
+    content: " ";
+    display: table;
+    clear: both;
+}
+.sign{
+    width: 20px;
+    height: 20px;
+}
+.sign:hover{
+    transform: scale(1.1);
+}
+.footer{ 
+    border-top: 1px solid black;
+    font-size: .8em;    
+    text-align: center;
+    padding: 10px 10px 20px 10px;
+    background-color:silver;
+}
+.wrapper, .sidebar, .header, .footer{
+    min-width: 768px;
+}
+.workout{
+  display: flex;
+  justify-content: center;
+  align-items:flex-start;
+  border-radius: 10%;;
+  width: 540px;
+  height: 400px;
+  margin: 0 auto;
+}
+.article{
+    font-size: 18px;
+    padding-left: 20px;
+}
+.button:hover{
+    background-color:lightskyblue;
+}
+.form-control {
+    display: flex;
+    flex-direction: column;
+    margin-left: 20px;
+    color:lightsteelblue;
+    width: 90%;
+    background-color: #fff;
+    font-weight: 600;
+    border: #9ea0a0 solid 1px;
+    padding: 10px 10px 10px 20px;
+}
+.program-name{
+    display: flex;
+    justify-content: center;
+    color: forestgreen;
+    font-size: 24px;
+}
+input,select{
+    height: 25px;
+}
+
+.form-control:focus {
+    border-color: #24d4d4;
+    box-shadow: 0 0 0 0.2rem #24d4d4;
+}
+
+label,input,textarea,select{
+    margin-top: 10px;
+}
+
+hr{
+    padding-right: 210px;
+    padding-left: 0px;
+    margin-left: 0px;
+}
+
+select.form-control {
+    border: #000 solid 1px;
+}
+.remove{
+    width: 80px;
+    height: 35px;
+    margin-top: 20px;
+    background-color: firebrick;
+    border: 0;
+    border-radius: 30%;
+}
+.edit{
+    width: 80px;
+    height: 35px;
+    margin-top: 20px;
+    background-color: limegreen;
+    border: 0;
+    border-radius: 30%;
+}
+.edit a{
+    text-decoration: none;
+    color:darkblue;
+}
+.remove a{
+    text-decoration: none;
+    color:darkblue;
+}
+.edit:hover{
+    transform: scale(1.1);
+}
+.remove:hover{
+    transform: scale(1.1);
+}
+.edit:active{
+    color: goldenrod;
+}
+.edit a:active{
+    color: goldenrod;
+}
+.remove a:active{
+    color: goldenrod;
+}
+
+.table{
+    border-collapse: collapse;
+    text-align:center;
+    width:95%;
+}
+th,td{
+    border: 1px solid slategray;
+}
+.after-table{
+    padding-top: 20px;
+}
