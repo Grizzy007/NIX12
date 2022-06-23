@@ -15,7 +15,7 @@
                     <th>Name</th>
                     <th>Duration</th>
                     <th>Muscle group</th>
-                    <th>Details</th>
+                    <th sec:authorize="hasAuthority('read')">Details</th>
                     </thead>
                 <tbody>
                 <div th:each="program:${programs}">
@@ -23,7 +23,7 @@
                         <td th:text="${program.name}"/>
                         <td th:text="${program.duration}"/>
                         <td th:text="${program.group}"/>
-                        <td class="details"><button class="button"><a th:href="'/catalog/'+${program.id}">Details</a></button></td>
+                        <td sec:authorize="hasAuthority('read')" class="details"><button class="button"><a th:href="'/catalog/'+${program.id}">Details</a></button></td>
                     </tr>
                 </div>
                 </tbody>

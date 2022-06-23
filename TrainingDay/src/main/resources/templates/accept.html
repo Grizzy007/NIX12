@@ -1,0 +1,23 @@
+<html xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="utf-8">
+    <title>Accept program</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+<div class="wrapper">
+    <div th:insert="fragments/header.html::header"></div>
+
+    <h2>Set trainer and accept new program</h2><hr>
+    <form class="form-control" th:object="${program}" method="post">
+       <label for="trainer">Trainer:</label>
+        <select id="trainer" th:field="*{trainer}">
+                <option th:each="train: ${trainers}" th:value="${train.id}" th:text="${train.name}"></option>
+            </select>
+            <button class="edit" type="submit">Accept</button>
+    </form>
+
+</div>
+<div th:insert="fragments/footer.html::footer"></div>
+</body>
+</html>

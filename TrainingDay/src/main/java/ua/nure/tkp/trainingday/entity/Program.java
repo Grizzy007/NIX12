@@ -1,25 +1,39 @@
 package ua.nure.tkp.trainingday.entity;
 
+import org.hibernate.annotations.ManyToAny;
+
 import javax.persistence.*;
+import java.util.Set;
 
 @Entity
-@Table(name = "Program")
+@Table(name = "programs")
 public class Program {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Integer id;
-    @Column(name = "name")
+    @Column(name = "program_name")
     private String name;
     @Column(name="duration")
     private Integer duration;
     @Column(name = "muscleGroup")
     private String group;
+    @Column(name="description")
+    private String description;
+    @ManyToOne(cascade = {CascadeType.ALL})
+    private Status status;
+    @ManyToOne
+    private Trainer trainer;
 
-    public Program(String name, Integer duration, String group, String description) {
+    @ManyToMany(mappedBy = "programs")
+    private Set<User> users;
+
+    public Program(String name, Integer duration, String group, Trainer trainer, String description) {
         this.name = name;
         this.duration = duration;
         this.group = group;
+        this.trainer = trainer;
         this.description = description;
+        this.status = new Status("NEW");
     }
 
     public String getGroup() {
@@ -29,9 +43,6 @@ public class Program {
     public void setGroup(String group) {
         this.group = group;
     }
-
-    @Column(name="description")
-    private String description;
 
     public Program() {
     }
@@ -74,4 +85,23 @@ public class Program {
         this.description = description;
     }
 
+    public Status getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status.setName(status);
+    }
+
+    public void setStatus(Status status) {
+        this.status = status;
+    }
+
+    public Trainer getTrainer() {
+        return trainer;
+    }
+
+    public void setTrainer(Trainer trainer) {
+        this.trainer = trainer;
+    }
 }

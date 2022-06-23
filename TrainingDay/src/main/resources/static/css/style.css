@@ -193,3 +193,21 @@ th,td{
 .after-table{
     padding-top: 20px;
 }
+
+.change{
+    width: 80px;
+    height: 35px;
+    margin-top: 20px;
+    background-color: lightskyblue;
+    border: 0;
+    border-radius: 30%;
+}
+.change:hover{
+    transform: scale(1.1);
+}
+.change:active{
+    color: goldenrod;
+}
+.change a:active{
+    color: goldenrod;
+}

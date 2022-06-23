@@ -1,35 +1,23 @@
-<html xmlns:th="http://www.thymeleaf.org">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    <meta charset="utf-8">
-    <title>Add Program|Training day</title>
-    <link rel="stylesheet" th:href="@{/css/style.css}">
+  <meta charset="UTF-8">
+  <title>Add program|Training day</title>
+  <link rel="stylesheet" th:href="@{/css/style.css}">
 </head>
 <body>
-    <div class="wrapper">
-        <div th:insert="fragments/header.html::header"></div>
-
-        <h2>Input info about your program</h2><hr>
-        <form class="form-control" th:action="@{/add_program}" method="post">
-            <label for="name">Name:</label>
-            <input type="text" id="name" name="name" placeholder="Input name of the program" required><br>
-            <label for="group">Muscle group:</label>
-            <select name="muscleGroup" id="group" required>
-                <option disabled selected>Choose muscle group</option>
-                <option value="chest">Chest</option>
-                <option value="legs">Legs</option>
-                <option value="shoulders">Shoulders</option>
-                <option value="biceps">Biceps</option>
-                <option value="triceps">Triceps</option>
-                <option value="back">Back</option>
-            </select><br>
-            <label for="duration">Duration(in days):</label>
-            <input type="number" id="duration" name="duration" placeholder="Input duration" required><br>
-            <label for="description">Description:</label>
-            <textarea id="description" name="description" rows=7 placeholder="Description of program" required></textarea><br>
-            <button class="button" type="submit">Add Program</button>
-        </form>
-
-    </div>
-    <div th:insert="fragments/footer.html::footer"></div>
+<div th:insert="fragments/header.html::header"></div>
+<form method="post" class="form-control" th:action="@{/add_program}" th:object="${program}">
+  <h2 class="form-signin-heading">Adding program</h2>
+  <input type="text" th:field="*{name}" placeholder="Name" required>
+  <input type="number" th:field="*{duration}" placeholder="Duration" required>
+  <select th:field="*{trainer}">
+    <option th:each="train: ${trainers}" th:value="${train.id}" th:text="${train.name}"></option>
+  </select>
+  <input type="text"th:field="*{group}" placeholder="Muscle group" required>
+  <textarea type="text" th:field="*{description}" placeholder="Description" required></textarea>
+  <button type="submit" class="button">Add program</button>
+</form>
+<div th:insert="fragments/footer.html::footer"></div>
 </body>
 </html>

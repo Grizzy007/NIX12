@@ -16,11 +16,14 @@
             <p class="article" th:text="${prog.group}"/>
             <p>Program:</p>
             <div class="article" th:text="${prog.description}"/>
+            <p>Trainer:</p>
+            <div class="article" th:text="${prog.trainer.getName()}"/>
             <table>
-                <tr><button class="edit"><a th:href="'/catalog/'+${prog.id}+'/edit'">Edit</a></button>
-                <form th:action="'/catalog/'+${prog.id}+'/remove'" method="post">
+                <tr><button  sec:authorize="hasAuthority('write')" class="edit"><a th:href="'/catalog/'+${prog.id}+'/edit'">Edit</a></button>
+                <form  sec:authorize="hasAuthority('write')" th:action="'/catalog/'+${prog.id}+'/remove'" method="post">
                     <button type="submit" class="remove">Remove</button>
-                </form></tr>
+                </form>
+                </tr>
             </table>
         </div><hr>
     </div>

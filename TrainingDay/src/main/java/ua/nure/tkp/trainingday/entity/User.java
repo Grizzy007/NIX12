@@ -1,10 +1,10 @@
 package ua.nure.tkp.trainingday.entity;
 
-
 import javax.persistence.*;
+import java.util.Set;
 
 @Entity
-@Table(name = "user")
+@Table(name = "users")
 public class User {
 
     @Id
@@ -12,26 +12,30 @@ public class User {
     private int id;
     @Column(name = "login")
     private String login;
-    @Column(name = "password")
+    @Column(name = "pass")
     private String password;
     @Column(name = "age")
     private int age;
     @Column(name = "nickname")
     private String nickname;
-    @Enumerated
-    @Column(name = "role")
+    @Enumerated(value = EnumType.STRING)
+    @Column(name = "user_role")
     private Role role;
 
+    @ManyToMany
+    @JoinTable(name = "program_of_user", joinColumns = @JoinColumn(name = "user_id"),
+            inverseJoinColumns = @JoinColumn(name = "program_id"))
+    private Set<Program> programs;
 
     public User() {
     }
 
-    public User(String login, String password, int age, String nickname, Role role) {
+    public User(String login, String password, int age, String nickname) {
         this.login = login;
         this.password = password;
         this.age = age;
         this.nickname = nickname;
-        this.role = role;
+        this.role = Role.USER;
     }
 
     public int getId() {

@@ -1,4 +1,4 @@
-<div th:fragment="header">
+<div th:fragment="header" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
     <div class="top">
         <div class="header">
             <h1>TRAINING DAY - your personal trainer</h1>
@@ -8,9 +8,10 @@
                 <ul>
                     <li><a th:href="@{/home}">Home</a></li>
                     <li><a th:href="@{/catalog}">Catalog</a></li>
-                    <li><a th:href="@{/add_program}">Add new program</a></li>
-                    <li><a href="">Search</a></li>
-                    <li><a th:href="@{/auth/login}"><img th:src="@{/img/img_235476.png}" alt="Sign in" class="sign"></a></li>
+                    <li><a th:href="@{/suggest_program}">Suggest new program</a></li>
+                    <li><a sec:authorize="hasAuthority('write')" th:href="@{/verify}">Verify</a></li>
+                    <li><a sec:authorize="hasAuthority('write')" th:href="@{/add_program}">Add program</a></li>
+                    <li><a th:href="@{/auth/register}"><img th:src="@{/img/img_235476.png}" alt="Sign in" class="sign"></a></li>
                 </ul>
             </div>
         </div>
