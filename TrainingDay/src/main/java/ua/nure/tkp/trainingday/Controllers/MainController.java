@@ -19,43 +19,42 @@ public class MainController {
     @Autowired
     private ProgramRepo programRepo;
 
-    @GetMapping(value = {"/","/home"})
-    public String main(Model model){
+    @GetMapping(value = {"/", "/home"})
+    public String main(Model model) {
         return "index";
     }
 
-    @GetMapping(value="/catalog")
-    public String catalog(Model model)
-    {
+    @GetMapping(value = "/catalog")
+    public String catalog(Model model) {
         Iterable<Program> all = programRepo.findProgramsByStatusName("ACCEPTED");
-        model.addAttribute("programs",all);
+        model.addAttribute("programs", all);
         return "programs";
     }
 
     @GetMapping(value = "/suggest_program")
     @PreAuthorize("hasAuthority('read')")
-    public String suggestProgram(){
+    public String suggestProgram() {
         return "suggestProgram";
     }
 
     @PostMapping(value = "/suggest_program")
     @PreAuthorize("hasAuthority('read')")
     public String createProgram(@RequestParam String name, @RequestParam String description,
-                                @RequestParam Integer duration, @RequestParam String muscleGroup, Model model){
-        ProgramDto program = new ProgramDto(name,duration, muscleGroup,description);
-        Program pro = new Program(program.getName(), program.getDuration(), program.getGroup(),null,program.getDescription());
+                                @RequestParam Integer duration, @RequestParam String muscleGroup, Model model) {
+        ProgramDto program = new ProgramDto(name, duration, muscleGroup, description);
+        Program pro = new Program(program.getName(), program.getDuration(), program.getGroup(), null, program.getDescription());
         programRepo.save(pro);
         return "redirect:/home";
     }
 
     @GetMapping(value = "/catalog/{id}")
     @PreAuthorize("hasAuthority('read')")
-    public String programInfo(@PathVariable(value = "id") Integer id, Model model){
+    public String programInfo(@PathVariable(value = "id") Integer id, Model model) {
         Optional<Program> prog = programRepo.findById(id);
         List<Program> result;
         result = prog.stream().toList();
         model.addAttribute("name", prog.get().getName());
-        model.addAttribute("program",result);
+        model.addAttribute("program", result);
         return "details";
     }
 }

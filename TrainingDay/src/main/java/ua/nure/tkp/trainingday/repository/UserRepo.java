@@ -5,6 +5,6 @@ import ua.nure.tkp.trainingday.entity.User;
 
 import java.util.Optional;
 
-public interface UserRepo extends JpaRepository<User,Integer> {
+public interface UserRepo extends JpaRepository<User, Integer> {
     public Optional<User> findByLogin(String login);
 }

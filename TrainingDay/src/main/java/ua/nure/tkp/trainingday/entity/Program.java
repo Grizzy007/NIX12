@@ -13,11 +13,11 @@ public class Program {
     private Integer id;
     @Column(name = "program_name")
     private String name;
-    @Column(name="duration")
+    @Column(name = "duration")
     private Integer duration;
     @Column(name = "muscleGroup")
     private String group;
-    @Column(name="description")
+    @Column(name = "description")
     private String description;
     @ManyToOne(cascade = {CascadeType.ALL})
     private Status status;

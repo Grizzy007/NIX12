@@ -11,7 +11,8 @@
                     <li><a th:href="@{/suggest_program}">Suggest new program</a></li>
                     <li><a sec:authorize="hasAuthority('write')" th:href="@{/verify}">Verify</a></li>
                     <li><a sec:authorize="hasAuthority('write')" th:href="@{/add_program}">Add program</a></li>
-                    <li><a th:href="@{/auth/register}"><img th:src="@{/img/img_235476.png}" alt="Sign in" class="sign"></a></li>
+                    <li><a th:if="!${#request.userPrincipal}" th:href="@{/auth/register}"><img th:src="@{/img/img_235476.png}" alt="Sign in" class="sign"></a></li>
+                    <li><a sec:authorize="hasAuthority('read')" th:href="@{/logout}"><img th:src="@{/img/img_235476.png}" alt="Sign in" class="sign"></a></li>
                 </ul>
             </div>
         </div>

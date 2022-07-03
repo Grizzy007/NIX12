@@ -57,12 +57,12 @@ public class SecurityUser implements UserDetails {
         return isActive;
     }
 
-    public static UserDetails fromUser(User user){
+    public static UserDetails fromUser(User user) {
         return new org.springframework.security.core.userdetails.User(
                 user.getLogin(), user.getPassword(),
-                user.getNickname()!=null,
-                user.getNickname()!=null, user.getNickname()!=null,
-                user.getNickname()!=null, user.getRole().getAuthorities()
+                user.getNickname() != null,
+                user.getNickname() != null, user.getNickname() != null,
+                user.getNickname() != null, user.getRole().getAuthorities()
         );
     }
 }

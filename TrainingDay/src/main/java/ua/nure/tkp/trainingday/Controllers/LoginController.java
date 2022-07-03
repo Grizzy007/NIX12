@@ -19,17 +19,17 @@ public class LoginController {
     UserRepo userRepo;
 
     @GetMapping(value = "/login")
-    public String getLoginPage(){
+    public String getLoginPage() {
         return "login";
     }
 
     @GetMapping(value = "/success")
-    public String getSuccessPage(){
+    public String getSuccessPage() {
         return "redirect:/home";
     }
 
     @GetMapping(value = "/register")
-    public String registerPage(Model model){
+    public String registerPage(Model model) {
         model.addAttribute("user", new User());
         return "register";
     }
@@ -37,7 +37,7 @@ public class LoginController {
     @PostMapping("/register")
     public String processRegister(UserDto user) {
         BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder(12);
-        User entity = new User(user.getLogin(),passwordEncoder.encode(user.getPassword()), user.getAge(), user.getNickname());
+        User entity = new User(user.getLogin(), passwordEncoder.encode(user.getPassword()), user.getAge(), user.getNickname());
         userRepo.save(entity);
         return "redirect:/home";
     }

@@ -14,14 +14,14 @@ public class UserDetailsSecurityImpl implements UserDetailsService {
     private final UserRepo userRepo;
 
     @Autowired
-    public UserDetailsSecurityImpl(UserRepo userRepo){
-        this.userRepo=userRepo;
+    public UserDetailsSecurityImpl(UserRepo userRepo) {
+        this.userRepo = userRepo;
     }
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        User user = userRepo.findByLogin(username).orElseThrow(()->
-            new UsernameNotFoundException("User doesn't exist")
+        User user = userRepo.findByLogin(username).orElseThrow(() ->
+                new UsernameNotFoundException("User doesn't exist")
         );
         return SecurityUser.fromUser(user);
     }
