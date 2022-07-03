@@ -10,9 +10,7 @@ import javax.persistence.Id;
 import javax.persistence.GeneratedValue;
 
 import com.practice.spring.enums.BootType;
-import org.springframework.data.jpa.repository.Query;
 
-import java.lang.annotation.Native;
 
 @Entity
 @Table(name="BOOTS")
