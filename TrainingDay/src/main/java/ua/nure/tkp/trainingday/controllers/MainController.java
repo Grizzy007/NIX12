@@ -1,4 +1,4 @@
-package ua.nure.tkp.trainingday.Controllers;
+package ua.nure.tkp.trainingday.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
