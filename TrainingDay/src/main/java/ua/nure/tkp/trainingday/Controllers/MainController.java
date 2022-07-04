@@ -53,7 +53,9 @@ public class MainController {
         Optional<Program> prog = programRepo.findById(id);
         List<Program> result;
         result = prog.stream().toList();
-        model.addAttribute("name", prog.get().getName());
+        if(prog.isPresent()) {
+            model.addAttribute("name", prog.get().getName());
+        }
         model.addAttribute("program", result);
         return "details";
     }

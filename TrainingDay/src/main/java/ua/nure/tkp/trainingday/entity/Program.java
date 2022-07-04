@@ -1,6 +1,5 @@
 package ua.nure.tkp.trainingday.entity;
 
-import org.hibernate.annotations.ManyToAny;
 
 import javax.persistence.*;
 import java.util.Set;

@@ -4,7 +4,6 @@ import ua.nure.tkp.trainingday.entity.Status;
 import ua.nure.tkp.trainingday.entity.Trainer;
 import ua.nure.tkp.trainingday.entity.User;
 
-import javax.persistence.*;
 import java.util.Set;
 
 public class ProgramDto {
