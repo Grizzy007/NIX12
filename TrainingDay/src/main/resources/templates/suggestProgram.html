@@ -5,31 +5,33 @@
     <link rel="stylesheet" th:href="@{/css/style.css}">
 </head>
 <body>
-    <div class="wrapper">
-        <div th:insert="fragments/header.html::header"></div>
+<div class="wrapper">
+    <div th:insert="fragments/header.html::header"></div>
 
-        <h2>Input info about your program</h2><hr>
-        <form class="form-control" th:action="@{/suggest_program}" method="post">
-            <label for="name">Name:</label>
-            <input type="text" id="name" name="name" placeholder="Input name of the program" required><br>
-            <label for="group">Muscle group:</label>
-            <select name="muscleGroup" id="group" required>
-                <option disabled selected>Choose muscle group</option>
-                <option value="chest">Chest</option>
-                <option value="legs">Legs</option>
-                <option value="shoulders">Shoulders</option>
-                <option value="biceps">Biceps</option>
-                <option value="triceps">Triceps</option>
-                <option value="back">Back</option>
-            </select><br>
-            <label for="duration">Duration(in days):</label>
-            <input type="number" id="duration" name="duration" placeholder="Input duration" required><br>
-            <label for="description">Description:</label>
-            <textarea id="description" name="description" rows=7 placeholder="Description of program" required></textarea><br>
-            <button class="button" type="submit">Add Program</button>
-        </form>
+    <h2>Input info about your program</h2>
+    <hr>
+    <form class="form-control" th:action="@{/suggest_program}" method="post">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" placeholder="Input name of the program" required><br>
+        <label for="group">Muscle group:</label>
+        <select name="muscleGroup" id="group" required>
+            <option disabled selected>Choose muscle group</option>
+            <option value="chest">Chest</option>
+            <option value="legs">Legs</option>
+            <option value="shoulders">Shoulders</option>
+            <option value="biceps">Biceps</option>
+            <option value="triceps">Triceps</option>
+            <option value="back">Back</option>
+        </select><br>
+        <label for="duration">Duration(in days):</label>
+        <input type="number" id="duration" name="duration" placeholder="Input duration" required><br>
+        <label for="description">Description:</label>
+        <textarea id="description" name="description" rows=7 placeholder="Description of program"
+                  required></textarea><br>
+        <button class="button" type="submit">Add Program</button>
+    </form>
 
-    </div>
-    <div th:insert="fragments/footer.html::footer"></div>
+</div>
+<div th:insert="fragments/footer.html::footer"></div>
 </body>
 </html>

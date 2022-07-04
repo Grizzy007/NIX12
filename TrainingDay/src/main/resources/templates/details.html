@@ -19,7 +19,7 @@
             <p>Trainer:</p>
             <div class="article" th:text="${prog.trainer.getName()}"/>
             <table>
-                <tr><button  sec:authorize="hasAuthority('write')" class="edit"><a th:href="'/catalog/'+${prog.id}+'/edit'">Edit</a></button>
+                <tr><button sec:authorize="hasAuthority('write')" class="edit"><a th:href="'/catalog/'+${prog.id}+'/edit'">Edit</a></button>
                 <form  sec:authorize="hasAuthority('write')" th:action="'/catalog/'+${prog.id}+'/remove'" method="post">
                     <button type="submit" class="remove">Remove</button>
                 </form>

@@ -1,22 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Add program|Training day</title>
-  <link rel="stylesheet" th:href="@{/css/style.css}">
+    <meta charset="UTF-8">
+    <title>Add program|Training day</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
 </head>
 <body>
 <div th:insert="fragments/header.html::header"></div>
 <form method="post" class="form-control" th:action="@{/add_program}" th:object="${program}">
-  <h2 class="form-signin-heading">Adding program</h2>
-  <input type="text" th:field="*{name}" placeholder="Name" required>
-  <input type="number" th:field="*{duration}" placeholder="Duration" required>
-  <select th:field="*{trainer}">
-    <option th:each="train: ${trainers}" th:value="${train.id}" th:text="${train.name}"></option>
-  </select>
-  <input type="text"th:field="*{group}" placeholder="Muscle group" required>
-  <textarea type="text" th:field="*{description}" placeholder="Description" required></textarea>
-  <button type="submit" class="button">Add program</button>
+    <h2 class="form-signin-heading">Adding program</h2>
+    <input type="text" th:field="*{name}" placeholder="Name" required>
+    <input type="number" th:field="*{duration}" placeholder="Duration" required>
+    <select th:field="*{trainer}">
+        <option th:each="train: ${trainers}" th:value="${train.id}" th:text="${train.name}"></option>
+    </select>
+    <input type="text" th:field="*{group}" placeholder="Muscle group" required>
+    <textarea type="text" th:field="*{description}" placeholder="Description" required></textarea>
+    <button type="submit" class="button">Add program</button>
 </form>
 <div th:insert="fragments/footer.html::footer"></div>
 </body>

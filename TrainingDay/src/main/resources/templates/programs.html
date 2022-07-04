@@ -4,33 +4,36 @@
     <title>Catalog|Training day</title>
     <link rel="stylesheet" th:href="@{/css/style.css}">
 </head>
-    <body>
-    <div class="wrapper">
-        <div th:insert="fragments/header.html::header"></div>
+<body>
+<div class="wrapper">
+    <div th:insert="fragments/header.html::header"></div>
 
-        <h2>Catalog of all programs</h2><hr>
-        <div class="padding">
-            <table class="table">
-                    <thead>
-                    <th>Name</th>
-                    <th>Duration</th>
-                    <th>Muscle group</th>
-                    <th sec:authorize="hasAuthority('read')">Details</th>
-                    </thead>
-                <tbody>
-                <div th:each="program:${programs}">
-                    <tr>
-                        <td th:text="${program.name}"/>
-                        <td th:text="${program.duration}"/>
-                        <td th:text="${program.group}"/>
-                        <td sec:authorize="hasAuthority('read')" class="details"><button class="button"><a th:href="'/catalog/'+${program.id}">Details</a></button></td>
-                    </tr>
-                </div>
-                </tbody>
-            </table>
-        </div>
-        <div class="after-table"></div>
+    <h2>Catalog of all programs</h2>
+    <hr>
+    <div class="padding">
+        <table class="table">
+            <thead>
+            <th>Name</th>
+            <th>Duration</th>
+            <th>Muscle group</th>
+            <th sec:authorize="hasAuthority('read')">Details</th>
+            </thead>
+            <tbody>
+            <div th:each="program:${programs}">
+                <tr>
+                    <td th:text="${program.name}"/>
+                    <td th:text="${program.duration}"/>
+                    <td th:text="${program.group}"/>
+                    <td sec:authorize="hasAuthority('read')" class="details">
+                        <button class="button"><a th:href="'/catalog/'+${program.id}">Details</a></button>
+                    </td>
+                </tr>
+            </div>
+            </tbody>
+        </table>
     </div>
-    <div th:insert="fragments/footer.html::footer"></div>
+    <div class="after-table"></div>
+</div>
+<div th:insert="fragments/footer.html::footer"></div>
 </body>
 </html>

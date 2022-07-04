@@ -8,7 +8,8 @@
 <div class="wrapper">
     <div th:insert="fragments/header.html::header"></div>
 
-    <h2>Catalog of all programs</h2><hr>
+    <h2>Catalog of all programs</h2>
+    <hr>
     <div class="padding">
         <table class="table">
             <thead>
@@ -26,13 +27,18 @@
                     <td th:text="${program.group}"/>
                     <td th:text="${program.description}"/>
                     <td>
-                        <p><button class="button edit"><a th:href="'/catalog/'+${program.id}+'/accept'">Accept</a></button>
-                        </p><p>
-                        <button class="change"><a th:href="'/catalog/'+${program.id}+'/edit'">Edit</a></button>
-                    </p>
-                        <form method="post" th:action="'/catalog/'+${program.id}+'/remove'"><p>
-                            <button class="button remove" type="submit">Deny</button>
-                    </p></form>
+                        <p>
+                            <button class="button edit"><a th:href="'/catalog/'+${program.id}+'/accept'">Accept</a>
+                            </button>
+                        </p>
+                        <p>
+                            <button class="change"><a th:href="'/catalog/'+${program.id}+'/edit'">Edit</a></button>
+                        </p>
+                        <form method="post" th:action="'/catalog/'+${program.id}+'/remove'">
+                            <p>
+                                <button class="button remove" type="submit">Deny</button>
+                            </p>
+                        </form>
                     </td>
                 </tr>
             </div>
