@@ -36,7 +36,7 @@ public class AutoRepository implements CrudRepository<Auto> {
     }
 
     @Override
-    public boolean create(List list) {
+    public boolean create(List<Auto> list) {
         autos.addAll(list);
         return true;
     }

@@ -36,7 +36,7 @@ public class TruckRepository implements CrudRepository<Truck> {
     }
 
     @Override
-    public boolean create(List list) {
+    public boolean create(List<Truck> list) {
         trucks.addAll(list);
         return true;
     }
