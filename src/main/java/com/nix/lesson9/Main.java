@@ -1,4 +1,4 @@
-package lesson9;
+package com.nix.lesson9;
 
 public class Main {
     public static void main(String[] args) {
