@@ -23,9 +23,6 @@ public class UserInterface {
             while (true) {
                 menu();
                 realisation(bf);
-                if (false) {
-                    break;
-                }
             }
         } catch (Exception ex) {
             System.err.println(ex);
