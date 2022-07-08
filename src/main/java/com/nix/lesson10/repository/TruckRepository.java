@@ -6,7 +6,7 @@ import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 
-public class TruckRepository implements CrudRepository {
+public class TruckRepository implements CrudRepository<Truck> {
     private final List<Truck> trucks;
 
     public TruckRepository() {
