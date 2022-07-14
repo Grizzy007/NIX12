@@ -18,7 +18,11 @@ import java.util.Random;
 public class AutoService {
     private static final Logger LOGGER = LoggerFactory.getLogger(AutoService.class);
     private static final Random RANDOM = new Random();
-    private static final AutoRepository AUTO_REPOSITORY = new AutoRepository();
+    private final AutoRepository AUTO_REPOSITORY;
+
+    public AutoService(AutoRepository autoRepository) {
+        AUTO_REPOSITORY = autoRepository;
+    }
 
     public List<Auto> createAutos(int count) {
         List<Auto> result = new LinkedList<>();
@@ -35,12 +39,14 @@ public class AutoService {
         return result;
     }
 
-    public void saveAutos(List<Auto> autos) {
-        AUTO_REPOSITORY.create(autos);
+    public boolean saveAutos(List<Auto> autos) {
+        AUTO_REPOSITORY.createList(autos);
+        return true;
     }
 
-    public void saveAuto(Auto auto) {
+    public boolean saveAuto(Auto auto) {
         AUTO_REPOSITORY.create(auto);
+        return true;
     }
 
     public Auto create(BufferedReader bf) throws IOException {
@@ -118,7 +124,7 @@ public class AutoService {
         String id = getId(bf);
         Optional<Auto> forSale = AUTO_REPOSITORY.getById(id);
         forSale.filter((a) -> a.getPrice().intValue() > 500)
-                .ifPresent((auto -> auto.setPrice(auto.getPrice().multiply(BigDecimal.valueOf(0.5 + RANDOM.nextDouble(1))))));
+                .ifPresent((auto -> auto.setPrice(auto.getPrice().multiply(BigDecimal.valueOf((0.5 + RANDOM.nextDouble(0.5)))))));
         Auto autoForSale = forSale.orElseThrow();
         AUTO_REPOSITORY.update(autoForSale);
     }

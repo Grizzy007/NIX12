@@ -17,7 +17,11 @@ import java.util.Random;
 public class TruckService {
     private static final Logger LOGGER = LoggerFactory.getLogger(TruckService.class);
     private static final Random RANDOM = new Random();
-    private static final TruckRepository TRUCK_REPOSITORY = new TruckRepository();
+    private final TruckRepository TRUCK_REPOSITORY;
+
+    public TruckService(TruckRepository truckRepository){
+        TRUCK_REPOSITORY = truckRepository;
+    }
 
     public List<Truck> createTrucks(int count) {
         List<Truck> result = new LinkedList<>();
@@ -34,8 +38,9 @@ public class TruckService {
         return result;
     }
 
-    public void saveTrucks(List<Truck> trucks) {
-        TRUCK_REPOSITORY.create(trucks);
+    public boolean saveTrucks(List<Truck> trucks) {
+        TRUCK_REPOSITORY.createList(trucks);
+        return true;
     }
 
     public void saveTruck(Truck truck) {
@@ -93,7 +98,7 @@ public class TruckService {
         TRUCK_REPOSITORY.update(trucks[index]);
     }
 
-    public void delete(BufferedReader bf) throws IOException {
+    public Truck delete(BufferedReader bf) throws IOException {
         Truck[] trucks = TRUCK_REPOSITORY.getAll().toArray(new Truck[0]);
         for (int i = 0; i < trucks.length; i++) {
             System.out.println(i + ". " + trucks[i].toString());
@@ -101,11 +106,11 @@ public class TruckService {
         System.out.println("Input number of truck to delete: ");
         int index = Integer.parseInt(bf.readLine());
         String id = trucks[index].getId();
-        TRUCK_REPOSITORY.delete(id);
         LOGGER.debug("Truck deleted {}", id);
+        return TRUCK_REPOSITORY.delete(id);
     }
 
-    public void pickTruckByCapacity(BufferedReader reader) throws IOException {
+    public Truck pickTruckByCapacity(BufferedReader reader) throws IOException {
         System.out.println("Input needed capacity: ");
         int capacity = Integer.parseInt(reader.readLine());
         List<Truck> trucks = TRUCK_REPOSITORY.getAll();
@@ -123,6 +128,7 @@ public class TruckService {
         if(truck.equals(optional)){
             TRUCK_REPOSITORY.create(truck.get());
         }
+        return truck.get();
     }
 
     public void printAll() {

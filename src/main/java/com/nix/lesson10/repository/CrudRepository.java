@@ -12,7 +12,7 @@ public interface CrudRepository<T extends Vehicle> {
 
     T create(T vehicle);
 
-    boolean create(List<T> list);
+    boolean createList(List<T> list);
 
     boolean update(T vehicle);
 

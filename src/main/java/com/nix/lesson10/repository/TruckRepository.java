@@ -29,13 +29,13 @@ public class TruckRepository implements CrudRepository<Truck> {
     }
 
     @Override
-    public Truck create(Truck auto) {
-        trucks.add(auto);
-        return auto;
+    public Truck create(Truck truck) {
+        trucks.add(truck);
+        return truck;
     }
 
     @Override
-    public boolean create(List<Truck> list) {
+    public boolean createList(List<Truck> list) {
         trucks.addAll(list);
         return true;
     }

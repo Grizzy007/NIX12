@@ -30,13 +30,13 @@ public class MotoRepository implements CrudRepository<Motorcycle> {
     }
 
     @Override
-    public Motorcycle create(Motorcycle auto) {
-        motos.add(auto);
-        return auto;
+    public Motorcycle create(Motorcycle moto) {
+        motos.add(moto);
+        return moto;
     }
 
     @Override
-    public boolean create(List<Motorcycle> list) {
+    public boolean createList(List<Motorcycle> list) {
         motos.addAll(list);
         return true;
     }

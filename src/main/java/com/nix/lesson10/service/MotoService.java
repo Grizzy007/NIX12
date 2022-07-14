@@ -16,7 +16,11 @@ import java.util.Random;
 public class MotoService {
     private static final Logger LOGGER = LoggerFactory.getLogger(MotoService.class);
     private static final Random RANDOM = new Random();
-    private static final MotoRepository MOTO_REPOSITORY = new MotoRepository();
+    private final MotoRepository MOTO_REPOSITORY;
+
+    public MotoService(MotoRepository motoRepository){
+        MOTO_REPOSITORY = motoRepository;
+    }
 
     public List<Motorcycle> createMotos(int count) {
         List<Motorcycle> result = new LinkedList<>();
@@ -33,8 +37,9 @@ public class MotoService {
         return result;
     }
 
-    public void saveMotos(List<Motorcycle> motos) {
-        MOTO_REPOSITORY.create(motos);
+    public boolean saveMotos(List<Motorcycle> motos) {
+        MOTO_REPOSITORY.createList(motos);
+        return true;
     }
 
     public void saveMoto(Motorcycle moto) {

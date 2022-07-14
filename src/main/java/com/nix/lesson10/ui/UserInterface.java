@@ -3,6 +3,9 @@ package com.nix.lesson10.ui;
 import com.nix.lesson10.model.Auto;
 import com.nix.lesson10.model.Motorcycle;
 import com.nix.lesson10.model.Truck;
+import com.nix.lesson10.repository.AutoRepository;
+import com.nix.lesson10.repository.MotoRepository;
+import com.nix.lesson10.repository.TruckRepository;
 import com.nix.lesson10.service.AutoService;
 import com.nix.lesson10.service.MotoService;
 import com.nix.lesson10.service.TruckService;
@@ -13,9 +16,9 @@ import java.io.InputStreamReader;
 import java.util.List;
 
 public class UserInterface {
-    private static final AutoService AUTO_SERVICE = new AutoService();
-    private static final MotoService MOTO_SERVICE = new MotoService();
-    private static final TruckService TRUCK_SERVICE = new TruckService();
+    private static final AutoService AUTO_SERVICE = new AutoService(new AutoRepository());
+    private static final MotoService MOTO_SERVICE = new MotoService(new MotoRepository());
+    private static final TruckService TRUCK_SERVICE = new TruckService(new TruckRepository());
 
     public void start() {
         try (BufferedReader bf = new BufferedReader(new InputStreamReader(System.in))) {
