@@ -2,9 +2,9 @@ package com.nix.lesson10.repository;
 
 import com.nix.lesson10.model.Auto;
 
-import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Optional;
 
 public class AutoRepository implements CrudRepository<Auto> {
     private final List<Auto> autos;
@@ -19,20 +19,19 @@ public class AutoRepository implements CrudRepository<Auto> {
     }
 
     @Override
-    public Auto getById(String id) {
+    public Optional<Auto> getById(String id) {
         for (Auto a : autos) {
             if (a.getId().equals(id)) {
-                return a;
+                return Optional.of(a);
             }
         }
-        return null;
+        return Optional.empty();
     }
 
     @Override
-    public Auto create(Object auto) {
-        Auto newAuto = (Auto) auto;
-        autos.add(newAuto);
-        return newAuto;
+    public Auto create(Auto auto) {
+        autos.add(auto);
+        return auto;
     }
 
     @Override
@@ -42,27 +41,17 @@ public class AutoRepository implements CrudRepository<Auto> {
     }
 
     @Override
-    public boolean update(Object auto) {
-        Auto autoToUpdate = (Auto) auto;
-        final Auto founded = getById(autoToUpdate.getId());
-        if (founded != null) {
-            AutoCopy.copy(autoToUpdate, founded);
-            return true;
-        }
-        return false;
+    public boolean update(Auto auto) {
+        Optional<Auto> founded = getById(auto.getId());
+        founded.ifPresent(auto1 -> AutoCopy.copy(auto1, founded.get()));
+        return founded.isPresent();
     }
 
     @Override
     public Auto delete(String id) {
-        final Iterator<Auto> iterator = autos.iterator();
-        while (iterator.hasNext()) {
-            final Auto auto = iterator.next();
-            if (auto.getId().equals(id)) {
-                iterator.remove();
-                return auto;
-            }
-        }
-        return null;
+        Auto toDelete = getById(id).orElseThrow();
+        autos.remove(toDelete);
+        return toDelete;
     }
 
     private static class AutoCopy {

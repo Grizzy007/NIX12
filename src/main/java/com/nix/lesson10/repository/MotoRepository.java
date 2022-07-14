@@ -5,6 +5,7 @@ import com.nix.lesson10.model.Motorcycle;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Optional;
 
 public class MotoRepository implements CrudRepository<Motorcycle> {
     private final List<Motorcycle> motos;
@@ -19,20 +20,19 @@ public class MotoRepository implements CrudRepository<Motorcycle> {
     }
 
     @Override
-    public Motorcycle getById(String id) {
+    public Optional<Motorcycle> getById(String id) {
         for (Motorcycle a : motos) {
             if (a.getId().equals(id)) {
-                return a;
+                return Optional.of(a);
             }
         }
-        return null;
+        return Optional.empty();
     }
 
     @Override
-    public Motorcycle create(Object auto) {
-        Motorcycle newMoto = (Motorcycle) auto;
-        motos.add(newMoto);
-        return newMoto;
+    public Motorcycle create(Motorcycle auto) {
+        motos.add(auto);
+        return auto;
     }
 
     @Override
@@ -42,14 +42,12 @@ public class MotoRepository implements CrudRepository<Motorcycle> {
     }
 
     @Override
-    public boolean update(Object auto) {
-        Motorcycle motoToUpdate = (Motorcycle) auto;
-        final Motorcycle founded = getById(motoToUpdate.getId());
-        if (founded != null) {
-            MotoRepository.AutoCopy.copy(motoToUpdate, founded);
-            return true;
-        }
-        return false;
+    public boolean update(Motorcycle moto) {
+        Optional<Motorcycle> founded = getById(moto.getId());
+        founded.ifPresentOrElse(
+                moto1 -> MotoRepository.AutoCopy.copy(moto, founded.get()),
+                ()-> System.out.println("There isn't such motorcycle"));
+        return founded.isPresent();
     }
 
     @Override

@@ -51,13 +51,39 @@ public class UserInterface {
         }
     }
 
-    private void vehicle() {
+    private void vehicleAuto() {
         System.out.println("--------------------<Choose task>--------------------");
         System.out.println("1) Create a lot of autos;");
         System.out.println("2) Create one auto;");
         System.out.println("3) See all;");
         System.out.println("4) Update;");
-        System.out.println("5) Delete;");
+        System.out.println("5) Sale on auto;");
+        System.out.println("6) See body type of choose car;");
+        System.out.println("7) Delete;");
+        System.out.println("0) Back!");
+        System.out.println("-------------------------------------------------------");
+    }
+
+    private void vehicleMoto() {
+        System.out.println("--------------------<Choose task>--------------------");
+        System.out.println("1) Create a lot of motorcycle;");
+        System.out.println("2) Create one motorcycle;");
+        System.out.println("3) See all;");
+        System.out.println("4) Update;");
+        System.out.println("5) Get moto by price");
+        System.out.println("6) Delete;");
+        System.out.println("0) Back!");
+        System.out.println("-------------------------------------------------------");
+    }
+
+    private void vehicleTruck() {
+        System.out.println("--------------------<Choose task>--------------------");
+        System.out.println("1) Create a lot of trucks;");
+        System.out.println("2) Create one truck;");
+        System.out.println("3) See all;");
+        System.out.println("4) Update;");
+        System.out.println("5) Pick a truck by capacity;");
+        System.out.println("6) Delete;");
         System.out.println("0) Back!");
         System.out.println("-------------------------------------------------------");
     }
@@ -65,14 +91,16 @@ public class UserInterface {
     private void autoImpl(BufferedReader reader) throws IOException {
         String choice = " ";
         while (!choice.equals("0")) {
-            vehicle();
+            vehicleAuto();
             choice = reader.readLine();
             switch (choice) {
                 case "1" -> addAutos(reader);
                 case "2" -> addAuto(reader);
                 case "3" -> AUTO_SERVICE.printAll();
                 case "4" -> AUTO_SERVICE.update(reader);
-                case "5" -> AUTO_SERVICE.delete(reader);
+                case "5" -> AUTO_SERVICE.saleOnAuto(reader);
+                case "6" -> AUTO_SERVICE.getBodyType(reader);
+                case "7" -> AUTO_SERVICE.delete(reader);
                 case "0" -> System.out.println("Exit!");
                 default -> System.out.println("Wrong number!");
             }
@@ -82,14 +110,15 @@ public class UserInterface {
     private void motoImpl(BufferedReader reader) throws IOException {
         String choice = " ";
         while (!choice.equals("0")) {
-            vehicle();
+            vehicleMoto();
             choice = reader.readLine();
             switch (choice) {
                 case "1" -> addMotos(reader);
                 case "2" -> addMoto(reader);
                 case "3" -> MOTO_SERVICE.printAll();
                 case "4" -> MOTO_SERVICE.update(reader);
-                case "5" -> MOTO_SERVICE.delete(reader);
+                case "5" -> MOTO_SERVICE.getMotoByPrice(reader);
+                case "6" -> MOTO_SERVICE.delete(reader);
                 case "0" -> System.out.println("Exit!");
                 default -> System.out.println("Wrong number!");
             }
@@ -99,14 +128,15 @@ public class UserInterface {
     private void truckImpl(BufferedReader reader) throws IOException {
         String choice = " ";
         while (!choice.equals("0")) {
-            vehicle();
+            vehicleTruck();
             choice = reader.readLine();
             switch (choice) {
                 case "1" -> addTrucks(reader);
                 case "2" -> addTruck(reader);
                 case "3" -> TRUCK_SERVICE.printAll();
                 case "4" -> TRUCK_SERVICE.update(reader);
-                case "5" -> TRUCK_SERVICE.delete(reader);
+                case "5" -> TRUCK_SERVICE.pickTruckByCapacity(reader);
+                case "6" -> TRUCK_SERVICE.delete(reader);
                 case "0" -> System.out.println("Exit!");
                 default -> System.out.println("Wrong number!");
             }

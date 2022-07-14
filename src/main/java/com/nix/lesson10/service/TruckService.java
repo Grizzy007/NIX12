@@ -11,6 +11,7 @@ import java.io.IOException;
 import java.math.BigDecimal;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Optional;
 import java.util.Random;
 
 public class TruckService {
@@ -97,11 +98,31 @@ public class TruckService {
         for (int i = 0; i < trucks.length; i++) {
             System.out.println(i + ". " + trucks[i].toString());
         }
-        System.out.println("Input number of auto to delete: ");
+        System.out.println("Input number of truck to delete: ");
         int index = Integer.parseInt(bf.readLine());
         String id = trucks[index].getId();
         TRUCK_REPOSITORY.delete(id);
         LOGGER.debug("Truck deleted {}", id);
+    }
+
+    public void pickTruckByCapacity(BufferedReader reader) throws IOException {
+        System.out.println("Input needed capacity: ");
+        int capacity = Integer.parseInt(reader.readLine());
+        List<Truck> trucks = TRUCK_REPOSITORY.getAll();
+        Optional<Truck> optional = Optional.of(
+                new Truck(
+                        "Special model",
+                        BigDecimal.valueOf(RANDOM.nextInt(1000)),
+                        getRandomManufacturer(),
+                        capacity)
+        );
+        Optional<Truck> truck = trucks.stream()
+                .filter((t) -> t.getCapacity() == capacity)
+                .findAny()
+                .or(() -> optional);
+        if(truck.equals(optional)){
+            TRUCK_REPOSITORY.create(truck.get());
+        }
     }
 
     public void printAll() {

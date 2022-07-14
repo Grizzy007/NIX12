@@ -3,17 +3,18 @@ package com.nix.lesson10.repository;
 import com.nix.lesson10.model.Vehicle;
 
 import java.util.List;
+import java.util.Optional;
 
 public interface CrudRepository<T extends Vehicle> {
     List<T> getAll();
 
-    T getById(String id);
+    Optional<T> getById(String id);
 
-    <V> T create(V vehicle);
+    T create(T vehicle);
 
     boolean create(List<T> list);
 
-    <V> boolean update(V vehicle);
+    boolean update(T vehicle);
 
     T delete(String id);
 }
