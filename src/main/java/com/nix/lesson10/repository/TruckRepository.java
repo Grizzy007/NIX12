@@ -2,9 +2,9 @@ package com.nix.lesson10.repository;
 
 import com.nix.lesson10.model.Truck;
 
-import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Optional;
 
 public class TruckRepository implements CrudRepository<Truck> {
     private final List<Truck> trucks;
@@ -19,50 +19,42 @@ public class TruckRepository implements CrudRepository<Truck> {
     }
 
     @Override
-    public Truck getById(String id) {
+    public Optional<Truck> getById(String id) {
         for (Truck a : trucks) {
             if (a.getId().equals(id)) {
-                return a;
+                return Optional.of(a);
             }
         }
-        return null;
+        return Optional.empty();
     }
 
     @Override
-    public Truck create(Object auto) {
-        Truck newTruck = (Truck) auto;
-        trucks.add(newTruck);
-        return newTruck;
+    public Truck create(Truck truck) {
+        trucks.add(truck);
+        return truck;
     }
 
     @Override
-    public boolean create(List<Truck> list) {
+    public boolean createList(List<Truck> list) {
         trucks.addAll(list);
         return true;
     }
 
     @Override
-    public boolean update(Object truck) {
-        Truck truckToUpdate = (Truck) truck;
-        final Truck founded = getById(truckToUpdate.getId());
-        if (founded != null) {
-            TruckRepository.AutoCopy.copy(truckToUpdate, founded);
-            return true;
-        }
-        return false;
+    public boolean update(Truck truck) {
+        Optional<Truck> founded = getById(truck.getId());
+        TruckRepository.AutoCopy.copy(truck, founded.orElseGet(() -> {
+            System.out.println("No such truck! Updated random truck!");
+            return trucks.stream().findAny().get();
+        }));
+        return true;
     }
 
     @Override
     public Truck delete(String id) {
-        final Iterator<Truck> iterator = trucks.iterator();
-        while (iterator.hasNext()) {
-            final Truck truck = iterator.next();
-            if (truck.getId().equals(id)) {
-                iterator.remove();
-                return truck;
-            }
-        }
-        return null;
+        Truck toDelete = getById(id).orElseThrow();
+        trucks.remove(toDelete);
+        return toDelete;
     }
 
     private static class AutoCopy {

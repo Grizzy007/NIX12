@@ -16,7 +16,11 @@ import java.util.Random;
 public class MotoService {
     private static final Logger LOGGER = LoggerFactory.getLogger(MotoService.class);
     private static final Random RANDOM = new Random();
-    private static final MotoRepository MOTO_REPOSITORY = new MotoRepository();
+    private final MotoRepository MOTO_REPOSITORY;
+
+    public MotoService(MotoRepository motoRepository){
+        MOTO_REPOSITORY = motoRepository;
+    }
 
     public List<Motorcycle> createMotos(int count) {
         List<Motorcycle> result = new LinkedList<>();
@@ -33,8 +37,9 @@ public class MotoService {
         return result;
     }
 
-    public void saveMotos(List<Motorcycle> motos) {
-        MOTO_REPOSITORY.create(motos);
+    public boolean saveMotos(List<Motorcycle> motos) {
+        MOTO_REPOSITORY.createList(motos);
+        return true;
     }
 
     public void saveMoto(Motorcycle moto) {
@@ -69,7 +74,7 @@ public class MotoService {
         for (int i = 0; i < motorcycles.length; i++) {
             System.out.println(i + ". " + motorcycles[i].toString());
         }
-        System.out.println("Input number of auto that needs a update: ");
+        System.out.println("Input number of motorcycle that needs a update: ");
         int index = Integer.parseInt(reader.readLine());
         System.out.println("Input new model: ");
         motorcycles[index].setModel(reader.readLine());
@@ -93,15 +98,31 @@ public class MotoService {
     }
 
     public void delete(BufferedReader bf) throws IOException {
-        Motorcycle[] motorcycles = MOTO_REPOSITORY.getAll().toArray(new Motorcycle[0]);
-        for (int i = 0; i < motorcycles.length; i++) {
-            System.out.println(i + ". " + motorcycles[i].toString());
-        }
-        System.out.println("Input number of auto to delete: ");
-        int index = Integer.parseInt(bf.readLine());
-        String id = motorcycles[index].getId();
+        String id = getId(bf);
         MOTO_REPOSITORY.delete(id);
         LOGGER.debug("Motorcycle deleted {}", id);
+    }
+
+    public void getMotoByPrice(BufferedReader reader) throws IOException {
+        System.out.println("Input price that you ready to spend on moto(minimum = 100$):");
+        double price = Double.parseDouble(reader.readLine());
+        if(price<100){
+            System.out.println("Incorrect price");
+            return;
+        }
+        List<Motorcycle> list = MOTO_REPOSITORY.getAll();
+        Motorcycle toCreate = new Motorcycle("Model " + RANDOM.nextInt(100),
+                BigDecimal.valueOf(price),
+                getRandomManufacturer(),
+                RANDOM.nextInt(120));
+        Motorcycle motorcycle = list.stream()
+                .filter(moto -> moto.getPrice().equals(BigDecimal.valueOf(price)))
+                .findAny()
+                .orElse(toCreate);
+        if (motorcycle.equals(toCreate)) {
+            MOTO_REPOSITORY.create(toCreate);
+        }
+        System.out.println("Here is your motorcycle by price: " + motorcycle);
     }
 
     public void printAll() {
@@ -114,5 +135,15 @@ public class MotoService {
         final Brand[] values = Brand.values();
         final int index = RANDOM.nextInt(values.length);
         return values[index];
+    }
+
+    private String getId(BufferedReader reader) throws IOException {
+        Motorcycle[] motorcycles = MOTO_REPOSITORY.getAll().toArray(new Motorcycle[0]);
+        for (int i = 0; i < motorcycles.length; i++) {
+            System.out.println(i + ". " + motorcycles[i].toString());
+        }
+        System.out.println("Input number of motorcycle to delete: ");
+        int index = Integer.parseInt(reader.readLine());
+        return motorcycles[index].getId();
     }
 }

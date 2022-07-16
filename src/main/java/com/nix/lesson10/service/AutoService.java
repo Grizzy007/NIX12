@@ -12,19 +12,24 @@ import java.io.IOException;
 import java.math.BigDecimal;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Optional;
 import java.util.Random;
 
 public class AutoService {
     private static final Logger LOGGER = LoggerFactory.getLogger(AutoService.class);
     private static final Random RANDOM = new Random();
-    private static final AutoRepository AUTO_REPOSITORY = new AutoRepository();
+    private final AutoRepository AUTO_REPOSITORY;
+
+    public AutoService(AutoRepository autoRepository) {
+        AUTO_REPOSITORY = autoRepository;
+    }
 
     public List<Auto> createAutos(int count) {
         List<Auto> result = new LinkedList<>();
         for (int i = 0; i < count; i++) {
             final Auto auto = new Auto(
                     "Model-" + RANDOM.nextInt(1000),
-                    BigDecimal.valueOf(RANDOM.nextDouble(1000.0)),
+                    BigDecimal.valueOf(100 + RANDOM.nextDouble(1000.0)),
                     getRandomManufacturer(),
                     getRandomBodyType()
             );
@@ -34,12 +39,14 @@ public class AutoService {
         return result;
     }
 
-    public void saveAutos(List<Auto> autos) {
-        AUTO_REPOSITORY.create(autos);
+    public boolean saveAutos(List<Auto> autos) {
+        AUTO_REPOSITORY.createList(autos);
+        return true;
     }
 
-    public void saveAuto(Auto auto) {
+    public boolean saveAuto(Auto auto) {
         AUTO_REPOSITORY.create(auto);
+        return true;
     }
 
     public Auto create(BufferedReader bf) throws IOException {
@@ -108,15 +115,24 @@ public class AutoService {
     }
 
     public void delete(BufferedReader bf) throws IOException {
-        Auto[] autos = AUTO_REPOSITORY.getAll().toArray(new Auto[0]);
-        for (int i = 0; i < autos.length; i++) {
-            System.out.println(i + ". " + autos[i].toString());
-        }
-        System.out.println("Input number of auto to delete: ");
-        int index = Integer.parseInt(bf.readLine());
-        String id = autos[index].getId();
+        String id = getId(bf);
         AUTO_REPOSITORY.delete(id);
         LOGGER.debug("Auto deleted {}", id);
+    }
+
+    public void saleOnAuto(BufferedReader bf) throws IOException {
+        String id = getId(bf);
+        Optional<Auto> forSale = AUTO_REPOSITORY.getById(id);
+        forSale.filter((a) -> a.getPrice().intValue() > 500)
+                .ifPresent((auto -> auto.setPrice(auto.getPrice().multiply(BigDecimal.valueOf((0.5 + RANDOM.nextDouble(0.5)))))));
+        Auto autoForSale = forSale.orElseThrow();
+        AUTO_REPOSITORY.update(autoForSale);
+    }
+
+    public void getBodyType(BufferedReader bf) throws IOException {
+        String id = getId(bf);
+        Optional<Auto> getType = AUTO_REPOSITORY.getById(id);
+        getType.map(Auto::getBodyType).ifPresent(System.out::println);
     }
 
     public void printAll() {
@@ -135,5 +151,15 @@ public class AutoService {
         final Type[] values = Type.values();
         final int index = RANDOM.nextInt(values.length);
         return values[index];
+    }
+
+    private String getId(BufferedReader reader) throws IOException {
+        Auto[] autos = AUTO_REPOSITORY.getAll().toArray(new Auto[0]);
+        for (int i = 0; i < autos.length; i++) {
+            System.out.println(i + ". " + autos[i].toString());
+        }
+        System.out.println("Input number of auto that you want to see a body type: ");
+        int index = Integer.parseInt(reader.readLine());
+        return autos[index].getId();
     }
 }

@@ -11,12 +11,17 @@ import java.io.IOException;
 import java.math.BigDecimal;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Optional;
 import java.util.Random;
 
 public class TruckService {
     private static final Logger LOGGER = LoggerFactory.getLogger(TruckService.class);
     private static final Random RANDOM = new Random();
-    private static final TruckRepository TRUCK_REPOSITORY = new TruckRepository();
+    private final TruckRepository TRUCK_REPOSITORY;
+
+    public TruckService(TruckRepository truckRepository){
+        TRUCK_REPOSITORY = truckRepository;
+    }
 
     public List<Truck> createTrucks(int count) {
         List<Truck> result = new LinkedList<>();
@@ -33,8 +38,9 @@ public class TruckService {
         return result;
     }
 
-    public void saveTrucks(List<Truck> trucks) {
-        TRUCK_REPOSITORY.create(trucks);
+    public boolean saveTrucks(List<Truck> trucks) {
+        TRUCK_REPOSITORY.createList(trucks);
+        return true;
     }
 
     public void saveTruck(Truck truck) {
@@ -92,16 +98,37 @@ public class TruckService {
         TRUCK_REPOSITORY.update(trucks[index]);
     }
 
-    public void delete(BufferedReader bf) throws IOException {
+    public Truck delete(BufferedReader bf) throws IOException {
         Truck[] trucks = TRUCK_REPOSITORY.getAll().toArray(new Truck[0]);
         for (int i = 0; i < trucks.length; i++) {
             System.out.println(i + ". " + trucks[i].toString());
         }
-        System.out.println("Input number of auto to delete: ");
+        System.out.println("Input number of truck to delete: ");
         int index = Integer.parseInt(bf.readLine());
         String id = trucks[index].getId();
-        TRUCK_REPOSITORY.delete(id);
         LOGGER.debug("Truck deleted {}", id);
+        return TRUCK_REPOSITORY.delete(id);
+    }
+
+    public Truck pickTruckByCapacity(BufferedReader reader) throws IOException {
+        System.out.println("Input needed capacity: ");
+        int capacity = Integer.parseInt(reader.readLine());
+        List<Truck> trucks = TRUCK_REPOSITORY.getAll();
+        Optional<Truck> optional = Optional.of(
+                new Truck(
+                        "Special model",
+                        BigDecimal.valueOf(RANDOM.nextInt(1000)),
+                        getRandomManufacturer(),
+                        capacity)
+        );
+        Optional<Truck> truck = trucks.stream()
+                .filter((t) -> t.getCapacity() == capacity)
+                .findAny()
+                .or(() -> optional);
+        if(truck.equals(optional)){
+            TRUCK_REPOSITORY.create(truck.get());
+        }
+        return truck.get();
     }
 
     public void printAll() {
