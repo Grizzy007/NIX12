@@ -58,6 +58,9 @@ public abstract class VehicleService<T extends Vehicle> {
     }
 
     public boolean saveList(List<T> autos) {
+        if (autos.isEmpty()) {
+            throw new IllegalArgumentException();
+        }
         repository.createList(autos);
         return true;
     }

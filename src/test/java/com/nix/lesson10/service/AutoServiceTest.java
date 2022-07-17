@@ -6,6 +6,7 @@ import com.nix.lesson10.model.Type;
 import com.nix.lesson10.repository.AutoRepository;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.function.Executable;
 import org.mockito.ArgumentCaptor;
 import org.mockito.Mockito;
 
@@ -32,9 +33,14 @@ class AutoServiceTest {
     @Test
     void createAutosNegative() {
         final List<Auto> actual = target.createList(-1);
-        target.saveList(actual);
-        Assertions.assertEquals(0, actual.size());
+        Assertions.assertThrows(IllegalArgumentException.class, new Executable() {
+            @Override
+            public void execute() throws Throwable {
+                target.saveList(actual);
+            }
+        });
     }
+
 
     @Test
     void createZeroAutos() {
@@ -47,6 +53,15 @@ class AutoServiceTest {
         final List<Auto> actual = target.createList(5);
         boolean save = target.saveList(actual);
         Assertions.assertTrue(save);
+    }
+
+    @Test
+    void createAutos(){
+        Auto auto = createAuto();
+        autoRepository.create(auto);
+        autoRepository.create(auto);
+        autoRepository.create(auto);
+        Mockito.verify(autoRepository, Mockito.atLeast(2)).create(auto);
     }
 
     @Test

@@ -6,6 +6,7 @@ import com.nix.lesson10.repository.TruckRepository;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.function.Executable;
 import org.mockito.ArgumentCaptor;
 import org.mockito.Mockito;
 
@@ -30,8 +31,12 @@ class TruckServiceTest {
     @Test
     void createAutosNegative() {
         final List<Truck> actual = target.createList(-1);
-        target.saveList(actual);
-        Assertions.assertEquals(0, actual.size());
+        Assertions.assertThrows(IllegalArgumentException.class, new Executable() {
+            @Override
+            public void execute() throws Throwable {
+                target.saveList(actual);
+            }
+        });
     }
 
     @Test
