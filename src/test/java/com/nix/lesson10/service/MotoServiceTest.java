@@ -32,21 +32,21 @@ class MotoServiceTest {
 
     @Test
     void createAutosNegative() {
-        final List<Motorcycle> actual = target.createMotos(-1);
-        target.saveMotos(actual);
+        final List<Motorcycle> actual = target.createList(-1);
+        target.saveList(actual);
         Assertions.assertEquals(0, actual.size());
     }
 
     @Test
     void createZeroAutos() {
-        final List<Motorcycle> actual = target.createMotos(0);
+        final List<Motorcycle> actual = target.createList(0);
         Assertions.assertEquals(0, actual.size());
     }
 
     @Test
     void saveAutos() {
-        final List<Motorcycle> actual = target.createMotos(5);
-        boolean save = target.saveMotos(actual);
+        final List<Motorcycle> actual = target.createList(5);
+        boolean save = target.saveList(actual);
         Assertions.assertTrue(save);
     }
 

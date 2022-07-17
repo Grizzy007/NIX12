@@ -9,43 +9,16 @@ import org.slf4j.LoggerFactory;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.math.BigDecimal;
-import java.util.LinkedList;
 import java.util.List;
-import java.util.Random;
 
-public class MotoService {
+public class MotoService extends VehicleService<Motorcycle> {
     private static final Logger LOGGER = LoggerFactory.getLogger(MotoService.class);
-    private static final Random RANDOM = new Random();
-    private final MotoRepository MOTO_REPOSITORY;
 
-    public MotoService(MotoRepository motoRepository){
-        MOTO_REPOSITORY = motoRepository;
+    public MotoService(MotoRepository motoRepository) {
+        super(motoRepository);
     }
 
-    public List<Motorcycle> createMotos(int count) {
-        List<Motorcycle> result = new LinkedList<>();
-        for (int i = 0; i < count; i++) {
-            final Motorcycle moto = new Motorcycle(
-                    "Model-" + RANDOM.nextInt(1000),
-                    BigDecimal.valueOf(RANDOM.nextDouble(1000.0)),
-                    getRandomManufacturer(),
-                    RANDOM.nextInt(100)
-            );
-            result.add(moto);
-            LOGGER.debug("Created motorcycle {}", moto.getId());
-        }
-        return result;
-    }
-
-    public boolean saveMotos(List<Motorcycle> motos) {
-        MOTO_REPOSITORY.createList(motos);
-        return true;
-    }
-
-    public void saveMoto(Motorcycle moto) {
-        MOTO_REPOSITORY.create(moto);
-    }
-
+    @Override
     public Motorcycle create(BufferedReader bf) throws IOException {
         System.out.print("Input model: ");
         String model = bf.readLine();
@@ -69,8 +42,19 @@ public class MotoService {
         return moto;
     }
 
+    @Override
+    protected Motorcycle createRandom() {
+        return new Motorcycle(
+                "Model-" + RANDOM.nextInt(1000),
+                BigDecimal.valueOf(RANDOM.nextDouble(1000.0)),
+                getRandomManufacturer(),
+                RANDOM.nextInt(150)
+        );
+    }
+
+    @Override
     public void update(BufferedReader reader) throws IOException {
-        Motorcycle[] motorcycles = MOTO_REPOSITORY.getAll().toArray(new Motorcycle[0]);
+        Motorcycle[] motorcycles = repository.getAll().toArray(new Motorcycle[0]);
         for (int i = 0; i < motorcycles.length; i++) {
             System.out.println(i + ". " + motorcycles[i].toString());
         }
@@ -94,23 +78,24 @@ public class MotoService {
         double tempPrice = Double.parseDouble(reader.readLine());
         BigDecimal price = BigDecimal.valueOf(tempPrice);
         motorcycles[index].setPrice(price);
-        MOTO_REPOSITORY.update(motorcycles[index]);
+        repository.update(motorcycles[index]);
     }
 
+    @Override
     public void delete(BufferedReader bf) throws IOException {
         String id = getId(bf);
-        MOTO_REPOSITORY.delete(id);
+        repository.delete(id);
         LOGGER.debug("Motorcycle deleted {}", id);
     }
 
     public void getMotoByPrice(BufferedReader reader) throws IOException {
         System.out.println("Input price that you ready to spend on moto(minimum = 100$):");
         double price = Double.parseDouble(reader.readLine());
-        if(price<100){
+        if (price < 100) {
             System.out.println("Incorrect price");
             return;
         }
-        List<Motorcycle> list = MOTO_REPOSITORY.getAll();
+        List<Motorcycle> list = repository.getAll();
         Motorcycle toCreate = new Motorcycle("Model " + RANDOM.nextInt(100),
                 BigDecimal.valueOf(price),
                 getRandomManufacturer(),
@@ -120,25 +105,14 @@ public class MotoService {
                 .findAny()
                 .orElse(toCreate);
         if (motorcycle.equals(toCreate)) {
-            MOTO_REPOSITORY.create(toCreate);
+            repository.create(toCreate);
         }
         System.out.println("Here is your motorcycle by price: " + motorcycle);
     }
 
-    public void printAll() {
-        for (Motorcycle motorcycle : MOTO_REPOSITORY.getAll()) {
-            System.out.println(motorcycle);
-        }
-    }
-
-    private Brand getRandomManufacturer() {
-        final Brand[] values = Brand.values();
-        final int index = RANDOM.nextInt(values.length);
-        return values[index];
-    }
 
     private String getId(BufferedReader reader) throws IOException {
-        Motorcycle[] motorcycles = MOTO_REPOSITORY.getAll().toArray(new Motorcycle[0]);
+        Motorcycle[] motorcycles = repository.getAll().toArray(new Motorcycle[0]);
         for (int i = 0; i < motorcycles.length; i++) {
             System.out.println(i + ". " + motorcycles[i].toString());
         }

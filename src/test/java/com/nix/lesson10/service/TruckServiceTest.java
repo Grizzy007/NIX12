@@ -29,21 +29,21 @@ class TruckServiceTest {
 
     @Test
     void createAutosNegative() {
-        final List<Truck> actual = target.createTrucks(-1);
-        target.saveTrucks(actual);
+        final List<Truck> actual = target.createList(-1);
+        target.saveList(actual);
         Assertions.assertEquals(0, actual.size());
     }
 
     @Test
     void createZeroAutos() {
-        final List<Truck> actual = target.createTrucks(0);
+        final List<Truck> actual = target.createList(0);
         Assertions.assertEquals(0, actual.size());
     }
 
     @Test
     void saveAutos() {
-        final List<Truck> actual = target.createTrucks(5);
-        boolean save = target.saveTrucks(actual);
+        final List<Truck> actual = target.createList(5);
+        boolean save = target.saveList(actual);
         Assertions.assertTrue(save);
     }
 

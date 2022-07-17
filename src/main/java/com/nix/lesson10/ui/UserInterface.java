@@ -1,5 +1,6 @@
 package com.nix.lesson10.ui;
 
+import com.nix.lesson10.container.SaleContainer;
 import com.nix.lesson10.model.Auto;
 import com.nix.lesson10.model.Motorcycle;
 import com.nix.lesson10.model.Truck;
@@ -38,6 +39,7 @@ public class UserInterface {
         System.out.println("1) Auto;");
         System.out.println("2) Motorcycle;");
         System.out.println("3) Truck;");
+        System.out.println("4) Container;");
         System.out.println("0) Exit!");
         System.out.println("-------------------------------------------------------");
         System.out.println();
@@ -49,6 +51,7 @@ public class UserInterface {
             case "1" -> autoImpl(reader);
             case "2" -> motoImpl(reader);
             case "3" -> truckImpl(reader);
+            case "4" -> containerImpl(reader);
             case "0" -> System.exit(0);
             default -> System.out.println("Wrong number!");
         }
@@ -91,6 +94,15 @@ public class UserInterface {
         System.out.println("-------------------------------------------------------");
     }
 
+    private void container() {
+        System.out.println("--------------------<Choose task>--------------------");
+        System.out.println("1) Sale on auto;");
+        System.out.println("2) Sale on motorcycle;");
+        System.out.println("3) Sale on truck;");
+        System.out.println("0) Back!");
+        System.out.println("-------------------------------------------------------");
+    }
+
     private void autoImpl(BufferedReader reader) throws IOException {
         String choice = " ";
         while (!choice.equals("0")) {
@@ -104,6 +116,39 @@ public class UserInterface {
                 case "5" -> AUTO_SERVICE.saleOnAuto(reader);
                 case "6" -> AUTO_SERVICE.getBodyType(reader);
                 case "7" -> AUTO_SERVICE.delete(reader);
+                case "0" -> System.out.println("Exit!");
+                default -> System.out.println("Wrong number!");
+            }
+        }
+    }
+
+    private void containerImpl(BufferedReader reader) throws IOException {
+        String choice = " ";
+        while (!choice.equals("0")) {
+            container();
+            choice = reader.readLine();
+            switch (choice) {
+                case "1" -> {
+                    SaleContainer<Auto> cont = new SaleContainer<>(AUTO_SERVICE.create(reader));
+                    cont.getSaleOnAuto();
+                    cont.printVehicle();
+                    cont.increasePrice(100);
+                    cont.printVehicle();
+                }
+                case "2" -> {
+                    SaleContainer<Motorcycle> cont = new SaleContainer<>(MOTO_SERVICE.create(reader));
+                    cont.getSaleOnAuto();
+                    cont.printVehicle();
+                    cont.increasePrice(110.8);
+                    cont.printVehicle();
+                }
+                case "3" -> {
+                    SaleContainer<Truck> cont = new SaleContainer<>(TRUCK_SERVICE.create(reader));
+                    cont.getSaleOnAuto();
+                    cont.printVehicle();
+                    cont.increasePrice(80.9);
+                    cont.printVehicle();
+                }
                 case "0" -> System.out.println("Exit!");
                 default -> System.out.println("Wrong number!");
             }
@@ -149,7 +194,7 @@ public class UserInterface {
     private static void addAuto(BufferedReader reader) {
         try {
             Auto auto = AUTO_SERVICE.create(reader);
-            AUTO_SERVICE.saveAuto(auto);
+            AUTO_SERVICE.save(auto);
         } catch (Exception ex) {
             System.err.println(ex);
         }
@@ -158,14 +203,14 @@ public class UserInterface {
     private static void addAutos(BufferedReader reader) throws IOException {
         System.out.print("Input number of autos to produce: ");
         int count = Integer.parseInt(reader.readLine());
-        List<Auto> autos = AUTO_SERVICE.createAutos(count);
-        AUTO_SERVICE.saveAutos(autos);
+        List<Auto> autos = AUTO_SERVICE.createList(count);
+        AUTO_SERVICE.saveList(autos);
     }
 
     private static void addMoto(BufferedReader reader) {
         try {
             Motorcycle motorcycle = MOTO_SERVICE.create(reader);
-            MOTO_SERVICE.saveMoto(motorcycle);
+            MOTO_SERVICE.save(motorcycle);
         } catch (Exception ex) {
             System.err.println(ex);
         }
@@ -174,14 +219,14 @@ public class UserInterface {
     private static void addMotos(BufferedReader reader) throws IOException {
         System.out.print("Input number of motorcycles to produce: ");
         int count = Integer.parseInt(reader.readLine());
-        List<Motorcycle> motos = MOTO_SERVICE.createMotos(count);
-        MOTO_SERVICE.saveMotos(motos);
+        List<Motorcycle> motos = MOTO_SERVICE.createList(count);
+        MOTO_SERVICE.saveList(motos);
     }
 
     private static void addTruck(BufferedReader reader) {
         try {
             Truck truck = TRUCK_SERVICE.create(reader);
-            TRUCK_SERVICE.saveTruck(truck);
+            TRUCK_SERVICE.save(truck);
         } catch (Exception ex) {
             System.err.println(ex);
         }
@@ -190,8 +235,8 @@ public class UserInterface {
     private static void addTrucks(BufferedReader reader) throws IOException {
         System.out.print("Input number of trucks to produce: ");
         int count = Integer.parseInt(reader.readLine());
-        List<Truck> trucks = TRUCK_SERVICE.createTrucks(count);
-        TRUCK_SERVICE.saveTrucks(trucks);
+        List<Truck> trucks = TRUCK_SERVICE.createList(count);
+        TRUCK_SERVICE.saveList(trucks);
     }
 
 }
