@@ -1,5 +1,6 @@
 package com.nix.lesson10.service;
 
+import com.nix.lesson10.matcher.CustomMatcher;
 import com.nix.lesson10.model.Auto;
 import com.nix.lesson10.model.Brand;
 import com.nix.lesson10.model.Type;
@@ -70,6 +71,12 @@ class AutoServiceTest {
         autoRepository.getById(null);
         Mockito.verify(autoRepository).getById(captor.capture());
         Assertions.assertEquals(null, captor.getValue());
+    }
+
+    @Test
+    void match(){
+        Auto auto = createAuto();
+        Mockito.when(autoRepository.create(Mockito.argThat(new CustomMatcher(createAuto())))).thenReturn(auto);
     }
 
     @Test
