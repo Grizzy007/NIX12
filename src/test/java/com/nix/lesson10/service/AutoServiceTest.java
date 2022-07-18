@@ -1,6 +1,5 @@
 package com.nix.lesson10.service;
 
-import com.nix.lesson10.matcher.CustomMatcher;
 import com.nix.lesson10.model.Auto;
 import com.nix.lesson10.model.Brand;
 import com.nix.lesson10.model.Type;
@@ -9,6 +8,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.function.Executable;
 import org.mockito.ArgumentCaptor;
+import org.mockito.ArgumentMatcher;
 import org.mockito.Mockito;
 
 import org.junit.jupiter.api.Assertions;
@@ -34,12 +34,13 @@ class AutoServiceTest {
     @Test
     void createAutosNegative() {
         final List<Auto> actual = target.createList(-1);
-        Assertions.assertThrows(IllegalArgumentException.class, new Executable() {
-            @Override
-            public void execute() throws Throwable {
-                target.saveList(actual);
-            }
-        });
+        Assertions.assertEquals(0, actual.size());
+    }
+
+    @Test
+    void saveNegativeAutos(){
+        final List<Auto> actual = target.createList(-1);
+        Assertions.assertThrows(IllegalArgumentException.class,() -> target.saveList(actual));
     }
 
 
@@ -76,7 +77,16 @@ class AutoServiceTest {
     @Test
     void match(){
         Auto auto = createAuto();
-        Mockito.when(autoRepository.create(Mockito.argThat(new CustomMatcher(createAuto())))).thenReturn(auto);
+        Mockito.when(autoRepository.create(Mockito.argThat(new ArgumentMatcher<>() {
+            Auto auto;
+            @Override
+            public boolean matches(Auto car) {
+                return auto.getPrice().equals(car.getPrice()) &&
+                        auto.getBodyType().equals(car.getBodyType()) &&
+                        auto.getBrand().equals(car.getBrand()) &&
+                        auto.getId() != null;
+            }
+        }))).thenReturn(auto);
     }
 
     @Test

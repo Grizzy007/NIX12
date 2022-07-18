@@ -1,5 +1,6 @@
 package com.nix.lesson10.service;
 
+import com.nix.lesson10.model.Auto;
 import com.nix.lesson10.model.Brand;
 import com.nix.lesson10.model.Truck;
 import com.nix.lesson10.repository.TruckRepository;
@@ -29,14 +30,15 @@ class TruckServiceTest {
     }
 
     @Test
-    void createAutosNegative() {
+    void createTrucksNegative() {
         final List<Truck> actual = target.createList(-1);
-        Assertions.assertThrows(IllegalArgumentException.class, new Executable() {
-            @Override
-            public void execute() throws Throwable {
-                target.saveList(actual);
-            }
-        });
+        Assertions.assertEquals(0, actual.size());
+    }
+
+    @Test
+    void saveNegativeTrucks(){
+        final List<Truck> actual = target.createList(-1);
+        Assertions.assertThrows(IllegalArgumentException.class,() -> target.saveList(actual));
     }
 
     @Test

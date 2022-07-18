@@ -81,13 +81,6 @@ public class MotoService extends VehicleService<Motorcycle> {
         repository.update(motorcycles[index]);
     }
 
-    @Override
-    public void delete(BufferedReader bf) throws IOException {
-        String id = getId(bf);
-        repository.delete(id);
-        LOGGER.debug("Motorcycle deleted {}", id);
-    }
-
     public void getMotoByPrice(BufferedReader reader) throws IOException {
         System.out.println("Input price that you ready to spend on moto(minimum = 100$):");
         double price = Double.parseDouble(reader.readLine());
@@ -110,14 +103,4 @@ public class MotoService extends VehicleService<Motorcycle> {
         System.out.println("Here is your motorcycle by price: " + motorcycle);
     }
 
-
-    private String getId(BufferedReader reader) throws IOException {
-        Motorcycle[] motorcycles = repository.getAll().toArray(new Motorcycle[0]);
-        for (int i = 0; i < motorcycles.length; i++) {
-            System.out.println(i + ". " + motorcycles[i].toString());
-        }
-        System.out.println("Input number of motorcycle to delete: ");
-        int index = Integer.parseInt(reader.readLine());
-        return motorcycles[index].getId();
-    }
 }

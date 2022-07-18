@@ -2,20 +2,15 @@ package com.nix.lesson10.service;
 
 import com.nix.lesson10.model.Brand;
 import com.nix.lesson10.model.Motorcycle;
-import com.nix.lesson10.model.Truck;
 import com.nix.lesson10.repository.MotoRepository;
-import com.nix.lesson10.repository.TruckRepository;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.function.Executable;
 import org.mockito.ArgumentCaptor;
 import org.mockito.Mockito;
 
 import java.math.BigDecimal;
 import java.util.List;
-
-import static org.junit.jupiter.api.Assertions.*;
 
 class MotoServiceTest {
     private MotoService target;
@@ -32,14 +27,15 @@ class MotoServiceTest {
     }
 
     @Test
-    void createAutosNegative() {
+    void createMotosNegative() {
         final List<Motorcycle> actual = target.createList(-1);
-        Assertions.assertThrows(IllegalArgumentException.class, new Executable() {
-            @Override
-            public void execute() throws Throwable {
-                target.saveList(actual);
-            }
-        });
+        Assertions.assertEquals(0, actual.size());
+    }
+
+    @Test
+    void saveNegativeMotos() {
+        final List<Motorcycle> actual = target.createList(-1);
+        Assertions.assertThrows(IllegalArgumentException.class, () -> target.saveList(actual));
     }
 
     @Test
@@ -56,7 +52,7 @@ class MotoServiceTest {
     }
 
     @Test
-    void getByIdNull(){
+    void getByIdNull() {
         ArgumentCaptor<String> captor = ArgumentCaptor.forClass(String.class);
         motoRepository.getById(null);
         Mockito.verify(motoRepository).getById(captor.capture());
@@ -64,7 +60,7 @@ class MotoServiceTest {
     }
 
     @Test
-    void  printAll(){
+    void printAll() {
         List<Motorcycle> motos = List.of(createMoto(), createMoto());
         Mockito.when(motoRepository.getAll()).thenReturn(motos);
         target.printAll();
