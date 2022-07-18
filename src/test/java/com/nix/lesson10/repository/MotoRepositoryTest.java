@@ -49,9 +49,8 @@ class MotoRepositoryTest {
 
     @Test
     void create() {
-        final Motorcycle createMoto = new Motorcycle("Model", BigDecimal.ONE, Brand.HONDA, 120);
-        Motorcycle motorcycle = target.create(createMoto);
-        Assertions.assertEquals(createMoto, motorcycle);
+        target.create(moto);
+        Assertions.assertEquals(target.getById(moto.getId()).get(), moto);
     }
 
     @Test
@@ -63,18 +62,15 @@ class MotoRepositoryTest {
 
     @Test
     void update() {
-        final Motorcycle m = target.getById(moto.getId()).get();
-        m.setBrand(Brand.BMW);
-        final boolean actual = target.update(m);
+        moto.setBrand(Brand.BMW);
+        final boolean actual = target.update(moto);
         Assertions.assertTrue(actual);
     }
 
 
     @Test
     void delete() {
-        final Motorcycle toDelete = new Motorcycle("Model", BigDecimal.ONE, Brand.AUDI, 80);
-        target.create(toDelete);
-        Motorcycle deleted = target.delete(toDelete.getId());
-        Assertions.assertEquals(toDelete, deleted);
+        Motorcycle deleted = target.delete(moto.getId());
+        Assertions.assertEquals(moto, deleted);
     }
 }

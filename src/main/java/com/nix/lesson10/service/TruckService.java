@@ -9,44 +9,18 @@ import org.slf4j.LoggerFactory;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.math.BigDecimal;
-import java.util.LinkedList;
 import java.util.List;
 import java.util.Optional;
-import java.util.Random;
 
-public class TruckService {
+public class TruckService extends VehicleService<Truck> {
     private static final Logger LOGGER = LoggerFactory.getLogger(TruckService.class);
-    private static final Random RANDOM = new Random();
-    private final TruckRepository TRUCK_REPOSITORY;
 
-    public TruckService(TruckRepository truckRepository){
-        TRUCK_REPOSITORY = truckRepository;
+    public TruckService(TruckRepository truckRepository) {
+        super(truckRepository);
     }
 
-    public List<Truck> createTrucks(int count) {
-        List<Truck> result = new LinkedList<>();
-        for (int i = 0; i < count; i++) {
-            final Truck truck = new Truck(
-                    "Model-" + RANDOM.nextInt(1000),
-                    BigDecimal.valueOf(RANDOM.nextDouble(1000.0)),
-                    getRandomManufacturer(),
-                    RANDOM.nextInt(100)
-            );
-            result.add(truck);
-            LOGGER.debug("Created truck {}", truck.getId());
-        }
-        return result;
-    }
 
-    public boolean saveTrucks(List<Truck> trucks) {
-        TRUCK_REPOSITORY.createList(trucks);
-        return true;
-    }
-
-    public void saveTruck(Truck truck) {
-        TRUCK_REPOSITORY.create(truck);
-    }
-
+    @Override
     public Truck create(BufferedReader bf) throws IOException {
         System.out.print("Input model: ");
         String model = bf.readLine();
@@ -70,8 +44,9 @@ public class TruckService {
         return truck;
     }
 
+    @Override
     public void update(BufferedReader reader) throws IOException {
-        Truck[] trucks = TRUCK_REPOSITORY.getAll().toArray(new Truck[0]);
+        Truck[] trucks = repository.getAll().toArray(new Truck[0]);
         for (int i = 0; i < trucks.length; i++) {
             System.out.println(i + ". " + trucks[i].toString());
         }
@@ -95,25 +70,30 @@ public class TruckService {
         double tempPrice = Double.parseDouble(reader.readLine());
         BigDecimal price = BigDecimal.valueOf(tempPrice);
         trucks[index].setPrice(price);
-        TRUCK_REPOSITORY.update(trucks[index]);
+        repository.update(trucks[index]);
     }
 
-    public Truck delete(BufferedReader bf) throws IOException {
-        Truck[] trucks = TRUCK_REPOSITORY.getAll().toArray(new Truck[0]);
-        for (int i = 0; i < trucks.length; i++) {
-            System.out.println(i + ". " + trucks[i].toString());
-        }
-        System.out.println("Input number of truck to delete: ");
-        int index = Integer.parseInt(bf.readLine());
-        String id = trucks[index].getId();
+    @Override
+    protected Truck createRandom() {
+        return new Truck(
+                "Model-" + RANDOM.nextInt(1000),
+                BigDecimal.valueOf(RANDOM.nextDouble(1000.0)),
+                getRandomManufacturer(),
+                RANDOM.nextInt(100)
+        );
+    }
+
+    @Override
+    public void delete(BufferedReader bf) throws IOException {
+        String id = getId(bf);
         LOGGER.debug("Truck deleted {}", id);
-        return TRUCK_REPOSITORY.delete(id);
+        repository.delete(id);
     }
 
     public Truck pickTruckByCapacity(BufferedReader reader) throws IOException {
         System.out.println("Input needed capacity: ");
         int capacity = Integer.parseInt(reader.readLine());
-        List<Truck> trucks = TRUCK_REPOSITORY.getAll();
+        List<Truck> trucks = repository.getAll();
         Optional<Truck> optional = Optional.of(
                 new Truck(
                         "Special model",
@@ -125,21 +105,19 @@ public class TruckService {
                 .filter((t) -> t.getCapacity() == capacity)
                 .findAny()
                 .or(() -> optional);
-        if(truck.equals(optional)){
-            TRUCK_REPOSITORY.create(truck.get());
+        if (truck.equals(optional)) {
+            repository.create(truck.get());
         }
         return truck.get();
     }
 
-    public void printAll() {
-        for (Truck truck : TRUCK_REPOSITORY.getAll()) {
-            System.out.println(truck);
+    private String getId(BufferedReader reader) throws IOException {
+        Truck[] trucks = repository.getAll().toArray(new Truck[0]);
+        for (int i = 0; i < trucks.length; i++) {
+            System.out.println(i + ". " + trucks[i].toString());
         }
-    }
-
-    private Brand getRandomManufacturer() {
-        final Brand[] values = Brand.values();
-        final int index = RANDOM.nextInt(values.length);
-        return values[index];
+        System.out.println("Input number of motorcycle to delete: ");
+        int index = Integer.parseInt(reader.readLine());
+        return trucks[index].getId();
     }
 }

@@ -6,6 +6,7 @@ import com.nix.lesson10.repository.TruckRepository;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.function.Executable;
 import org.mockito.ArgumentCaptor;
 import org.mockito.Mockito;
 
@@ -29,21 +30,25 @@ class TruckServiceTest {
 
     @Test
     void createAutosNegative() {
-        final List<Truck> actual = target.createTrucks(-1);
-        target.saveTrucks(actual);
-        Assertions.assertEquals(0, actual.size());
+        final List<Truck> actual = target.createList(-1);
+        Assertions.assertThrows(IllegalArgumentException.class, new Executable() {
+            @Override
+            public void execute() throws Throwable {
+                target.saveList(actual);
+            }
+        });
     }
 
     @Test
     void createZeroAutos() {
-        final List<Truck> actual = target.createTrucks(0);
+        final List<Truck> actual = target.createList(0);
         Assertions.assertEquals(0, actual.size());
     }
 
     @Test
     void saveAutos() {
-        final List<Truck> actual = target.createTrucks(5);
-        boolean save = target.saveTrucks(actual);
+        final List<Truck> actual = target.createList(5);
+        boolean save = target.saveList(actual);
         Assertions.assertTrue(save);
     }
 

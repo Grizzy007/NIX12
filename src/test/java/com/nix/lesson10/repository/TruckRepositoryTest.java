@@ -1,6 +1,5 @@
 package com.nix.lesson10.repository;
 
-import com.nix.lesson10.model.Auto;
 import com.nix.lesson10.model.Brand;
 import com.nix.lesson10.model.Truck;
 import org.junit.jupiter.api.Assertions;
@@ -50,9 +49,8 @@ class TruckRepositoryTest {
 
     @Test
     void create() {
-        final Truck createTruck = new Truck("Model", BigDecimal.ONE, Brand.VOLKSWAGEN, 20);
-        Truck truck = target.create(createTruck);
-        Assertions.assertEquals(createTruck, truck);
+        target.create(truck);
+        Assertions.assertEquals(target.getById(truck.getId()).get(), truck);
     }
 
     @Test
@@ -65,18 +63,15 @@ class TruckRepositoryTest {
 
     @Test
     void update() {
-        final Truck t = target.getById(truck.getId()).get();
-        t.setBrand(Brand.BMW);
-        final boolean actual = target.update(t);
+        truck.setBrand(Brand.BMW);
+        final boolean actual = target.update(truck);
         Assertions.assertTrue(actual);
     }
 
 
     @Test
     void delete() {
-        final Truck toDelete = new Truck("Model", BigDecimal.ONE, Brand.AUDI, 80);
-        target.create(toDelete);
-        Truck deleted = target.delete(toDelete.getId());
-        Assertions.assertEquals(toDelete, deleted);
+        Truck deleted = target.delete(truck.getId());
+        Assertions.assertEquals(truck, deleted);
     }
 }

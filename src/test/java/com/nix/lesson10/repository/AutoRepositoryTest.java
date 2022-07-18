@@ -50,9 +50,8 @@ class AutoRepositoryTest {
 
     @Test
     void create() {
-        final Auto createAuto = new Auto("Model", BigDecimal.ONE, Brand.TOYOTA, Type.SUV);
-        Auto auto1 = target.create(createAuto);
-        Assertions.assertEquals(createAuto, auto1);
+        target.create(auto);
+        Assertions.assertEquals(target.getById(auto.getId()).get(), auto);
     }
 
     @Test
@@ -64,18 +63,16 @@ class AutoRepositoryTest {
 
     @Test
     void update() {
-        final Auto a = target.getById(auto.getId()).get();
-        a.setBrand(Brand.BMW);
-        final boolean actual = target.update(a);;
+        auto.setBrand(Brand.BMW);
+        final boolean actual = target.update(auto);
         Assertions.assertTrue(actual);
     }
 
 
     @Test
     void delete() {
-        final Auto toDelete = new Auto("Model", BigDecimal.ONE, Brand.BMW, Type.JEEP);
-        target.create(toDelete);
-        Auto deleted = target.delete(toDelete.getId());
-        Assertions.assertEquals(toDelete,deleted);
+        target.create(auto);
+        Auto deleted = target.delete(auto.getId());
+        Assertions.assertEquals(auto,deleted);
     }
 }

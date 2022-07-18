@@ -10,45 +10,16 @@ import org.slf4j.LoggerFactory;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.math.BigDecimal;
-import java.util.LinkedList;
-import java.util.List;
 import java.util.Optional;
-import java.util.Random;
 
-public class AutoService {
+public class AutoService extends VehicleService<Auto> {
     private static final Logger LOGGER = LoggerFactory.getLogger(AutoService.class);
-    private static final Random RANDOM = new Random();
-    private final AutoRepository AUTO_REPOSITORY;
 
     public AutoService(AutoRepository autoRepository) {
-        AUTO_REPOSITORY = autoRepository;
+        super(autoRepository);
     }
 
-    public List<Auto> createAutos(int count) {
-        List<Auto> result = new LinkedList<>();
-        for (int i = 0; i < count; i++) {
-            final Auto auto = new Auto(
-                    "Model-" + RANDOM.nextInt(1000),
-                    BigDecimal.valueOf(100 + RANDOM.nextDouble(1000.0)),
-                    getRandomManufacturer(),
-                    getRandomBodyType()
-            );
-            result.add(auto);
-            LOGGER.debug("Created auto {}", auto.getId());
-        }
-        return result;
-    }
-
-    public boolean saveAutos(List<Auto> autos) {
-        AUTO_REPOSITORY.createList(autos);
-        return true;
-    }
-
-    public boolean saveAuto(Auto auto) {
-        AUTO_REPOSITORY.create(auto);
-        return true;
-    }
-
+    @Override
     public Auto create(BufferedReader bf) throws IOException {
         System.out.print("Input model: ");
         String model = bf.readLine();
@@ -79,8 +50,19 @@ public class AutoService {
         return auto;
     }
 
+    @Override
+    protected Auto createRandom() {
+        return new Auto(
+                "Model-" + RANDOM.nextInt(1000),
+                BigDecimal.valueOf(RANDOM.nextDouble(1000.0)),
+                getRandomManufacturer(),
+                getRandomBodyType()
+        );
+    }
+
+    @Override
     public void update(BufferedReader reader) throws IOException {
-        Auto[] autos = AUTO_REPOSITORY.getAll().toArray(new Auto[0]);
+        Auto[] autos = repository.getAll().toArray(new Auto[0]);
         for (int i = 0; i < autos.length; i++) {
             System.out.println(i + ". " + autos[i].toString());
         }
@@ -111,50 +93,35 @@ public class AutoService {
         double tempPrice = Double.parseDouble(reader.readLine());
         BigDecimal price = BigDecimal.valueOf(tempPrice);
         autos[index].setPrice(price);
-        AUTO_REPOSITORY.update(autos[index]);
+        repository.update(autos[index]);
     }
 
+    @Override
     public void delete(BufferedReader bf) throws IOException {
         String id = getId(bf);
-        AUTO_REPOSITORY.delete(id);
+        repository.delete(id);
         LOGGER.debug("Auto deleted {}", id);
     }
 
     public void saleOnAuto(BufferedReader bf) throws IOException {
         String id = getId(bf);
-        Optional<Auto> forSale = AUTO_REPOSITORY.getById(id);
+        Optional<Auto> forSale = repository.getById(id);
         forSale.filter((a) -> a.getPrice().intValue() > 500)
-                .ifPresent((auto -> auto.setPrice(auto.getPrice().multiply(BigDecimal.valueOf((0.5 + RANDOM.nextDouble(0.5)))))));
+                .ifPresent((auto -> auto.setPrice(
+                        auto.getPrice().multiply(BigDecimal.valueOf((0.5 + RANDOM.nextDouble(0.5)))))));
         Auto autoForSale = forSale.orElseThrow();
-        AUTO_REPOSITORY.update(autoForSale);
+        repository.update(autoForSale);
     }
 
     public void getBodyType(BufferedReader bf) throws IOException {
         String id = getId(bf);
-        Optional<Auto> getType = AUTO_REPOSITORY.getById(id);
+        Optional<Auto> getType = repository.getById(id);
         getType.map(Auto::getBodyType).ifPresent(System.out::println);
     }
 
-    public void printAll() {
-        for (Auto auto : AUTO_REPOSITORY.getAll()) {
-            System.out.println(auto);
-        }
-    }
-
-    private Brand getRandomManufacturer() {
-        final Brand[] values = Brand.values();
-        final int index = RANDOM.nextInt(values.length);
-        return values[index];
-    }
-
-    private Type getRandomBodyType() {
-        final Type[] values = Type.values();
-        final int index = RANDOM.nextInt(values.length);
-        return values[index];
-    }
 
     private String getId(BufferedReader reader) throws IOException {
-        Auto[] autos = AUTO_REPOSITORY.getAll().toArray(new Auto[0]);
+        Auto[] autos = repository.getAll().toArray(new Auto[0]);
         for (int i = 0; i < autos.length; i++) {
             System.out.println(i + ". " + autos[i].toString());
         }
