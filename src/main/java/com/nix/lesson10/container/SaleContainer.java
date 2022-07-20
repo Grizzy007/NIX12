@@ -1,6 +1,6 @@
 package com.nix.lesson10.container;
 
-import com.nix.lesson10.model.Vehicle;
+import com.nix.lesson10.model.vehicle.Vehicle;
 
 import java.math.BigDecimal;
 import java.util.Random;

@@ -1,12 +1,11 @@
 package com.nix.lesson10.service;
 
-import com.nix.lesson10.model.Auto;
-import com.nix.lesson10.model.Brand;
-import com.nix.lesson10.model.Type;
+import com.nix.lesson10.model.vehicle.Auto;
+import com.nix.lesson10.model.vehicle.Brand;
+import com.nix.lesson10.model.vehicle.Type;
 import com.nix.lesson10.repository.AutoRepository;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.function.Executable;
 import org.mockito.ArgumentCaptor;
 import org.mockito.ArgumentMatcher;
 import org.mockito.Mockito;

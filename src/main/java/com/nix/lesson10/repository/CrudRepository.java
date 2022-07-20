@@ -1,6 +1,6 @@
 package com.nix.lesson10.repository;
 
-import com.nix.lesson10.model.Vehicle;
+import com.nix.lesson10.model.vehicle.Vehicle;
 
 import java.util.List;
 import java.util.Optional;
@@ -17,4 +17,6 @@ public interface CrudRepository<T extends Vehicle> {
     boolean update(T vehicle);
 
     T delete(String id);
+
+    void compare();
 }

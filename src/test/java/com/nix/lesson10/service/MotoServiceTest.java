@@ -1,7 +1,7 @@
 package com.nix.lesson10.service;
 
-import com.nix.lesson10.model.Brand;
-import com.nix.lesson10.model.Motorcycle;
+import com.nix.lesson10.model.vehicle.Brand;
+import com.nix.lesson10.model.vehicle.Motorcycle;
 import com.nix.lesson10.repository.MotoRepository;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;

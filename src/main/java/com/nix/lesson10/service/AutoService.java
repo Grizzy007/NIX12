@@ -1,8 +1,8 @@
 package com.nix.lesson10.service;
 
-import com.nix.lesson10.model.Auto;
-import com.nix.lesson10.model.Brand;
-import com.nix.lesson10.model.Type;
+import com.nix.lesson10.model.vehicle.Auto;
+import com.nix.lesson10.model.vehicle.Brand;
+import com.nix.lesson10.model.vehicle.Type;
 import com.nix.lesson10.repository.AutoRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -94,6 +94,11 @@ public class AutoService extends VehicleService<Auto> {
         BigDecimal price = BigDecimal.valueOf(tempPrice);
         autos[index].setPrice(price);
         repository.update(autos[index]);
+    }
+
+    public void compare(){
+        repository.compare();
+        printAll();
     }
 
     public void saleOnAuto(BufferedReader bf) throws IOException {

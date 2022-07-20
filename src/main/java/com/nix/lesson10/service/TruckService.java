@@ -1,7 +1,7 @@
 package com.nix.lesson10.service;
 
-import com.nix.lesson10.model.Brand;
-import com.nix.lesson10.model.Truck;
+import com.nix.lesson10.model.vehicle.Brand;
+import com.nix.lesson10.model.vehicle.Truck;
 import com.nix.lesson10.repository.TruckRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
