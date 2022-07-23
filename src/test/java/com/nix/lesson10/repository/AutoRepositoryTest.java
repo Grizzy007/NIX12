@@ -1,8 +1,8 @@
 package com.nix.lesson10.repository;
 
-import com.nix.lesson10.model.Auto;
-import com.nix.lesson10.model.Brand;
-import com.nix.lesson10.model.Type;
+import com.nix.lesson10.model.vehicle.Auto;
+import com.nix.lesson10.model.vehicle.Brand;
+import com.nix.lesson10.model.vehicle.Type;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;

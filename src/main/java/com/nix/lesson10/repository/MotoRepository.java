@@ -1,6 +1,7 @@
 package com.nix.lesson10.repository;
 
-import com.nix.lesson10.model.Motorcycle;
+import com.nix.lesson10.model.comparator.PriceComparator;
+import com.nix.lesson10.model.vehicle.Motorcycle;
 
 import java.util.Iterator;
 import java.util.LinkedList;
@@ -61,6 +62,13 @@ public class MotoRepository implements CrudRepository<Motorcycle> {
             }
         }
         return null;
+    }
+
+    @Override
+    public void compare(){
+        motos.sort(new PriceComparator()
+                .thenComparing((o1, o2) -> o1.getModel().compareTo(o2.getModel()))
+                .thenComparing((o1, o2) -> o1.getModel().length() - o2.getModel().length()));
     }
 
     private static class AutoCopy {

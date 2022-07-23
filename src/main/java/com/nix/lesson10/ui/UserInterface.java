@@ -1,9 +1,11 @@
 package com.nix.lesson10.ui;
 
 import com.nix.lesson10.container.SaleContainer;
-import com.nix.lesson10.model.Auto;
-import com.nix.lesson10.model.Motorcycle;
-import com.nix.lesson10.model.Truck;
+import com.nix.lesson10.model.Garage;
+import com.nix.lesson10.model.GarageImpl;
+import com.nix.lesson10.model.vehicle.Auto;
+import com.nix.lesson10.model.vehicle.Motorcycle;
+import com.nix.lesson10.model.vehicle.Truck;
 import com.nix.lesson10.repository.AutoRepository;
 import com.nix.lesson10.repository.MotoRepository;
 import com.nix.lesson10.repository.TruckRepository;
@@ -20,6 +22,8 @@ public class UserInterface {
     private static final AutoService AUTO_SERVICE = new AutoService(new AutoRepository());
     private static final MotoService MOTO_SERVICE = new MotoService(new MotoRepository());
     private static final TruckService TRUCK_SERVICE = new TruckService(new TruckRepository());
+    private static final Garage<Auto> GARAGE = new GarageImpl<>();
+    private static Integer COUNTER = 1;
 
     public void start() {
         try (BufferedReader bf = new BufferedReader(new InputStreamReader(System.in))) {
@@ -39,7 +43,8 @@ public class UserInterface {
         System.out.println("1) Auto;");
         System.out.println("2) Motorcycle;");
         System.out.println("3) Truck;");
-        System.out.println("4) Container;");
+        System.out.println("4) Sale container;");
+        System.out.println("5) Garage;");
         System.out.println("0) Exit!");
         System.out.println("-------------------------------------------------------");
         System.out.println();
@@ -52,6 +57,7 @@ public class UserInterface {
             case "2" -> motoImpl(reader);
             case "3" -> truckImpl(reader);
             case "4" -> containerImpl(reader);
+            case "5" -> garageImpl(reader);
             case "0" -> System.exit(0);
             default -> System.out.println("Wrong number!");
         }
@@ -65,7 +71,8 @@ public class UserInterface {
         System.out.println("4) Update;");
         System.out.println("5) Sale on auto;");
         System.out.println("6) See body type of choose car;");
-        System.out.println("7) Delete;");
+        System.out.println("7) Compare and print;");
+        System.out.println("8) Delete;");
         System.out.println("0) Back!");
         System.out.println("-------------------------------------------------------");
     }
@@ -103,6 +110,53 @@ public class UserInterface {
         System.out.println("-------------------------------------------------------");
     }
 
+    private void garage() {
+        System.out.println("--------------------<Choose task>--------------------");
+        System.out.println("1) Add first vehicle;");
+        System.out.println("2) Add last vehicle;");
+        System.out.println("3) Get first restyle;");
+        System.out.println("4) Get last restyle;");
+        System.out.println("5) Get auto by restyle;");
+        System.out.println("6) Delete auto by restyle;");
+        System.out.println("7) Replace auto by restyle;");
+        System.out.println("8) Get size of garage;");
+        System.out.println("9) Print all garage;");
+        System.out.println("10) Print compared garage;");
+        System.out.println("0) Back!");
+        System.out.println("-------------------------------------------------------");
+    }
+
+    private void garageImpl(BufferedReader reader) throws IOException {
+        String choice = " ";
+        while (!choice.equals("0")) {
+            garage();
+            choice = reader.readLine();
+            switch (choice) {
+                case "1" -> System.out.println(GARAGE.addFirst(AUTO_SERVICE.create(reader), COUNTER++));
+                case "2" -> System.out.println(GARAGE.addLast(AUTO_SERVICE.create(reader), COUNTER++));
+                case "3" -> System.out.println(GARAGE.getFirstRestyle());
+                case "4" -> System.out.println(GARAGE.getLastRestyle());
+                case "5" -> {
+                    System.out.println("Input number of restyle of vehicle: ");
+                    System.out.println(GARAGE.autoByRestyle(Integer.parseInt(reader.readLine())));
+                }
+                case "6" -> {
+                    System.out.println("Input number of restyle of vehicle: ");
+                    System.out.println(GARAGE.deleteAutoByRestyle(Integer.parseInt(reader.readLine())));
+                }
+                case "7" -> {
+                    System.out.println("Input number of restyle of vehicle: ");
+                    System.out.println(GARAGE.replaceAutoByRestyle(Integer.parseInt(reader.readLine()),
+                            AUTO_SERVICE.create(reader)));
+                }
+                case "8" -> System.out.println(GARAGE.size());
+                case "9" -> System.out.println(GARAGE);
+                case "0" -> System.out.println("Exit!");
+                default -> System.out.println("Wrong number!");
+            }
+        }
+    }
+
     private void autoImpl(BufferedReader reader) throws IOException {
         String choice = " ";
         while (!choice.equals("0")) {
@@ -115,7 +169,8 @@ public class UserInterface {
                 case "4" -> AUTO_SERVICE.update(reader);
                 case "5" -> AUTO_SERVICE.saleOnAuto(reader);
                 case "6" -> AUTO_SERVICE.getBodyType(reader);
-                case "7" -> AUTO_SERVICE.delete(reader);
+                case "7" -> AUTO_SERVICE.compare();
+                case "8" -> AUTO_SERVICE.delete(reader);
                 case "0" -> System.out.println("Exit!");
                 default -> System.out.println("Wrong number!");
             }

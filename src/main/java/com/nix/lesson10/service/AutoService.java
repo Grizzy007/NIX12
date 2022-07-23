@@ -1,8 +1,8 @@
 package com.nix.lesson10.service;
 
-import com.nix.lesson10.model.Auto;
-import com.nix.lesson10.model.Brand;
-import com.nix.lesson10.model.Type;
+import com.nix.lesson10.model.vehicle.Auto;
+import com.nix.lesson10.model.vehicle.Brand;
+import com.nix.lesson10.model.vehicle.Type;
 import com.nix.lesson10.repository.AutoRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -96,11 +96,9 @@ public class AutoService extends VehicleService<Auto> {
         repository.update(autos[index]);
     }
 
-    @Override
-    public void delete(BufferedReader bf) throws IOException {
-        String id = getId(bf);
-        repository.delete(id);
-        LOGGER.debug("Auto deleted {}", id);
+    public void compare(){
+        repository.compare();
+        printAll();
     }
 
     public void saleOnAuto(BufferedReader bf) throws IOException {
@@ -119,14 +117,4 @@ public class AutoService extends VehicleService<Auto> {
         getType.map(Auto::getBodyType).ifPresent(System.out::println);
     }
 
-
-    private String getId(BufferedReader reader) throws IOException {
-        Auto[] autos = repository.getAll().toArray(new Auto[0]);
-        for (int i = 0; i < autos.length; i++) {
-            System.out.println(i + ". " + autos[i].toString());
-        }
-        System.out.println("Input number of auto that you want to see a body type: ");
-        int index = Integer.parseInt(reader.readLine());
-        return autos[index].getId();
-    }
 }

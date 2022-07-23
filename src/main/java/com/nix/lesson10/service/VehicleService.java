@@ -1,8 +1,8 @@
 package com.nix.lesson10.service;
 
-import com.nix.lesson10.model.Brand;
-import com.nix.lesson10.model.Type;
-import com.nix.lesson10.model.Vehicle;
+import com.nix.lesson10.model.vehicle.Brand;
+import com.nix.lesson10.model.vehicle.Type;
+import com.nix.lesson10.model.vehicle.Vehicle;
 import com.nix.lesson10.repository.CrudRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -24,14 +24,18 @@ public abstract class VehicleService<T extends Vehicle> {
 
     public abstract void update(BufferedReader reader) throws IOException;
 
-    public abstract void delete(BufferedReader reader) throws IOException;
+    public void delete(BufferedReader reader) throws IOException{
+        String id = getId(reader);
+        repository.delete(id);
+        LOGGER.debug("Vehicle deleted {}", id);
+    }
 
     public List<T> createList(int count) {
         List<T> result = new LinkedList<>();
         for (int i = 0; i < count; i++) {
             final T truck = createRandom();
             result.add(truck);
-            LOGGER.debug("Created truck {}", truck.getId());
+            LOGGER.debug("Created vehicle {}", truck.getId());
         }
         return result;
     }
@@ -69,5 +73,15 @@ public abstract class VehicleService<T extends Vehicle> {
         final Type[] values = Type.values();
         final int index = RANDOM.nextInt(values.length);
         return values[index];
+    }
+
+    protected String getId(BufferedReader reader) throws IOException {
+        List<T> vehicles = repository.getAll();
+        for (int i = 0; i < vehicles.size(); i++) {
+            System.out.println(i + ". " + vehicles.get(i).toString());
+        }
+        System.out.println("Input number of auto that you want to see a body type: ");
+        int index = Integer.parseInt(reader.readLine());
+        return vehicles.get(index).getId();
     }
 }

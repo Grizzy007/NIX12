@@ -1,6 +1,7 @@
 package com.nix.lesson10.repository;
 
-import com.nix.lesson10.model.Auto;
+import com.nix.lesson10.model.comparator.PriceComparator;
+import com.nix.lesson10.model.vehicle.Auto;
 
 import java.util.LinkedList;
 import java.util.List;
@@ -52,6 +53,13 @@ public class AutoRepository implements CrudRepository<Auto> {
         Auto toDelete = getById(id).orElseThrow();
         autos.remove(toDelete);
         return toDelete;
+    }
+
+    @Override
+    public void compare(){
+        autos.sort(new PriceComparator()
+                .thenComparing((o1, o2) -> o1.getModel().compareTo(o2.getModel()))
+                .thenComparing((o1, o2) -> o1.getModel().length() - o2.getModel().length()));
     }
 
     private static class AutoCopy {

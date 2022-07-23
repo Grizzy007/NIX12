@@ -1,7 +1,7 @@
 package com.nix.lesson10.service;
 
-import com.nix.lesson10.model.Brand;
-import com.nix.lesson10.model.Truck;
+import com.nix.lesson10.model.vehicle.Brand;
+import com.nix.lesson10.model.vehicle.Truck;
 import com.nix.lesson10.repository.TruckRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -83,13 +83,6 @@ public class TruckService extends VehicleService<Truck> {
         );
     }
 
-    @Override
-    public void delete(BufferedReader bf) throws IOException {
-        String id = getId(bf);
-        LOGGER.debug("Truck deleted {}", id);
-        repository.delete(id);
-    }
-
     public Truck pickTruckByCapacity(BufferedReader reader) throws IOException {
         System.out.println("Input needed capacity: ");
         int capacity = Integer.parseInt(reader.readLine());
@@ -109,15 +102,5 @@ public class TruckService extends VehicleService<Truck> {
             repository.create(truck.get());
         }
         return truck.get();
-    }
-
-    private String getId(BufferedReader reader) throws IOException {
-        Truck[] trucks = repository.getAll().toArray(new Truck[0]);
-        for (int i = 0; i < trucks.length; i++) {
-            System.out.println(i + ". " + trucks[i].toString());
-        }
-        System.out.println("Input number of motorcycle to delete: ");
-        int index = Integer.parseInt(reader.readLine());
-        return trucks[index].getId();
     }
 }
