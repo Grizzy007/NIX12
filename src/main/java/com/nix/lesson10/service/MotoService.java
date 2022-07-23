@@ -1,5 +1,6 @@
 package com.nix.lesson10.service;
 
+import com.nix.lesson10.model.comparator.PriceComparator;
 import com.nix.lesson10.model.vehicle.Brand;
 import com.nix.lesson10.model.vehicle.Motorcycle;
 import com.nix.lesson10.repository.MotoRepository;
@@ -79,6 +80,14 @@ public class MotoService extends VehicleService<Motorcycle> {
         BigDecimal price = BigDecimal.valueOf(tempPrice);
         motorcycles[index].setPrice(price);
         repository.update(motorcycles[index]);
+    }
+
+    @Override
+    public void compare(){
+        repository.getAll().sort(new PriceComparator()
+                .thenComparing((o1, o2) -> o1.getModel().compareTo(o2.getModel()))
+                .thenComparing((o1, o2) -> o1.getModel().length() - o2.getModel().length()));
+        printAll();
     }
 
     public void getMotoByPrice(BufferedReader reader) throws IOException {

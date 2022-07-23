@@ -121,7 +121,6 @@ public class UserInterface {
         System.out.println("7) Replace auto by restyle;");
         System.out.println("8) Get size of garage;");
         System.out.println("9) Print all garage;");
-        System.out.println("10) Print compared garage;");
         System.out.println("0) Back!");
         System.out.println("-------------------------------------------------------");
     }

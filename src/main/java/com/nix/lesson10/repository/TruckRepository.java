@@ -55,13 +55,6 @@ public class TruckRepository implements CrudRepository<Truck> {
         return toDelete;
     }
 
-    @Override
-    public void compare(){
-        trucks.sort(new PriceComparator()
-                .thenComparing((o1, o2) -> o1.getModel().compareTo(o2.getModel()))
-                .thenComparing((o1, o2) -> o1.getModel().length() - o2.getModel().length()));
-    }
-
     private static class AutoCopy {
         static void copy(final Truck from, final Truck to) {
             to.setBrand(from.getBrand());

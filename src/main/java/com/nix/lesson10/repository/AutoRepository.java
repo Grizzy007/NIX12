@@ -50,13 +50,6 @@ public class AutoRepository implements CrudRepository<Auto> {
         return toDelete;
     }
 
-    @Override
-    public void compare() {
-        autos.sort(new PriceComparator()
-                .thenComparing((o1, o2) -> o1.getModel().compareTo(o2.getModel()))
-                .thenComparing((o1, o2) -> o1.getModel().length() - o2.getModel().length()));
-    }
-
     private static class AutoCopy {
         static void copy(final Auto from, final Auto to) {
             to.setBrand(from.getBrand());

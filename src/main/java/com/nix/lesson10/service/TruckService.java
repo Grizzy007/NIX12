@@ -1,5 +1,6 @@
 package com.nix.lesson10.service;
 
+import com.nix.lesson10.model.comparator.PriceComparator;
 import com.nix.lesson10.model.vehicle.Brand;
 import com.nix.lesson10.model.vehicle.Truck;
 import com.nix.lesson10.repository.TruckRepository;
@@ -81,6 +82,14 @@ public class TruckService extends VehicleService<Truck> {
                 getRandomManufacturer(),
                 RANDOM.nextInt(100)
         );
+    }
+
+    @Override
+    public void compare(){
+        repository.getAll().sort(new PriceComparator()
+                .thenComparing((o1, o2) -> o1.getModel().compareTo(o2.getModel()))
+                .thenComparing((o1, o2) -> o1.getModel().length() - o2.getModel().length()));
+        printAll();
     }
 
     public Truck pickTruckByCapacity(BufferedReader reader) throws IOException {

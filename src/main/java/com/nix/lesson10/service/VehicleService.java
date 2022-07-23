@@ -22,6 +22,8 @@ public abstract class VehicleService<T extends Vehicle> {
 
     protected abstract T createRandom();
 
+     public abstract void compare();
+
     public abstract void update(BufferedReader reader) throws IOException;
 
     public void delete(BufferedReader reader) throws IOException{
