@@ -3,9 +3,7 @@ package com.nix.lesson10.repository;
 import com.nix.lesson10.model.comparator.PriceComparator;
 import com.nix.lesson10.model.vehicle.Auto;
 
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
 
 public class AutoRepository implements CrudRepository<Auto> {
     private final List<Auto> autos;
@@ -21,12 +19,9 @@ public class AutoRepository implements CrudRepository<Auto> {
 
     @Override
     public Optional<Auto> getById(String id) {
-        for (Auto a : autos) {
-            if (a.getId().equals(id)) {
-                return Optional.of(a);
-            }
-        }
-        return Optional.empty();
+        return autos.stream()
+                .filter(auto -> auto.getId().equals(id))
+                .findAny();
     }
 
     @Override
@@ -56,7 +51,7 @@ public class AutoRepository implements CrudRepository<Auto> {
     }
 
     @Override
-    public void compare(){
+    public void compare() {
         autos.sort(new PriceComparator()
                 .thenComparing((o1, o2) -> o1.getModel().compareTo(o2.getModel()))
                 .thenComparing((o1, o2) -> o1.getModel().length() - o2.getModel().length()));

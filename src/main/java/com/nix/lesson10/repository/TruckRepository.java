@@ -21,12 +21,9 @@ public class TruckRepository implements CrudRepository<Truck> {
 
     @Override
     public Optional<Truck> getById(String id) {
-        for (Truck a : trucks) {
-            if (a.getId().equals(id)) {
-                return Optional.of(a);
-            }
-        }
-        return Optional.empty();
+        return trucks.stream()
+                .filter(auto -> auto.getId().equals(id))
+                .findAny();
     }
 
     @Override

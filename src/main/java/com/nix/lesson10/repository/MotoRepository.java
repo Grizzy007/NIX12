@@ -22,12 +22,9 @@ public class MotoRepository implements CrudRepository<Motorcycle> {
 
     @Override
     public Optional<Motorcycle> getById(String id) {
-        for (Motorcycle a : motos) {
-            if (a.getId().equals(id)) {
-                return Optional.of(a);
-            }
-        }
-        return Optional.empty();
+        return motos.stream()
+                .filter(auto -> auto.getId().equals(id))
+                .findAny();
     }
 
     @Override

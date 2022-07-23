@@ -15,7 +15,7 @@ import java.util.Random;
 
 public abstract class VehicleService<T extends Vehicle> {
     private static final Logger LOGGER = LoggerFactory.getLogger(VehicleService.class);
-    protected final Random RANDOM = new Random();
+    protected static final Random RANDOM = new Random();
     protected CrudRepository<T> repository;
 
     public abstract T create(BufferedReader bf) throws IOException;
