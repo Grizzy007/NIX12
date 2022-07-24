@@ -27,9 +27,7 @@ public class AdminController {
         Optional<Program> prog = programRepo.findById(id);
         List<Program> result;
         result = prog.stream().toList();
-        if(prog.isPresent()) {
-            model.addAttribute("name",prog.get().getName());
-        }
+        prog.ifPresent(p -> model.addAttribute("name", p.getName()));
         model.addAttribute("program", result);
         return "edit";
     }

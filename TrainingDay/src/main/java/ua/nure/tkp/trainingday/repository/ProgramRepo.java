@@ -4,5 +4,5 @@ import org.springframework.data.repository.CrudRepository;
 import ua.nure.tkp.trainingday.entity.Program;
 
 public interface ProgramRepo extends CrudRepository<Program, Integer> {
-    public Iterable<Program> findProgramsByStatusName(String s);
+    Iterable<Program> findProgramsByStatusName(String s);
 }

@@ -1,10 +1,6 @@
 package ua.nure.tkp.trainingday.entity.dto;
 
 import ua.nure.tkp.trainingday.entity.Status;
-import ua.nure.tkp.trainingday.entity.Trainer;
-import ua.nure.tkp.trainingday.entity.User;
-
-import java.util.Set;
 
 public class ProgramDto {
     private Integer id;
@@ -13,10 +9,6 @@ public class ProgramDto {
     private String group;
     private String description;
     private Status status;
-    private Trainer trainer;
-
-
-    private Set<User> users;
 
     public ProgramDto(String name, Integer duration, String group, String description) {
         this.name = name;
@@ -34,8 +26,7 @@ public class ProgramDto {
         this.group = group;
     }
 
-    public ProgramDto() {
-    }
+    public ProgramDto() { }
 
     public ProgramDto(String name, Integer duration, String description) {
         this.name = name;

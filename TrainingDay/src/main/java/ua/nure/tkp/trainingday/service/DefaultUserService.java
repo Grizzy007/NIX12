@@ -17,9 +17,9 @@ public class DefaultUserService implements UserService {
 
 
     @Override
-    public void register(User user) throws Exception {
+    public void register(User user) throws IllegalArgumentException {
         if (checkIfUserExist(user.getLogin())) {
-            throw new Exception("This login already exist! Choose another!");
+            throw new IllegalArgumentException("This login already exist! Choose another!");
         }
         encodePassword(user);
         userRepo.save(user);
@@ -27,7 +27,7 @@ public class DefaultUserService implements UserService {
 
     @Override
     public boolean checkIfUserExist(String login) {
-        return userRepo.findByLogin(login) != null ? true : false;
+        return userRepo.findByLogin(login).isPresent();
     }
 
     private void encodePassword(User userEntity) {
