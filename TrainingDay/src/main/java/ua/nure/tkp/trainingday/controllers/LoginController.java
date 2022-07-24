@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import ua.nure.tkp.trainingday.entity.User;
 import ua.nure.tkp.trainingday.entity.dto.UserDto;
 import ua.nure.tkp.trainingday.repository.UserRepo;
-import ua.nure.tkp.trainingday.service.DefaultUserService;
 
 @Controller
 @RequestMapping("/auth")
