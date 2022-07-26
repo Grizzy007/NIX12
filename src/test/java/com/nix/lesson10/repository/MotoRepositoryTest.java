@@ -18,7 +18,7 @@ class MotoRepositoryTest {
 
     @BeforeEach
     void setUp() {
-        target = new MotoRepository();
+        target = MotoRepository.getInstance();
         moto = createMoto();
         target.create(moto);
     }

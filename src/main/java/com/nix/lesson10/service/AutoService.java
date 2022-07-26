@@ -6,6 +6,7 @@ import com.nix.lesson10.model.vehicle.Brand;
 import com.nix.lesson10.model.vehicle.Type;
 import com.nix.lesson10.model.vehicle.Vehicle;
 import com.nix.lesson10.repository.AutoRepository;
+import com.nix.lesson10.repository.CrudRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -16,9 +17,17 @@ import java.util.Optional;
 
 public class AutoService extends VehicleService<Auto> {
     private static final Logger LOGGER = LoggerFactory.getLogger(AutoService.class);
+    private static AutoService instance;
 
-    public AutoService(AutoRepository autoRepository) {
-        super(autoRepository);
+    private AutoService(CrudRepository<Auto> repository) {
+        super(repository);
+    }
+
+    public static AutoService getInstance() {
+        if (instance == null) {
+            instance = new AutoService(AutoRepository.getInstance());
+        }
+        return instance;
     }
 
     @Override

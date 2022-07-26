@@ -16,13 +16,13 @@ import java.util.Random;
 public abstract class VehicleService<T extends Vehicle> {
     private static final Logger LOGGER = LoggerFactory.getLogger(VehicleService.class);
     protected static final Random RANDOM = new Random();
-    protected CrudRepository<T> repository;
+    protected final CrudRepository<T> repository;
 
     public abstract T create(BufferedReader bf) throws IOException;
 
     protected abstract T createRandom();
 
-     public abstract void compare();
+    public abstract void compare();
 
     public abstract void update(BufferedReader reader) throws IOException;
 

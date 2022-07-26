@@ -15,8 +15,17 @@ import java.util.List;
 public class MotoService extends VehicleService<Motorcycle> {
     private static final Logger LOGGER = LoggerFactory.getLogger(MotoService.class);
 
-    public MotoService(MotoRepository motoRepository) {
+    private static MotoService instance;
+
+    private MotoService(MotoRepository motoRepository) {
         super(motoRepository);
+    }
+
+    public static MotoService getInstance(){
+        if(instance==null){
+            instance = new MotoService(MotoRepository.getInstance());
+        }
+        return instance;
     }
 
     @Override

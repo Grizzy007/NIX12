@@ -1,6 +1,5 @@
 package com.nix.lesson10.repository;
 
-import com.nix.lesson10.model.comparator.PriceComparator;
 import com.nix.lesson10.model.vehicle.Truck;
 
 import java.util.LinkedList;
@@ -10,8 +9,17 @@ import java.util.Optional;
 public class TruckRepository implements CrudRepository<Truck> {
     private final List<Truck> trucks;
 
-    public TruckRepository() {
+    private static TruckRepository instance;
+
+    private TruckRepository() {
         trucks = new LinkedList<>();
+    }
+
+    public static TruckRepository getInstance() {
+        if (instance == null) {
+            instance = new TruckRepository();
+        }
+        return instance;
     }
 
     @Override

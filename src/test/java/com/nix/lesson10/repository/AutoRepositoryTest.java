@@ -19,7 +19,7 @@ class AutoRepositoryTest {
 
     @BeforeEach
     void setUp() {
-        target = new AutoRepository();
+        target = AutoRepository.getInstance();
         auto = createAuto();
         target.create(auto);
     }

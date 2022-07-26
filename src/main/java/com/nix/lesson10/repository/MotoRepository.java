@@ -1,6 +1,5 @@
 package com.nix.lesson10.repository;
 
-import com.nix.lesson10.model.comparator.PriceComparator;
 import com.nix.lesson10.model.vehicle.Motorcycle;
 
 import java.util.Iterator;
@@ -11,8 +10,17 @@ import java.util.Optional;
 public class MotoRepository implements CrudRepository<Motorcycle> {
     private final List<Motorcycle> motos;
 
-    public MotoRepository() {
+    private static MotoRepository instance;
+
+    private MotoRepository() {
         motos = new LinkedList<>();
+    }
+
+    public static MotoRepository getInstance() {
+        if (instance == null) {
+            instance = new MotoRepository();
+        }
+        return instance;
     }
 
     @Override
@@ -44,7 +52,7 @@ public class MotoRepository implements CrudRepository<Motorcycle> {
         Optional<Motorcycle> founded = getById(moto.getId());
         founded.ifPresentOrElse(
                 moto1 -> MotoRepository.AutoCopy.copy(moto, founded.get()),
-                ()-> System.out.println("There isn't such motorcycle"));
+                () -> System.out.println("There isn't such motorcycle"));
         return founded.isPresent();
     }
 

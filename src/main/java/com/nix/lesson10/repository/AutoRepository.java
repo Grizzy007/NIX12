@@ -1,15 +1,25 @@
 package com.nix.lesson10.repository;
 
-import com.nix.lesson10.model.comparator.PriceComparator;
 import com.nix.lesson10.model.vehicle.Auto;
 
-import java.util.*;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Optional;
 
 public class AutoRepository implements CrudRepository<Auto> {
     private final List<Auto> autos;
 
-    public AutoRepository() {
+    private static AutoRepository instance;
+
+    private AutoRepository() {
         autos = new LinkedList<>();
+    }
+
+    public static AutoRepository getInstance() {
+        if (instance == null) {
+            instance = new AutoRepository();
+        }
+        return instance;
     }
 
     @Override
