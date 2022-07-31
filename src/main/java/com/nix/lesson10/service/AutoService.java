@@ -13,7 +13,9 @@ import org.slf4j.LoggerFactory;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.math.BigDecimal;
+import java.util.Map;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 public class AutoService extends VehicleService<Auto> {
     private static final Logger LOGGER = LoggerFactory.getLogger(AutoService.class);
@@ -113,6 +115,19 @@ public class AutoService extends VehicleService<Auto> {
                 .thenComparing(Vehicle::getModel)
                 .thenComparingInt(o1 -> o1.getModel().length()));
         printAll();
+    }
+
+    public void sortAndDistinct() {
+        Map<String, Type> cars = repository.getAll().stream()
+                .sorted((o1, o2) -> -o1.getModel().compareTo(o2.getModel()))
+                .distinct()
+                .collect(Collectors.toMap(key->key.getId(), value->value.getBodyType()));
+        cars.forEach((key,val) -> System.out.printf("Key: %s Value: %s%n",key,val));
+    }
+
+    public boolean IsCarsHave(String detail){
+        return repository.getAll().stream()
+                .anyMatch(car -> car.getDetails().contains(detail));
     }
 
     public void saleOnAuto(BufferedReader bf) throws IOException {

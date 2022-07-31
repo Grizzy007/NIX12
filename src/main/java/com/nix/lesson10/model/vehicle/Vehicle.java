@@ -16,6 +16,10 @@ public abstract class Vehicle {
         this.manufacturer = manufacturer;
     }
 
+    public Vehicle() {
+        this.id = UUID.randomUUID().toString();
+    }
+
     public String getId() {
         return id;
     }
