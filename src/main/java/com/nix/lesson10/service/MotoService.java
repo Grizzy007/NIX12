@@ -99,6 +99,24 @@ public class MotoService extends VehicleService<Motorcycle> {
         printAll();
     }
 
+    public boolean priceCheck(List<Motorcycle> motos){//Predicate realisation 2
+        for(Motorcycle m: motos){
+            if(m.getPrice().equals(null)){
+                return false;
+            }
+        }
+        return true;
+    }
+
+    public boolean checkPrice(){//Predicate realisation 1
+        return repository.getAll().stream()
+                .allMatch(motorcycle -> motorcycle.getPrice().intValue() > 0);
+    }
+
+    public boolean checkRepo(){
+        return priceCheck(repository.getAll());
+    }
+
     public void getMotoByPrice(BufferedReader reader) throws IOException {
         System.out.println("Input price that you ready to spend on moto(minimum = 100$):");
         double price = Double.parseDouble(reader.readLine());
