@@ -19,7 +19,7 @@ class MotoServiceTest {
     @BeforeEach
     void setUp() {
         motoRepository = Mockito.mock(MotoRepository.class);
-        target = new MotoService(motoRepository);
+        target = MotoService.getInstance();
     }
 
     private Motorcycle createMoto() {

@@ -8,7 +8,7 @@ import java.util.NoSuchElementException;
 import java.util.Optional;
 import java.util.Random;
 
-public class GarageImpl<T extends Vehicle> implements Garage<T> {
+public class GarageImpl<T extends Vehicle> implements Garage<T>{
     private static final Random RANDOM = new Random();
 
     private static class Node<T extends Vehicle> {
@@ -27,6 +27,7 @@ public class GarageImpl<T extends Vehicle> implements Garage<T> {
 
     private Node<T> head;
     private Node<T> tail;
+    private Integer size = 0;
 
     @Override
     public T addFirst(T veh, Integer id) {
@@ -42,6 +43,7 @@ public class GarageImpl<T extends Vehicle> implements Garage<T> {
             head.prev = headNew;
             head = headNew;
         }
+        size++;
         return headNew.value;
     }
 
@@ -57,23 +59,12 @@ public class GarageImpl<T extends Vehicle> implements Garage<T> {
             tailNew.prev = tail;
             tail = tailNew;
         }
+        size++;
         return tailNew.value;
     }
 
     @Override
     public int size() {
-        int size = 1;
-        Node<T> temp = head;
-        if (temp.value == null) {
-            return 0;
-        }
-        while (temp != tail) {
-            if (temp.next == null) {
-                return size;
-            }
-            size++;
-            temp = temp.next;
-        }
         return size;
     }
 
@@ -200,12 +191,15 @@ public class GarageImpl<T extends Vehicle> implements Garage<T> {
                 tail = current.prev;
                 current.prev.next = null;
                 current = null;
+                size--;
             } else if (current.prev != null) {
                 current.prev.next = current.next;
                 current.next.prev = current.prev;
                 current = current.next;
+                size--;
             } else {
                 current = null;
+                size--;
             }
         }
 

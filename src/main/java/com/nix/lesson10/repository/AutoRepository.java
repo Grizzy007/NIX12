@@ -1,6 +1,5 @@
 package com.nix.lesson10.repository;
 
-import com.nix.lesson10.model.comparator.PriceComparator;
 import com.nix.lesson10.model.vehicle.Auto;
 
 import java.util.LinkedList;
@@ -10,8 +9,17 @@ import java.util.Optional;
 public class AutoRepository implements CrudRepository<Auto> {
     private final List<Auto> autos;
 
-    public AutoRepository() {
+    private static AutoRepository instance;
+
+    private AutoRepository() {
         autos = new LinkedList<>();
+    }
+
+    public static AutoRepository getInstance() {
+        if (instance == null) {
+            instance = new AutoRepository();
+        }
+        return instance;
     }
 
     @Override
@@ -21,12 +29,9 @@ public class AutoRepository implements CrudRepository<Auto> {
 
     @Override
     public Optional<Auto> getById(String id) {
-        for (Auto a : autos) {
-            if (a.getId().equals(id)) {
-                return Optional.of(a);
-            }
-        }
-        return Optional.empty();
+        return autos.stream()
+                .filter(auto -> auto.getId().equals(id))
+                .findAny();
     }
 
     @Override
@@ -53,13 +58,6 @@ public class AutoRepository implements CrudRepository<Auto> {
         Auto toDelete = getById(id).orElseThrow();
         autos.remove(toDelete);
         return toDelete;
-    }
-
-    @Override
-    public void compare(){
-        autos.sort(new PriceComparator()
-                .thenComparing((o1, o2) -> o1.getModel().compareTo(o2.getModel()))
-                .thenComparing((o1, o2) -> o1.getModel().length() - o2.getModel().length()));
     }
 
     private static class AutoCopy {

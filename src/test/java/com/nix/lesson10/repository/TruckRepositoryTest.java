@@ -18,7 +18,7 @@ class TruckRepositoryTest {
 
     @BeforeEach
     void setUp() {
-        target = new TruckRepository();
+        target = TruckRepository.getInstance();
         truck = createTruck();
         target.create(truck);
     }

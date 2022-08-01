@@ -20,7 +20,7 @@ class TruckServiceTest {
     @BeforeEach
     void setUp() {
         truckRepository = Mockito.mock(TruckRepository.class);
-        target = new TruckService(truckRepository);
+        target = TruckService.getInstance();
     }
 
     private Truck createTruck() {

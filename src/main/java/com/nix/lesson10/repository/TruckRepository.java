@@ -1,6 +1,5 @@
 package com.nix.lesson10.repository;
 
-import com.nix.lesson10.model.comparator.PriceComparator;
 import com.nix.lesson10.model.vehicle.Truck;
 
 import java.util.LinkedList;
@@ -10,8 +9,17 @@ import java.util.Optional;
 public class TruckRepository implements CrudRepository<Truck> {
     private final List<Truck> trucks;
 
-    public TruckRepository() {
+    private static TruckRepository instance;
+
+    private TruckRepository() {
         trucks = new LinkedList<>();
+    }
+
+    public static TruckRepository getInstance() {
+        if (instance == null) {
+            instance = new TruckRepository();
+        }
+        return instance;
     }
 
     @Override
@@ -21,12 +29,9 @@ public class TruckRepository implements CrudRepository<Truck> {
 
     @Override
     public Optional<Truck> getById(String id) {
-        for (Truck a : trucks) {
-            if (a.getId().equals(id)) {
-                return Optional.of(a);
-            }
-        }
-        return Optional.empty();
+        return trucks.stream()
+                .filter(auto -> auto.getId().equals(id))
+                .findAny();
     }
 
     @Override
@@ -56,13 +61,6 @@ public class TruckRepository implements CrudRepository<Truck> {
         Truck toDelete = getById(id).orElseThrow();
         trucks.remove(toDelete);
         return toDelete;
-    }
-
-    @Override
-    public void compare(){
-        trucks.sort(new PriceComparator()
-                .thenComparing((o1, o2) -> o1.getModel().compareTo(o2.getModel()))
-                .thenComparing((o1, o2) -> o1.getModel().length() - o2.getModel().length()));
     }
 
     private static class AutoCopy {

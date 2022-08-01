@@ -1,5 +1,6 @@
 package com.nix.lesson10.service;
 
+import com.nix.lesson10.model.comparator.PriceComparator;
 import com.nix.lesson10.model.vehicle.Brand;
 import com.nix.lesson10.model.vehicle.Motorcycle;
 import com.nix.lesson10.repository.MotoRepository;
@@ -14,8 +15,17 @@ import java.util.List;
 public class MotoService extends VehicleService<Motorcycle> {
     private static final Logger LOGGER = LoggerFactory.getLogger(MotoService.class);
 
-    public MotoService(MotoRepository motoRepository) {
+    private static MotoService instance;
+
+    private MotoService(MotoRepository motoRepository) {
         super(motoRepository);
+    }
+
+    public static MotoService getInstance(){
+        if(instance==null){
+            instance = new MotoService(MotoRepository.getInstance());
+        }
+        return instance;
     }
 
     @Override
@@ -79,6 +89,14 @@ public class MotoService extends VehicleService<Motorcycle> {
         BigDecimal price = BigDecimal.valueOf(tempPrice);
         motorcycles[index].setPrice(price);
         repository.update(motorcycles[index]);
+    }
+
+    @Override
+    public void compare(){
+        repository.getAll().sort(new PriceComparator()
+                .thenComparing((o1, o2) -> o1.getModel().compareTo(o2.getModel()))
+                .thenComparing((o1, o2) -> o1.getModel().length() - o2.getModel().length()));
+        printAll();
     }
 
     public void getMotoByPrice(BufferedReader reader) throws IOException {

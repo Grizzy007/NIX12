@@ -29,7 +29,7 @@ class VehicleServiceTest {
     @BeforeEach
     void setUp() {
         repository = Mockito.mock(AutoRepository.class);
-        target = new AutoService(repository);
+        target = AutoService.getInstance();
         auto = target.createRandom();
     }
 
