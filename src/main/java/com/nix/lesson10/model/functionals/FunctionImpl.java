@@ -1,25 +1,16 @@
 package com.nix.lesson10.model.functionals;
 
-import com.nix.lesson10.model.vehicle.Auto;
 import com.nix.lesson10.model.vehicle.Brand;
-import com.nix.lesson10.model.vehicle.Type;
-import com.nix.lesson10.model.vehicle.Vehicle;
+import com.nix.lesson10.model.vehicle.Truck;
 
 import java.math.BigDecimal;
 import java.util.Map;
+import java.util.function.Function;
 
 public class FunctionImpl {
-    public Vehicle toAuto(Map<String, Object> map) {
-        Object[] propreties = new Object[map.size()];
-        int i = 0;
-        for(Object obj: map.values()){
-            propreties[i] = obj;
-        }
-        Auto auto = new Auto();
-        auto.setModel((String) propreties[0]);
-        auto.setPrice((BigDecimal) propreties[1]);
-        auto.setBrand((Brand) propreties[2]);
-        auto.setBodyType((Type) propreties[3]);
-        return auto;
+    public static Truck toVehicle(Map<String, Object> map) {
+        Function<Map<String, Object>, Truck> toTruck = m -> new Truck((String) m.get("model"),
+                (BigDecimal) m.get("price"), (Brand) m.get("brand"), (Integer) m.get("capacity"));
+        return toTruck.apply(map);
     }
 }

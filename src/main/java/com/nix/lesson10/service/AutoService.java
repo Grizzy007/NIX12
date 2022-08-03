@@ -125,7 +125,7 @@ public class AutoService extends VehicleService<Auto> {
         cars.forEach((key,val) -> System.out.printf("Key: %s Value: %s%n",key,val));
     }
 
-    public boolean IsCarsHave(String detail){
+    public boolean isCarsHave(String detail){
         return repository.getAll().stream()
                 .anyMatch(car -> car.getDetails().contains(detail));
     }

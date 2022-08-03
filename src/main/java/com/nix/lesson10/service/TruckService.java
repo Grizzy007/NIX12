@@ -1,6 +1,7 @@
 package com.nix.lesson10.service;
 
 import com.nix.lesson10.model.comparator.PriceComparator;
+import com.nix.lesson10.model.functionals.FunctionImpl;
 import com.nix.lesson10.model.vehicle.Brand;
 import com.nix.lesson10.model.vehicle.Truck;
 import com.nix.lesson10.repository.TruckRepository;
@@ -14,9 +15,6 @@ import java.util.DoubleSummaryStatistics;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
-import java.util.stream.Collectors;
-import java.util.stream.DoubleStream;
-import java.util.stream.Stream;
 
 public class TruckService extends VehicleService<Truck> {
     private static final Logger LOGGER = LoggerFactory.getLogger(TruckService.class);
@@ -117,6 +115,10 @@ public class TruckService extends VehicleService<Truck> {
                     Count: %s
                 """, cars.getAverage(), cars.getSum(), cars.getMin(), cars.getMax(), cars.getCount());
 
+    }
+
+    public Truck mapToTruck(Map<String,Object> map){
+        return FunctionImpl.toVehicle(map);
     }
 
     public Truck pickTruckByCapacity(BufferedReader reader) throws IOException {

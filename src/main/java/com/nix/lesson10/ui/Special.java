@@ -69,7 +69,7 @@ public class Special implements Command {
                 case 7 -> AUTO_SERVICE.sortAndDistinct();
                 case 8 -> {
                     String detail = reader.readLine();
-                    System.out.println(AUTO_SERVICE.IsCarsHave(detail));
+                    System.out.println(AUTO_SERVICE.isCarsHave(detail));
                 }
                 case 9 -> System.out.println("Exit!");
                 default -> System.out.println("Incorrect number!");
