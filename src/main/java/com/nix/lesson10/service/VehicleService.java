@@ -9,9 +9,9 @@ import org.slf4j.LoggerFactory;
 
 import java.io.BufferedReader;
 import java.io.IOException;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Random;
+import java.math.BigDecimal;
+import java.util.*;
+import java.util.stream.Collectors;
 
 public abstract class VehicleService<T extends Vehicle> {
     private static final Logger LOGGER = LoggerFactory.getLogger(VehicleService.class);
@@ -26,7 +26,7 @@ public abstract class VehicleService<T extends Vehicle> {
 
     public abstract void update(BufferedReader reader) throws IOException;
 
-    public void delete(BufferedReader reader) throws IOException{
+    public void delete(BufferedReader reader) throws IOException {
         String id = getId(reader);
         repository.delete(id);
         LOGGER.debug("Vehicle deleted {}", id);
@@ -40,6 +40,13 @@ public abstract class VehicleService<T extends Vehicle> {
             LOGGER.debug("Created vehicle {}", truck.getId());
         }
         return result;
+    }
+
+    public BigDecimal sumOfAllVehicle() {
+        return repository.getAll().stream()
+                .map(Vehicle::getPrice)
+                .reduce((price1, price2) -> price1.add(price2))
+                .orElse(BigDecimal.ZERO);
     }
 
     protected VehicleService(CrudRepository<T> repository) {
@@ -69,6 +76,12 @@ public abstract class VehicleService<T extends Vehicle> {
         }
         repository.createList(autos);
         return true;
+    }
+
+    public void priceMoreThan(int compare) {
+        repository.getAll().stream()
+                .filter(vehicle -> vehicle.getPrice().intValue() > compare)
+                .forEach(System.out::println);
     }
 
     protected Type getRandomBodyType() {

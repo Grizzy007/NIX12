@@ -1,6 +1,7 @@
 package com.nix.lesson10.service;
 
 import com.nix.lesson10.model.comparator.PriceComparator;
+import com.nix.lesson10.model.functionals.FunctionImpl;
 import com.nix.lesson10.model.vehicle.Brand;
 import com.nix.lesson10.model.vehicle.Truck;
 import com.nix.lesson10.repository.TruckRepository;
@@ -10,7 +11,9 @@ import org.slf4j.LoggerFactory;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.math.BigDecimal;
+import java.util.DoubleSummaryStatistics;
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 
 public class TruckService extends VehicleService<Truck> {
@@ -98,6 +101,24 @@ public class TruckService extends VehicleService<Truck> {
                 .thenComparing((o1, o2) -> o1.getModel().compareTo(o2.getModel()))
                 .thenComparing((o1, o2) -> o1.getModel().length() - o2.getModel().length()));
         printAll();
+    }
+
+    public void priceStatistic() {
+        DoubleSummaryStatistics cars = repository.getAll().stream()
+                .mapToDouble(truck -> truck.getPrice().doubleValue())
+                .summaryStatistics();
+        System.out.printf("""
+                    Average: %s
+                    Sum: %s
+                    Min: %s
+                    Max: %s
+                    Count: %s
+                """, cars.getAverage(), cars.getSum(), cars.getMin(), cars.getMax(), cars.getCount());
+
+    }
+
+    public Truck mapToTruck(Map<String,Object> map){
+        return FunctionImpl.toVehicle(map);
     }
 
     public Truck pickTruckByCapacity(BufferedReader reader) throws IOException {

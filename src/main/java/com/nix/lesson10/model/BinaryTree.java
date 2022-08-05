@@ -1,6 +1,9 @@
 package com.nix.lesson10.model;
 
+import com.nix.lesson10.model.comparator.PriceComparator;
 import com.nix.lesson10.model.vehicle.Vehicle;
+
+import java.util.Comparator;
 
 public class BinaryTree<T extends Vehicle> {
     private static class Node<T extends Vehicle> {
@@ -47,9 +50,11 @@ public class BinaryTree<T extends Vehicle> {
         if (current == null) {
             return new Node<>(vehicle);
         }
-        if (current.value.getPrice().intValue() < vehicle.getPrice().intValue()) {
+        PriceComparator comparator = new PriceComparator();
+        int compared = comparator.compare(current.value, vehicle);
+        if (compared > 0) {
             current.right = adding(current.right, vehicle);
-        } else if (current.value.getPrice().intValue() > vehicle.getPrice().intValue()) {
+        } else if (compared < 0) {
             current.left = adding(current.left, vehicle);
         } else {
             return current;
