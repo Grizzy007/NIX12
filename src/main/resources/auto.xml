@@ -1,9 +1,10 @@
 <?xml version="1.0"?>
 <autos>
-    <model>Model</model>
+    <model>M5</model>
     <brand>BMW</brand>
-    <price currency="$">1500</price>
-    <type>Sedan</type>
+    <price>1500</price>
+    <currency>$</currency>
+    <type>SEDAN</type>
     <created>2022-07-25T18:58:23Z</created>
     <count>15</count>
     <engine>
@@ -12,4 +13,3 @@
         <valves>6</valves>
     </engine>
 </autos>
-        (<.[^(><.)]+>)

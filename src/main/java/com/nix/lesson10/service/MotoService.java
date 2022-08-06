@@ -47,7 +47,8 @@ public class MotoService extends VehicleService<Motorcycle> {
         System.out.print("Input price: ");
         double tempPrice = Double.parseDouble(bf.readLine());
         BigDecimal price = BigDecimal.valueOf(tempPrice);
-        Motorcycle moto = new Motorcycle(model, price, brand, landing);
+        Motorcycle moto = new Motorcycle(model, price, brand, landing, 1 + RANDOM.nextDouble(4),
+                1 + RANDOM.nextInt(6));
         LOGGER.debug("Created motorcycle {}", moto.getId());
         return moto;
     }
@@ -58,7 +59,9 @@ public class MotoService extends VehicleService<Motorcycle> {
                 "Model-" + RANDOM.nextInt(1000),
                 BigDecimal.valueOf(RANDOM.nextDouble(1000.0)),
                 getRandomManufacturer(),
-                RANDOM.nextInt(150)
+                RANDOM.nextInt(150),
+                1 + RANDOM.nextDouble(6),
+                1 + RANDOM.nextInt(6)
         );
     }
 
@@ -128,7 +131,9 @@ public class MotoService extends VehicleService<Motorcycle> {
         Motorcycle toCreate = new Motorcycle("Model " + RANDOM.nextInt(100),
                 BigDecimal.valueOf(price),
                 getRandomManufacturer(),
-                RANDOM.nextInt(120));
+                RANDOM.nextInt(120),
+                RANDOM.nextDouble(6),
+                RANDOM.nextInt(6));
         Motorcycle motorcycle = list.stream()
                 .filter(moto -> moto.getPrice().equals(BigDecimal.valueOf(price)))
                 .findAny()

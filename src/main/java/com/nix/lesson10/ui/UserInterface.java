@@ -30,7 +30,8 @@ public class UserInterface {
                 3) Print vehicles;
                 4) Special actions;
                 5) Restyle garage;
-                6) Delete vehicle;
+                6) Read  auto from file;
+                7) Delete vehicle;
                 """);
         System.out.println("Press 7 to exit...");
         int choice = Integer.parseInt(reader.readLine());

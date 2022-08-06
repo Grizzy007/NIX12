@@ -58,7 +58,8 @@ public class AutoService extends VehicleService<Auto> {
         System.out.print("Input price: ");
         double tempPrice = Double.parseDouble(bf.readLine());
         BigDecimal price = BigDecimal.valueOf(tempPrice);
-        Auto auto = new Auto(model, price, brand, bodyType);
+        Auto auto = new Auto(model, price, brand, bodyType, 1 + RANDOM.nextDouble(7),
+                1+ RANDOM.nextInt(7) );
         LOGGER.debug("Created auto {}", auto.getId());
         return auto;
     }
@@ -69,7 +70,9 @@ public class AutoService extends VehicleService<Auto> {
                 "Model-" + RANDOM.nextInt(1000),
                 BigDecimal.valueOf(RANDOM.nextDouble(1000.0)),
                 getRandomManufacturer(),
-                getRandomBodyType()
+                getRandomBodyType(),
+                1 + RANDOM.nextDouble(7),
+                1 + RANDOM.nextInt(7)
         );
     }
 

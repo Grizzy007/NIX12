@@ -1,6 +1,7 @@
 package com.nix.lesson10.model.vehicle;
 
 import java.math.BigDecimal;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -10,8 +11,17 @@ public class Auto extends Vehicle {
     private String[] detailNames = {"clutch", "break", "exhaust pipe", "battery", "oil filter", "air filter"
             , "belt", "chain", "transmission", "starter"};
 
-    public Auto(String model, BigDecimal price, Brand manufacturer, Type bodyType) {
-        super(model, price, manufacturer);
+    public Auto(String model, BigDecimal price, Brand manufacturer, Type bodyType, double volume, int valves) {
+        super(model, price, manufacturer, volume, valves);
+        this.bodyType = bodyType;
+        details = new ArrayList<>();
+        randomDetail();
+        randomDetail();
+    }
+
+    public Auto(String model, BigDecimal price, char currency, Brand manufacturer, LocalDateTime created,
+                double volume, int valves, Type bodyType) {
+        super(model, price, currency, manufacturer, created, volume, valves);
         this.bodyType = bodyType;
         details = new ArrayList<>();
         randomDetail();
@@ -38,8 +48,10 @@ public class Auto extends Vehicle {
     public String toString() {
         return manufacturer + " " + model +
                 ", bodyType = " + bodyType +
-                ", price = " + price + "$"
-                + ", details: = " + details.stream().reduce((o1, o2) -> o1 + ", " + o2);
+                ", price = " + price + currency
+                + ", details: = " + details.stream().reduce((o1, o2) -> o1 + ", " + o2).orElse("No details")
+                + ", created = " + created
+                + ", engine: = " + engine;
     }
 
     private void randomDetail() {

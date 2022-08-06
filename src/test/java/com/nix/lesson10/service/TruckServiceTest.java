@@ -11,6 +11,7 @@ import org.mockito.Mockito;
 
 import java.math.BigDecimal;
 import java.util.List;
+import java.util.Random;
 
 class TruckServiceTest {
 
@@ -24,7 +25,7 @@ class TruckServiceTest {
     }
 
     private Truck createTruck() {
-        return new Truck("Model", BigDecimal.ZERO, Brand.VOLKSWAGEN, 15);
+        return new Truck("Model", BigDecimal.ZERO, Brand.VOLKSWAGEN, 15, 4.2, 6);
     }
 
     @Test
@@ -34,9 +35,9 @@ class TruckServiceTest {
     }
 
     @Test
-    void saveNegativeTrucks(){
+    void saveNegativeTrucks() {
         final List<Truck> actual = target.createList(-1);
-        Assertions.assertThrows(IllegalArgumentException.class,() -> target.saveList(actual));
+        Assertions.assertThrows(IllegalArgumentException.class, () -> target.saveList(actual));
     }
 
     @Test

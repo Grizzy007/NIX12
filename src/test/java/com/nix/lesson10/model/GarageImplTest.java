@@ -14,7 +14,7 @@ class GarageImplTest {
     Auto auto;
 
     private Auto createAuto() {
-        return new Auto("Model", BigDecimal.ZERO, Brand.TOYOTA, Type.SUV);
+        return new Auto("Model", BigDecimal.ZERO, Brand.TOYOTA, Type.SUV, 3, 4);
     }
 
     @BeforeEach
@@ -58,7 +58,7 @@ class GarageImplTest {
     @Test
     void replaceAutoByRestyle() {
         garage.addFirst(auto, 10);
-        Auto a = new Auto("M5", BigDecimal.valueOf(1500), Brand.BMW, Type.SEDAN);
+        Auto a = new Auto("M5", BigDecimal.valueOf(1500), Brand.BMW, Type.SEDAN, 4, 6);
         Assertions.assertEquals(garage.replaceAutoByRestyle(10, a).get(), a);
     }
 
@@ -72,7 +72,7 @@ class GarageImplTest {
 
     @Test
     void getLastRestyle() {
-        garage.addFirst(new Auto("A7", BigDecimal.valueOf(1500), Brand.AUDI, Type.SEDAN), 1);
+        garage.addFirst(new Auto("A7", BigDecimal.valueOf(1500), Brand.AUDI, Type.SEDAN, 5.5, 8), 1);
         Auto a = garage.addLast(auto, 5);
         Assertions.assertEquals(garage.getLastRestyle(), auto);
     }

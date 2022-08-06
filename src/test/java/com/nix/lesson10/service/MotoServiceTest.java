@@ -23,7 +23,7 @@ class MotoServiceTest {
     }
 
     private Motorcycle createMoto() {
-        return new Motorcycle("Model", BigDecimal.ZERO, Brand.VOLKSWAGEN, 110);
+        return new Motorcycle("Model", BigDecimal.ZERO, Brand.VOLKSWAGEN, 110, 1.2,2);
     }
 
     @Test

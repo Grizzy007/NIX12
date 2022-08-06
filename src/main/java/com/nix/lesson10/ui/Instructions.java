@@ -9,6 +9,7 @@ public enum Instructions {
     PRINT("Print vehicle", new Print()),
     SPECIAL("Special actions", new Special()),
     GARAGE("Auto restyle garage", new RestyleGarage()),
+    FILE("Read from file", new ReadFile()),
     DELETE("Delete vehicle", new Delete()),
     EXIT("Exit", null);
 

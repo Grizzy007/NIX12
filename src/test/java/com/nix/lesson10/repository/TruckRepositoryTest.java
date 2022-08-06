@@ -24,7 +24,7 @@ class TruckRepositoryTest {
     }
 
     private Truck createTruck() {
-        return new Truck("Model", BigDecimal.ZERO, Brand.VOLKSWAGEN, 15);
+        return new Truck("Model", BigDecimal.ZERO, Brand.VOLKSWAGEN, 15, 4, 8);
     }
 
     @Test

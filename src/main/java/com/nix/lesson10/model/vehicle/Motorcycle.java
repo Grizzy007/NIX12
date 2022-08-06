@@ -5,8 +5,8 @@ import java.math.BigDecimal;
 public class Motorcycle extends Vehicle {
     private int landing;
 
-    public Motorcycle(String model, BigDecimal price, Brand manufacturer, int landing) {
-        super(model, price, manufacturer);
+    public Motorcycle(String model, BigDecimal price, Brand manufacturer, int landing, double volume, int valves) {
+        super(model, price, manufacturer, volume,valves);
         this.landing = landing;
     }
 
@@ -22,6 +22,7 @@ public class Motorcycle extends Vehicle {
     public String toString() {
         return manufacturer + " " + model +
                 ", landing = " + landing +
-                " cm, price = " + price + "$";
+                " cm, price = " + price + currency
+                + ", created = " + created;
     }
 }

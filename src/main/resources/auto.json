@@ -1,0 +1,16 @@
+[
+  {
+    "model": "M5",
+    "price": "1500",
+    "currency": "$",
+    "brand": "BMW",
+    "type": "SEDAN",
+    "created": "2022-07-25T18:58:23Z",
+    "count": "15",
+    "engine": {
+      "volume": "2",
+      "brand": "BMW",
+      "valves": "6"
+    }
+  }
+]

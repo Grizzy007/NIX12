@@ -51,7 +51,8 @@ public class TruckService extends VehicleService<Truck> {
         System.out.print("Input price: ");
         double tempPrice = Double.parseDouble(bf.readLine());
         BigDecimal price = BigDecimal.valueOf(tempPrice);
-        Truck truck = new Truck(model, price, brand, landing);
+        Truck truck = new Truck(model, price, brand, landing, 1 + RANDOM.nextDouble(10),
+                1 + RANDOM.nextInt(12));
         LOGGER.debug("Created truck {}", truck.getId());
         return truck;
     }
@@ -91,7 +92,9 @@ public class TruckService extends VehicleService<Truck> {
                 "Model-" + RANDOM.nextInt(1000),
                 BigDecimal.valueOf(RANDOM.nextDouble(1000.0)),
                 getRandomManufacturer(),
-                RANDOM.nextInt(100)
+                RANDOM.nextInt(100),
+                1 + RANDOM.nextDouble(12),
+                1 + RANDOM.nextInt(12)
         );
     }
 
@@ -117,8 +120,8 @@ public class TruckService extends VehicleService<Truck> {
 
     }
 
-    public Truck mapToTruck(Map<String,Object> map){
-        return FunctionImpl.toVehicle(map);
+    public Truck mapToTruck(Map<String, Object> map) {
+        return FunctionImpl.toTruck(map);
     }
 
     public Truck pickTruckByCapacity(BufferedReader reader) throws IOException {
@@ -130,7 +133,7 @@ public class TruckService extends VehicleService<Truck> {
                         "Special model",
                         BigDecimal.valueOf(RANDOM.nextInt(1000)),
                         getRandomManufacturer(),
-                        capacity)
+                        capacity, 5.5, 6)
         );
         Optional<Truck> truck = trucks.stream()
                 .filter((t) -> t.getCapacity() == capacity)
