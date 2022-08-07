@@ -16,7 +16,6 @@ public class VehicleFileReader {
     public Auto redaFromFile(String type) {
         String filename;
         Pattern pattern;
-        Pattern p2 = null;
         if (type.equals("xml")) {
             filename = "./src/main/resources/auto.xml";
             pattern = Pattern.compile("(\\w+)>(.*)<");
