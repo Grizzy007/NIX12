@@ -4,26 +4,25 @@ import com.nix.lesson10.model.functionals.FunctionImpl;
 import com.nix.lesson10.model.vehicle.Auto;
 
 import java.io.*;
+import java.net.URISyntaxException;
 import java.nio.charset.StandardCharsets;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.nio.file.Paths;
+import java.util.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class VehicleFileReader {
-    public Auto redaFromFile(String type) {
-        String filename;
+    private final ClassLoader classLoader = Thread.currentThread().getContextClassLoader();
+    public Auto redaFromFile(String type) throws URISyntaxException {
+        File file;
         Pattern pattern;
         if (type.equals("xml")) {
-            filename = "./src/main/resources/auto.xml";
+            file = Paths.get(Objects.requireNonNull(classLoader.getResource("auto.xml")).toURI()).toFile();
             pattern = Pattern.compile("(\\w+)>(.*)<");
         } else {
-            filename = "./src/main/resources/auto.json";
+            file = Paths.get(Objects.requireNonNull(classLoader.getResource("auto.json")).toURI()).toFile();
             pattern = Pattern.compile("(\\w+)\":\\s\"(.*)\"");
         }
-        File file = new File(filename);
         if (file.isDirectory() || !file.exists()) {
             return null;
         }
