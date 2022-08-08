@@ -1,15 +1,16 @@
-package com.EXAMPLE.moDEL;
+package com.example.model;
 
 import lombok.Data;
 
 @Data
-public abstract class Product implements IProduct {
+public abstract class Product{
     protected long id;
     protected boolean available;
     protected String title;
     protected double price;
 
-    public String getBasicInfo() {
+    @Override
+    public String toString() {
         return "Product{" +
                 "id=" + id +
                 ", available=" + available +
