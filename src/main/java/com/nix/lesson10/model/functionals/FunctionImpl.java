@@ -1,9 +1,7 @@
 package com.nix.lesson10.model.functionals;
 
-import com.nix.lesson10.model.vehicle.Auto;
-import com.nix.lesson10.model.vehicle.Brand;
-import com.nix.lesson10.model.vehicle.Truck;
-import com.nix.lesson10.model.vehicle.Type;
+import com.nix.lesson10.model.AutoBuilder;
+import com.nix.lesson10.model.vehicle.*;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
@@ -20,12 +18,20 @@ public class FunctionImpl {
     }
 
     public static Auto toAuto(Map<String, Object> map) {
-        DateTimeFormatter formatter =DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss'Z'");
-        Function<Map<String, Object>, Auto> toAuto = m -> new Auto((String) m.get("model"),
-                BigDecimal.valueOf(Double.parseDouble(m.get("price").toString())),
-                m.get("currency").toString().charAt(0), Brand.valueOf(m.get("brand").toString()),
-                LocalDateTime.parse(m.get("created").toString(), formatter), Double.parseDouble(m.get("volume").toString()),
-                Integer.parseInt(m.get("valves").toString()), Type.valueOf(m.get("type").toString()));
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss'Z'");
+        Function<Map<String, Object>, Auto> toAuto = m ->
+        {
+            AutoBuilder builder = new AutoBuilder();
+            builder.buildModel((String) m.get("model"));
+            builder.buildPrice(BigDecimal.valueOf(Double.parseDouble(m.get("price").toString())));
+            builder.buildManufacturer(Brand.valueOf(m.get("brand").toString()));
+            builder.buildCreated(LocalDateTime.parse(m.get("created").toString(), formatter));
+            builder.buildBodyType(Type.valueOf(m.get("type").toString()));
+            builder.buildEngine(new Engine(Double.parseDouble(m.get("volume").toString()),
+                    Brand.valueOf(m.get("brand").toString()),
+                    Integer.parseInt(m.get("valves").toString())));
+            return builder.getAuto();
+        };
         return toAuto.apply(map);
     }
 }

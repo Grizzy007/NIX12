@@ -6,7 +6,7 @@ public class Motorcycle extends Vehicle {
     private int landing;
 
     public Motorcycle(String model, BigDecimal price, Brand manufacturer, int landing, double volume, int valves) {
-        super(model, price, manufacturer, volume,valves);
+        super(model, price, manufacturer, volume, valves);
         this.landing = landing;
     }
 

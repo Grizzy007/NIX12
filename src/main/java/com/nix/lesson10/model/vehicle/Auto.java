@@ -11,7 +11,13 @@ public class Auto extends Vehicle {
     private String[] detailNames = {"clutch", "break", "exhaust pipe", "battery", "oil filter", "air filter"
             , "belt", "chain", "transmission", "starter"};
 
-    public Auto(String model, BigDecimal price, Brand manufacturer, Type bodyType, double volume, int valves) {
+    public Auto(){
+        details = new ArrayList<>();
+        randomDetail();
+        randomDetail();
+    }
+
+    private Auto(String model, BigDecimal price, Brand manufacturer, Type bodyType, double volume, int valves) {
         super(model, price, manufacturer, volume, valves);
         this.bodyType = bodyType;
         details = new ArrayList<>();
@@ -19,17 +25,13 @@ public class Auto extends Vehicle {
         randomDetail();
     }
 
-    public Auto(String model, BigDecimal price, char currency, Brand manufacturer, LocalDateTime created,
+    private Auto(String model, BigDecimal price, char currency, Brand manufacturer, LocalDateTime created,
                 double volume, int valves, Type bodyType) {
         super(model, price, currency, manufacturer, created, volume, valves);
         this.bodyType = bodyType;
         details = new ArrayList<>();
         randomDetail();
         randomDetail();
-    }
-
-    public Auto() {
-        super();
     }
 
     public Type getBodyType() {

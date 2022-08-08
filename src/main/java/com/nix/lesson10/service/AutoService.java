@@ -1,10 +1,8 @@
 package com.nix.lesson10.service;
 
+import com.nix.lesson10.model.AutoBuilder;
 import com.nix.lesson10.model.comparator.PriceComparator;
-import com.nix.lesson10.model.vehicle.Auto;
-import com.nix.lesson10.model.vehicle.Brand;
-import com.nix.lesson10.model.vehicle.Type;
-import com.nix.lesson10.model.vehicle.Vehicle;
+import com.nix.lesson10.model.vehicle.*;
 import com.nix.lesson10.repository.AutoRepository;
 import com.nix.lesson10.repository.CrudRepository;
 import org.slf4j.Logger;
@@ -13,6 +11,7 @@ import org.slf4j.LoggerFactory;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.math.BigDecimal;
+import java.time.LocalDateTime;
 import java.util.Map;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -58,22 +57,32 @@ public class AutoService extends VehicleService<Auto> {
         System.out.print("Input price: ");
         double tempPrice = Double.parseDouble(bf.readLine());
         BigDecimal price = BigDecimal.valueOf(tempPrice);
-        Auto auto = new Auto(model, price, brand, bodyType, 1 + RANDOM.nextDouble(7),
-                1+ RANDOM.nextInt(7) );
+        AutoBuilder builder = new AutoBuilder();
+        builder.buildModel(model);
+        builder.buildPrice(price);
+        builder.buildManufacturer(brand);
+        builder.buildCreated(LocalDateTime.now());
+        builder.buildBodyType(bodyType);
+        builder.buildEngine(new Engine(1 + RANDOM.nextDouble(7),
+                        brand,
+                1+ RANDOM.nextInt(7)));
+        Auto auto = builder.getAuto();
         LOGGER.debug("Created auto {}", auto.getId());
         return auto;
     }
 
     @Override
     protected Auto createRandom() {
-        return new Auto(
-                "Model-" + RANDOM.nextInt(1000),
-                BigDecimal.valueOf(RANDOM.nextDouble(1000.0)),
+        AutoBuilder builder = new AutoBuilder();
+        builder.buildModel("Model-" + RANDOM.nextInt(1000));
+        builder.buildPrice( BigDecimal.valueOf(RANDOM.nextDouble(1000.0)));
+        builder.buildManufacturer(getRandomManufacturer());
+        builder.buildCreated(LocalDateTime.now());
+        builder.buildBodyType( getRandomBodyType());
+        builder.buildEngine(new Engine(1 + RANDOM.nextDouble(7),
                 getRandomManufacturer(),
-                getRandomBodyType(),
-                1 + RANDOM.nextDouble(7),
-                1 + RANDOM.nextInt(7)
-        );
+                1+ RANDOM.nextInt(7)));
+       return builder.getAuto();
     }
 
     @Override

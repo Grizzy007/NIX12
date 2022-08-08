@@ -1,18 +1,20 @@
 package com.nix.lesson10.service;
 
+import com.nix.lesson10.model.AutoBuilder;
 import com.nix.lesson10.model.vehicle.Auto;
 import com.nix.lesson10.model.vehicle.Brand;
+import com.nix.lesson10.model.vehicle.Engine;
 import com.nix.lesson10.model.vehicle.Type;
 import com.nix.lesson10.repository.AutoRepository;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.ArgumentCaptor;
 import org.mockito.ArgumentMatcher;
 import org.mockito.Mockito;
 
-import org.junit.jupiter.api.Assertions;
-
 import java.math.BigDecimal;
+import java.time.LocalDateTime;
 import java.util.List;
 
 class AutoServiceTest {
@@ -27,7 +29,16 @@ class AutoServiceTest {
     }
 
     private Auto createAuto() {
-        return new Auto("Model", BigDecimal.ZERO, Brand.TOYOTA, Type.SUV, 2.4, 4);
+        AutoBuilder builder = new AutoBuilder();
+        builder.buildModel("Model");
+        builder.buildPrice(BigDecimal.valueOf(1200));
+        builder.buildManufacturer(Brand.AUDI);
+        builder.buildCreated(LocalDateTime.now());
+        builder.buildBodyType(Type.SUV);
+        builder.buildEngine(new Engine(4,
+                Brand.AUDI,
+                4));
+        return builder.getAuto();
     }
 
     @Test
