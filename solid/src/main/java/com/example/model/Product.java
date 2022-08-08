@@ -8,6 +8,7 @@ public abstract class Product{
     protected boolean available;
     protected String title;
     protected double price;
+    protected String channel;
 
     @Override
     public String toString() {
