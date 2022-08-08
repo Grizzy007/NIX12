@@ -27,7 +27,7 @@ class AutoServiceTest {
     }
 
     private Auto createAuto() {
-        return new Auto("Model", BigDecimal.ZERO, Brand.TOYOTA, Type.SUV);
+        return new Auto("Model", BigDecimal.ZERO, Brand.TOYOTA, Type.SUV, 2.4, 4);
     }
 
     @Test
@@ -37,9 +37,9 @@ class AutoServiceTest {
     }
 
     @Test
-    void saveNegativeAutos(){
+    void saveNegativeAutos() {
         final List<Auto> actual = target.createList(-1);
-        Assertions.assertThrows(IllegalArgumentException.class,() -> target.saveList(actual));
+        Assertions.assertThrows(IllegalArgumentException.class, () -> target.saveList(actual));
     }
 
 
@@ -57,7 +57,7 @@ class AutoServiceTest {
     }
 
     @Test
-    void createAutos(){
+    void createAutos() {
         Auto auto = createAuto();
         autoRepository.create(auto);
         autoRepository.create(auto);
@@ -66,7 +66,7 @@ class AutoServiceTest {
     }
 
     @Test
-    void getByIdNull(){
+    void getByIdNull() {
         ArgumentCaptor<String> captor = ArgumentCaptor.forClass(String.class);
         autoRepository.getById(null);
         Mockito.verify(autoRepository).getById(captor.capture());
@@ -74,10 +74,11 @@ class AutoServiceTest {
     }
 
     @Test
-    void match(){
+    void match() {
         Auto auto = createAuto();
         Mockito.when(autoRepository.create(Mockito.argThat(new ArgumentMatcher<>() {
             Auto auto;
+
             @Override
             public boolean matches(Auto car) {
                 return auto.getPrice().equals(car.getPrice()) &&
@@ -89,7 +90,7 @@ class AutoServiceTest {
     }
 
     @Test
-    void  printAll(){
+    void printAll() {
         List<Auto> autos = List.of(createAuto(), createAuto());
         Mockito.when(autoRepository.getAll()).thenReturn(autos);
         target.printAll();

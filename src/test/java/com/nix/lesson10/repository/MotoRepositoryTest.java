@@ -24,7 +24,7 @@ class MotoRepositoryTest {
     }
 
     private Motorcycle createMoto() {
-        return new Motorcycle("Model", BigDecimal.ZERO, Brand.TOYOTA, 100);
+        return new Motorcycle("Model", BigDecimal.ZERO, Brand.TOYOTA, 100,2,3);
     }
 
     @Test

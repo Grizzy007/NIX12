@@ -25,7 +25,7 @@ class AutoRepositoryTest {
     }
 
     private Auto createAuto() {
-        return new Auto("Model", BigDecimal.ZERO, Brand.TOYOTA, Type.SUV);
+        return new Auto("Model", BigDecimal.ZERO, Brand.TOYOTA, Type.SUV, 2,4);
     }
 
     @Test

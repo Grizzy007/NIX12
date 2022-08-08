@@ -5,8 +5,8 @@ import java.math.BigDecimal;
 public class Truck extends Vehicle {
     private int capacity;
 
-    public Truck(String model, BigDecimal price, Brand manufacturer, int capacity) {
-        super(model, price, manufacturer);
+    public Truck(String model, BigDecimal price, Brand manufacturer, int capacity, double volume, int valves) {
+        super(model, price, manufacturer, volume, valves);
         this.capacity = capacity;
     }
 
@@ -22,6 +22,7 @@ public class Truck extends Vehicle {
     public String toString() {
         return manufacturer + " " + model +
                 ", capacity = " + capacity +
-                ", price = " + price + "$";
+                ", price = " + price + currency
+                + ", created = " + created;
     }
 }

@@ -2,6 +2,7 @@ package com.nix.lesson10.ui;
 
 import java.io.BufferedReader;
 import java.io.IOException;
+import java.net.URISyntaxException;
 
 public enum Instructions {
     CREATE("Create vehicle", new Create()),
@@ -9,6 +10,7 @@ public enum Instructions {
     PRINT("Print vehicle", new Print()),
     SPECIAL("Special actions", new Special()),
     GARAGE("Auto restyle garage", new RestyleGarage()),
+    FILE("Read from file", new ReadFile()),
     DELETE("Delete vehicle", new Delete()),
     EXIT("Exit", null);
 
@@ -28,7 +30,7 @@ public enum Instructions {
         return action;
     }
 
-    public Command execute(BufferedReader reader) throws IOException {
+    public Command execute(BufferedReader reader) throws IOException, URISyntaxException {
         if (action != null) {
             action.execute(reader);
         }
