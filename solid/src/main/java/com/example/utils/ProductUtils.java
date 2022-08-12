@@ -17,7 +17,6 @@ public class ProductUtils implements ProductGenerator, ProductSaver, ProductNoti
          repository = ProductRepository.getInstance();
     }
 
-
     public void saveNotifiableProduct(NotifiableProduct product) {
         repository.save(product);
     }
@@ -27,12 +26,11 @@ public class ProductUtils implements ProductGenerator, ProductSaver, ProductNoti
     }
 
     public int filterNotifiableProductsAndSendNotifications() {
-        int notifications = 0;
         List<NotifiableProduct> products = repository.getAll().stream()
                 .filter(NotifiableProduct.class::isInstance)
                 .map(NotifiableProduct.class::cast).toList();
         System.out.println(products.size());
-        return notifications;
+        return products.size();
     }
 
     public List<Product> getAllSaved() {

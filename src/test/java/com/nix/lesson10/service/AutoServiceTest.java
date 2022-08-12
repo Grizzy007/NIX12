@@ -1,6 +1,5 @@
 package com.nix.lesson10.service;
 
-import com.nix.lesson10.model.AutoBuilder;
 import com.nix.lesson10.model.vehicle.Auto;
 import com.nix.lesson10.model.vehicle.Brand;
 import com.nix.lesson10.model.vehicle.Engine;
@@ -29,7 +28,7 @@ class AutoServiceTest {
     }
 
     private Auto createAuto() {
-        AutoBuilder builder = new AutoBuilder();
+        Auto.AutoBuilder builder = new Auto.AutoBuilder();
         builder.buildModel("Model");
         builder.buildPrice(BigDecimal.valueOf(1200));
         builder.buildManufacturer(Brand.AUDI);

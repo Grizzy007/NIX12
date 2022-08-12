@@ -1,5 +1,6 @@
 package com.example.model;
 
+import com.example.utils.ProductSaver;
 import lombok.Setter;
 
 import java.util.Objects;
@@ -21,6 +22,11 @@ public class NotifiableProduct extends Product implements Generatable {
                 ", title='" + title + '\'' +
                 ", price=" + price +
                 '}';
+    }
+
+    @Override
+    public void save(ProductSaver visitor) {
+        visitor.saveNotifiableProduct(this);
     }
 
     @Override

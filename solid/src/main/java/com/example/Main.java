@@ -19,14 +19,7 @@ public class Main {
         products.add(utils.generateRandomProduct());
         products.add(utils.generateRandomProduct());
         products.add(utils.generateRandomProduct());
-        products.forEach(it -> {
-            if (it instanceof ProductBundle bundle) {
-                utils.saveProductBundle(bundle);
-            } else if (it instanceof NotifiableProduct product) {
-                utils.saveNotifiableProduct(product);
-            }
-        });
-
+        products.forEach(it -> it.save(utils));
         System.out.println(utils.getAllSaved());
         System.out.println("notifications sent: " + utils.filterNotifiableProductsAndSendNotifications());
     }

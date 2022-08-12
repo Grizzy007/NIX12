@@ -1,5 +1,6 @@
 package com.example.model;
 
+import com.example.utils.ProductSaver;
 import lombok.Setter;
 
 import java.util.Objects;
@@ -23,6 +24,11 @@ public class ProductBundle extends Product implements Countable{
                 ", price=" + price +
                 ", amountInBundle=" + amount +
                 '}';
+    }
+
+    @Override
+    public void save(ProductSaver visitor) {
+        visitor.saveProductBundle(this);
     }
 
     @Override
