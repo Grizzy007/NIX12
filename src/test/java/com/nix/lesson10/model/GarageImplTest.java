@@ -2,19 +2,30 @@ package com.nix.lesson10.model;
 
 import com.nix.lesson10.model.vehicle.Auto;
 import com.nix.lesson10.model.vehicle.Brand;
+import com.nix.lesson10.model.vehicle.Engine;
 import com.nix.lesson10.model.vehicle.Type;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.math.BigDecimal;
+import java.time.LocalDateTime;
 
 class GarageImplTest {
     Garage<Auto> garage;
     Auto auto;
 
     private Auto createAuto() {
-        return new Auto("Model", BigDecimal.ZERO, Brand.TOYOTA, Type.SUV, 3, 4);
+        AutoBuilder builder = new AutoBuilder();
+        builder.buildModel("Model");
+        builder.buildPrice( BigDecimal.valueOf(1200));
+        builder.buildManufacturer(Brand.AUDI);
+        builder.buildCreated(LocalDateTime.now());
+        builder.buildBodyType(Type.SUV);
+        builder.buildEngine(new Engine(4,
+                Brand.AUDI,
+                4));
+        return builder.getAuto();
     }
 
     @BeforeEach
@@ -58,7 +69,16 @@ class GarageImplTest {
     @Test
     void replaceAutoByRestyle() {
         garage.addFirst(auto, 10);
-        Auto a = new Auto("M5", BigDecimal.valueOf(1500), Brand.BMW, Type.SEDAN, 4, 6);
+        AutoBuilder builder = new AutoBuilder();
+        builder.buildModel("Model");
+        builder.buildPrice( BigDecimal.valueOf(1200));
+        builder.buildManufacturer(Brand.AUDI);
+        builder.buildCreated(LocalDateTime.now());
+        builder.buildBodyType(Type.SUV);
+        builder.buildEngine(new Engine(4,
+                Brand.AUDI,
+                4));
+        Auto a = builder.getAuto();
         Assertions.assertEquals(garage.replaceAutoByRestyle(10, a).get(), a);
     }
 
@@ -72,7 +92,7 @@ class GarageImplTest {
 
     @Test
     void getLastRestyle() {
-        garage.addFirst(new Auto("A7", BigDecimal.valueOf(1500), Brand.AUDI, Type.SEDAN, 5.5, 8), 1);
+        garage.addFirst(auto, 1);
         Auto a = garage.addLast(auto, 5);
         Assertions.assertEquals(garage.getLastRestyle(), auto);
     }

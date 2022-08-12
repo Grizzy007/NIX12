@@ -13,6 +13,7 @@ import java.util.regex.Pattern;
 
 public class VehicleFileReader {
     private final ClassLoader classLoader = Thread.currentThread().getContextClassLoader();
+
     public Auto redaFromFile(String type) throws URISyntaxException {
         File file;
         Pattern pattern;
