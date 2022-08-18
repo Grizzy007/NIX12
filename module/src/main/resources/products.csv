@@ -1,0 +1,11 @@
+type,model,diagonal,screen type,country,price,series
+Television,none,49,QLED,China,200,QLED TV
+Television,none,55,LED,Japan,850,Ultra TV
+Telephone,Xiaomi,none,LCD,China,500,Mi
+Telephone,Samsung,none,AMOLED,none,1500,S
+Telephone,Samsung,none,AMOLED,none,800,A
+Television,none,24,LCD,South Korea,300,TVison
+Television,none,40,FULLHD,Japan,700,TV HD
+Telephone,Apple,none,LED,none,1300,Iphone
+Telephone,Huawei,none,LCD,none,500,P smart
+Television,none,42,QLED,Taiwan,200,TV LED
