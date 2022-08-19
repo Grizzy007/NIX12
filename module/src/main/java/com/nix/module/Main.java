@@ -1,6 +1,9 @@
 package com.nix.module;
 
-import com.nix.module.entity.*;
+import com.nix.module.entity.Invoice;
+import com.nix.module.entity.Telephone;
+import com.nix.module.entity.Television;
+import com.nix.module.entity.Type;
 import com.nix.module.service.ShopService;
 
 import java.io.IOException;
@@ -26,12 +29,15 @@ public class Main {
                         .count()).sum();
         System.out.printf("Number of sold telephones => %s%nNumber of sold televisions=> %s%n",
                 soldTelephones,soldTelevisions);
-        double sumOfMinInvoice = invoices.stream()
-                .mapToDouble(i -> i.getElectronics().stream()
-                        .mapToDouble(p -> p.getPrice().doubleValue())
-                        .sum())
-                .min().orElseThrow();
-        System.out.printf("Minimal sum of invoice prices => %f%n", sumOfMinInvoice);
+        Invoice minSum = invoices.stream()
+                        .min((p1,p2)->p1.getElectronics().stream()
+                                .mapToInt(p -> p.getPrice().intValue())
+                                .sum() - p2.getElectronics().stream()
+                                .mapToInt(p -> p.getPrice().intValue())
+                                .sum()).orElseThrow();
+        System.out.printf("Minimal sum of invoice prices => %d%n And this invoice => %s%n",
+                minSum.getElectronics().stream().mapToInt(p -> p.getPrice().intValue())
+                .sum(),minSum);
         double sumOfAll = invoices.stream()
                 .mapToDouble(i -> i.getElectronics().stream()
                         .mapToDouble((p -> p.getPrice().doubleValue()))
