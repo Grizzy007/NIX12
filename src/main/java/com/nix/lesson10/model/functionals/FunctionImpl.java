@@ -1,6 +1,5 @@
 package com.nix.lesson10.model.functionals;
 
-import com.nix.lesson10.model.AutoBuilder;
 import com.nix.lesson10.model.vehicle.*;
 
 import java.math.BigDecimal;
@@ -21,7 +20,7 @@ public class FunctionImpl {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss'Z'");
         Function<Map<String, Object>, Auto> toAuto = m ->
         {
-            AutoBuilder builder = new AutoBuilder();
+            Auto.AutoBuilder builder = new Auto.AutoBuilder();
             builder.buildModel((String) m.get("model"));
             builder.buildPrice(BigDecimal.valueOf(Double.parseDouble(m.get("price").toString())));
             builder.buildManufacturer(Brand.valueOf(m.get("brand").toString()));

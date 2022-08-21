@@ -60,4 +60,41 @@ public class Auto extends Vehicle {
         String detail = detailNames[(int) (Math.random() * 10)];
         details.add(detail);
     }
+    public static class AutoBuilder {
+        private Auto auto;
+
+        public AutoBuilder() {
+            auto = new Auto();
+        }
+
+        public void buildModel(String model) {
+            auto.setModel(model);
+        }
+
+        public void buildPrice(BigDecimal price) {
+            auto.setPrice(price);
+        }
+
+        public void buildManufacturer(Brand manufacturer) {
+            auto.setManufacturer(manufacturer);
+        }
+
+        public void buildCreated(LocalDateTime created) {
+            auto.setCreated(created);
+        }
+
+        public void buildEngine(Engine engine) {
+            auto.setEngine(engine);
+        }
+
+        public void buildBodyType(Type bodyType) {
+            if (bodyType.toString().length() <= 20) {
+                auto.setBodyType(bodyType);
+            }
+        }
+
+        public Auto getAuto() {
+            return auto;
+        }
+    }
 }

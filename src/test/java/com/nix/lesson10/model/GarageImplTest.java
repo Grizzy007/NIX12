@@ -16,7 +16,7 @@ class GarageImplTest {
     Auto auto;
 
     private Auto createAuto() {
-        AutoBuilder builder = new AutoBuilder();
+        Auto.AutoBuilder builder = new Auto.AutoBuilder();
         builder.buildModel("Model");
         builder.buildPrice( BigDecimal.valueOf(1200));
         builder.buildManufacturer(Brand.AUDI);
@@ -69,7 +69,7 @@ class GarageImplTest {
     @Test
     void replaceAutoByRestyle() {
         garage.addFirst(auto, 10);
-        AutoBuilder builder = new AutoBuilder();
+        Auto.AutoBuilder builder = new Auto.AutoBuilder();
         builder.buildModel("Model");
         builder.buildPrice( BigDecimal.valueOf(1200));
         builder.buildManufacturer(Brand.AUDI);

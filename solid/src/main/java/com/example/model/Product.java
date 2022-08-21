@@ -1,5 +1,6 @@
 package com.example.model;
 
+import com.example.utils.ProductSaver;
 import lombok.Data;
 
 @Data
@@ -19,4 +20,6 @@ public abstract class Product{
                 ", price=" + price +
                 '}';
     }
+
+    public abstract void save(ProductSaver visitor);
 }

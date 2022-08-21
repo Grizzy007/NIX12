@@ -1,6 +1,5 @@
 package com.nix.lesson10.repository;
 
-import com.nix.lesson10.model.AutoBuilder;
 import com.nix.lesson10.model.vehicle.Auto;
 import com.nix.lesson10.model.vehicle.Brand;
 import com.nix.lesson10.model.vehicle.Engine;
@@ -28,9 +27,9 @@ class AutoRepositoryTest {
     }
 
     private Auto createAuto() {
-        AutoBuilder builder = new AutoBuilder();
+        Auto.AutoBuilder builder = new Auto.AutoBuilder();
         builder.buildModel("Model");
-        builder.buildPrice( BigDecimal.valueOf(1200));
+        builder.buildPrice(BigDecimal.valueOf(1200));
         builder.buildManufacturer(Brand.AUDI);
         builder.buildCreated(LocalDateTime.now());
         builder.buildBodyType(Type.SUV);
@@ -85,6 +84,6 @@ class AutoRepositoryTest {
     void delete() {
         target.create(auto);
         Auto deleted = target.delete(auto.getId());
-        Assertions.assertEquals(auto,deleted);
+        Assertions.assertEquals(auto, deleted);
     }
 }
