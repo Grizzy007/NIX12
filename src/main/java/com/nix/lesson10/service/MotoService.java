@@ -1,5 +1,7 @@
 package com.nix.lesson10.service;
 
+import com.nix.lesson10.annotations.Autowired;
+import com.nix.lesson10.annotations.Singleton;
 import com.nix.lesson10.model.comparator.PriceComparator;
 import com.nix.lesson10.model.vehicle.Brand;
 import com.nix.lesson10.model.vehicle.Motorcycle;
@@ -12,11 +14,13 @@ import java.io.IOException;
 import java.math.BigDecimal;
 import java.util.List;
 
+@Singleton
 public class MotoService extends VehicleService<Motorcycle> {
     private static final Logger LOGGER = LoggerFactory.getLogger(MotoService.class);
 
     private static MotoService instance;
 
+    @Autowired
     private MotoService(MotoRepository motoRepository) {
         super(motoRepository);
     }

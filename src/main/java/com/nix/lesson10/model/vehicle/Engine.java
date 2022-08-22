@@ -1,15 +1,20 @@
 package com.nix.lesson10.model.vehicle;
 
+import java.util.UUID;
+
 public class Engine {
+    private String id;
     private double volume;
     private Brand brand;
     private int valves;
 
     public Engine(double volume, Brand brand, int valves) {
+        id = UUID.randomUUID().toString();
         this.volume = volume;
         this.brand = brand;
         this.valves = valves;
     }
+
 
     public double getVolume() {
         return volume;
@@ -37,7 +42,7 @@ public class Engine {
 
     @Override
     public String toString() {
-        return brand +
+        return brand + " " + id +
                 " volume=" + volume +
                 ", valves=" + valves;
     }

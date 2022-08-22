@@ -1,11 +1,14 @@
 package com.nix.lesson10.repository;
 
+import com.nix.lesson10.annotations.Autowired;
+import com.nix.lesson10.annotations.Singleton;
 import com.nix.lesson10.model.vehicle.Truck;
 
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Optional;
 
+@Singleton
 public class TruckRepository implements CrudRepository<Truck> {
     private final List<Truck> trucks;
 
