@@ -1,4 +1,4 @@
-package com.nix.lesson10.repository;
+package com.nix.lesson10.repository.collection;
 
 import com.nix.lesson10.model.functionals.FunctionImpl;
 import com.nix.lesson10.model.vehicle.Auto;

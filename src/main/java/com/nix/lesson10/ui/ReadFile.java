@@ -1,6 +1,6 @@
 package com.nix.lesson10.ui;
 
-import com.nix.lesson10.repository.VehicleFileReader;
+import com.nix.lesson10.repository.collection.VehicleFileReader;
 
 import java.io.BufferedReader;
 import java.io.IOException;

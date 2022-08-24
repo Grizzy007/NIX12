@@ -10,6 +10,9 @@ public class Truck extends Vehicle {
         this.capacity = capacity;
     }
 
+    public Truck() {
+    }
+
     public int getCapacity() {
         return capacity;
     }

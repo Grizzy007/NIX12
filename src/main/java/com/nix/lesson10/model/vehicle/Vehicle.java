@@ -5,7 +5,7 @@ import java.time.LocalDateTime;
 import java.util.UUID;
 
 public abstract class Vehicle {
-    protected final String id;
+    protected String id;
     protected String model;
     protected BigDecimal price;
     protected char currency;
@@ -36,14 +36,6 @@ public abstract class Vehicle {
 
     protected Vehicle() {
         this.id = UUID.randomUUID().toString();
-    }
-
-    public Brand getManufacturer() {
-        return manufacturer;
-    }
-
-    public void setManufacturer(Brand manufacturer) {
-        this.manufacturer = manufacturer;
     }
 
     public LocalDateTime getCreated() {
@@ -84,6 +76,10 @@ public abstract class Vehicle {
 
     public Brand getBrand() {
         return manufacturer;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 
     public void setBrand(Brand manufacturer) {

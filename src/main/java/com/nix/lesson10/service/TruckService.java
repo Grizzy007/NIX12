@@ -6,7 +6,9 @@ import com.nix.lesson10.model.comparator.PriceComparator;
 import com.nix.lesson10.model.functionals.FunctionImpl;
 import com.nix.lesson10.model.vehicle.Brand;
 import com.nix.lesson10.model.vehicle.Truck;
-import com.nix.lesson10.repository.TruckRepository;
+import com.nix.lesson10.repository.CrudRepository;
+import com.nix.lesson10.repository.collection.TruckRepository;
+import com.nix.lesson10.repository.db.DBTruckRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -25,13 +27,13 @@ public class TruckService extends VehicleService<Truck> {
     private static TruckService instance;
 
     @Autowired
-    private TruckService(TruckRepository truckRepository) {
+    private TruckService(CrudRepository<Truck> truckRepository) {
         super(truckRepository);
     }
 
     public static TruckService getInstance() {
         if (instance == null) {
-            instance = new TruckService(TruckRepository.getInstance());
+            instance = new TruckService(DBTruckRepository.getInstance());
         }
         return instance;
     }
@@ -97,8 +99,8 @@ public class TruckService extends VehicleService<Truck> {
                 BigDecimal.valueOf(RANDOM.nextDouble(1000.0)),
                 getRandomManufacturer(),
                 RANDOM.nextInt(100),
-                1 + RANDOM.nextDouble(12),
-                1 + RANDOM.nextInt(12)
+                RANDOM.nextInt(1,8),
+                RANDOM.nextInt(1,8)
         );
     }
 

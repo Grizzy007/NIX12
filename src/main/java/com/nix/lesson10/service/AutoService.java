@@ -1,20 +1,18 @@
 package com.nix.lesson10.service;
 
-import com.mysql.cj.jdbc.MysqlDataSource;
 import com.nix.lesson10.annotations.Autowired;
 import com.nix.lesson10.annotations.Singleton;
 import com.nix.lesson10.model.comparator.PriceComparator;
 import com.nix.lesson10.model.vehicle.*;
-import com.nix.lesson10.repository.AutoRepository;
+import com.nix.lesson10.repository.collection.AutoRepository;
 import com.nix.lesson10.repository.CrudRepository;
+import com.nix.lesson10.repository.db.DBAutoRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import javax.sql.DataSource;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.math.BigDecimal;
-import java.sql.Connection;
 import java.time.LocalDateTime;
 import java.util.Map;
 import java.util.Optional;
@@ -32,7 +30,7 @@ public class AutoService extends VehicleService<Auto> {
 
     public static AutoService getInstance() {
         if (instance == null) {
-            instance = new AutoService(AutoRepository.getInstance());
+            instance = new AutoService(DBAutoRepository.getInstance());
         }
         return instance;
     }
@@ -85,7 +83,7 @@ public class AutoService extends VehicleService<Auto> {
         builder.buildManufacturer(getRandomManufacturer());
         builder.buildCreated(LocalDateTime.now());
         builder.buildBodyType(getRandomBodyType());
-        builder.buildEngine(new Engine(1 + RANDOM.nextDouble(7),
+        builder.buildEngine(new Engine(RANDOM.nextInt(1,8),
                 getRandomManufacturer(),
                 1 + RANDOM.nextInt(7)));
         return builder.getAuto();

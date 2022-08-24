@@ -1,7 +1,5 @@
 package com.nix.lesson10.model.vehicle;
 
-import java.util.UUID;
-
 public class Engine {
     private String id;
     private double volume;
@@ -9,7 +7,7 @@ public class Engine {
     private int valves;
 
     public Engine(double volume, Brand brand, int valves) {
-        id = UUID.randomUUID().toString();
+        id = String.valueOf(Math.random() * 10 + 1);
         this.volume = volume;
         this.brand = brand;
         this.valves = valves;
