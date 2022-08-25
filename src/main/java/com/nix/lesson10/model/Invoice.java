@@ -18,6 +18,7 @@ public class Invoice {
     }
 
     public Invoice() {
+        this.id = UUID.randomUUID().toString();
     }
 
     public String getId() {
@@ -49,7 +50,9 @@ public class Invoice {
         return "Invoice{" +
                 "id='" + id + '\'' +
                 ", created=" + created +
-                ", vehicles=" + vehicles +
-                '}';
+                ",\nvehicles=" + vehicles.stream()
+                .map(vehicle -> vehicle.toString() + "\n")
+                .reduce((s1, s2) -> s1 + s2).orElse("Nothing") +
+                "}\n";
     }
 }

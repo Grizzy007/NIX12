@@ -1,5 +1,6 @@
 package com.nix.lesson10.repository.db;
 
+import com.nix.lesson10.annotations.Singleton;
 import com.nix.lesson10.config.JDBCConfig;
 import com.nix.lesson10.model.vehicle.Auto;
 import com.nix.lesson10.model.vehicle.Brand;
@@ -12,19 +13,20 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
+@Singleton
 public class DBAutoRepository implements CrudRepository<Auto> {
     private static final String GET_ALL_AUTOS = "SELECT * FROM autos a " +
             "JOIN brand b on b.id = a.Brand_id " +
             "JOIN engine e on e.id = a.Engine_id " +
-            "JOIN type t on t.id = a.Type_id";
+            "JOIN type t on t.id = a.Type_id ";
     private static final String INSERT_AUTO = "INSERT INTO autos" +
             "(id, model, price, created ,type_id, brand_id, engine_id) " +
             "values(?,?,?,?,(SELECT id FROM type WHERE name = ?),(SELECT id FROM brand WHERE name = ?)," +
             "(SELECT id FROM engine WHERE volume = ? AND Brand_id = (SELECT id FROM brand WHERE name = ?)))";
-    private static final String GET_AUTO_BY_ID = "SELECT * FROM autos a " +
-            "JOIN brand b on b.id = a.Brand_id " +
-            "JOIN engine e on e.id = a.Engine_id " +
-            "JOIN type t on t.id = a.Type_id WHERE a.id = ?";
+    private static final String GET_AUTO_BY_ID = GET_ALL_AUTOS +
+            "WHERE a.id = ?";
+    private static final String GET_AUTO_BY_MODEL = GET_ALL_AUTOS +
+            "WHERE a.Model = ?";
     private static final String UPDATE = "UPDATE autos SET Model = ?, Price = ?, Created = ?, " +
             "Engine_id =(SELECT id FROM engine WHERE volume = ? AND Brand_id =(SELECT id FROM brand WHERE name = ?))" +
             "WHERE id = ?";
@@ -64,15 +66,21 @@ public class DBAutoRepository implements CrudRepository<Auto> {
 
     @Override
     public Optional<Auto> getById(String id) {
-        try (PreparedStatement statement = connection.prepareStatement(GET_AUTO_BY_ID)) {
-            statement.setString(1, id);
+        return getAuto(id, GET_AUTO_BY_ID);
+    }
+
+    public Optional<Auto> getByModel(String model) {
+        return getAuto(model, GET_AUTO_BY_MODEL);
+    }
+
+    private Optional<Auto> getAuto(String model, String getAutoBy) {
+        try (PreparedStatement statement = connection.prepareStatement(getAutoBy)) {
+            statement.setString(1, model);
             ResultSet rs = statement.executeQuery();
             if (rs.next()) {
                 Auto auto = mapToObj(rs);
                 connection.commit();
                 return Optional.of(auto);
-            } else {
-                return Optional.empty();
             }
         } catch (SQLException e) {
             e.printStackTrace();

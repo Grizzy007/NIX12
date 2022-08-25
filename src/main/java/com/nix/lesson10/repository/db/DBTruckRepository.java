@@ -1,5 +1,6 @@
 package com.nix.lesson10.repository.db;
 
+import com.nix.lesson10.annotations.Singleton;
 import com.nix.lesson10.config.JDBCConfig;
 import com.nix.lesson10.model.vehicle.*;
 import com.nix.lesson10.repository.CrudRepository;
@@ -9,6 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
+@Singleton
 public class DBTruckRepository implements CrudRepository<Truck> {
     private static final String GET_ALL_TRUCKS = "SELECT * FROM trucks t " +
             "JOIN brand b on b.id = t.Brand_id " +
@@ -17,9 +19,10 @@ public class DBTruckRepository implements CrudRepository<Truck> {
             "(id, model, price, created, capacity, brand_id, engine_id) " +
             "values(?,?,?,?,?,(SELECT id FROM brand WHERE name = ?)," +
             "(SELECT id FROM engine WHERE volume = ? AND Brand_id = (SELECT id FROM brand WHERE name = ?)))";
-    private static final String GET_TRUCK_BY_ID = "SELECT * FROM trucks t " +
-            "JOIN brand b on b.id = t.Brand_id " +
+    private static final String GET_TRUCK_BY_ID = GET_ALL_TRUCKS +
             "WHERE t.id = ?";
+    private static final String GET_TRUCK_BY_MODEL = GET_ALL_TRUCKS +
+            "WHERE t.Model = ?";
     private static final String UPDATE = "UPDATE trucks SET Model = ?, Price = ?, Created = ?, Capacity = ?, " +
             "Engine_id =(SELECT id FROM engine WHERE volume = ? AND Brand_id =(SELECT id FROM brand WHERE name = ?))" +
             "WHERE id = ?";
@@ -59,15 +62,21 @@ public class DBTruckRepository implements CrudRepository<Truck> {
 
     @Override
     public Optional<Truck> getById(String id) {
-        try (PreparedStatement statement = connection.prepareStatement(GET_TRUCK_BY_ID)) {
-            statement.setString(1, id);
+        return getTruck(id, GET_TRUCK_BY_ID);
+    }
+
+    public Optional<Truck> getByModel(String model) {
+        return getTruck(model, GET_TRUCK_BY_MODEL);
+    }
+
+    private Optional<Truck> getTruck(String model, String getTruckBy) {
+        try (PreparedStatement statement = connection.prepareStatement(getTruckBy)) {
+            statement.setString(1, model);
             ResultSet rs = statement.executeQuery();
             if (rs.next()) {
                 Truck truck = mapToObj(rs);
                 connection.commit();
                 return Optional.of(truck);
-            } else {
-                return Optional.empty();
             }
         } catch (SQLException e) {
             e.printStackTrace();

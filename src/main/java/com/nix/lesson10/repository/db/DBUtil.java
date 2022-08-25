@@ -13,22 +13,22 @@ import java.util.Objects;
 
 public class DBUtil {
     private static final ClassLoader classLoader = Thread.currentThread().getContextClassLoader();
-    public static final Connection connection = JDBCConfig.getInstance();
+    private static Connection connection;
 
-    private DBUtil(){}
+    private DBUtil(){
+        connection = JDBCConfig.getInstance();
+    }
 
     @SneakyThrows
     public static void executor(){
-        readAndExecute("auto.xml");
+        readAndExecute("vehicles.sql");
         readAndExecute("insertValues.sql");
     }
 
     private static void readAndExecute(String file) throws URISyntaxException {
-        //File readFrom = Paths.get(Objects.requireNonNull(classLoader.getResource(file)).toURI()).toFile();//new File("./src/main/resources/vehicles.sql");
-        String  s = String.valueOf(classLoader.getResourceAsStream(file));
-        System.out.println(classLoader.getResource(file));
         try (BufferedReader reader = new BufferedReader(new InputStreamReader(
-                new FileInputStream(s)));
+                new FileInputStream(
+                        Paths.get(Objects.requireNonNull(classLoader.getResource(file)).toURI()).toFile())));
              Statement statement = connection.createStatement()) {
             StringBuilder create = new StringBuilder();
             String reading = null;

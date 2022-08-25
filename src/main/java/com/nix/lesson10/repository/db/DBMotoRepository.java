@@ -1,5 +1,6 @@
 package com.nix.lesson10.repository.db;
 
+import com.nix.lesson10.annotations.Singleton;
 import com.nix.lesson10.config.JDBCConfig;
 import com.nix.lesson10.model.vehicle.Brand;
 import com.nix.lesson10.model.vehicle.Engine;
@@ -11,17 +12,19 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
+@Singleton
 public class DBMotoRepository implements CrudRepository<Motorcycle> {
-    private static final String GET_ALL_MOTOS = "SELECT * FROM motos t " +
-            "JOIN brand b on b.id = t.Brand_id " +
-            "JOIN engine e on e.id = t.Engine_id ";
+    private static final String GET_ALL_MOTOS = "SELECT * FROM motos m " +
+            "JOIN brand b on b.id = m.Brand_id " +
+            "JOIN engine e on e.id = m.Engine_id ";
     private static final String INSERT_MOTOS = "INSERT INTO motos" +
             "(id, model, price, created, landing, brand_id, engine_id) " +
             "values(?,?,?,?,?,(SELECT id FROM brand WHERE name = ?)," +
             "(SELECT id FROM engine WHERE volume = ? AND Brand_id = (SELECT id FROM brand WHERE name = ?)))";
-    private static final String GET_TRUCK_BY_ID = "SELECT * FROM motos m " +
-            "JOIN brand b on b.id = m.Brand_id " +
+    private static final String GET_MOTO_BY_ID = GET_ALL_MOTOS +
             "WHERE m.id = ?";
+    private static final String GET_MOTO_BY_MODEL = GET_ALL_MOTOS +
+            "WHERE m.Model = ?";
     private static final String UPDATE = "UPDATE motos SET Model = ?, Price = ?, Created = ?, Landing = ?, " +
             "Engine_id =(SELECT id FROM engine WHERE volume = ? AND Brand_id =(SELECT id FROM brand WHERE name = ?))" +
             "WHERE id = ?";
@@ -61,15 +64,21 @@ public class DBMotoRepository implements CrudRepository<Motorcycle> {
 
     @Override
     public Optional<Motorcycle> getById(String id) {
-        try (PreparedStatement statement = connection.prepareStatement(GET_TRUCK_BY_ID)) {
-            statement.setString(1, id);
+        return getMotorcycle(id, GET_MOTO_BY_ID);
+    }
+
+    public Optional<Motorcycle> getByModel(String model) {
+        return getMotorcycle(model, GET_MOTO_BY_MODEL);
+    }
+
+    private Optional<Motorcycle> getMotorcycle(String model, String getTruckBy) {
+        try (PreparedStatement statement = connection.prepareStatement(getTruckBy)) {
+            statement.setString(1, model);
             ResultSet rs = statement.executeQuery();
             if (rs.next()) {
                 Motorcycle motorcycle = mapToObj(rs);
                 connection.commit();
                 return Optional.of(motorcycle);
-            } else {
-                return Optional.empty();
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -84,7 +93,7 @@ public class DBMotoRepository implements CrudRepository<Motorcycle> {
             statement.setString(2, vehicle.getModel());
             statement.setBigDecimal(3, vehicle.getPrice());
             statement.setTimestamp(4, Timestamp.valueOf(vehicle.getCreated()));
-            statement.setInt(5,vehicle.getLanding());
+            statement.setInt(5, vehicle.getLanding());
             statement.setString(6, vehicle.getBrand().toString());
             statement.setDouble(7, vehicle.getEngine().getVolume());
             statement.setString(8, vehicle.getEngine().getBrand().toString());

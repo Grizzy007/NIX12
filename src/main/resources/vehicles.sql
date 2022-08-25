@@ -1,7 +1,7 @@
-CREATE IF NOT EXISTS DATABASE invoices;
+CREATE DATABASE invoices;
 USE `invoices` ;
 
-CREATE TABLE IF NOT EXISTS `invoices`.`brand` (
+CREATE TABLE `invoices`.`brand` (
   `id` VARCHAR(45) NOT NULL,
   `Name` VARCHAR(45) NOT NULL,
   UNIQUE INDEX `id_UNIQUE` (`id` ASC) VISIBLE,
@@ -110,7 +110,7 @@ CREATE TABLE IF NOT EXISTS `invoices`.`autos` (
     REFERENCES `invoices`.`type` (`id`));
 
 
-CREATE TABLE IF NOT EXISTS `invoices`.`invoices_in_invoice` (
+CREATE TABLE IF NOT EXISTS `invoices`.`factory_in_invoice` (
   `Invoices_id` VARCHAR(45) NOT NULL,
   `Autos_id` VARCHAR(45) NULL DEFAULT NULL,
   `Trucks_id` VARCHAR(45) NULL DEFAULT NULL,

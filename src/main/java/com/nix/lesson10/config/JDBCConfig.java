@@ -5,7 +5,7 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 public class JDBCConfig {
-    private static final String FULL_URL = "jdbc:mysql://localhost:3306/factory?user=root&password=Agent8998Agent_007";
+    private static final String FULL_URL = "jdbc:mysql://localhost:3306/invoices?user=root&password=Agent8998Agent_007";
     private static Connection instance;
 
     public static Connection getInstance() {
