@@ -9,7 +9,7 @@ public class Auto extends Vehicle {
     private Type bodyType;
     private List<String> details;
     private String[] detailNames = {"clutch", "break", "exhaust pipe", "battery", "oil filter", "air filter"
-            , "belt", "chain", "transmission", "starter"};
+            ,"belt", "chain", "transmission", "starter"};
 
     public Auto(){
         details = new ArrayList<>();

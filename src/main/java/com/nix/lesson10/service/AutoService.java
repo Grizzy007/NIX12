@@ -1,5 +1,8 @@
 package com.nix.lesson10.service;
 
+import com.mysql.cj.jdbc.MysqlDataSource;
+import com.nix.lesson10.annotations.Autowired;
+import com.nix.lesson10.annotations.Singleton;
 import com.nix.lesson10.model.comparator.PriceComparator;
 import com.nix.lesson10.model.vehicle.*;
 import com.nix.lesson10.repository.AutoRepository;
@@ -7,18 +10,22 @@ import com.nix.lesson10.repository.CrudRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import javax.sql.DataSource;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.math.BigDecimal;
+import java.sql.Connection;
 import java.time.LocalDateTime;
 import java.util.Map;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
+@Singleton
 public class AutoService extends VehicleService<Auto> {
     private static final Logger LOGGER = LoggerFactory.getLogger(AutoService.class);
     private static AutoService instance;
 
+    @Autowired
     private AutoService(CrudRepository<Auto> repository) {
         super(repository);
     }
