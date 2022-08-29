@@ -2,7 +2,7 @@ package com.nix.lesson10.service;
 
 import com.nix.lesson10.model.vehicle.Brand;
 import com.nix.lesson10.model.vehicle.Truck;
-import com.nix.lesson10.repository.TruckRepository;
+import com.nix.lesson10.repository.collection.TruckRepository;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -11,7 +11,6 @@ import org.mockito.Mockito;
 
 import java.math.BigDecimal;
 import java.util.List;
-import java.util.Random;
 
 class TruckServiceTest {
 

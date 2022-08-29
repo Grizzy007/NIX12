@@ -26,7 +26,6 @@ public class UserInterface {
     private Command executor(Instructions[] instructions, BufferedReader reader) throws IOException, URISyntaxException {
         System.out.println("Choose action(input number of command, start from 1):\n");
         Arrays.stream(instructions).forEach(i-> System.out.println(i.getCommand()));
-        System.out.println("Press 8 to exit...");
         int choice = Integer.parseInt(reader.readLine());
         Instructions toExecute = instructions[choice - 1];
         return toExecute.execute(reader);

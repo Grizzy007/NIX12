@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.net.URISyntaxException;
 
 public enum Instructions {
+    ACTIONS_WITH_DB("Database actions", new DBCommand()),
     CREATE("Create vehicle", new Create()),
     UPDATE("Update vehicle", new Update()),
     PRINT("Print vehicle", new Print()),

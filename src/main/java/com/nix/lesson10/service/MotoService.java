@@ -5,7 +5,9 @@ import com.nix.lesson10.annotations.Singleton;
 import com.nix.lesson10.model.comparator.PriceComparator;
 import com.nix.lesson10.model.vehicle.Brand;
 import com.nix.lesson10.model.vehicle.Motorcycle;
-import com.nix.lesson10.repository.MotoRepository;
+import com.nix.lesson10.repository.CrudRepository;
+import com.nix.lesson10.repository.collection.MotoRepository;
+import com.nix.lesson10.repository.db.DBMotoRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -21,13 +23,13 @@ public class MotoService extends VehicleService<Motorcycle> {
     private static MotoService instance;
 
     @Autowired
-    private MotoService(MotoRepository motoRepository) {
+    private MotoService(CrudRepository<Motorcycle> motoRepository) {
         super(motoRepository);
     }
 
     public static MotoService getInstance(){
         if(instance==null){
-            instance = new MotoService(MotoRepository.getInstance());
+            instance = new MotoService(DBMotoRepository.getInstance());
         }
         return instance;
     }
@@ -64,8 +66,8 @@ public class MotoService extends VehicleService<Motorcycle> {
                 BigDecimal.valueOf(RANDOM.nextDouble(1000.0)),
                 getRandomManufacturer(),
                 RANDOM.nextInt(150),
-                1 + RANDOM.nextDouble(6),
-                1 + RANDOM.nextInt(6)
+                RANDOM.nextInt(1,6),
+                RANDOM.nextInt(1,6)
         );
     }
 

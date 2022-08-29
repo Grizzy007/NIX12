@@ -1,8 +1,8 @@
-package com.nix.lesson10.repository;
+package com.nix.lesson10.repository.collection;
 
-import com.nix.lesson10.annotations.Autowired;
 import com.nix.lesson10.annotations.Singleton;
 import com.nix.lesson10.model.vehicle.Motorcycle;
+import com.nix.lesson10.repository.CrudRepository;
 
 import java.util.Iterator;
 import java.util.LinkedList;

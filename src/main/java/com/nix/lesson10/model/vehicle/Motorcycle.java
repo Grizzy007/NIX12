@@ -10,6 +10,9 @@ public class Motorcycle extends Vehicle {
         this.landing = landing;
     }
 
+    public Motorcycle() {
+    }
+
     public int getLanding() {
         return landing;
     }

@@ -17,7 +17,7 @@ public class Auto extends Vehicle {
         randomDetail();
     }
 
-    private Auto(String model, BigDecimal price, Brand manufacturer, Type bodyType, double volume, int valves) {
+    public Auto(String model, BigDecimal price, Brand manufacturer, Type bodyType, double volume, int valves) {
         super(model, price, manufacturer, volume, valves);
         this.bodyType = bodyType;
         details = new ArrayList<>();
@@ -76,7 +76,7 @@ public class Auto extends Vehicle {
         }
 
         public void buildManufacturer(Brand manufacturer) {
-            auto.setManufacturer(manufacturer);
+            auto.setBrand(manufacturer);
         }
 
         public void buildCreated(LocalDateTime created) {
