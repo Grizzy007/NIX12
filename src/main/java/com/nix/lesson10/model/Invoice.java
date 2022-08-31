@@ -2,14 +2,11 @@ package com.nix.lesson10.model;
 
 import com.nix.lesson10.model.vehicle.Vehicle;
 import org.hibernate.annotations.GenericGenerator;
-import org.hibernate.annotations.ManyToAny;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
 import java.util.LinkedHashSet;
-import java.util.List;
 import java.util.Set;
-import java.util.UUID;
 
 @Entity
 public class Invoice {

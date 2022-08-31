@@ -3,8 +3,6 @@ package com.nix.lesson10.model;
 import com.nix.lesson10.model.comparator.PriceComparator;
 import com.nix.lesson10.model.vehicle.Vehicle;
 
-import java.util.Comparator;
-
 public class BinaryTree<T extends Vehicle> {
     private static class Node<T extends Vehicle> {
         Node<T> left;

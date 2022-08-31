@@ -2,14 +2,11 @@ package com.nix.lesson10.repository.hibernate;
 
 import com.nix.lesson10.config.HibernateConfig;
 import com.nix.lesson10.model.Invoice;
-import com.nix.lesson10.model.vehicle.Vehicle;
 import com.nix.lesson10.repository.InvoiceRepository;
 
 import javax.persistence.EntityManager;
 import java.util.List;
 import java.util.Optional;
-import java.util.Set;
-import java.util.stream.Collectors;
 
 public class HibernateInvoiceRepository implements InvoiceRepository {
     private static HibernateInvoiceRepository instance;
