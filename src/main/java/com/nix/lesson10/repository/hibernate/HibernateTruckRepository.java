@@ -79,6 +79,7 @@ public class HibernateTruckRepository implements CrudRepository<Truck> {
                     .setParameter("id", vehicle.getId())
                     .executeUpdate();
             session.getTransaction().commit();
+            session.close();
             return true;
         }
     }

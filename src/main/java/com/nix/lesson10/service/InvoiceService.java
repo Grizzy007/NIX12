@@ -42,8 +42,7 @@ public class InvoiceService {
     public Invoice createWithNVehicles(int number) {
         Set<Vehicle> vehicles = new LinkedHashSet<>(number);
         for (int i = 0; i < number; i++) {
-            vehicles.add(
-                    getRandomVehicle());
+            vehicles.add(getRandomVehicle());
         }
         Invoice invoice = new Invoice(LocalDateTime.now().minusHours(RANDOM.nextInt(1, 12)), vehicles);
         repository.create(invoice);

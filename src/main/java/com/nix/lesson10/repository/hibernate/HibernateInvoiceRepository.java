@@ -9,6 +9,7 @@ import javax.persistence.EntityManager;
 import java.util.List;
 import java.util.Optional;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 public class HibernateInvoiceRepository implements InvoiceRepository {
     private static HibernateInvoiceRepository instance;
@@ -64,10 +65,10 @@ public class HibernateInvoiceRepository implements InvoiceRepository {
     @Override
     public boolean update(Invoice invoice) {
         entityManager.getTransaction().begin();
-        Set<Vehicle> set = invoice.getVehicles();
-        entityManager.createQuery("update Invoice set created = :created, vehicles = :vehicles where id = :id")
+        Invoice i = entityManager.find(Invoice.class, invoice.getId());
+        i.setVehicles(invoice.getVehicles());
+        entityManager.createQuery("update Invoice set created = :created where id = :id")
                 .setParameter("created", invoice.getCreated())
-                .setParameter("vehicles", set)
                 .setParameter("id", invoice.getId())
                 .executeUpdate();
         entityManager.flush();
