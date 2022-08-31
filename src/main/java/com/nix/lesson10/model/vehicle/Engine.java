@@ -1,16 +1,28 @@
 package com.nix.lesson10.model.vehicle;
 
+import org.hibernate.annotations.GenericGenerator;
+
+import javax.persistence.*;
+
+@Entity
 public class Engine {
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO, generator = "UUID")
+    @GenericGenerator(name = "UUID", strategy = "org.hibernate.id.UUIDGenerator")
     private String id;
     private double volume;
+    @Enumerated(value = EnumType.STRING)
     private Brand brand;
     private int valves;
 
     public Engine(double volume, Brand brand, int valves) {
-        id = String.valueOf(Math.random() * 10 + 1);
         this.volume = volume;
         this.brand = brand;
         this.valves = valves;
+    }
+
+    public Engine() {
+
     }
 
 
@@ -36,6 +48,14 @@ public class Engine {
 
     public void setValves(int valves) {
         this.valves = valves;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 
     @Override

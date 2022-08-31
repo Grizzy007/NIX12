@@ -1,24 +1,35 @@
 package com.nix.lesson10.model;
 
 import com.nix.lesson10.model.vehicle.Vehicle;
+import org.hibernate.annotations.GenericGenerator;
+import org.hibernate.annotations.ManyToAny;
 
+import javax.persistence.*;
 import java.time.LocalDateTime;
+import java.util.LinkedHashSet;
 import java.util.List;
+import java.util.Set;
 import java.util.UUID;
 
+@Entity
 public class Invoice {
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO, generator = "UUID")
+    @GenericGenerator(name = "UUID", strategy = "org.hibernate.id.UUIDGenerator")
     private String id;
     private LocalDateTime created;
-    private List<Vehicle> vehicles;
+    @ManyToMany(cascade = CascadeType.PERSIST, fetch = FetchType.EAGER)
+    @JoinTable(name = "vehicles_in_invoice",
+            joinColumns = @JoinColumn(name = "invoice_id"),
+            inverseJoinColumns = @JoinColumn(name = "vehicle_id"))
+    private Set<Vehicle> vehicles = new LinkedHashSet<>();
 
-    public Invoice(LocalDateTime created, List<Vehicle> vehicles) {
-        this.id = UUID.randomUUID().toString();
+    public Invoice(LocalDateTime created, Set<Vehicle> vehicles) {
         this.created = created;
         this.vehicles = vehicles;
     }
 
     public Invoice() {
-        this.id = UUID.randomUUID().toString();
     }
 
     public String getId() {
@@ -37,11 +48,11 @@ public class Invoice {
         this.created = created;
     }
 
-    public List<Vehicle> getVehicles() {
+    public Set<Vehicle> getVehicles() {
         return vehicles;
     }
 
-    public void setVehicles(List<Vehicle> vehicles) {
+    public void setVehicles(Set<Vehicle> vehicles) {
         this.vehicles = vehicles;
     }
 

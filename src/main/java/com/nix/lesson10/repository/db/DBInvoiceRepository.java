@@ -5,12 +5,14 @@ import com.nix.lesson10.annotations.Singleton;
 import com.nix.lesson10.config.JDBCConfig;
 import com.nix.lesson10.model.Invoice;
 import com.nix.lesson10.model.vehicle.*;
+import com.nix.lesson10.repository.InvoiceRepository;
 
 import java.sql.*;
 import java.util.*;
+import java.util.stream.Collectors;
 
 @Singleton
-public class DBInvoiceRepository {
+public class DBInvoiceRepository implements InvoiceRepository {
     private static final String GET_ALL = "SELECT * FROM invoices i ";
     private static final String JOIN = "LEFT JOIN autos a on a.id = f.Autos_id LEFT JOIN type on type.id = a.Type_id " +
             "LEFT JOIN motos m on m.id = f.Motos_id LEFT JOIN brand b on b.id = a.Brand_id " +
@@ -53,6 +55,7 @@ public class DBInvoiceRepository {
         return instance;
     }
 
+    @Override
     public List<Invoice> getAll() {
         try (Statement statement = connection.createStatement();
              ResultSet rs = statement.executeQuery(GET_ALL)) {
@@ -69,7 +72,8 @@ public class DBInvoiceRepository {
         return Collections.emptyList();
     }
 
-    public Optional<Invoice> getInvoiceByID(String id) {
+    @Override
+    public Optional<Invoice> getById(String id) {
         try (PreparedStatement ps = connection.prepareStatement(GET_INVOICE_BY_ID)) {
             ps.setString(1, id);
             ResultSet rs = ps.executeQuery();
@@ -83,22 +87,23 @@ public class DBInvoiceRepository {
     }
 
 
+    @Override
     public Invoice create(Invoice invoice) {
         try (PreparedStatement statement = connection.prepareStatement(INSERT_INVOICE)) {
             String id = invoice.getId();
             statement.setString(1, id);
             statement.setTimestamp(2, Timestamp.valueOf(invoice.getCreated()));
             statement.executeUpdate();
-            List<Vehicle> vehicles = invoice.getVehicles();
-            List<Auto> autos = vehicles.stream()
+            Set<Vehicle> vehicles = invoice.getVehicles();
+            Set<Auto> autos = vehicles.stream()
                     .filter(a -> a.getClass() == Auto.class)
-                    .map(Auto.class::cast).toList();
-            List<Motorcycle> motos = vehicles.stream()
+                    .map(Auto.class::cast).collect(Collectors.toSet());
+            Set<Motorcycle> motos = vehicles.stream()
                     .filter(a -> a.getClass() == Motorcycle.class)
-                    .map(Motorcycle.class::cast).toList();
-            List<Truck> trucks = vehicles.stream()
+                    .map(Motorcycle.class::cast).collect(Collectors.toSet());
+            Set<Truck> trucks = vehicles.stream()
                     .filter(a -> a.getClass() == Truck.class)
-                    .map(Truck.class::cast).toList();
+                    .map(Truck.class::cast).collect(Collectors.toSet());
             Iterator<Auto> iAuto = autos.iterator();
             Iterator<Motorcycle> iMoto = motos.iterator();
             Iterator<Truck> iTruck = trucks.iterator();
@@ -112,6 +117,7 @@ public class DBInvoiceRepository {
         return invoice;
     }
 
+    @Override
     public boolean createList(List<Invoice> list) {
         try {
             list.forEach(this::create);
@@ -123,6 +129,7 @@ public class DBInvoiceRepository {
         return false;
     }
 
+    @Override
     public boolean update(Invoice invoice) {
         try (PreparedStatement statement = connection.prepareStatement(UPDATE)) {
             statement.setTimestamp(1, Timestamp.valueOf(invoice.getCreated()));
@@ -134,10 +141,11 @@ public class DBInvoiceRepository {
         return false;
     }
 
+    @Override
     public Invoice delete(String id) {
         try (PreparedStatement ps = connection.prepareStatement(DELETE_INVOICE)) {
             ps.setString(1, id);
-            Optional<Invoice> invoice = getInvoiceByID(id);
+            Optional<Invoice> invoice = getById(id);
             if (invoice.isPresent()) {
                 ps.executeUpdate();
                 connection.commit();
@@ -164,8 +172,8 @@ public class DBInvoiceRepository {
         Invoice invoice = new Invoice();
         String id = rs.getString("i.id");
         invoice.setId(id);
-        invoice.setCreated(rs.getTimestamp("i.created").toLocalDateTime());
-        List<Vehicle> vehicles = new ArrayList<>();
+        invoice.setCreated(rs.getTimestamp("created").toLocalDateTime());
+        Set<Vehicle> vehicles = new LinkedHashSet<>();
         try (PreparedStatement ps = connection.prepareStatement(GET_FROM_INTERMEDIATE_TABLE)) {
             ps.setString(1, id);
             ResultSet resultSet = ps.executeQuery();

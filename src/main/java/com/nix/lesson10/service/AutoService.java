@@ -7,6 +7,7 @@ import com.nix.lesson10.model.vehicle.*;
 import com.nix.lesson10.repository.collection.AutoRepository;
 import com.nix.lesson10.repository.CrudRepository;
 import com.nix.lesson10.repository.db.DBAutoRepository;
+import com.nix.lesson10.repository.hibernate.HibernateAutoRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -30,7 +31,7 @@ public class AutoService extends VehicleService<Auto> {
 
     public static AutoService getInstance() {
         if (instance == null) {
-            instance = new AutoService(DBAutoRepository.getInstance());
+            instance = new AutoService(HibernateAutoRepository.getInstance());
         }
         return instance;
     }

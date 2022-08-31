@@ -4,7 +4,8 @@ import com.nix.lesson10.annotations.Autowired;
 import com.nix.lesson10.annotations.Singleton;
 import com.nix.lesson10.model.Invoice;
 import com.nix.lesson10.model.vehicle.Vehicle;
-import com.nix.lesson10.repository.db.DBInvoiceRepository;
+import com.nix.lesson10.repository.InvoiceRepository;
+import com.nix.lesson10.repository.hibernate.HibernateInvoiceRepository;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -14,7 +15,7 @@ import java.util.stream.Collectors;
 
 @Singleton
 public class InvoiceService {
-    private final DBInvoiceRepository repository;
+    private final InvoiceRepository repository;
     private final AutoService autos;
     private final MotoService motos;
     private final TruckService trucks;
@@ -25,7 +26,7 @@ public class InvoiceService {
 
     @Autowired
     private InvoiceService() {
-        repository = DBInvoiceRepository.getInstance();
+        repository = HibernateInvoiceRepository.getInstance();
         autos = AutoService.getInstance();
         motos = MotoService.getInstance();
         trucks = TruckService.getInstance();
@@ -39,9 +40,10 @@ public class InvoiceService {
     }
 
     public Invoice createWithNVehicles(int number) {
-        List<Vehicle> vehicles = new ArrayList<>(number);
+        Set<Vehicle> vehicles = new LinkedHashSet<>(number);
         for (int i = 0; i < number; i++) {
-            vehicles.add(getRandomVehicle());
+            vehicles.add(
+                    getRandomVehicle());
         }
         Invoice invoice = new Invoice(LocalDateTime.now().minusHours(RANDOM.nextInt(1, 12)), vehicles);
         repository.create(invoice);
@@ -62,7 +64,7 @@ public class InvoiceService {
     }
 
     public Optional<Invoice> updateTimeOfInvoice(LocalDateTime time, String id) {
-        Optional<Invoice> invoice = repository.getInvoiceByID(id);
+        Optional<Invoice> invoice = repository.getById(id);
         if (invoice.isPresent()) {
             Invoice toUpdate = invoice.get();
             toUpdate.setCreated(time);

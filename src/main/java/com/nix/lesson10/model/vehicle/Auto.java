@@ -1,13 +1,21 @@
 package com.nix.lesson10.model.vehicle;
 
+import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
+import javax.persistence.Transient;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
+@Entity
 public class Auto extends Vehicle {
+    @Enumerated(value = EnumType.STRING)
     private Type bodyType;
+    @Transient
     private List<String> details;
+    @Transient
     private String[] detailNames = {"clutch", "break", "exhaust pipe", "battery", "oil filter", "air filter"
             ,"belt", "chain", "transmission", "starter"};
 

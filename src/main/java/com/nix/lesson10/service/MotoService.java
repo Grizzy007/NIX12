@@ -8,6 +8,7 @@ import com.nix.lesson10.model.vehicle.Motorcycle;
 import com.nix.lesson10.repository.CrudRepository;
 import com.nix.lesson10.repository.collection.MotoRepository;
 import com.nix.lesson10.repository.db.DBMotoRepository;
+import com.nix.lesson10.repository.hibernate.HibernateMotoRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -29,7 +30,7 @@ public class MotoService extends VehicleService<Motorcycle> {
 
     public static MotoService getInstance(){
         if(instance==null){
-            instance = new MotoService(DBMotoRepository.getInstance());
+            instance = new MotoService(HibernateMotoRepository.getInstance());
         }
         return instance;
     }
