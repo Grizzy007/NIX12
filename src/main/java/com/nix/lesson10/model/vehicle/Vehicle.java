@@ -12,7 +12,7 @@ import java.util.UUID;
 
 @Entity
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
-public abstract class Vehicle {
+public class Vehicle {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO, generator = "UUID")
     @GenericGenerator(name = "UUID", strategy = "org.hibernate.id.UUIDGenerator")
@@ -102,4 +102,18 @@ public abstract class Vehicle {
     public void setBrand(Brand manufacturer) {
         this.manufacturer = manufacturer;
     }
+
+    @Override
+    public String toString() {
+        return "Vehicle{" +
+                ", model='" + model + '\'' +
+                ", price=" + price +
+                ", currency=" + currency +
+                ", manufacturer=" + manufacturer +
+                ", created=" + created +
+                ", engine=" + engine +
+                ", invoices=" + invoices +
+                '}';
+    }
+
 }

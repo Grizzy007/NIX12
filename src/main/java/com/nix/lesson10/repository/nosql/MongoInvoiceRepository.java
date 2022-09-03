@@ -26,6 +26,7 @@ public class MongoInvoiceRepository implements InvoiceRepository {
                 localDateTime == null ? null : new JsonPrimitive(localDateTime.toString());
         JsonDeserializer<LocalDateTime> deser = (json, typeOfT, context) -> {
             DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss.S");
+//            return LocalDateTime.parse(json.getAsString(), formatter);
             return LocalDateTime.now();
         };
         gson = new GsonBuilder()

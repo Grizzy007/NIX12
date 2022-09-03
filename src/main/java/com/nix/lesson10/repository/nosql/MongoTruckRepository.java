@@ -1,14 +1,12 @@
 package com.nix.lesson10.repository.nosql;
 
 import com.google.gson.*;
-import com.mongodb.BasicDBObject;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
 import com.nix.lesson10.model.vehicle.Truck;
 import com.nix.lesson10.repository.CrudRepository;
 import org.bson.Document;
 import org.bson.conversions.Bson;
-import org.bson.types.ObjectId;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
@@ -31,6 +29,7 @@ public class MongoTruckRepository implements CrudRepository<Truck> {
                 localDateTime == null ? null : new JsonPrimitive(localDateTime.toString());
         JsonDeserializer<LocalDateTime> deser = (json, typeOfT, context) -> {
             DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss.S");
+//            return LocalDateTime.parse(json.getAsString(), formatter);
             return LocalDateTime.now();
         };
         gson = new GsonBuilder()
@@ -82,7 +81,7 @@ public class MongoTruckRepository implements CrudRepository<Truck> {
 
     @Override
     public Truck delete(String id) {
-        Document d = new Document("id",id);
+        Document d = new Document("id", id);
         trucks.deleteOne(d);
         return null;
     }
