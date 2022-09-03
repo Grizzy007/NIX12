@@ -10,6 +10,8 @@ import com.nix.lesson10.repository.CrudRepository;
 import com.nix.lesson10.repository.collection.TruckRepository;
 import com.nix.lesson10.repository.db.DBTruckRepository;
 import com.nix.lesson10.repository.hibernate.HibernateTruckRepository;
+import com.nix.lesson10.repository.nosql.MongoTruckRepository;
+import com.nix.lesson10.util.MongoUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -34,7 +36,7 @@ public class TruckService extends VehicleService<Truck> {
 
     public static TruckService getInstance() {
         if (instance == null) {
-            instance = new TruckService(HibernateTruckRepository.getInstance());
+            instance = new TruckService(MongoTruckRepository.getInstance(MongoUtil.connect("vehicles")));
         }
         return instance;
     }

@@ -7,6 +7,7 @@ import javax.persistence.*;
 import java.time.LocalDateTime;
 import java.util.LinkedHashSet;
 import java.util.Set;
+import java.util.UUID;
 
 @Entity
 public class Invoice {
@@ -22,11 +23,13 @@ public class Invoice {
     private Set<Vehicle> vehicles = new LinkedHashSet<>();
 
     public Invoice(LocalDateTime created, Set<Vehicle> vehicles) {
+        id = UUID.randomUUID().toString();
         this.created = created;
         this.vehicles = vehicles;
     }
 
     public Invoice() {
+        id = UUID.randomUUID().toString();
     }
 
     public String getId() {
