@@ -9,6 +9,7 @@ import com.nix.lesson10.model.vehicle.Truck;
 import com.nix.lesson10.repository.CrudRepository;
 import com.nix.lesson10.repository.collection.TruckRepository;
 import com.nix.lesson10.repository.db.DBTruckRepository;
+import com.nix.lesson10.repository.hibernate.HibernateTruckRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -33,7 +34,7 @@ public class TruckService extends VehicleService<Truck> {
 
     public static TruckService getInstance() {
         if (instance == null) {
-            instance = new TruckService(DBTruckRepository.getInstance());
+            instance = new TruckService(HibernateTruckRepository.getInstance());
         }
         return instance;
     }

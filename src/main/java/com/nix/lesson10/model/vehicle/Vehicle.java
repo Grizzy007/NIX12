@@ -1,20 +1,35 @@
 package com.nix.lesson10.model.vehicle;
 
+import com.nix.lesson10.model.Invoice;
+import org.hibernate.annotations.GenericGenerator;
+
+import javax.persistence.*;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
-import java.util.UUID;
+import java.util.LinkedHashSet;
+import java.util.Set;
 
+@Entity
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 public abstract class Vehicle {
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO, generator = "UUID")
+    @GenericGenerator(name = "UUID", strategy = "org.hibernate.id.UUIDGenerator")
     protected String id;
     protected String model;
     protected BigDecimal price;
+    @Transient
     protected char currency;
+    @Enumerated(value = EnumType.STRING)
     protected Brand manufacturer;
     protected LocalDateTime created;
+    @OneToOne(cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
+    @JoinColumn(name = "Engine_id")
     protected Engine engine;
+    @ManyToMany(mappedBy = "vehicles")
+    private Set<Invoice> invoices = new LinkedHashSet<>();
 
     protected Vehicle(String model, BigDecimal price, Brand manufacturer, double volume, int valves) {
-        this.id = UUID.randomUUID().toString();
         this.model = model;
         this.price = price;
         this.manufacturer = manufacturer;
@@ -25,7 +40,6 @@ public abstract class Vehicle {
 
     protected Vehicle(String model, BigDecimal price, char currency, Brand manufacturer, LocalDateTime created,
                       double volume, int valves) {
-        this.id = UUID.randomUUID().toString();
         this.model = model;
         this.price = price;
         this.currency = currency;
@@ -35,7 +49,7 @@ public abstract class Vehicle {
     }
 
     protected Vehicle() {
-        this.id = UUID.randomUUID().toString();
+
     }
 
     public LocalDateTime getCreated() {

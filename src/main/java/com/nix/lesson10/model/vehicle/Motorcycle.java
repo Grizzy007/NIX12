@@ -1,7 +1,9 @@
 package com.nix.lesson10.model.vehicle;
 
+import javax.persistence.Entity;
 import java.math.BigDecimal;
 
+@Entity
 public class Motorcycle extends Vehicle {
     private int landing;
 
