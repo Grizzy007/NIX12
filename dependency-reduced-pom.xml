@@ -18,7 +18,7 @@
             <configuration>
               <transformers>
                 <transformer>
-                  <mainClass>ua.com.alevel.Main</mainClass>
+                  <mainClass>com.nix.lesson10.Main</mainClass>
                 </transformer>
               </transformers>
             </configuration>

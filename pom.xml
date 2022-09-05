@@ -116,7 +116,7 @@
                             <transformers>
                                 <transformer
                                         implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
-                                    <mainClass>ua.com.alevel.Main</mainClass>
+                                    <mainClass>com.nix.lesson10.Main</mainClass>
                                 </transformer>
                             </transformers>
                         </configuration>
