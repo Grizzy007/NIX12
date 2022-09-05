@@ -23,13 +23,12 @@ public class Invoice {
     private Set<Vehicle> vehicles = new LinkedHashSet<>();
 
     public Invoice(LocalDateTime created, Set<Vehicle> vehicles) {
-        id = UUID.randomUUID().toString();
         this.created = created;
         this.vehicles = vehicles;
     }
 
     public Invoice() {
-        id = UUID.randomUUID().toString();
+
     }
 
     public String getId() {

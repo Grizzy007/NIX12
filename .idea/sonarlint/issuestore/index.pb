@@ -31,10 +31,6 @@ c
 -src/main/java/com/nix/lesson10/ui/Create.java,8\4\842df2b709bd483c35ac316ea3c6d01b3b95bd3f
 f
 6src/main/java/com/nix/lesson10/model/vehicle/Type.java,0\4\04ada6e76e1d87936a40480622d2de7c71c9a10c
-g
-7src/main/java/com/nix/lesson10/model/vehicle/Truck.java,8\0\80f00aad9842f0719d906d93e3137fb050afd572
-l
-<src/main/java/com/nix/lesson10/model/vehicle/Motorcycle.java,c\c\cc38c30bfeb7078017ff9d140465c9c1f83a359d
 `
 0src/main/java/com/nix/lesson10/model/Garage.java,c\b\cbf9301d1da01656c93c2c40407ef58ceabb3fcf
 d
@@ -53,8 +49,6 @@ Csrc/main/java/com/nix/lesson10/repository/db/DBTruckRepository.java,e\b\eb7173
 Qsrc/main/java/com/nix/lesson10/repository/hibernate/HibernateTruckRepository.java,e\7\e7b728bcd793c42f156580396d1ecd97fa66f9a9
 x
 Hsrc/main/java/com/nix/lesson10/repository/collection/AutoRepository.java,6\f\6ff67aab93c8aab84986669d6d892fff1c49f062
-h
-8src/main/java/com/nix/lesson10/model/vehicle/Engine.java,5\8\587e664a1b8d1b12567d236c25bd76dbe580a8cc
 _
 /src/main/java/com/nix/lesson10/util/DBUtil.java,f\e\fee2c03d45b242a32a6196d2e4b9f9849b76a0d5
 r
@@ -67,8 +61,6 @@ p
 @src/main/java/com/nix/lesson10/repository/InvoiceRepository.java,d\e\de0bb2594852c0e8aa9b554085c5614ced5fd02f
 d
 4src/main/java/com/nix/lesson10/model/BinaryTree.java,3\c\3c1d5c2842d48a9fb9fb40553aca6ccbf66b0975
-f
-6src/main/java/com/nix/lesson10/model/vehicle/Auto.java,8\e\8e55dcb703fcba9cc696d34a7708d85da528b551
 y
 Isrc/main/java/com/nix/lesson10/repository/nosql/MongoTruckRepository.java,9\d\9d2bf75973d203a140f3bc7d3eac9d8b2fda44c9
 ƒ
@@ -97,7 +89,5 @@ e
 5src/main/java/com/nix/lesson10/config/JDBCConfig.java,d\f\df35ee8e66eb6df72f29005f81cf5d856b17d811
 A
 flyway.properties,1\7\1755c359785506f25e26f2afe959499fe1169ee6
-i
-9src/main/java/com/nix/lesson10/model/vehicle/Vehicle.java,3\b\3b445d4c854bf971303ad74736e4f28ddcef1d6f
 7
 pom.xml,4\4\442292b8a7efeabbe4cc176709b833b1792140ec
