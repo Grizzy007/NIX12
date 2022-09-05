@@ -7,10 +7,9 @@
         <properties>
             <property name="hibernate.dialect" value="org.hibernate.dialect.MySQL8Dialect"/>
             <property name="hibernate.connection.driver_class" value="com.mysql.cj.jdbc.Driver"/>
-            <property name="hibernate.connection.username" value="root"/>
-            <property name="hibernate.connection.password" value="Agent8998Agent_007"/>
-            <property name="hibernate.connection.url" value="jdbc:mysql://localhost:3306/hibernate_vehicles"/>
+            <property name="hibernate.connection.username" value="baa726347944ec"/>
+            <property name="hibernate.connection.password" value="bf64f7ff"/>
+            <property name="hibernate.connection.url" value="jdbc:mysql://us-cdbr-east-06.cleardb.net/heroku_798da66bf65e891?reconnect=true"/>
         </properties>
     </persistence-unit>
 </persistence>
-<!--        mysql://:bf64f7ff@us-cdbr-east-06.cleardb.net/heroku_798da66bf65e891?reconnect=true-->
