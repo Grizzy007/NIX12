@@ -33,7 +33,7 @@ public class AutoService extends VehicleService<Auto> {
 
     public static AutoService getInstance() {
         if (instance == null) {
-            instance = new AutoService(MongoAutoRepository.getInstance(MongoUtil.connect("vehicles")));
+            instance = new AutoService(HibernateAutoRepository.getInstance());
         }
         return instance;
     }

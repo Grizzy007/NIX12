@@ -32,7 +32,7 @@ public class MotoService extends VehicleService<Motorcycle> {
 
     public static MotoService getInstance(){
         if(instance==null){
-            instance = new MotoService(MongoMotoRepository.getInstance(MongoUtil.connect("vehicles")));
+            instance = new MotoService(HibernateMotoRepository.getInstance());
         }
         return instance;
     }

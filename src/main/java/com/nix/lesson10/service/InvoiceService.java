@@ -5,6 +5,7 @@ import com.nix.lesson10.annotations.Singleton;
 import com.nix.lesson10.model.Invoice;
 import com.nix.lesson10.model.vehicle.Vehicle;
 import com.nix.lesson10.repository.InvoiceRepository;
+import com.nix.lesson10.repository.hibernate.HibernateInvoiceRepository;
 import com.nix.lesson10.repository.nosql.MongoInvoiceRepository;
 import com.nix.lesson10.util.MongoUtil;
 
@@ -27,7 +28,7 @@ public class InvoiceService {
 
     @Autowired
     private InvoiceService() {
-        repository = MongoInvoiceRepository.getInstance(MongoUtil.connect("vehicles"));
+        repository = HibernateInvoiceRepository.getInstance();
         autos = AutoService.getInstance();
         motos = MotoService.getInstance();
         trucks = TruckService.getInstance();

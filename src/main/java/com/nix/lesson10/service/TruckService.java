@@ -36,7 +36,7 @@ public class TruckService extends VehicleService<Truck> {
 
     public static TruckService getInstance() {
         if (instance == null) {
-            instance = new TruckService(MongoTruckRepository.getInstance(MongoUtil.connect("vehicles")));
+            instance = new TruckService(HibernateTruckRepository.getInstance());
         }
         return instance;
     }
