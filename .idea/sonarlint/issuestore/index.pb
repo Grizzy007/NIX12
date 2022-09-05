@@ -29,8 +29,6 @@ c
 3src/main/java/com/nix/lesson10/ui/Instructions.java,8\9\8920e1b00fd45e9d53086538779dce656d6911e3
 ]
 -src/main/java/com/nix/lesson10/ui/Create.java,8\4\842df2b709bd483c35ac316ea3c6d01b3b95bd3f
-f
-6src/main/java/com/nix/lesson10/model/vehicle/Type.java,0\4\04ada6e76e1d87936a40480622d2de7c71c9a10c
 `
 0src/main/java/com/nix/lesson10/model/Garage.java,c\b\cbf9301d1da01656c93c2c40407ef58ceabb3fcf
 d
@@ -75,8 +73,6 @@ Hsrc/main/java/com/nix/lesson10/repository/nosql/MongoMotoRepository.java,4\1\4
 Ksrc/main/java/com/nix/lesson10/repository/nosql/MongoInvoiceRepository.java,3\3\33b774761f3cf96c1e288b931169caa94a9be5c0
 d
 4src/main/java/com/nix/lesson10/ui/UserInterface.java,2\9\29941f8bfb6b8d24786f55e74ab1417b2dc6d017
-g
-7src/main/java/com/nix/lesson10/model/vehicle/Brand.java,b\e\bed1a7ce2d812c24cb97d65c97cdf0306cb9c39c
 g
 7src/main/java/com/nix/lesson10/service/AutoService.java,6\3\63543d7d8ea04d742b79522f2f8822afbc1da08e
 j

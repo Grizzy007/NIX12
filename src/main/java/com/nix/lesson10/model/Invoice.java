@@ -7,7 +7,6 @@ import javax.persistence.*;
 import java.time.LocalDateTime;
 import java.util.LinkedHashSet;
 import java.util.Set;
-import java.util.UUID;
 
 @Entity
 public class Invoice {
