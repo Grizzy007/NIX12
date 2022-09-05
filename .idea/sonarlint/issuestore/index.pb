@@ -83,7 +83,11 @@ h
 8src/main/java/com/nix/lesson10/service/TruckService.java,a\3\a341daeb05f7b0982e37ff9936a0517e72cde32b
 e
 5src/main/java/com/nix/lesson10/config/JDBCConfig.java,d\f\df35ee8e66eb6df72f29005f81cf5d856b17d811
-A
-flyway.properties,1\7\1755c359785506f25e26f2afe959499fe1169ee6
-7
-pom.xml,4\4\442292b8a7efeabbe4cc176709b833b1792140ec
+f
+6src/main/java/com/nix/lesson10/model/vehicle/Auto.java,8\e\8e55dcb703fcba9cc696d34a7708d85da528b551
+g
+7src/main/java/com/nix/lesson10/model/vehicle/Brand.java,b\e\bed1a7ce2d812c24cb97d65c97cdf0306cb9c39c
+h
+8src/main/java/com/nix/lesson10/model/vehicle/Engine.java,5\8\587e664a1b8d1b12567d236c25bd76dbe580a8cc
+i
+9src/main/java/com/nix/lesson10/model/vehicle/Vehicle.java,3\b\3b445d4c854bf971303ad74736e4f28ddcef1d6f
