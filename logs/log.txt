@@ -1,46 +1,46 @@
-2022-09-04 20:18:30,011 INFO org.flywaydb.core.internal.license.VersionPrinter [main] Flyway Community Edition 9.2.0 by Redgate
-2022-09-04 20:18:30,027 INFO org.flywaydb.core.internal.license.VersionPrinter [main] See what's new here: https://flywaydb.org/documentation/learnmore/releaseNotes#9.2.0
-2022-09-04 20:18:30,028 INFO org.flywaydb.core.internal.license.VersionPrinter [main] 
-2022-09-04 20:18:30,035 DEBUG org.flywaydb.core.internal.util.FeatureDetector [main] AWS SDK available: false
-2022-09-04 20:18:30,036 DEBUG org.flywaydb.core.internal.util.FeatureDetector [main] Google Cloud Storage available: false
-2022-09-04 20:18:30,039 DEBUG org.flywaydb.core.internal.scanner.classpath.ClassPathScanner [main] Scanning for classpath resources at 'classpath:db/callback' ...
-2022-09-04 20:18:30,039 DEBUG org.flywaydb.core.internal.scanner.classpath.ClassPathScanner [main] Determining location urls for classpath:db/callback using ClassLoader jdk.internal.loader.ClassLoaders$AppClassLoader@6f94fa3e ...
-2022-09-04 20:18:30,039 DEBUG org.flywaydb.core.internal.scanner.classpath.ClassPathScanner [main] Unable to resolve location classpath:db/callback.
-2022-09-04 20:18:30,040 DEBUG org.flywaydb.core.internal.scanner.classpath.ClassPathScanner [main] Scanning for classpath resources at 'classpath:db/migration' ...
-2022-09-04 20:18:30,040 DEBUG org.flywaydb.core.internal.scanner.classpath.ClassPathScanner [main] Determining location urls for classpath:db/migration using ClassLoader jdk.internal.loader.ClassLoaders$AppClassLoader@6f94fa3e ...
-2022-09-04 20:18:30,041 DEBUG org.flywaydb.core.internal.scanner.classpath.ClassPathScanner [main] Scanning URL: file:/C:/Java/NIX12/target/classes/db/migration
-2022-09-04 20:18:30,042 DEBUG org.flywaydb.core.internal.util.FeatureDetector [main] JBoss VFS v2 available: false
-2022-09-04 20:18:30,044 DEBUG org.flywaydb.core.internal.scanner.classpath.FileSystemClassPathLocationScanner [main] Scanning starting at classpath root in filesystem: C:\Java\NIX12\target\classes\
-2022-09-04 20:18:30,045 DEBUG org.flywaydb.core.internal.scanner.classpath.FileSystemClassPathLocationScanner [main] Scanning for resources in path: C:\Java\NIX12\target\classes\db\migration (db/migration)
-2022-09-04 20:18:30,048 DEBUG org.flywaydb.core.internal.scanner.classpath.ClassPathScanner [main] Found resource: db/migration/V2_0_0__insert_engines.sql
-2022-09-04 20:18:30,048 DEBUG org.flywaydb.core.internal.scanner.classpath.ClassPathScanner [main] Found resource: db/migration/V2_1_1__insert_auto.sql
-2022-09-04 20:18:30,048 DEBUG org.flywaydb.core.internal.scanner.classpath.ClassPathScanner [main] Found resource: db/migration/V3_0_0__insert_moto.sql
-2022-09-04 20:18:30,048 DEBUG org.flywaydb.core.internal.scanner.classpath.ClassPathScanner [main] Found resource: db/migration/V4_0_0__insert_truck.sql
-2022-09-04 20:18:30,048 DEBUG org.flywaydb.core.internal.scanner.classpath.ClassPathScanner [main] Scanning for classes at classpath:db/migration
-2022-09-04 20:18:30,060 DEBUG org.flywaydb.core.internal.resource.ResourceNameValidator [main] Validating V2_1_1__insert_auto.sql
-2022-09-04 20:18:30,062 DEBUG org.flywaydb.core.internal.resource.ResourceNameValidator [main] Validating V4_0_0__insert_truck.sql
-2022-09-04 20:18:30,062 DEBUG org.flywaydb.core.internal.resource.ResourceNameValidator [main] Validating V3_0_0__insert_moto.sql
-2022-09-04 20:18:30,063 DEBUG org.flywaydb.core.internal.resource.ResourceNameValidator [main] Validating V2_0_0__insert_engines.sql
-2022-09-04 20:18:31,217 INFO org.flywaydb.core.internal.database.base.BaseDatabaseType [main] Database: jdbc:mysql://localhost:3306/hibernate_vehicles (MySQL 8.0)
-2022-09-04 20:18:31,218 DEBUG org.flywaydb.core.internal.database.base.BaseDatabaseType [main] Driver  : MySQL Connector/J mysql-connector-java-8.0.30 (Revision: 1de2fe873fe26189564c030a343885011412976a)
-2022-09-04 20:18:31,344 DEBUG org.flywaydb.core.FlywayExecutor [main] DDL Transactions Supported: false
-2022-09-04 20:18:31,346 DEBUG org.flywaydb.core.internal.schemahistory.SchemaHistoryFactory [main] Schemas: 
-2022-09-04 20:18:31,346 DEBUG org.flywaydb.core.internal.schemahistory.SchemaHistoryFactory [main] Default schema: null
-2022-09-04 20:18:31,379 DEBUG org.flywaydb.core.internal.callback.SqlScriptCallbackFactory [main] Scanning for SQL callbacks ...
-2022-09-04 20:18:31,432 DEBUG org.flywaydb.core.internal.command.DbValidate [main] Validating migrations ...
-2022-09-04 20:18:31,463 DEBUG org.flywaydb.core.internal.scanner.Scanner [main] Filtering out resource: db/migration/V2_1_1__insert_auto.sql (filename: V2_1_1__insert_auto.sql)
-2022-09-04 20:18:31,463 DEBUG org.flywaydb.core.internal.scanner.Scanner [main] Filtering out resource: db/migration/V4_0_0__insert_truck.sql (filename: V4_0_0__insert_truck.sql)
-2022-09-04 20:18:31,463 DEBUG org.flywaydb.core.internal.scanner.Scanner [main] Filtering out resource: db/migration/V3_0_0__insert_moto.sql (filename: V3_0_0__insert_moto.sql)
-2022-09-04 20:18:31,463 DEBUG org.flywaydb.core.internal.scanner.Scanner [main] Filtering out resource: db/migration/V2_0_0__insert_engines.sql (filename: V2_0_0__insert_engines.sql)
-2022-09-04 20:18:31,543 INFO org.flywaydb.core.internal.command.DbValidate [main] Successfully validated 5 migrations (execution time 00:00.109s)
-2022-09-04 20:18:31,570 INFO org.flywaydb.core.internal.command.DbMigrate [main] Current version of schema `hibernate_vehicles`: 4.0.0
-2022-09-04 20:18:31,574 INFO org.flywaydb.core.internal.command.DbMigrate [main] Schema `hibernate_vehicles` is up to date. No migration necessary.
-2022-09-04 20:18:31,589 DEBUG org.flywaydb.core.FlywayExecutor [main] Memory usage: 19 of 120M
-2022-09-04 20:18:31,660 DEBUG org.jboss.logging [main] Logging Provider: org.jboss.logging.Slf4jLoggerProvider
-2022-09-04 20:18:31,879 DEBUG org.hibernate.jpa.HibernatePersistenceProvider [main] Located and parsed 1 persistence units; checking each
-2022-09-04 20:18:31,879 DEBUG org.hibernate.jpa.HibernatePersistenceProvider [main] Checking persistence-unit [name=persistence, explicit-provider=org.hibernate.jpa.HibernatePersistenceProvider] against incoming persistence unit name [persistence]
-2022-09-04 20:18:31,881 DEBUG org.hibernate.jpa.boot.spi.ProviderChecker [main] Persistence-unit [persistence] requested PersistenceProvider [org.hibernate.jpa.HibernatePersistenceProvider]
-2022-09-04 20:18:31,898 DEBUG org.hibernate.jpa.internal.util.LogHelper [main] PersistenceUnitInfo [
+2022-09-05 11:43:06,766 INFO org.flywaydb.core.internal.license.VersionPrinter [main] Flyway Community Edition 9.2.0 by Redgate
+2022-09-05 11:43:06,775 INFO org.flywaydb.core.internal.license.VersionPrinter [main] See what's new here: https://flywaydb.org/documentation/learnmore/releaseNotes#9.2.0
+2022-09-05 11:43:06,775 INFO org.flywaydb.core.internal.license.VersionPrinter [main] 
+2022-09-05 11:43:06,778 DEBUG org.flywaydb.core.internal.util.FeatureDetector [main] AWS SDK available: false
+2022-09-05 11:43:06,778 DEBUG org.flywaydb.core.internal.util.FeatureDetector [main] Google Cloud Storage available: false
+2022-09-05 11:43:06,779 DEBUG org.flywaydb.core.internal.scanner.classpath.ClassPathScanner [main] Scanning for classpath resources at 'classpath:db/callback' ...
+2022-09-05 11:43:06,779 DEBUG org.flywaydb.core.internal.scanner.classpath.ClassPathScanner [main] Determining location urls for classpath:db/callback using ClassLoader jdk.internal.loader.ClassLoaders$AppClassLoader@6f94fa3e ...
+2022-09-05 11:43:06,780 DEBUG org.flywaydb.core.internal.scanner.classpath.ClassPathScanner [main] Unable to resolve location classpath:db/callback.
+2022-09-05 11:43:06,780 DEBUG org.flywaydb.core.internal.scanner.classpath.ClassPathScanner [main] Scanning for classpath resources at 'classpath:db/migration' ...
+2022-09-05 11:43:06,780 DEBUG org.flywaydb.core.internal.scanner.classpath.ClassPathScanner [main] Determining location urls for classpath:db/migration using ClassLoader jdk.internal.loader.ClassLoaders$AppClassLoader@6f94fa3e ...
+2022-09-05 11:43:06,780 DEBUG org.flywaydb.core.internal.scanner.classpath.ClassPathScanner [main] Scanning URL: file:/C:/Java/NIX12/target/classes/db/migration
+2022-09-05 11:43:06,781 DEBUG org.flywaydb.core.internal.util.FeatureDetector [main] JBoss VFS v2 available: false
+2022-09-05 11:43:06,783 DEBUG org.flywaydb.core.internal.scanner.classpath.FileSystemClassPathLocationScanner [main] Scanning starting at classpath root in filesystem: C:\Java\NIX12\target\classes\
+2022-09-05 11:43:06,783 DEBUG org.flywaydb.core.internal.scanner.classpath.FileSystemClassPathLocationScanner [main] Scanning for resources in path: C:\Java\NIX12\target\classes\db\migration (db/migration)
+2022-09-05 11:43:06,785 DEBUG org.flywaydb.core.internal.scanner.classpath.ClassPathScanner [main] Found resource: db/migration/V2_0_0__insert_engines.sql
+2022-09-05 11:43:06,785 DEBUG org.flywaydb.core.internal.scanner.classpath.ClassPathScanner [main] Found resource: db/migration/V2_1_1__insert_auto.sql
+2022-09-05 11:43:06,785 DEBUG org.flywaydb.core.internal.scanner.classpath.ClassPathScanner [main] Found resource: db/migration/V3_0_0__insert_moto.sql
+2022-09-05 11:43:06,785 DEBUG org.flywaydb.core.internal.scanner.classpath.ClassPathScanner [main] Found resource: db/migration/V4_0_0__insert_truck.sql
+2022-09-05 11:43:06,785 DEBUG org.flywaydb.core.internal.scanner.classpath.ClassPathScanner [main] Scanning for classes at classpath:db/migration
+2022-09-05 11:43:06,790 DEBUG org.flywaydb.core.internal.resource.ResourceNameValidator [main] Validating V2_1_1__insert_auto.sql
+2022-09-05 11:43:06,791 DEBUG org.flywaydb.core.internal.resource.ResourceNameValidator [main] Validating V4_0_0__insert_truck.sql
+2022-09-05 11:43:06,791 DEBUG org.flywaydb.core.internal.resource.ResourceNameValidator [main] Validating V3_0_0__insert_moto.sql
+2022-09-05 11:43:06,791 DEBUG org.flywaydb.core.internal.resource.ResourceNameValidator [main] Validating V2_0_0__insert_engines.sql
+2022-09-05 11:43:07,430 INFO org.flywaydb.core.internal.database.base.BaseDatabaseType [main] Database: jdbc:mysql://localhost:3306/hibernate_vehicles (MySQL 8.0)
+2022-09-05 11:43:07,431 DEBUG org.flywaydb.core.internal.database.base.BaseDatabaseType [main] Driver  : MySQL Connector/J mysql-connector-java-8.0.30 (Revision: 1de2fe873fe26189564c030a343885011412976a)
+2022-09-05 11:43:07,445 DEBUG org.flywaydb.core.FlywayExecutor [main] DDL Transactions Supported: false
+2022-09-05 11:43:07,446 DEBUG org.flywaydb.core.internal.schemahistory.SchemaHistoryFactory [main] Schemas: 
+2022-09-05 11:43:07,446 DEBUG org.flywaydb.core.internal.schemahistory.SchemaHistoryFactory [main] Default schema: null
+2022-09-05 11:43:07,458 DEBUG org.flywaydb.core.internal.callback.SqlScriptCallbackFactory [main] Scanning for SQL callbacks ...
+2022-09-05 11:43:07,491 DEBUG org.flywaydb.core.internal.command.DbValidate [main] Validating migrations ...
+2022-09-05 11:43:07,505 DEBUG org.flywaydb.core.internal.scanner.Scanner [main] Filtering out resource: db/migration/V2_1_1__insert_auto.sql (filename: V2_1_1__insert_auto.sql)
+2022-09-05 11:43:07,505 DEBUG org.flywaydb.core.internal.scanner.Scanner [main] Filtering out resource: db/migration/V4_0_0__insert_truck.sql (filename: V4_0_0__insert_truck.sql)
+2022-09-05 11:43:07,505 DEBUG org.flywaydb.core.internal.scanner.Scanner [main] Filtering out resource: db/migration/V3_0_0__insert_moto.sql (filename: V3_0_0__insert_moto.sql)
+2022-09-05 11:43:07,505 DEBUG org.flywaydb.core.internal.scanner.Scanner [main] Filtering out resource: db/migration/V2_0_0__insert_engines.sql (filename: V2_0_0__insert_engines.sql)
+2022-09-05 11:43:07,535 INFO org.flywaydb.core.internal.command.DbValidate [main] Successfully validated 5 migrations (execution time 00:00.044s)
+2022-09-05 11:43:07,548 INFO org.flywaydb.core.internal.command.DbMigrate [main] Current version of schema `hibernate_vehicles`: 4.0.0
+2022-09-05 11:43:07,549 INFO org.flywaydb.core.internal.command.DbMigrate [main] Schema `hibernate_vehicles` is up to date. No migration necessary.
+2022-09-05 11:43:07,556 DEBUG org.flywaydb.core.FlywayExecutor [main] Memory usage: 19 of 120M
+2022-09-05 11:43:07,595 DEBUG org.jboss.logging [main] Logging Provider: org.jboss.logging.Slf4jLoggerProvider
+2022-09-05 11:43:07,710 DEBUG org.hibernate.jpa.HibernatePersistenceProvider [main] Located and parsed 1 persistence units; checking each
+2022-09-05 11:43:07,711 DEBUG org.hibernate.jpa.HibernatePersistenceProvider [main] Checking persistence-unit [name=persistence, explicit-provider=org.hibernate.jpa.HibernatePersistenceProvider] against incoming persistence unit name [persistence]
+2022-09-05 11:43:07,711 DEBUG org.hibernate.jpa.boot.spi.ProviderChecker [main] Persistence-unit [persistence] requested PersistenceProvider [org.hibernate.jpa.HibernatePersistenceProvider]
+2022-09-05 11:43:07,715 DEBUG org.hibernate.jpa.internal.util.LogHelper [main] PersistenceUnitInfo [
 	name: persistence
 	persistence provider classname: org.hibernate.jpa.HibernatePersistenceProvider
 	classloader: null
@@ -60,186 +60,736 @@
 		hibernate.dialect: org.hibernate.dialect.MySQL8Dialect
 		hibernate.connection.url: jdbc:mysql://localhost:3306/hibernate_vehicles
 		hibernate.connection.driver_class: com.mysql.cj.jdbc.Driver]
-2022-09-04 20:18:31,925 DEBUG org.hibernate.integrator.internal.IntegratorServiceImpl [main] Adding Integrator [org.hibernate.cfg.beanvalidation.BeanValidationIntegrator].
-2022-09-04 20:18:31,929 DEBUG org.hibernate.integrator.internal.IntegratorServiceImpl [main] Adding Integrator [org.hibernate.secure.spi.JaccIntegrator].
-2022-09-04 20:18:31,951 DEBUG org.hibernate.integrator.internal.IntegratorServiceImpl [main] Adding Integrator [org.hibernate.cache.internal.CollectionCacheInvalidator].
-2022-09-04 20:18:32,129 INFO org.hibernate.Version [main] HHH000412: Hibernate ORM core version 5.6.10.Final
-2022-09-04 20:18:32,134 DEBUG org.hibernate.cfg.Environment [main] HHH000206: hibernate.properties not found
-2022-09-04 20:18:32,586 DEBUG org.hibernate.service.spi.ServiceBinding [main] Overriding existing service binding [org.hibernate.secure.spi.JaccService]
-2022-09-04 20:18:32,613 DEBUG org.hibernate.cache.internal.RegionFactoryInitiator [main] Cannot default RegionFactory based on registered strategies as `[]` RegionFactory strategies were registered
-2022-09-04 20:18:32,615 DEBUG org.hibernate.cache.internal.RegionFactoryInitiator [main] Cache region factory : org.hibernate.cache.internal.NoCachingRegionFactory
-2022-09-04 20:18:32,648 INFO org.hibernate.annotations.common.Version [main] HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
-2022-09-04 20:18:32,741 DEBUG org.hibernate.type.BasicTypeRegistry [main] Adding type registration boolean -> org.hibernate.type.BooleanType@56193c7d
-2022-09-04 20:18:32,742 DEBUG org.hibernate.type.BasicTypeRegistry [main] Adding type registration boolean -> org.hibernate.type.BooleanType@56193c7d
-2022-09-04 20:18:32,742 DEBUG org.hibernate.type.BasicTypeRegistry [main] Adding type registration java.lang.Boolean -> org.hibernate.type.BooleanType@56193c7d
-2022-09-04 20:18:32,743 DEBUG org.hibernate.type.BasicTypeRegistry [main] Adding type registration numeric_boolean -> org.hibernate.type.NumericBooleanType@81ff872
-2022-09-04 20:18:32,744 DEBUG org.hibernate.type.BasicTypeRegistry [main] Adding type registration true_false -> org.hibernate.type.TrueFalseType@99a65d3
-2022-09-04 20:18:32,745 DEBUG org.hibernate.type.BasicTypeRegistry [main] Adding type registration yes_no -> org.hibernate.type.YesNoType@6813a331
-2022-09-04 20:18:32,746 DEBUG org.hibernate.type.BasicTypeRegistry [main] Adding type registration byte -> org.hibernate.type.ByteType@25cc7470
-2022-09-04 20:18:32,746 DEBUG org.hibernate.type.BasicTypeRegistry [main] Adding type registration byte -> org.hibernate.type.ByteType@25cc7470
-2022-09-04 20:18:32,746 DEBUG org.hibernate.type.BasicTypeRegistry [main] Adding type registration java.lang.Byte -> org.hibernate.type.ByteType@25cc7470
-2022-09-04 20:18:32,747 DEBUG org.hibernate.type.BasicTypeRegistry [main] Adding type registration character -> org.hibernate.type.CharacterType@20d11153
-2022-09-04 20:18:32,748 DEBUG org.hibernate.type.BasicTypeRegistry [main] Adding type registration char -> org.hibernate.type.CharacterType@20d11153
-2022-09-04 20:18:32,748 DEBUG org.hibernate.type.BasicTypeRegistry [main] Adding type registration java.lang.Character -> org.hibernate.type.CharacterType@20d11153
-2022-09-04 20:18:32,749 DEBUG org.hibernate.type.BasicTypeRegistry [main] Adding type registration short -> org.hibernate.type.ShortType@794b435f
-2022-09-04 20:18:32,749 DEBUG org.hibernate.type.BasicTypeRegistry [main] Adding type registration short -> org.hibernate.type.ShortType@794b435f
-2022-09-04 20:18:32,750 DEBUG org.hibernate.type.BasicTypeRegistry [main] Adding type registration java.lang.Short -> org.hibernate.type.ShortType@794b435f
-2022-09-04 20:18:32,751 DEBUG org.hibernate.type.BasicTypeRegistry [main] Adding type registration integer -> org.hibernate.type.IntegerType@265c5d69
-2022-09-04 20:18:32,751 DEBUG org.hibernate.type.BasicTypeRegistry [main] Adding type registration int -> org.hibernate.type.IntegerType@265c5d69
-2022-09-04 20:18:32,751 DEBUG org.hibernate.type.BasicTypeRegistry [main] Adding type registration java.lang.Integer -> org.hibernate.type.IntegerType@265c5d69
-2022-09-04 20:18:32,752 DEBUG org.hibernate.type.BasicTypeRegistry [main] Adding type registration long -> org.hibernate.type.LongType@790132f7
-2022-09-04 20:18:32,753 DEBUG org.hibernate.type.BasicTypeRegistry [main] Adding type registration long -> org.hibernate.type.LongType@790132f7
-2022-09-04 20:18:32,753 DEBUG org.hibernate.type.BasicTypeRegistry [main] Adding type registration java.lang.Long -> org.hibernate.type.LongType@790132f7
-2022-09-04 20:18:32,754 DEBUG org.hibernate.type.BasicTypeRegistry [main] Adding type registration float -> org.hibernate.type.FloatType@ba1f559
-2022-09-04 20:18:32,754 DEBUG org.hibernate.type.BasicTypeRegistry [main] Adding type registration float -> org.hibernate.type.FloatType@ba1f559
-2022-09-04 20:18:32,754 DEBUG org.hibernate.type.BasicTypeRegistry [main] Adding type registration java.lang.Float -> org.hibernate.type.FloatType@ba1f559
-2022-09-04 20:18:32,756 DEBUG org.hibernate.type.BasicTypeRegistry [main] Adding type registration double -> org.hibernate.type.DoubleType@4fa06f52
-2022-09-04 20:18:32,756 DEBUG org.hibernate.type.BasicTypeRegistry [main] Adding type registration double -> org.hibernate.type.DoubleType@4fa06f52
-2022-09-04 20:18:32,756 DEBUG org.hibernate.type.BasicTypeRegistry [main] Adding type registration java.lang.Double -> org.hibernate.type.DoubleType@4fa06f52
-2022-09-04 20:18:32,757 DEBUG org.hibernate.type.BasicTypeRegistry [main] Adding type registration big_decimal -> org.hibernate.type.BigDecimalType@63998bf4
-2022-09-04 20:18:32,757 DEBUG org.hibernate.type.BasicTypeRegistry [main] Adding type registration java.math.BigDecimal -> org.hibernate.type.BigDecimalType@63998bf4
-2022-09-04 20:18:32,758 DEBUG org.hibernate.type.BasicTypeRegistry [main] Adding type registration big_integer -> org.hibernate.type.BigIntegerType@5f5b5ca4
-2022-09-04 20:18:32,758 DEBUG org.hibernate.type.BasicTypeRegistry [main] Adding type registration java.math.BigInteger -> org.hibernate.type.BigIntegerType@5f5b5ca4
-2022-09-04 20:18:32,759 DEBUG org.hibernate.type.BasicTypeRegistry [main] Adding type registration string -> org.hibernate.type.StringType@58faa93b
-2022-09-04 20:18:32,759 DEBUG org.hibernate.type.BasicTypeRegistry [main] Adding type registration java.lang.String -> org.hibernate.type.StringType@58faa93b
-2022-09-04 20:18:32,760 DEBUG org.hibernate.type.BasicTypeRegistry [main] Adding type registration nstring -> org.hibernate.type.StringNVarcharType@6622a690
-2022-09-04 20:18:32,761 DEBUG org.hibernate.type.BasicTypeRegistry [main] Adding type registration ncharacter -> org.hibernate.type.CharacterNCharType@3249a1ce
-2022-09-04 20:18:32,762 DEBUG org.hibernate.type.BasicTypeRegistry [main] Adding type registration url -> org.hibernate.type.UrlType@4bd2f0dc
-2022-09-04 20:18:32,763 DEBUG org.hibernate.type.BasicTypeRegistry [main] Adding type registration java.net.URL -> org.hibernate.type.UrlType@4bd2f0dc
-2022-09-04 20:18:32,764 DEBUG org.hibernate.type.BasicTypeRegistry [main] Adding type registration Duration -> org.hibernate.type.DurationType@73aff8f1
-2022-09-04 20:18:32,764 DEBUG org.hibernate.type.BasicTypeRegistry [main] Adding type registration java.time.Duration -> org.hibernate.type.DurationType@73aff8f1
-2022-09-04 20:18:32,772 DEBUG org.hibernate.type.BasicTypeRegistry [main] Adding type registration Instant -> org.hibernate.type.InstantType@6e78fcf5
-2022-09-04 20:18:32,772 DEBUG org.hibernate.type.BasicTypeRegistry [main] Adding type registration java.time.Instant -> org.hibernate.type.InstantType@6e78fcf5
-2022-09-04 20:18:32,774 DEBUG org.hibernate.type.BasicTypeRegistry [main] Adding type registration LocalDateTime -> org.hibernate.type.LocalDateTimeType@77bb0ab5
-2022-09-04 20:18:32,774 DEBUG org.hibernate.type.BasicTypeRegistry [main] Adding type registration java.time.LocalDateTime -> org.hibernate.type.LocalDateTimeType@77bb0ab5
-2022-09-04 20:18:32,775 DEBUG org.hibernate.type.BasicTypeRegistry [main] Adding type registration LocalDate -> org.hibernate.type.LocalDateType@4564e94b
-2022-09-04 20:18:32,775 DEBUG org.hibernate.type.BasicTypeRegistry [main] Adding type registration java.time.LocalDate -> org.hibernate.type.LocalDateType@4564e94b
-2022-09-04 20:18:32,777 DEBUG org.hibernate.type.BasicTypeRegistry [main] Adding type registration LocalTime -> org.hibernate.type.LocalTimeType@667e34b1
-2022-09-04 20:18:32,777 DEBUG org.hibernate.type.BasicTypeRegistry [main] Adding type registration java.time.LocalTime -> org.hibernate.type.LocalTimeType@667e34b1
-2022-09-04 20:18:32,778 DEBUG org.hibernate.type.BasicTypeRegistry [main] Adding type registration OffsetDateTime -> org.hibernate.type.OffsetDateTimeType@3c2772d1
-2022-09-04 20:18:32,778 DEBUG org.hibernate.type.BasicTypeRegistry [main] Adding type registration java.time.OffsetDateTime -> org.hibernate.type.OffsetDateTimeType@3c2772d1
-2022-09-04 20:18:32,779 DEBUG org.hibernate.type.BasicTypeRegistry [main] Adding type registration OffsetTime -> org.hibernate.type.OffsetTimeType@62515a47
-2022-09-04 20:18:32,780 DEBUG org.hibernate.type.BasicTypeRegistry [main] Adding type registration java.time.OffsetTime -> org.hibernate.type.OffsetTimeType@62515a47
-2022-09-04 20:18:32,781 DEBUG org.hibernate.type.BasicTypeRegistry [main] Adding type registration ZonedDateTime -> org.hibernate.type.ZonedDateTimeType@78c7f9b3
-2022-09-04 20:18:32,781 DEBUG org.hibernate.type.BasicTypeRegistry [main] Adding type registration java.time.ZonedDateTime -> org.hibernate.type.ZonedDateTimeType@78c7f9b3
-2022-09-04 20:18:32,782 DEBUG org.hibernate.type.BasicTypeRegistry [main] Adding type registration date -> org.hibernate.type.DateType@d0ec63
-2022-09-04 20:18:32,782 DEBUG org.hibernate.type.BasicTypeRegistry [main] Adding type registration java.sql.Date -> org.hibernate.type.DateType@d0ec63
-2022-09-04 20:18:32,783 DEBUG org.hibernate.type.BasicTypeRegistry [main] Adding type registration time -> org.hibernate.type.TimeType@7ff2b8d2
-2022-09-04 20:18:32,783 DEBUG org.hibernate.type.BasicTypeRegistry [main] Adding type registration java.sql.Time -> org.hibernate.type.TimeType@7ff2b8d2
-2022-09-04 20:18:32,784 DEBUG org.hibernate.type.BasicTypeRegistry [main] Adding type registration timestamp -> org.hibernate.type.TimestampType@41a6d121
-2022-09-04 20:18:32,785 DEBUG org.hibernate.type.BasicTypeRegistry [main] Adding type registration java.sql.Timestamp -> org.hibernate.type.TimestampType@41a6d121
-2022-09-04 20:18:32,785 DEBUG org.hibernate.type.BasicTypeRegistry [main] Adding type registration java.util.Date -> org.hibernate.type.TimestampType@41a6d121
-2022-09-04 20:18:32,786 DEBUG org.hibernate.type.BasicTypeRegistry [main] Adding type registration dbtimestamp -> org.hibernate.type.DbTimestampType@19f040ba
-2022-09-04 20:18:32,788 DEBUG org.hibernate.type.BasicTypeRegistry [main] Adding type registration calendar -> org.hibernate.type.CalendarType@6b7d1df8
-2022-09-04 20:18:32,788 DEBUG org.hibernate.type.BasicTypeRegistry [main] Adding type registration java.util.Calendar -> org.hibernate.type.CalendarType@6b7d1df8
-2022-09-04 20:18:32,788 DEBUG org.hibernate.type.BasicTypeRegistry [main] Adding type registration java.util.GregorianCalendar -> org.hibernate.type.CalendarType@6b7d1df8
-2022-09-04 20:18:32,789 DEBUG org.hibernate.type.BasicTypeRegistry [main] Adding type registration calendar_date -> org.hibernate.type.CalendarDateType@5d05ef57
-2022-09-04 20:18:32,790 DEBUG org.hibernate.type.BasicTypeRegistry [main] Adding type registration calendar_time -> org.hibernate.type.CalendarTimeType@4159e81b
-2022-09-04 20:18:32,791 DEBUG org.hibernate.type.BasicTypeRegistry [main] Adding type registration locale -> org.hibernate.type.LocaleType@7a94b64e
-2022-09-04 20:18:32,791 DEBUG org.hibernate.type.BasicTypeRegistry [main] Adding type registration java.util.Locale -> org.hibernate.type.LocaleType@7a94b64e
-2022-09-04 20:18:32,793 DEBUG org.hibernate.type.BasicTypeRegistry [main] Adding type registration currency -> org.hibernate.type.CurrencyType@4a31c2ee
-2022-09-04 20:18:32,793 DEBUG org.hibernate.type.BasicTypeRegistry [main] Adding type registration java.util.Currency -> org.hibernate.type.CurrencyType@4a31c2ee
-2022-09-04 20:18:32,794 DEBUG org.hibernate.type.BasicTypeRegistry [main] Adding type registration timezone -> org.hibernate.type.TimeZoneType@13e698c7
-2022-09-04 20:18:32,794 DEBUG org.hibernate.type.BasicTypeRegistry [main] Adding type registration java.util.TimeZone -> org.hibernate.type.TimeZoneType@13e698c7
-2022-09-04 20:18:32,795 DEBUG org.hibernate.type.BasicTypeRegistry [main] Adding type registration class -> org.hibernate.type.ClassType@29f0802c
-2022-09-04 20:18:32,796 DEBUG org.hibernate.type.BasicTypeRegistry [main] Adding type registration java.lang.Class -> org.hibernate.type.ClassType@29f0802c
-2022-09-04 20:18:32,796 DEBUG org.hibernate.type.BasicTypeRegistry [main] Adding type registration uuid-binary -> org.hibernate.type.UUIDBinaryType@e8fadb0
-2022-09-04 20:18:32,797 DEBUG org.hibernate.type.BasicTypeRegistry [main] Adding type registration java.util.UUID -> org.hibernate.type.UUIDBinaryType@e8fadb0
-2022-09-04 20:18:32,797 DEBUG org.hibernate.type.BasicTypeRegistry [main] Adding type registration uuid-char -> org.hibernate.type.UUIDCharType@6eafb10e
-2022-09-04 20:18:32,798 DEBUG org.hibernate.type.BasicTypeRegistry [main] Adding type registration binary -> org.hibernate.type.BinaryType@779de014
-2022-09-04 20:18:32,799 DEBUG org.hibernate.type.BasicTypeRegistry [main] Adding type registration byte[] -> org.hibernate.type.BinaryType@779de014
-2022-09-04 20:18:32,799 DEBUG org.hibernate.type.BasicTypeRegistry [main] Adding type registration [B -> org.hibernate.type.BinaryType@779de014
-2022-09-04 20:18:32,800 DEBUG org.hibernate.type.BasicTypeRegistry [main] Adding type registration wrapper-binary -> org.hibernate.type.WrapperBinaryType@69c6161d
-2022-09-04 20:18:32,800 DEBUG org.hibernate.type.BasicTypeRegistry [main] Adding type registration Byte[] -> org.hibernate.type.WrapperBinaryType@69c6161d
-2022-09-04 20:18:32,800 DEBUG org.hibernate.type.BasicTypeRegistry [main] Adding type registration [Ljava.lang.Byte; -> org.hibernate.type.WrapperBinaryType@69c6161d
-2022-09-04 20:18:32,801 DEBUG org.hibernate.type.BasicTypeRegistry [main] Adding type registration row_version -> org.hibernate.type.RowVersionType@41e1455d
-2022-09-04 20:18:32,801 DEBUG org.hibernate.type.BasicTypeRegistry [main] Adding type registration image -> org.hibernate.type.ImageType@6ef7623
-2022-09-04 20:18:32,802 DEBUG org.hibernate.type.BasicTypeRegistry [main] Adding type registration characters -> org.hibernate.type.CharArrayType@41477a6d
-2022-09-04 20:18:32,802 DEBUG org.hibernate.type.BasicTypeRegistry [main] Adding type registration char[] -> org.hibernate.type.CharArrayType@41477a6d
-2022-09-04 20:18:32,802 DEBUG org.hibernate.type.BasicTypeRegistry [main] Adding type registration [C -> org.hibernate.type.CharArrayType@41477a6d
-2022-09-04 20:18:32,803 DEBUG org.hibernate.type.BasicTypeRegistry [main] Adding type registration wrapper-characters -> org.hibernate.type.CharacterArrayType@591fd34d
-2022-09-04 20:18:32,803 DEBUG org.hibernate.type.BasicTypeRegistry [main] Adding type registration [Ljava.lang.Character; -> org.hibernate.type.CharacterArrayType@591fd34d
-2022-09-04 20:18:32,803 DEBUG org.hibernate.type.BasicTypeRegistry [main] Adding type registration Character[] -> org.hibernate.type.CharacterArrayType@591fd34d
-2022-09-04 20:18:32,804 DEBUG org.hibernate.type.BasicTypeRegistry [main] Adding type registration text -> org.hibernate.type.TextType@17ca8b92
-2022-09-04 20:18:32,804 DEBUG org.hibernate.type.BasicTypeRegistry [main] Adding type registration ntext -> org.hibernate.type.NTextType@45394b31
-2022-09-04 20:18:32,805 DEBUG org.hibernate.type.BasicTypeRegistry [main] Adding type registration blob -> org.hibernate.type.BlobType@6a933be2
-2022-09-04 20:18:32,806 DEBUG org.hibernate.type.BasicTypeRegistry [main] Adding type registration java.sql.Blob -> org.hibernate.type.BlobType@6a933be2
-2022-09-04 20:18:32,806 DEBUG org.hibernate.type.BasicTypeRegistry [main] Adding type registration materialized_blob -> org.hibernate.type.MaterializedBlobType@3eba57a7
-2022-09-04 20:18:32,807 DEBUG org.hibernate.type.BasicTypeRegistry [main] Adding type registration clob -> org.hibernate.type.ClobType@28cb9120
-2022-09-04 20:18:32,808 DEBUG org.hibernate.type.BasicTypeRegistry [main] Adding type registration java.sql.Clob -> org.hibernate.type.ClobType@28cb9120
-2022-09-04 20:18:32,809 DEBUG org.hibernate.type.BasicTypeRegistry [main] Adding type registration nclob -> org.hibernate.type.NClobType@644abb8f
-2022-09-04 20:18:32,809 DEBUG org.hibernate.type.BasicTypeRegistry [main] Adding type registration java.sql.NClob -> org.hibernate.type.NClobType@644abb8f
-2022-09-04 20:18:32,809 DEBUG org.hibernate.type.BasicTypeRegistry [main] Adding type registration materialized_clob -> org.hibernate.type.MaterializedClobType@4d847d32
-2022-09-04 20:18:32,809 DEBUG org.hibernate.type.BasicTypeRegistry [main] Adding type registration materialized_nclob -> org.hibernate.type.MaterializedNClobType@3605c4d3
-2022-09-04 20:18:32,810 DEBUG org.hibernate.type.BasicTypeRegistry [main] Adding type registration serializable -> org.hibernate.type.SerializableType@63429932
-2022-09-04 20:18:32,814 DEBUG org.hibernate.type.BasicTypeRegistry [main] Adding type registration object -> org.hibernate.type.ObjectType@a0a9fa5
-2022-09-04 20:18:32,814 DEBUG org.hibernate.type.BasicTypeRegistry [main] Adding type registration java.lang.Object -> org.hibernate.type.ObjectType@a0a9fa5
-2022-09-04 20:18:32,814 DEBUG org.hibernate.type.BasicTypeRegistry [main] Adding type registration imm_date -> org.hibernate.type.AdaptedImmutableType@7b60c3e
-2022-09-04 20:18:32,814 DEBUG org.hibernate.type.BasicTypeRegistry [main] Adding type registration imm_time -> org.hibernate.type.AdaptedImmutableType@3fbfa96
-2022-09-04 20:18:32,814 DEBUG org.hibernate.type.BasicTypeRegistry [main] Adding type registration imm_timestamp -> org.hibernate.type.AdaptedImmutableType@6569dded
-2022-09-04 20:18:32,814 DEBUG org.hibernate.type.BasicTypeRegistry [main] Adding type registration imm_dbtimestamp -> org.hibernate.type.AdaptedImmutableType@466d49f0
-2022-09-04 20:18:32,814 DEBUG org.hibernate.type.BasicTypeRegistry [main] Adding type registration imm_calendar -> org.hibernate.type.AdaptedImmutableType@710d7aff
-2022-09-04 20:18:32,814 DEBUG org.hibernate.type.BasicTypeRegistry [main] Adding type registration imm_calendar_date -> org.hibernate.type.AdaptedImmutableType@2d7e1102
-2022-09-04 20:18:32,814 DEBUG org.hibernate.type.BasicTypeRegistry [main] Adding type registration imm_binary -> org.hibernate.type.AdaptedImmutableType@65327f5
-2022-09-04 20:18:32,814 DEBUG org.hibernate.type.BasicTypeRegistry [main] Adding type registration imm_serializable -> org.hibernate.type.AdaptedImmutableType@2adddc06
-2022-09-04 20:18:32,829 DEBUG org.hibernate.boot.internal.BootstrapContextImpl [main] Injecting ScanEnvironment [org.hibernate.jpa.boot.internal.StandardJpaScanEnvironmentImpl@a567e72] into BootstrapContext; was [null]
-2022-09-04 20:18:32,830 DEBUG org.hibernate.boot.internal.BootstrapContextImpl [main] Injecting ScanOptions [org.hibernate.boot.archive.scan.internal.StandardScanOptions@1a5b8489] into BootstrapContext; was [org.hibernate.boot.archive.scan.internal.StandardScanOptions@6f8f8a80]
-2022-09-04 20:18:32,964 DEBUG org.hibernate.boot.internal.BootstrapContextImpl [main] Injecting JPA temp ClassLoader [null] into BootstrapContext; was [null]
-2022-09-04 20:18:32,964 DEBUG org.hibernate.boot.internal.ClassLoaderAccessImpl [main] ClassLoaderAccessImpl#injectTempClassLoader(null) [was null]
-2022-09-04 20:18:32,981 DEBUG org.hibernate.id.factory.internal.DefaultIdentifierGeneratorFactory [main] Registering IdentifierGenerator strategy [uuid2] -> [org.hibernate.id.UUIDGenerator]
-2022-09-04 20:18:32,982 DEBUG org.hibernate.id.factory.internal.DefaultIdentifierGeneratorFactory [main] Registering IdentifierGenerator strategy [guid] -> [org.hibernate.id.GUIDGenerator]
-2022-09-04 20:18:32,983 DEBUG org.hibernate.id.factory.internal.DefaultIdentifierGeneratorFactory [main] Registering IdentifierGenerator strategy [uuid] -> [org.hibernate.id.UUIDHexGenerator]
-2022-09-04 20:18:32,983 DEBUG org.hibernate.id.factory.internal.DefaultIdentifierGeneratorFactory [main] Registering IdentifierGenerator strategy [uuid.hex] -> [org.hibernate.id.UUIDHexGenerator]
-2022-09-04 20:18:32,984 DEBUG org.hibernate.id.factory.internal.DefaultIdentifierGeneratorFactory [main] Registering IdentifierGenerator strategy [assigned] -> [org.hibernate.id.Assigned]
-2022-09-04 20:18:32,985 DEBUG org.hibernate.id.factory.internal.DefaultIdentifierGeneratorFactory [main] Registering IdentifierGenerator strategy [identity] -> [org.hibernate.id.IdentityGenerator]
-2022-09-04 20:18:32,985 DEBUG org.hibernate.id.factory.internal.DefaultIdentifierGeneratorFactory [main] Registering IdentifierGenerator strategy [select] -> [org.hibernate.id.SelectGenerator]
-2022-09-04 20:18:32,986 DEBUG org.hibernate.id.factory.internal.DefaultIdentifierGeneratorFactory [main] Registering IdentifierGenerator strategy [sequence] -> [org.hibernate.id.enhanced.SequenceStyleGenerator]
-2022-09-04 20:18:32,987 DEBUG org.hibernate.id.factory.internal.DefaultIdentifierGeneratorFactory [main] Registering IdentifierGenerator strategy [seqhilo] -> [org.hibernate.id.SequenceHiLoGenerator]
-2022-09-04 20:18:32,988 DEBUG org.hibernate.id.factory.internal.DefaultIdentifierGeneratorFactory [main] Registering IdentifierGenerator strategy [increment] -> [org.hibernate.id.IncrementGenerator]
-2022-09-04 20:18:32,989 DEBUG org.hibernate.id.factory.internal.DefaultIdentifierGeneratorFactory [main] Registering IdentifierGenerator strategy [foreign] -> [org.hibernate.id.ForeignGenerator]
-2022-09-04 20:18:32,989 DEBUG org.hibernate.id.factory.internal.DefaultIdentifierGeneratorFactory [main] Registering IdentifierGenerator strategy [sequence-identity] -> [org.hibernate.id.SequenceIdentityGenerator]
-2022-09-04 20:18:32,990 DEBUG org.hibernate.id.factory.internal.DefaultIdentifierGeneratorFactory [main] Registering IdentifierGenerator strategy [enhanced-sequence] -> [org.hibernate.id.enhanced.SequenceStyleGenerator]
-2022-09-04 20:18:32,991 DEBUG org.hibernate.id.factory.internal.DefaultIdentifierGeneratorFactory [main] Registering IdentifierGenerator strategy [enhanced-table] -> [org.hibernate.id.enhanced.TableGenerator]
-2022-09-04 20:18:32,996 WARN org.hibernate.orm.connections.pooling [main] HHH10001002: Using Hibernate built-in connection pool (not for production use!)
-2022-09-04 20:18:32,996 INFO org.hibernate.orm.connections.pooling [main] HHH10001005: using driver [com.mysql.cj.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/hibernate_vehicles]
-2022-09-04 20:18:32,996 INFO org.hibernate.orm.connections.pooling [main] HHH10001001: Connection properties: {password=Agent8998Agent_007, user=root}
-2022-09-04 20:18:32,997 INFO org.hibernate.orm.connections.pooling [main] HHH10001003: Autocommit mode: false
-2022-09-04 20:18:33,000 DEBUG org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl [main] Initializing Connection pool with 1 Connections
-2022-09-04 20:18:33,000 INFO org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl [main] HHH000115: Hibernate connection pool size: 20 (min=1)
-2022-09-04 20:18:33,033 DEBUG org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator [main] Database ->
+2022-09-05 11:43:07,718 DEBUG org.hibernate.integrator.internal.IntegratorServiceImpl [main] Adding Integrator [org.hibernate.cfg.beanvalidation.BeanValidationIntegrator].
+2022-09-05 11:43:07,719 DEBUG org.hibernate.integrator.internal.IntegratorServiceImpl [main] Adding Integrator [org.hibernate.secure.spi.JaccIntegrator].
+2022-09-05 11:43:07,721 DEBUG org.hibernate.integrator.internal.IntegratorServiceImpl [main] Adding Integrator [org.hibernate.cache.internal.CollectionCacheInvalidator].
+2022-09-05 11:43:07,752 INFO org.hibernate.Version [main] HHH000412: Hibernate ORM core version 5.6.10.Final
+2022-09-05 11:43:07,754 DEBUG org.hibernate.cfg.Environment [main] HHH000206: hibernate.properties not found
+2022-09-05 11:43:07,900 DEBUG org.hibernate.service.spi.ServiceBinding [main] Overriding existing service binding [org.hibernate.secure.spi.JaccService]
+2022-09-05 11:43:07,910 DEBUG org.hibernate.cache.internal.RegionFactoryInitiator [main] Cannot default RegionFactory based on registered strategies as `[]` RegionFactory strategies were registered
+2022-09-05 11:43:07,911 DEBUG org.hibernate.cache.internal.RegionFactoryInitiator [main] Cache region factory : org.hibernate.cache.internal.NoCachingRegionFactory
+2022-09-05 11:43:07,923 INFO org.hibernate.annotations.common.Version [main] HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2022-09-05 11:43:07,955 DEBUG org.hibernate.type.BasicTypeRegistry [main] Adding type registration boolean -> org.hibernate.type.BooleanType@25cc7470
+2022-09-05 11:43:07,956 DEBUG org.hibernate.type.BasicTypeRegistry [main] Adding type registration boolean -> org.hibernate.type.BooleanType@25cc7470
+2022-09-05 11:43:07,956 DEBUG org.hibernate.type.BasicTypeRegistry [main] Adding type registration java.lang.Boolean -> org.hibernate.type.BooleanType@25cc7470
+2022-09-05 11:43:07,957 DEBUG org.hibernate.type.BasicTypeRegistry [main] Adding type registration numeric_boolean -> org.hibernate.type.NumericBooleanType@32639b12
+2022-09-05 11:43:07,957 DEBUG org.hibernate.type.BasicTypeRegistry [main] Adding type registration true_false -> org.hibernate.type.TrueFalseType@78dc4696
+2022-09-05 11:43:07,957 DEBUG org.hibernate.type.BasicTypeRegistry [main] Adding type registration yes_no -> org.hibernate.type.YesNoType@55120f99
+2022-09-05 11:43:07,958 DEBUG org.hibernate.type.BasicTypeRegistry [main] Adding type registration byte -> org.hibernate.type.ByteType@265c5d69
+2022-09-05 11:43:07,958 DEBUG org.hibernate.type.BasicTypeRegistry [main] Adding type registration byte -> org.hibernate.type.ByteType@265c5d69
+2022-09-05 11:43:07,958 DEBUG org.hibernate.type.BasicTypeRegistry [main] Adding type registration java.lang.Byte -> org.hibernate.type.ByteType@265c5d69
+2022-09-05 11:43:07,959 DEBUG org.hibernate.type.BasicTypeRegistry [main] Adding type registration character -> org.hibernate.type.CharacterType@790132f7
+2022-09-05 11:43:07,959 DEBUG org.hibernate.type.BasicTypeRegistry [main] Adding type registration char -> org.hibernate.type.CharacterType@790132f7
+2022-09-05 11:43:07,959 DEBUG org.hibernate.type.BasicTypeRegistry [main] Adding type registration java.lang.Character -> org.hibernate.type.CharacterType@790132f7
+2022-09-05 11:43:07,959 DEBUG org.hibernate.type.BasicTypeRegistry [main] Adding type registration short -> org.hibernate.type.ShortType@3f4f9acd
+2022-09-05 11:43:07,960 DEBUG org.hibernate.type.BasicTypeRegistry [main] Adding type registration short -> org.hibernate.type.ShortType@3f4f9acd
+2022-09-05 11:43:07,960 DEBUG org.hibernate.type.BasicTypeRegistry [main] Adding type registration java.lang.Short -> org.hibernate.type.ShortType@3f4f9acd
+2022-09-05 11:43:07,960 DEBUG org.hibernate.type.BasicTypeRegistry [main] Adding type registration integer -> org.hibernate.type.IntegerType@602c4656
+2022-09-05 11:43:07,960 DEBUG org.hibernate.type.BasicTypeRegistry [main] Adding type registration int -> org.hibernate.type.IntegerType@602c4656
+2022-09-05 11:43:07,960 DEBUG org.hibernate.type.BasicTypeRegistry [main] Adding type registration java.lang.Integer -> org.hibernate.type.IntegerType@602c4656
+2022-09-05 11:43:07,961 DEBUG org.hibernate.type.BasicTypeRegistry [main] Adding type registration long -> org.hibernate.type.LongType@7e0b9178
+2022-09-05 11:43:07,961 DEBUG org.hibernate.type.BasicTypeRegistry [main] Adding type registration long -> org.hibernate.type.LongType@7e0b9178
+2022-09-05 11:43:07,961 DEBUG org.hibernate.type.BasicTypeRegistry [main] Adding type registration java.lang.Long -> org.hibernate.type.LongType@7e0b9178
+2022-09-05 11:43:07,962 DEBUG org.hibernate.type.BasicTypeRegistry [main] Adding type registration float -> org.hibernate.type.FloatType@4ee33af7
+2022-09-05 11:43:07,962 DEBUG org.hibernate.type.BasicTypeRegistry [main] Adding type registration float -> org.hibernate.type.FloatType@4ee33af7
+2022-09-05 11:43:07,962 DEBUG org.hibernate.type.BasicTypeRegistry [main] Adding type registration java.lang.Float -> org.hibernate.type.FloatType@4ee33af7
+2022-09-05 11:43:07,962 DEBUG org.hibernate.type.BasicTypeRegistry [main] Adding type registration double -> org.hibernate.type.DoubleType@5f212d84
+2022-09-05 11:43:07,962 DEBUG org.hibernate.type.BasicTypeRegistry [main] Adding type registration double -> org.hibernate.type.DoubleType@5f212d84
+2022-09-05 11:43:07,962 DEBUG org.hibernate.type.BasicTypeRegistry [main] Adding type registration java.lang.Double -> org.hibernate.type.DoubleType@5f212d84
+2022-09-05 11:43:07,963 DEBUG org.hibernate.type.BasicTypeRegistry [main] Adding type registration big_decimal -> org.hibernate.type.BigDecimalType@3249a1ce
+2022-09-05 11:43:07,963 DEBUG org.hibernate.type.BasicTypeRegistry [main] Adding type registration java.math.BigDecimal -> org.hibernate.type.BigDecimalType@3249a1ce
+2022-09-05 11:43:07,964 DEBUG org.hibernate.type.BasicTypeRegistry [main] Adding type registration big_integer -> org.hibernate.type.BigIntegerType@4bd2f0dc
+2022-09-05 11:43:07,964 DEBUG org.hibernate.type.BasicTypeRegistry [main] Adding type registration java.math.BigInteger -> org.hibernate.type.BigIntegerType@4bd2f0dc
+2022-09-05 11:43:07,964 DEBUG org.hibernate.type.BasicTypeRegistry [main] Adding type registration string -> org.hibernate.type.StringType@73aff8f1
+2022-09-05 11:43:07,964 DEBUG org.hibernate.type.BasicTypeRegistry [main] Adding type registration java.lang.String -> org.hibernate.type.StringType@73aff8f1
+2022-09-05 11:43:07,965 DEBUG org.hibernate.type.BasicTypeRegistry [main] Adding type registration nstring -> org.hibernate.type.StringNVarcharType@40620d8e
+2022-09-05 11:43:07,965 DEBUG org.hibernate.type.BasicTypeRegistry [main] Adding type registration ncharacter -> org.hibernate.type.CharacterNCharType@65f00478
+2022-09-05 11:43:07,966 DEBUG org.hibernate.type.BasicTypeRegistry [main] Adding type registration url -> org.hibernate.type.UrlType@56febdc
+2022-09-05 11:43:07,966 DEBUG org.hibernate.type.BasicTypeRegistry [main] Adding type registration java.net.URL -> org.hibernate.type.UrlType@56febdc
+2022-09-05 11:43:07,967 DEBUG org.hibernate.type.BasicTypeRegistry [main] Adding type registration Duration -> org.hibernate.type.DurationType@f2c488
+2022-09-05 11:43:07,967 DEBUG org.hibernate.type.BasicTypeRegistry [main] Adding type registration java.time.Duration -> org.hibernate.type.DurationType@f2c488
+2022-09-05 11:43:07,973 DEBUG org.hibernate.type.BasicTypeRegistry [main] Adding type registration Instant -> org.hibernate.type.InstantType@1c6e0a08
+2022-09-05 11:43:07,973 DEBUG org.hibernate.type.BasicTypeRegistry [main] Adding type registration java.time.Instant -> org.hibernate.type.InstantType@1c6e0a08
+2022-09-05 11:43:07,974 DEBUG org.hibernate.type.BasicTypeRegistry [main] Adding type registration LocalDateTime -> org.hibernate.type.LocalDateTimeType@37d00a23
+2022-09-05 11:43:07,974 DEBUG org.hibernate.type.BasicTypeRegistry [main] Adding type registration java.time.LocalDateTime -> org.hibernate.type.LocalDateTimeType@37d00a23
+2022-09-05 11:43:07,975 DEBUG org.hibernate.type.BasicTypeRegistry [main] Adding type registration LocalDate -> org.hibernate.type.LocalDateType@3c5a54b7
+2022-09-05 11:43:07,975 DEBUG org.hibernate.type.BasicTypeRegistry [main] Adding type registration java.time.LocalDate -> org.hibernate.type.LocalDateType@3c5a54b7
+2022-09-05 11:43:07,976 DEBUG org.hibernate.type.BasicTypeRegistry [main] Adding type registration LocalTime -> org.hibernate.type.LocalTimeType@6f8d7714
+2022-09-05 11:43:07,976 DEBUG org.hibernate.type.BasicTypeRegistry [main] Adding type registration java.time.LocalTime -> org.hibernate.type.LocalTimeType@6f8d7714
+2022-09-05 11:43:07,976 DEBUG org.hibernate.type.BasicTypeRegistry [main] Adding type registration OffsetDateTime -> org.hibernate.type.OffsetDateTimeType@601cbd8c
+2022-09-05 11:43:07,976 DEBUG org.hibernate.type.BasicTypeRegistry [main] Adding type registration java.time.OffsetDateTime -> org.hibernate.type.OffsetDateTimeType@601cbd8c
+2022-09-05 11:43:07,977 DEBUG org.hibernate.type.BasicTypeRegistry [main] Adding type registration OffsetTime -> org.hibernate.type.OffsetTimeType@5e76a2bb
+2022-09-05 11:43:07,977 DEBUG org.hibernate.type.BasicTypeRegistry [main] Adding type registration java.time.OffsetTime -> org.hibernate.type.OffsetTimeType@5e76a2bb
+2022-09-05 11:43:07,978 DEBUG org.hibernate.type.BasicTypeRegistry [main] Adding type registration ZonedDateTime -> org.hibernate.type.ZonedDateTimeType@2fb5fe30
+2022-09-05 11:43:07,979 DEBUG org.hibernate.type.BasicTypeRegistry [main] Adding type registration java.time.ZonedDateTime -> org.hibernate.type.ZonedDateTimeType@2fb5fe30
+2022-09-05 11:43:07,980 DEBUG org.hibernate.type.BasicTypeRegistry [main] Adding type registration date -> org.hibernate.type.DateType@27e32fe4
+2022-09-05 11:43:07,980 DEBUG org.hibernate.type.BasicTypeRegistry [main] Adding type registration java.sql.Date -> org.hibernate.type.DateType@27e32fe4
+2022-09-05 11:43:07,981 DEBUG org.hibernate.type.BasicTypeRegistry [main] Adding type registration time -> org.hibernate.type.TimeType@41d7b27f
+2022-09-05 11:43:07,981 DEBUG org.hibernate.type.BasicTypeRegistry [main] Adding type registration java.sql.Time -> org.hibernate.type.TimeType@41d7b27f
+2022-09-05 11:43:07,982 DEBUG org.hibernate.type.BasicTypeRegistry [main] Adding type registration timestamp -> org.hibernate.type.TimestampType@143d9a93
+2022-09-05 11:43:07,982 DEBUG org.hibernate.type.BasicTypeRegistry [main] Adding type registration java.sql.Timestamp -> org.hibernate.type.TimestampType@143d9a93
+2022-09-05 11:43:07,982 DEBUG org.hibernate.type.BasicTypeRegistry [main] Adding type registration java.util.Date -> org.hibernate.type.TimestampType@143d9a93
+2022-09-05 11:43:07,983 DEBUG org.hibernate.type.BasicTypeRegistry [main] Adding type registration dbtimestamp -> org.hibernate.type.DbTimestampType@23cd4ff2
+2022-09-05 11:43:07,983 DEBUG org.hibernate.type.BasicTypeRegistry [main] Adding type registration calendar -> org.hibernate.type.CalendarType@2caf6912
+2022-09-05 11:43:07,983 DEBUG org.hibernate.type.BasicTypeRegistry [main] Adding type registration java.util.Calendar -> org.hibernate.type.CalendarType@2caf6912
+2022-09-05 11:43:07,983 DEBUG org.hibernate.type.BasicTypeRegistry [main] Adding type registration java.util.GregorianCalendar -> org.hibernate.type.CalendarType@2caf6912
+2022-09-05 11:43:07,984 DEBUG org.hibernate.type.BasicTypeRegistry [main] Adding type registration calendar_date -> org.hibernate.type.CalendarDateType@d400943
+2022-09-05 11:43:07,985 DEBUG org.hibernate.type.BasicTypeRegistry [main] Adding type registration calendar_time -> org.hibernate.type.CalendarTimeType@aed0151
+2022-09-05 11:43:07,986 DEBUG org.hibernate.type.BasicTypeRegistry [main] Adding type registration locale -> org.hibernate.type.LocaleType@3a60c416
+2022-09-05 11:43:07,986 DEBUG org.hibernate.type.BasicTypeRegistry [main] Adding type registration java.util.Locale -> org.hibernate.type.LocaleType@3a60c416
+2022-09-05 11:43:07,987 DEBUG org.hibernate.type.BasicTypeRegistry [main] Adding type registration currency -> org.hibernate.type.CurrencyType@6d64b553
+2022-09-05 11:43:07,987 DEBUG org.hibernate.type.BasicTypeRegistry [main] Adding type registration java.util.Currency -> org.hibernate.type.CurrencyType@6d64b553
+2022-09-05 11:43:07,988 DEBUG org.hibernate.type.BasicTypeRegistry [main] Adding type registration timezone -> org.hibernate.type.TimeZoneType@3bc735b3
+2022-09-05 11:43:07,988 DEBUG org.hibernate.type.BasicTypeRegistry [main] Adding type registration java.util.TimeZone -> org.hibernate.type.TimeZoneType@3bc735b3
+2022-09-05 11:43:07,988 DEBUG org.hibernate.type.BasicTypeRegistry [main] Adding type registration class -> org.hibernate.type.ClassType@5ec77191
+2022-09-05 11:43:07,988 DEBUG org.hibernate.type.BasicTypeRegistry [main] Adding type registration java.lang.Class -> org.hibernate.type.ClassType@5ec77191
+2022-09-05 11:43:07,989 DEBUG org.hibernate.type.BasicTypeRegistry [main] Adding type registration uuid-binary -> org.hibernate.type.UUIDBinaryType@6719a5b8
+2022-09-05 11:43:07,989 DEBUG org.hibernate.type.BasicTypeRegistry [main] Adding type registration java.util.UUID -> org.hibernate.type.UUIDBinaryType@6719a5b8
+2022-09-05 11:43:07,990 DEBUG org.hibernate.type.BasicTypeRegistry [main] Adding type registration uuid-char -> org.hibernate.type.UUIDCharType@41e1455d
+2022-09-05 11:43:07,991 DEBUG org.hibernate.type.BasicTypeRegistry [main] Adding type registration binary -> org.hibernate.type.BinaryType@14bae047
+2022-09-05 11:43:07,991 DEBUG org.hibernate.type.BasicTypeRegistry [main] Adding type registration byte[] -> org.hibernate.type.BinaryType@14bae047
+2022-09-05 11:43:07,991 DEBUG org.hibernate.type.BasicTypeRegistry [main] Adding type registration [B -> org.hibernate.type.BinaryType@14bae047
+2022-09-05 11:43:07,992 DEBUG org.hibernate.type.BasicTypeRegistry [main] Adding type registration wrapper-binary -> org.hibernate.type.WrapperBinaryType@29a23c3d
+2022-09-05 11:43:07,992 DEBUG org.hibernate.type.BasicTypeRegistry [main] Adding type registration Byte[] -> org.hibernate.type.WrapperBinaryType@29a23c3d
+2022-09-05 11:43:07,992 DEBUG org.hibernate.type.BasicTypeRegistry [main] Adding type registration [Ljava.lang.Byte; -> org.hibernate.type.WrapperBinaryType@29a23c3d
+2022-09-05 11:43:07,993 DEBUG org.hibernate.type.BasicTypeRegistry [main] Adding type registration row_version -> org.hibernate.type.RowVersionType@17ca8b92
+2022-09-05 11:43:07,993 DEBUG org.hibernate.type.BasicTypeRegistry [main] Adding type registration image -> org.hibernate.type.ImageType@45394b31
+2022-09-05 11:43:07,994 DEBUG org.hibernate.type.BasicTypeRegistry [main] Adding type registration characters -> org.hibernate.type.CharArrayType@69eb86b4
+2022-09-05 11:43:07,994 DEBUG org.hibernate.type.BasicTypeRegistry [main] Adding type registration char[] -> org.hibernate.type.CharArrayType@69eb86b4
+2022-09-05 11:43:07,994 DEBUG org.hibernate.type.BasicTypeRegistry [main] Adding type registration [C -> org.hibernate.type.CharArrayType@69eb86b4
+2022-09-05 11:43:07,996 DEBUG org.hibernate.type.BasicTypeRegistry [main] Adding type registration wrapper-characters -> org.hibernate.type.CharacterArrayType@3eba57a7
+2022-09-05 11:43:07,996 DEBUG org.hibernate.type.BasicTypeRegistry [main] Adding type registration [Ljava.lang.Character; -> org.hibernate.type.CharacterArrayType@3eba57a7
+2022-09-05 11:43:07,996 DEBUG org.hibernate.type.BasicTypeRegistry [main] Adding type registration Character[] -> org.hibernate.type.CharacterArrayType@3eba57a7
+2022-09-05 11:43:07,996 DEBUG org.hibernate.type.BasicTypeRegistry [main] Adding type registration text -> org.hibernate.type.TextType@bcb09a6
+2022-09-05 11:43:07,997 DEBUG org.hibernate.type.BasicTypeRegistry [main] Adding type registration ntext -> org.hibernate.type.NTextType@375b5b7f
+2022-09-05 11:43:07,998 DEBUG org.hibernate.type.BasicTypeRegistry [main] Adding type registration blob -> org.hibernate.type.BlobType@6331250e
+2022-09-05 11:43:07,998 DEBUG org.hibernate.type.BasicTypeRegistry [main] Adding type registration java.sql.Blob -> org.hibernate.type.BlobType@6331250e
+2022-09-05 11:43:07,999 DEBUG org.hibernate.type.BasicTypeRegistry [main] Adding type registration materialized_blob -> org.hibernate.type.MaterializedBlobType@70325d20
+2022-09-05 11:43:08,001 DEBUG org.hibernate.type.BasicTypeRegistry [main] Adding type registration clob -> org.hibernate.type.ClobType@6ad11a56
+2022-09-05 11:43:08,001 DEBUG org.hibernate.type.BasicTypeRegistry [main] Adding type registration java.sql.Clob -> org.hibernate.type.ClobType@6ad11a56
+2022-09-05 11:43:08,002 DEBUG org.hibernate.type.BasicTypeRegistry [main] Adding type registration nclob -> org.hibernate.type.NClobType@18fdb6cf
+2022-09-05 11:43:08,002 DEBUG org.hibernate.type.BasicTypeRegistry [main] Adding type registration java.sql.NClob -> org.hibernate.type.NClobType@18fdb6cf
+2022-09-05 11:43:08,003 DEBUG org.hibernate.type.BasicTypeRegistry [main] Adding type registration materialized_clob -> org.hibernate.type.MaterializedClobType@732bb66d
+2022-09-05 11:43:08,003 DEBUG org.hibernate.type.BasicTypeRegistry [main] Adding type registration materialized_nclob -> org.hibernate.type.MaterializedNClobType@4463d9d3
+2022-09-05 11:43:08,004 DEBUG org.hibernate.type.BasicTypeRegistry [main] Adding type registration serializable -> org.hibernate.type.SerializableType@312afbc7
+2022-09-05 11:43:08,007 DEBUG org.hibernate.type.BasicTypeRegistry [main] Adding type registration object -> org.hibernate.type.ObjectType@4ebadd3d
+2022-09-05 11:43:08,007 DEBUG org.hibernate.type.BasicTypeRegistry [main] Adding type registration java.lang.Object -> org.hibernate.type.ObjectType@4ebadd3d
+2022-09-05 11:43:08,007 DEBUG org.hibernate.type.BasicTypeRegistry [main] Adding type registration imm_date -> org.hibernate.type.AdaptedImmutableType@2d0bfb24
+2022-09-05 11:43:08,007 DEBUG org.hibernate.type.BasicTypeRegistry [main] Adding type registration imm_time -> org.hibernate.type.AdaptedImmutableType@c3fa05a
+2022-09-05 11:43:08,008 DEBUG org.hibernate.type.BasicTypeRegistry [main] Adding type registration imm_timestamp -> org.hibernate.type.AdaptedImmutableType@7b44b63d
+2022-09-05 11:43:08,008 DEBUG org.hibernate.type.BasicTypeRegistry [main] Adding type registration imm_dbtimestamp -> org.hibernate.type.AdaptedImmutableType@4a699efa
+2022-09-05 11:43:08,008 DEBUG org.hibernate.type.BasicTypeRegistry [main] Adding type registration imm_calendar -> org.hibernate.type.AdaptedImmutableType@38499e48
+2022-09-05 11:43:08,008 DEBUG org.hibernate.type.BasicTypeRegistry [main] Adding type registration imm_calendar_date -> org.hibernate.type.AdaptedImmutableType@4905c46b
+2022-09-05 11:43:08,008 DEBUG org.hibernate.type.BasicTypeRegistry [main] Adding type registration imm_binary -> org.hibernate.type.AdaptedImmutableType@17ae7628
+2022-09-05 11:43:08,008 DEBUG org.hibernate.type.BasicTypeRegistry [main] Adding type registration imm_serializable -> org.hibernate.type.AdaptedImmutableType@1136b469
+2022-09-05 11:43:08,018 DEBUG org.hibernate.boot.internal.BootstrapContextImpl [main] Injecting ScanEnvironment [org.hibernate.jpa.boot.internal.StandardJpaScanEnvironmentImpl@278f8425] into BootstrapContext; was [null]
+2022-09-05 11:43:08,018 DEBUG org.hibernate.boot.internal.BootstrapContextImpl [main] Injecting ScanOptions [org.hibernate.boot.archive.scan.internal.StandardScanOptions@695a69a1] into BootstrapContext; was [org.hibernate.boot.archive.scan.internal.StandardScanOptions@4b1abd11]
+2022-09-05 11:43:08,120 DEBUG org.hibernate.boot.internal.BootstrapContextImpl [main] Injecting JPA temp ClassLoader [null] into BootstrapContext; was [null]
+2022-09-05 11:43:08,120 DEBUG org.hibernate.boot.internal.ClassLoaderAccessImpl [main] ClassLoaderAccessImpl#injectTempClassLoader(null) [was null]
+2022-09-05 11:43:08,129 DEBUG org.hibernate.id.factory.internal.DefaultIdentifierGeneratorFactory [main] Registering IdentifierGenerator strategy [uuid2] -> [org.hibernate.id.UUIDGenerator]
+2022-09-05 11:43:08,129 DEBUG org.hibernate.id.factory.internal.DefaultIdentifierGeneratorFactory [main] Registering IdentifierGenerator strategy [guid] -> [org.hibernate.id.GUIDGenerator]
+2022-09-05 11:43:08,129 DEBUG org.hibernate.id.factory.internal.DefaultIdentifierGeneratorFactory [main] Registering IdentifierGenerator strategy [uuid] -> [org.hibernate.id.UUIDHexGenerator]
+2022-09-05 11:43:08,129 DEBUG org.hibernate.id.factory.internal.DefaultIdentifierGeneratorFactory [main] Registering IdentifierGenerator strategy [uuid.hex] -> [org.hibernate.id.UUIDHexGenerator]
+2022-09-05 11:43:08,130 DEBUG org.hibernate.id.factory.internal.DefaultIdentifierGeneratorFactory [main] Registering IdentifierGenerator strategy [assigned] -> [org.hibernate.id.Assigned]
+2022-09-05 11:43:08,130 DEBUG org.hibernate.id.factory.internal.DefaultIdentifierGeneratorFactory [main] Registering IdentifierGenerator strategy [identity] -> [org.hibernate.id.IdentityGenerator]
+2022-09-05 11:43:08,131 DEBUG org.hibernate.id.factory.internal.DefaultIdentifierGeneratorFactory [main] Registering IdentifierGenerator strategy [select] -> [org.hibernate.id.SelectGenerator]
+2022-09-05 11:43:08,131 DEBUG org.hibernate.id.factory.internal.DefaultIdentifierGeneratorFactory [main] Registering IdentifierGenerator strategy [sequence] -> [org.hibernate.id.enhanced.SequenceStyleGenerator]
+2022-09-05 11:43:08,132 DEBUG org.hibernate.id.factory.internal.DefaultIdentifierGeneratorFactory [main] Registering IdentifierGenerator strategy [seqhilo] -> [org.hibernate.id.SequenceHiLoGenerator]
+2022-09-05 11:43:08,132 DEBUG org.hibernate.id.factory.internal.DefaultIdentifierGeneratorFactory [main] Registering IdentifierGenerator strategy [increment] -> [org.hibernate.id.IncrementGenerator]
+2022-09-05 11:43:08,133 DEBUG org.hibernate.id.factory.internal.DefaultIdentifierGeneratorFactory [main] Registering IdentifierGenerator strategy [foreign] -> [org.hibernate.id.ForeignGenerator]
+2022-09-05 11:43:08,133 DEBUG org.hibernate.id.factory.internal.DefaultIdentifierGeneratorFactory [main] Registering IdentifierGenerator strategy [sequence-identity] -> [org.hibernate.id.SequenceIdentityGenerator]
+2022-09-05 11:43:08,133 DEBUG org.hibernate.id.factory.internal.DefaultIdentifierGeneratorFactory [main] Registering IdentifierGenerator strategy [enhanced-sequence] -> [org.hibernate.id.enhanced.SequenceStyleGenerator]
+2022-09-05 11:43:08,134 DEBUG org.hibernate.id.factory.internal.DefaultIdentifierGeneratorFactory [main] Registering IdentifierGenerator strategy [enhanced-table] -> [org.hibernate.id.enhanced.TableGenerator]
+2022-09-05 11:43:08,137 WARN org.hibernate.orm.connections.pooling [main] HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2022-09-05 11:43:08,137 INFO org.hibernate.orm.connections.pooling [main] HHH10001005: using driver [com.mysql.cj.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/hibernate_vehicles]
+2022-09-05 11:43:08,137 INFO org.hibernate.orm.connections.pooling [main] HHH10001001: Connection properties: {password=Agent8998Agent_007, user=root}
+2022-09-05 11:43:08,137 INFO org.hibernate.orm.connections.pooling [main] HHH10001003: Autocommit mode: false
+2022-09-05 11:43:08,140 DEBUG org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl [main] Initializing Connection pool with 1 Connections
+2022-09-05 11:43:08,140 INFO org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl [main] HHH000115: Hibernate connection pool size: 20 (min=1)
+2022-09-05 11:43:08,171 DEBUG org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator [main] Database ->
        name : MySQL
     version : 8.0.28
       major : 8
       minor : 0
-2022-09-04 20:18:33,033 DEBUG org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator [main] Driver ->
+2022-09-05 11:43:08,171 DEBUG org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator [main] Driver ->
        name : MySQL Connector/J
     version : mysql-connector-java-8.0.30 (Revision: 1de2fe873fe26189564c030a343885011412976a)
       major : 8
       minor : 0
-2022-09-04 20:18:33,033 DEBUG org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator [main] JDBC version : 4.2
-2022-09-04 20:18:33,050 INFO org.hibernate.dialect.Dialect [main] HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
-2022-09-04 20:18:33,070 DEBUG org.hibernate.engine.jdbc.env.spi.IdentifierHelperBuilder [main] JDBC driver metadata reported database stores quoted identifiers in more than one case
-2022-09-04 20:18:33,071 DEBUG org.hibernate.engine.jdbc.env.spi.IdentifierHelperBuilder [main] IdentifierCaseStrategy for both quoted and unquoted identifiers was set to the same strategy [LOWER]; that will likely lead to problems in schema update and validation if using quoted identifiers
-2022-09-04 20:18:33,091 DEBUG org.hibernate.type.spi.TypeConfiguration$Scope [main] Scoping TypeConfiguration [org.hibernate.type.spi.TypeConfiguration@4a34e9f] to MetadataBuildingContext [org.hibernate.boot.internal.MetadataBuildingContextRootImpl@6f6621e3]
-2022-09-04 20:18:33,141 DEBUG org.hibernate.boot.model.relational.Namespace [main] Created database namespace [logicalName=Name{catalog=null, schema=null}, physicalName=Name{catalog=null, schema=null}]
-2022-09-04 20:18:33,156 DEBUG org.hibernate.cfg.AnnotationBinder [main] Binding entity from annotated class: com.nix.lesson10.model.Invoice
-2022-09-04 20:18:33,173 DEBUG org.hibernate.cfg.Ejb3Column [main] Binding column: Ejb3DiscriminatorColumn{logicalColumnName'DTYPE', discriminatorTypeName='string'}
-2022-09-04 20:18:33,178 DEBUG org.hibernate.cfg.annotations.EntityBinder [main] Import with entity name Invoice
-2022-09-04 20:18:33,189 DEBUG org.hibernate.cfg.annotations.EntityBinder [main] Bind entity com.nix.lesson10.model.Invoice on table Invoice
-2022-09-04 20:18:33,226 DEBUG org.hibernate.cfg.Ejb3Column [main] Binding column: Ejb3Column{table=org.hibernate.mapping.Table(Invoice), mappingColumn=id, insertable=true, updatable=true, unique=false}
-2022-09-04 20:18:33,229 DEBUG org.hibernate.boot.internal.ClassLoaderAccessImpl [main] Not known whether passed class name [com.nix.lesson10.model.Invoice] is safe
-2022-09-04 20:18:33,229 DEBUG org.hibernate.boot.internal.ClassLoaderAccessImpl [main] No temp ClassLoader provided; using live ClassLoader for loading potentially unsafe class : com.nix.lesson10.model.Invoice
-2022-09-04 20:18:33,230 DEBUG org.hibernate.cfg.annotations.PropertyBinder [main] MetadataSourceProcessor property id with lazy=false
-2022-09-04 20:18:33,232 DEBUG org.hibernate.cfg.AbstractPropertyHolder [main] Attempting to locate auto-apply AttributeConverter for property [com.nix.lesson10.model.Invoice:id]
-2022-09-04 20:18:33,235 DEBUG org.hibernate.cfg.annotations.SimpleValueBinder [main] building SimpleValue for id
-2022-09-04 20:18:33,238 DEBUG org.hibernate.cfg.annotations.PropertyBinder [main] Building property id
-2022-09-04 20:18:33,244 DEBUG org.hibernate.cfg.BinderHelper [main] #makeIdGenerator(org.hibernate.mapping.SimpleValue([org.hibernate.mapping.Column(id)]), id, org.hibernate.id.enhanced.SequenceStyleGenerator, UUID, ...)
-2022-09-04 20:18:33,247 DEBUG org.hibernate.cfg.Ejb3Column [main] Binding column: Ejb3Column{table=org.hibernate.mapping.Table(Invoice), mappingColumn=created, insertable=true, updatable=true, unique=false}
-2022-09-04 20:18:33,249 DEBUG org.hibernate.cfg.annotations.PropertyBinder [main] MetadataSourceProcessor property created with lazy=false
-2022-09-04 20:18:33,249 DEBUG org.hibernate.cfg.AbstractPropertyHolder [main] Attempting to locate auto-apply AttributeConverter for property [com.nix.lesson10.model.Invoice:created]
-2022-09-04 20:18:33,249 DEBUG org.hibernate.cfg.annotations.SimpleValueBinder [main] building SimpleValue for created
-2022-09-04 20:18:33,249 DEBUG org.hibernate.cfg.annotations.PropertyBinder [main] Building property created
-2022-09-04 20:18:33,252 DEBUG org.hibernate.cfg.Ejb3Column [main] Binding column: Ejb3Column{table=org.hibernate.mapping.Table(Invoice), mappingColumn=null, insertable=true, updatable=true, unique=false}
-2022-09-04 20:18:33,267 DEBUG org.hibernate.cfg.Ejb3Column [main] Binding column: Ejb3Column{table=org.hibernate.mapping.Table(Invoice), mappingColumn=element, insertable=true, updatable=true, unique=false}
-2022-09-04 20:18:33,268 DEBUG org.hibernate.cfg.Ejb3Column [main] Binding column: Ejb3Column{table=org.hibernate.mapping.Table(Invoice), mappingColumn=vehicles_KEY, insertable=true, updatable=true, unique=false}
-2022-09-04 20:18:33,271 DEBUG org.hibernate.cfg.Ejb3Column [main] Binding column: Ejb3JoinColumn{logicalColumnName='vehicles_KEY', referencedColumn='null', mappedBy='null'}
+2022-09-05 11:43:08,171 DEBUG org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator [main] JDBC version : 4.2
+2022-09-05 11:43:08,181 INFO org.hibernate.dialect.Dialect [main] HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2022-09-05 11:43:08,195 DEBUG org.hibernate.engine.jdbc.env.spi.IdentifierHelperBuilder [main] JDBC driver metadata reported database stores quoted identifiers in more than one case
+2022-09-05 11:43:08,196 DEBUG org.hibernate.engine.jdbc.env.spi.IdentifierHelperBuilder [main] IdentifierCaseStrategy for both quoted and unquoted identifiers was set to the same strategy [LOWER]; that will likely lead to problems in schema update and validation if using quoted identifiers
+2022-09-05 11:43:08,212 DEBUG org.hibernate.type.spi.TypeConfiguration$Scope [main] Scoping TypeConfiguration [org.hibernate.type.spi.TypeConfiguration@588307f7] to MetadataBuildingContext [org.hibernate.boot.internal.MetadataBuildingContextRootImpl@7df76d99]
+2022-09-05 11:43:08,253 DEBUG org.hibernate.boot.model.relational.Namespace [main] Created database namespace [logicalName=Name{catalog=null, schema=null}, physicalName=Name{catalog=null, schema=null}]
+2022-09-05 11:43:08,262 DEBUG org.hibernate.cfg.AnnotationBinder [main] Binding entity from annotated class: com.nix.lesson10.model.Invoice
+2022-09-05 11:43:08,274 DEBUG org.hibernate.cfg.Ejb3Column [main] Binding column: Ejb3DiscriminatorColumn{logicalColumnName'DTYPE', discriminatorTypeName='string'}
+2022-09-05 11:43:08,279 DEBUG org.hibernate.cfg.annotations.EntityBinder [main] Import with entity name Invoice
+2022-09-05 11:43:08,284 DEBUG org.hibernate.cfg.annotations.EntityBinder [main] Bind entity com.nix.lesson10.model.Invoice on table Invoice
+2022-09-05 11:43:08,318 DEBUG org.hibernate.cfg.Ejb3Column [main] Binding column: Ejb3Column{table=org.hibernate.mapping.Table(Invoice), mappingColumn=id, insertable=true, updatable=true, unique=false}
+2022-09-05 11:43:08,321 DEBUG org.hibernate.boot.internal.ClassLoaderAccessImpl [main] Not known whether passed class name [com.nix.lesson10.model.Invoice] is safe
+2022-09-05 11:43:08,321 DEBUG org.hibernate.boot.internal.ClassLoaderAccessImpl [main] No temp ClassLoader provided; using live ClassLoader for loading potentially unsafe class : com.nix.lesson10.model.Invoice
+2022-09-05 11:43:08,322 DEBUG org.hibernate.cfg.annotations.PropertyBinder [main] MetadataSourceProcessor property id with lazy=false
+2022-09-05 11:43:08,324 DEBUG org.hibernate.cfg.AbstractPropertyHolder [main] Attempting to locate auto-apply AttributeConverter for property [com.nix.lesson10.model.Invoice:id]
+2022-09-05 11:43:08,326 DEBUG org.hibernate.cfg.annotations.SimpleValueBinder [main] building SimpleValue for id
+2022-09-05 11:43:08,329 DEBUG org.hibernate.cfg.annotations.PropertyBinder [main] Building property id
+2022-09-05 11:43:08,337 DEBUG org.hibernate.cfg.BinderHelper [main] #makeIdGenerator(org.hibernate.mapping.SimpleValue([org.hibernate.mapping.Column(id)]), id, org.hibernate.id.enhanced.SequenceStyleGenerator, UUID, ...)
+2022-09-05 11:43:08,339 DEBUG org.hibernate.cfg.Ejb3Column [main] Binding column: Ejb3Column{table=org.hibernate.mapping.Table(Invoice), mappingColumn=created, insertable=true, updatable=true, unique=false}
+2022-09-05 11:43:08,340 DEBUG org.hibernate.cfg.annotations.PropertyBinder [main] MetadataSourceProcessor property created with lazy=false
+2022-09-05 11:43:08,341 DEBUG org.hibernate.cfg.AbstractPropertyHolder [main] Attempting to locate auto-apply AttributeConverter for property [com.nix.lesson10.model.Invoice:created]
+2022-09-05 11:43:08,341 DEBUG org.hibernate.cfg.annotations.SimpleValueBinder [main] building SimpleValue for created
+2022-09-05 11:43:08,341 DEBUG org.hibernate.cfg.annotations.PropertyBinder [main] Building property created
+2022-09-05 11:43:08,343 DEBUG org.hibernate.cfg.Ejb3Column [main] Binding column: Ejb3Column{table=org.hibernate.mapping.Table(Invoice), mappingColumn=null, insertable=true, updatable=true, unique=false}
+2022-09-05 11:43:08,359 DEBUG org.hibernate.cfg.Ejb3Column [main] Binding column: Ejb3Column{table=org.hibernate.mapping.Table(Invoice), mappingColumn=element, insertable=true, updatable=true, unique=false}
+2022-09-05 11:43:08,360 DEBUG org.hibernate.cfg.Ejb3Column [main] Binding column: Ejb3Column{table=org.hibernate.mapping.Table(Invoice), mappingColumn=vehicles_KEY, insertable=true, updatable=true, unique=false}
+2022-09-05 11:43:08,363 DEBUG org.hibernate.cfg.Ejb3Column [main] Binding column: Ejb3JoinColumn{logicalColumnName='vehicles_KEY', referencedColumn='null', mappedBy='null'}
+2022-09-05 11:43:08,366 DEBUG org.hibernate.cfg.Ejb3Column [main] Binding column: Ejb3JoinColumn{logicalColumnName='invoice_id', referencedColumn='', mappedBy=''}
+2022-09-05 11:43:08,366 DEBUG org.hibernate.cfg.Ejb3Column [main] Binding column: Ejb3JoinColumn{logicalColumnName='vehicle_id', referencedColumn='', mappedBy=''}
+2022-09-05 11:43:08,367 DEBUG org.hibernate.cfg.annotations.CollectionBinder [main] Collection role: com.nix.lesson10.model.Invoice.vehicles
+2022-09-05 11:43:08,370 DEBUG org.hibernate.cfg.annotations.PropertyBinder [main] Building property vehicles
+2022-09-05 11:43:08,378 DEBUG org.hibernate.cfg.AnnotationBinder [main] Binding entity from annotated class: com.nix.lesson10.model.vehicle.Vehicle
+2022-09-05 11:43:08,378 DEBUG org.hibernate.cfg.annotations.EntityBinder [main] Import with entity name Vehicle
+2022-09-05 11:43:08,378 DEBUG org.hibernate.cfg.annotations.EntityBinder [main] Bind entity com.nix.lesson10.model.vehicle.Vehicle on table Vehicle
+2022-09-05 11:43:08,386 DEBUG org.hibernate.cfg.Ejb3Column [main] Binding column: Ejb3Column{table=org.hibernate.mapping.Table(Vehicle), mappingColumn=id, insertable=true, updatable=true, unique=false}
+2022-09-05 11:43:08,386 DEBUG org.hibernate.boot.internal.ClassLoaderAccessImpl [main] Not known whether passed class name [com.nix.lesson10.model.vehicle.Vehicle] is safe
+2022-09-05 11:43:08,387 DEBUG org.hibernate.boot.internal.ClassLoaderAccessImpl [main] No temp ClassLoader provided; using live ClassLoader for loading potentially unsafe class : com.nix.lesson10.model.vehicle.Vehicle
+2022-09-05 11:43:08,391 DEBUG org.hibernate.cfg.annotations.PropertyBinder [main] MetadataSourceProcessor property id with lazy=false
+2022-09-05 11:43:08,391 DEBUG org.hibernate.cfg.AbstractPropertyHolder [main] Attempting to locate auto-apply AttributeConverter for property [com.nix.lesson10.model.vehicle.Vehicle:id]
+2022-09-05 11:43:08,391 DEBUG org.hibernate.cfg.annotations.SimpleValueBinder [main] building SimpleValue for id
+2022-09-05 11:43:08,391 DEBUG org.hibernate.cfg.annotations.PropertyBinder [main] Building property id
+2022-09-05 11:43:08,391 DEBUG org.hibernate.cfg.BinderHelper [main] #makeIdGenerator(org.hibernate.mapping.SimpleValue([org.hibernate.mapping.Column(id)]), id, org.hibernate.id.enhanced.SequenceStyleGenerator, UUID, ...)
+2022-09-05 11:43:08,391 DEBUG org.hibernate.cfg.Ejb3Column [main] Binding column: Ejb3Column{table=org.hibernate.mapping.Table(Vehicle), mappingColumn=created, insertable=true, updatable=true, unique=false}
+2022-09-05 11:43:08,391 DEBUG org.hibernate.cfg.annotations.PropertyBinder [main] MetadataSourceProcessor property created with lazy=false
+2022-09-05 11:43:08,391 DEBUG org.hibernate.cfg.AbstractPropertyHolder [main] Attempting to locate auto-apply AttributeConverter for property [com.nix.lesson10.model.vehicle.Vehicle:created]
+2022-09-05 11:43:08,392 DEBUG org.hibernate.cfg.annotations.SimpleValueBinder [main] building SimpleValue for created
+2022-09-05 11:43:08,392 DEBUG org.hibernate.cfg.annotations.PropertyBinder [main] Building property created
+2022-09-05 11:43:08,392 DEBUG org.hibernate.cfg.Ejb3Column [main] Binding column: Ejb3JoinColumn{logicalColumnName='Engine_id', referencedColumn='', mappedBy=''}
+2022-09-05 11:43:08,392 DEBUG org.hibernate.cfg.Ejb3Column [main] Binding column: Ejb3Column{table=org.hibernate.mapping.Table(Vehicle), mappingColumn=engine, insertable=true, updatable=true, unique=false}
+2022-09-05 11:43:08,395 DEBUG org.hibernate.cfg.annotations.PropertyBinder [main] Building property engine
+2022-09-05 11:43:08,396 DEBUG org.hibernate.cfg.Ejb3Column [main] Binding column: Ejb3Column{table=org.hibernate.mapping.Table(Vehicle), mappingColumn=null, insertable=true, updatable=true, unique=false}
+2022-09-05 11:43:08,397 DEBUG org.hibernate.cfg.Ejb3Column [main] Binding column: Ejb3Column{table=org.hibernate.mapping.Table(Vehicle), mappingColumn=element, insertable=true, updatable=true, unique=false}
+2022-09-05 11:43:08,397 DEBUG org.hibernate.cfg.Ejb3Column [main] Binding column: Ejb3Column{table=org.hibernate.mapping.Table(Vehicle), mappingColumn=invoices_KEY, insertable=true, updatable=true, unique=false}
+2022-09-05 11:43:08,397 DEBUG org.hibernate.cfg.Ejb3Column [main] Binding column: Ejb3JoinColumn{logicalColumnName='invoices_KEY', referencedColumn='null', mappedBy='null'}
+2022-09-05 11:43:08,397 DEBUG org.hibernate.cfg.Ejb3Column [main] Binding column: Ejb3JoinColumn{logicalColumnName='null', referencedColumn='null', mappedBy='vehicles'}
+2022-09-05 11:43:08,397 DEBUG org.hibernate.cfg.Ejb3Column [main] Binding column: Ejb3JoinColumn{logicalColumnName='null', referencedColumn='null', mappedBy='vehicles'}
+2022-09-05 11:43:08,397 DEBUG org.hibernate.cfg.annotations.CollectionBinder [main] Collection role: com.nix.lesson10.model.vehicle.Vehicle.invoices
+2022-09-05 11:43:08,397 DEBUG org.hibernate.cfg.annotations.PropertyBinder [main] Building property invoices
+2022-09-05 11:43:08,397 DEBUG org.hibernate.cfg.Ejb3Column [main] Binding column: Ejb3Column{table=org.hibernate.mapping.Table(Vehicle), mappingColumn=manufacturer, insertable=true, updatable=true, unique=false}
+2022-09-05 11:43:08,398 DEBUG org.hibernate.cfg.annotations.PropertyBinder [main] MetadataSourceProcessor property manufacturer with lazy=false
+2022-09-05 11:43:08,398 DEBUG org.hibernate.cfg.AbstractPropertyHolder [main] Attempting to locate auto-apply AttributeConverter for property [com.nix.lesson10.model.vehicle.Vehicle:manufacturer]
+2022-09-05 11:43:08,400 DEBUG org.hibernate.cfg.annotations.SimpleValueBinder [main] building SimpleValue for manufacturer
+2022-09-05 11:43:08,400 DEBUG org.hibernate.cfg.annotations.PropertyBinder [main] Building property manufacturer
+2022-09-05 11:43:08,401 DEBUG org.hibernate.cfg.Ejb3Column [main] Binding column: Ejb3Column{table=org.hibernate.mapping.Table(Vehicle), mappingColumn=model, insertable=true, updatable=true, unique=false}
+2022-09-05 11:43:08,401 DEBUG org.hibernate.cfg.annotations.PropertyBinder [main] MetadataSourceProcessor property model with lazy=false
+2022-09-05 11:43:08,401 DEBUG org.hibernate.cfg.AbstractPropertyHolder [main] Attempting to locate auto-apply AttributeConverter for property [com.nix.lesson10.model.vehicle.Vehicle:model]
+2022-09-05 11:43:08,402 DEBUG org.hibernate.cfg.annotations.SimpleValueBinder [main] building SimpleValue for model
+2022-09-05 11:43:08,402 DEBUG org.hibernate.cfg.annotations.PropertyBinder [main] Building property model
+2022-09-05 11:43:08,402 DEBUG org.hibernate.cfg.Ejb3Column [main] Binding column: Ejb3Column{table=org.hibernate.mapping.Table(Vehicle), mappingColumn=price, insertable=true, updatable=true, unique=false}
+2022-09-05 11:43:08,402 DEBUG org.hibernate.cfg.annotations.PropertyBinder [main] MetadataSourceProcessor property price with lazy=false
+2022-09-05 11:43:08,402 DEBUG org.hibernate.cfg.AbstractPropertyHolder [main] Attempting to locate auto-apply AttributeConverter for property [com.nix.lesson10.model.vehicle.Vehicle:price]
+2022-09-05 11:43:08,402 DEBUG org.hibernate.cfg.annotations.SimpleValueBinder [main] building SimpleValue for price
+2022-09-05 11:43:08,402 DEBUG org.hibernate.cfg.annotations.PropertyBinder [main] Building property price
+2022-09-05 11:43:08,403 DEBUG org.hibernate.cfg.AnnotationBinder [main] Binding entity from annotated class: com.nix.lesson10.model.vehicle.Motorcycle
+2022-09-05 11:43:08,404 DEBUG org.hibernate.cfg.annotations.EntityBinder [main] Import with entity name Motorcycle
+2022-09-05 11:43:08,404 DEBUG org.hibernate.cfg.annotations.EntityBinder [main] Bind entity com.nix.lesson10.model.vehicle.Motorcycle on table Motorcycle
+2022-09-05 11:43:08,406 DEBUG org.hibernate.cfg.Ejb3Column [main] Binding column: Ejb3Column{table=org.hibernate.mapping.DenormalizedTable(Motorcycle), mappingColumn=landing, insertable=true, updatable=true, unique=false}
+2022-09-05 11:43:08,406 DEBUG org.hibernate.cfg.annotations.PropertyBinder [main] MetadataSourceProcessor property landing with lazy=false
+2022-09-05 11:43:08,406 DEBUG org.hibernate.cfg.AbstractPropertyHolder [main] Attempting to locate auto-apply AttributeConverter for property [com.nix.lesson10.model.vehicle.Motorcycle:landing]
+2022-09-05 11:43:08,406 DEBUG org.hibernate.cfg.annotations.SimpleValueBinder [main] building SimpleValue for landing
+2022-09-05 11:43:08,406 DEBUG org.hibernate.cfg.annotations.PropertyBinder [main] Building property landing
+2022-09-05 11:43:08,407 DEBUG org.hibernate.cfg.AnnotationBinder [main] Binding entity from annotated class: com.nix.lesson10.model.vehicle.Auto
+2022-09-05 11:43:08,407 DEBUG org.hibernate.cfg.annotations.EntityBinder [main] Import with entity name Auto
+2022-09-05 11:43:08,407 DEBUG org.hibernate.cfg.annotations.EntityBinder [main] Bind entity com.nix.lesson10.model.vehicle.Auto on table Auto
+2022-09-05 11:43:08,410 DEBUG org.hibernate.cfg.Ejb3Column [main] Binding column: Ejb3Column{table=org.hibernate.mapping.DenormalizedTable(Auto), mappingColumn=bodyType, insertable=true, updatable=true, unique=false}
+2022-09-05 11:43:08,410 DEBUG org.hibernate.cfg.annotations.PropertyBinder [main] MetadataSourceProcessor property bodyType with lazy=false
+2022-09-05 11:43:08,410 DEBUG org.hibernate.cfg.AbstractPropertyHolder [main] Attempting to locate auto-apply AttributeConverter for property [com.nix.lesson10.model.vehicle.Auto:bodyType]
+2022-09-05 11:43:08,410 DEBUG org.hibernate.cfg.annotations.SimpleValueBinder [main] building SimpleValue for bodyType
+2022-09-05 11:43:08,410 DEBUG org.hibernate.cfg.annotations.PropertyBinder [main] Building property bodyType
+2022-09-05 11:43:08,411 DEBUG org.hibernate.cfg.AnnotationBinder [main] Binding entity from annotated class: com.nix.lesson10.model.vehicle.Engine
+2022-09-05 11:43:08,411 DEBUG org.hibernate.cfg.Ejb3Column [main] Binding column: Ejb3DiscriminatorColumn{logicalColumnName'DTYPE', discriminatorTypeName='string'}
+2022-09-05 11:43:08,411 DEBUG org.hibernate.cfg.annotations.EntityBinder [main] Import with entity name Engine
+2022-09-05 11:43:08,411 DEBUG org.hibernate.cfg.annotations.EntityBinder [main] Bind entity com.nix.lesson10.model.vehicle.Engine on table Engine
+2022-09-05 11:43:08,412 DEBUG org.hibernate.cfg.Ejb3Column [main] Binding column: Ejb3Column{table=org.hibernate.mapping.Table(Engine), mappingColumn=id, insertable=true, updatable=true, unique=false}
+2022-09-05 11:43:08,413 DEBUG org.hibernate.boot.internal.ClassLoaderAccessImpl [main] Not known whether passed class name [com.nix.lesson10.model.vehicle.Engine] is safe
+2022-09-05 11:43:08,413 DEBUG org.hibernate.boot.internal.ClassLoaderAccessImpl [main] No temp ClassLoader provided; using live ClassLoader for loading potentially unsafe class : com.nix.lesson10.model.vehicle.Engine
+2022-09-05 11:43:08,413 DEBUG org.hibernate.cfg.annotations.PropertyBinder [main] MetadataSourceProcessor property id with lazy=false
+2022-09-05 11:43:08,413 DEBUG org.hibernate.cfg.AbstractPropertyHolder [main] Attempting to locate auto-apply AttributeConverter for property [com.nix.lesson10.model.vehicle.Engine:id]
+2022-09-05 11:43:08,413 DEBUG org.hibernate.cfg.annotations.SimpleValueBinder [main] building SimpleValue for id
+2022-09-05 11:43:08,413 DEBUG org.hibernate.cfg.annotations.PropertyBinder [main] Building property id
+2022-09-05 11:43:08,413 DEBUG org.hibernate.cfg.BinderHelper [main] #makeIdGenerator(org.hibernate.mapping.SimpleValue([org.hibernate.mapping.Column(id)]), id, org.hibernate.id.enhanced.SequenceStyleGenerator, UUID, ...)
+2022-09-05 11:43:08,413 DEBUG org.hibernate.cfg.Ejb3Column [main] Binding column: Ejb3Column{table=org.hibernate.mapping.Table(Engine), mappingColumn=brand, insertable=true, updatable=true, unique=false}
+2022-09-05 11:43:08,413 DEBUG org.hibernate.cfg.annotations.PropertyBinder [main] MetadataSourceProcessor property brand with lazy=false
+2022-09-05 11:43:08,413 DEBUG org.hibernate.cfg.AbstractPropertyHolder [main] Attempting to locate auto-apply AttributeConverter for property [com.nix.lesson10.model.vehicle.Engine:brand]
+2022-09-05 11:43:08,413 DEBUG org.hibernate.cfg.annotations.SimpleValueBinder [main] building SimpleValue for brand
+2022-09-05 11:43:08,413 DEBUG org.hibernate.cfg.annotations.PropertyBinder [main] Building property brand
+2022-09-05 11:43:08,413 DEBUG org.hibernate.cfg.Ejb3Column [main] Binding column: Ejb3Column{table=org.hibernate.mapping.Table(Engine), mappingColumn=valves, insertable=true, updatable=true, unique=false}
+2022-09-05 11:43:08,413 DEBUG org.hibernate.cfg.annotations.PropertyBinder [main] MetadataSourceProcessor property valves with lazy=false
+2022-09-05 11:43:08,413 DEBUG org.hibernate.cfg.AbstractPropertyHolder [main] Attempting to locate auto-apply AttributeConverter for property [com.nix.lesson10.model.vehicle.Engine:valves]
+2022-09-05 11:43:08,413 DEBUG org.hibernate.cfg.annotations.SimpleValueBinder [main] building SimpleValue for valves
+2022-09-05 11:43:08,414 DEBUG org.hibernate.cfg.annotations.PropertyBinder [main] Building property valves
+2022-09-05 11:43:08,414 DEBUG org.hibernate.cfg.Ejb3Column [main] Binding column: Ejb3Column{table=org.hibernate.mapping.Table(Engine), mappingColumn=volume, insertable=true, updatable=true, unique=false}
+2022-09-05 11:43:08,414 DEBUG org.hibernate.cfg.annotations.PropertyBinder [main] MetadataSourceProcessor property volume with lazy=false
+2022-09-05 11:43:08,414 DEBUG org.hibernate.cfg.AbstractPropertyHolder [main] Attempting to locate auto-apply AttributeConverter for property [com.nix.lesson10.model.vehicle.Engine:volume]
+2022-09-05 11:43:08,414 DEBUG org.hibernate.cfg.annotations.SimpleValueBinder [main] building SimpleValue for volume
+2022-09-05 11:43:08,414 DEBUG org.hibernate.cfg.annotations.PropertyBinder [main] Building property volume
+2022-09-05 11:43:08,414 DEBUG org.hibernate.cfg.AnnotationBinder [main] Binding entity from annotated class: com.nix.lesson10.model.vehicle.Truck
+2022-09-05 11:43:08,415 DEBUG org.hibernate.cfg.annotations.EntityBinder [main] Import with entity name Truck
+2022-09-05 11:43:08,415 DEBUG org.hibernate.cfg.annotations.EntityBinder [main] Bind entity com.nix.lesson10.model.vehicle.Truck on table Truck
+2022-09-05 11:43:08,415 DEBUG org.hibernate.cfg.Ejb3Column [main] Binding column: Ejb3Column{table=org.hibernate.mapping.DenormalizedTable(Truck), mappingColumn=capacity, insertable=true, updatable=true, unique=false}
+2022-09-05 11:43:08,415 DEBUG org.hibernate.cfg.annotations.PropertyBinder [main] MetadataSourceProcessor property capacity with lazy=false
+2022-09-05 11:43:08,415 DEBUG org.hibernate.cfg.AbstractPropertyHolder [main] Attempting to locate auto-apply AttributeConverter for property [com.nix.lesson10.model.vehicle.Truck:capacity]
+2022-09-05 11:43:08,415 DEBUG org.hibernate.cfg.annotations.SimpleValueBinder [main] building SimpleValue for capacity
+2022-09-05 11:43:08,415 DEBUG org.hibernate.cfg.annotations.PropertyBinder [main] Building property capacity
+2022-09-05 11:43:08,417 DEBUG org.hibernate.cfg.annotations.SimpleValueBinder [main] Starting fillSimpleValue for id
+2022-09-05 11:43:08,417 DEBUG org.hibernate.cfg.annotations.SimpleValueBinder [main] Starting fillSimpleValue for created
+2022-09-05 11:43:08,417 DEBUG org.hibernate.cfg.annotations.SimpleValueBinder [main] Starting fillSimpleValue for id
+2022-09-05 11:43:08,417 DEBUG org.hibernate.cfg.annotations.SimpleValueBinder [main] Starting fillSimpleValue for created
+2022-09-05 11:43:08,417 DEBUG org.hibernate.cfg.annotations.SimpleValueBinder [main] Starting fillSimpleValue for manufacturer
+2022-09-05 11:43:08,418 DEBUG org.hibernate.cfg.annotations.SimpleValueBinder [main] Starting fillSimpleValue for model
+2022-09-05 11:43:08,419 DEBUG org.hibernate.cfg.annotations.SimpleValueBinder [main] Starting fillSimpleValue for price
+2022-09-05 11:43:08,419 DEBUG org.hibernate.cfg.annotations.SimpleValueBinder [main] Starting fillSimpleValue for landing
+2022-09-05 11:43:08,419 DEBUG org.hibernate.cfg.annotations.SimpleValueBinder [main] Starting fillSimpleValue for bodyType
+2022-09-05 11:43:08,419 DEBUG org.hibernate.cfg.annotations.SimpleValueBinder [main] Starting fillSimpleValue for id
+2022-09-05 11:43:08,419 DEBUG org.hibernate.cfg.annotations.SimpleValueBinder [main] Starting fillSimpleValue for brand
+2022-09-05 11:43:08,419 DEBUG org.hibernate.cfg.annotations.SimpleValueBinder [main] Starting fillSimpleValue for valves
+2022-09-05 11:43:08,419 DEBUG org.hibernate.cfg.annotations.SimpleValueBinder [main] Starting fillSimpleValue for volume
+2022-09-05 11:43:08,419 DEBUG org.hibernate.cfg.annotations.SimpleValueBinder [main] Starting fillSimpleValue for capacity
+2022-09-05 11:43:08,423 DEBUG org.hibernate.mapping.PrimaryKey [main] Forcing column [id] to be non-null as it is part of the primary key for table [invoice]
+2022-09-05 11:43:08,423 DEBUG org.hibernate.mapping.PrimaryKey [main] Forcing column [id] to be non-null as it is part of the primary key for table [vehicle]
+2022-09-05 11:43:08,423 DEBUG org.hibernate.mapping.PrimaryKey [main] Forcing column [id] to be non-null as it is part of the primary key for table [engine]
+2022-09-05 11:43:08,423 DEBUG org.hibernate.cfg.CollectionSecondPass [main] Second pass for collection: com.nix.lesson10.model.Invoice.vehicles
+2022-09-05 11:43:08,423 DEBUG org.hibernate.cfg.annotations.CollectionBinder [main] Binding as ManyToMany: com.nix.lesson10.model.Invoice.vehicles
+2022-09-05 11:43:08,427 DEBUG org.hibernate.mapping.PrimaryKey [main] Forcing column [invoice_id] to be non-null as it is part of the primary key for table [vehicles_in_invoice]
+2022-09-05 11:43:08,427 DEBUG org.hibernate.mapping.PrimaryKey [main] Forcing column [vehicle_id] to be non-null as it is part of the primary key for table [vehicles_in_invoice]
+2022-09-05 11:43:08,427 DEBUG org.hibernate.cfg.CollectionSecondPass [main] Mapped collection key: invoice_id, element: vehicle_id
+2022-09-05 11:43:08,427 DEBUG org.hibernate.cfg.CollectionSecondPass [main] Second pass for collection: com.nix.lesson10.model.vehicle.Vehicle.invoices
+2022-09-05 11:43:08,427 DEBUG org.hibernate.cfg.annotations.CollectionBinder [main] Binding as ManyToMany: com.nix.lesson10.model.vehicle.Vehicle.invoices
+2022-09-05 11:43:08,428 DEBUG org.hibernate.cfg.annotations.TableBinder [main] Retrieving property com.nix.lesson10.model.Invoice.vehicles
+2022-09-05 11:43:08,428 DEBUG org.hibernate.cfg.CollectionSecondPass [main] Mapped collection key: vehicle_id, element: invoice_id
+2022-09-05 11:43:08,430 DEBUG org.hibernate.boot.internal.InFlightMetadataCollectorImpl [main] Resolving reference to class: com.nix.lesson10.model.vehicle.Engine
+2022-09-05 11:43:08,431 DEBUG org.hibernate.boot.internal.InFlightMetadataCollectorImpl [main] Resolving reference to class: com.nix.lesson10.model.vehicle.Engine
+2022-09-05 11:43:08,431 DEBUG org.hibernate.boot.internal.InFlightMetadataCollectorImpl [main] Resolving reference to class: com.nix.lesson10.model.vehicle.Engine
+2022-09-05 11:43:08,431 DEBUG org.hibernate.boot.internal.InFlightMetadataCollectorImpl [main] Resolving reference to class: com.nix.lesson10.model.vehicle.Engine
+2022-09-05 11:43:08,433 DEBUG org.hibernate.boot.internal.InFlightMetadataCollectorImpl [main] Resolving reference to class: com.nix.lesson10.model.vehicle.Vehicle
+2022-09-05 11:43:08,433 DEBUG org.hibernate.boot.internal.InFlightMetadataCollectorImpl [main] Resolving reference to class: com.nix.lesson10.model.Invoice
+2022-09-05 11:43:08,435 DEBUG org.hibernate.boot.internal.InFlightMetadataCollectorImpl [main] Resolving reference to class: com.nix.lesson10.model.vehicle.Engine
+2022-09-05 11:43:08,436 DEBUG org.hibernate.boot.internal.InFlightMetadataCollectorImpl [main] Resolving reference to class: com.nix.lesson10.model.vehicle.Engine
+2022-09-05 11:43:08,436 DEBUG org.hibernate.boot.internal.InFlightMetadataCollectorImpl [main] Resolving reference to class: com.nix.lesson10.model.vehicle.Engine
+2022-09-05 11:43:08,436 DEBUG org.hibernate.boot.internal.InFlightMetadataCollectorImpl [main] Resolving reference to class: com.nix.lesson10.model.vehicle.Engine
+2022-09-05 11:43:08,436 DEBUG org.hibernate.boot.internal.InFlightMetadataCollectorImpl [main] Resolving reference to class: com.nix.lesson10.model.vehicle.Vehicle
+2022-09-05 11:43:08,436 DEBUG org.hibernate.boot.internal.InFlightMetadataCollectorImpl [main] Resolving reference to class: com.nix.lesson10.model.Invoice
+2022-09-05 11:43:08,487 DEBUG org.hibernate.internal.SessionFactoryImpl [main] Building session factory
+2022-09-05 11:43:08,487 DEBUG org.hibernate.cfg.Settings [main] SessionFactory name : null
+2022-09-05 11:43:08,487 DEBUG org.hibernate.cfg.Settings [main] Automatic flush during beforeCompletion(): enabled
+2022-09-05 11:43:08,487 DEBUG org.hibernate.cfg.Settings [main] Automatic session close at end of transaction: disabled
+2022-09-05 11:43:08,487 DEBUG org.hibernate.cfg.Settings [main] Statistics: disabled
+2022-09-05 11:43:08,487 DEBUG org.hibernate.cfg.Settings [main] Deleted entity synthetic identifier rollback: disabled
+2022-09-05 11:43:08,487 DEBUG org.hibernate.cfg.Settings [main] Default entity-mode: pojo
+2022-09-05 11:43:08,487 DEBUG org.hibernate.cfg.Settings [main] Check Nullability in Core (should be disabled when Bean Validation is on): enabled
+2022-09-05 11:43:08,487 DEBUG org.hibernate.cfg.Settings [main] Allow initialization of lazy state outside session : disabled
+2022-09-05 11:43:08,488 DEBUG org.hibernate.cfg.Settings [main] Using BatchFetchStyle : LEGACY
+2022-09-05 11:43:08,488 DEBUG org.hibernate.cfg.Settings [main] Default batch fetch size: -1
+2022-09-05 11:43:08,488 DEBUG org.hibernate.cfg.Settings [main] Maximum outer join fetch depth: 2
+2022-09-05 11:43:08,488 DEBUG org.hibernate.cfg.Settings [main] Default null ordering: NONE
+2022-09-05 11:43:08,488 DEBUG org.hibernate.cfg.Settings [main] Order SQL updates by primary key: disabled
+2022-09-05 11:43:08,488 DEBUG org.hibernate.cfg.Settings [main] Order SQL inserts for batching: disabled
+2022-09-05 11:43:08,488 DEBUG org.hibernate.cfg.Settings [main] multi-tenancy strategy : NONE
+2022-09-05 11:43:08,488 DEBUG org.hibernate.cfg.Settings [main] JTA Track by Thread: enabled
+2022-09-05 11:43:08,488 DEBUG org.hibernate.cfg.Settings [main] Query language substitutions: {}
+2022-09-05 11:43:08,488 DEBUG org.hibernate.cfg.Settings [main] Named query checking : enabled
+2022-09-05 11:43:08,488 DEBUG org.hibernate.cfg.Settings [main] Second-level cache: disabled
+2022-09-05 11:43:08,488 DEBUG org.hibernate.cfg.Settings [main] Second-level query cache: disabled
+2022-09-05 11:43:08,488 DEBUG org.hibernate.cfg.Settings [main] Second-level query cache factory: null
+2022-09-05 11:43:08,488 DEBUG org.hibernate.cfg.Settings [main] Second-level cache region prefix: null
+2022-09-05 11:43:08,488 DEBUG org.hibernate.cfg.Settings [main] Optimize second-level cache for minimal puts: disabled
+2022-09-05 11:43:08,488 DEBUG org.hibernate.cfg.Settings [main] Structured second-level cache entries: disabled
+2022-09-05 11:43:08,488 DEBUG org.hibernate.cfg.Settings [main] Second-level cache direct-reference entries: disabled
+2022-09-05 11:43:08,488 DEBUG org.hibernate.cfg.Settings [main] Automatic eviction of collection cache: disabled
+2022-09-05 11:43:08,488 DEBUG org.hibernate.cfg.Settings [main] JDBC batch size: 15
+2022-09-05 11:43:08,488 DEBUG org.hibernate.cfg.Settings [main] JDBC batch updates for versioned data: enabled
+2022-09-05 11:43:08,488 DEBUG org.hibernate.cfg.Settings [main] Scrollable result sets: enabled
+2022-09-05 11:43:08,488 DEBUG org.hibernate.cfg.Settings [main] Wrap result sets: disabled
+2022-09-05 11:43:08,488 DEBUG org.hibernate.cfg.Settings [main] JDBC3 getGeneratedKeys(): enabled
+2022-09-05 11:43:08,488 DEBUG org.hibernate.cfg.Settings [main] JDBC result set fetch size: null
+2022-09-05 11:43:08,488 DEBUG org.hibernate.cfg.Settings [main] Connection release mode: AFTER_TRANSACTION
+2022-09-05 11:43:08,488 DEBUG org.hibernate.cfg.Settings [main] Generate SQL with comments: disabled
+2022-09-05 11:43:08,488 DEBUG org.hibernate.cfg.Settings [main] JPA compliance - query : disabled
+2022-09-05 11:43:08,488 DEBUG org.hibernate.cfg.Settings [main] JPA compliance - closed-handling : disabled
+2022-09-05 11:43:08,488 DEBUG org.hibernate.cfg.Settings [main] JPA compliance - lists : disabled
+2022-09-05 11:43:08,488 DEBUG org.hibernate.cfg.Settings [main] JPA compliance - transactions : disabled
+2022-09-05 11:43:08,497 DEBUG org.hibernate.boot.internal.ClassLoaderAccessImpl [main] Not known whether passed class name [com.nix.lesson10.model.vehicle.Motorcycle] is safe
+2022-09-05 11:43:08,497 DEBUG org.hibernate.boot.internal.ClassLoaderAccessImpl [main] No temp ClassLoader provided; using live ClassLoader for loading potentially unsafe class : com.nix.lesson10.model.vehicle.Motorcycle
+2022-09-05 11:43:08,497 DEBUG org.hibernate.boot.internal.ClassLoaderAccessImpl [main] Not known whether passed class name [com.nix.lesson10.model.vehicle.Auto] is safe
+2022-09-05 11:43:08,497 DEBUG org.hibernate.boot.internal.ClassLoaderAccessImpl [main] No temp ClassLoader provided; using live ClassLoader for loading potentially unsafe class : com.nix.lesson10.model.vehicle.Auto
+2022-09-05 11:43:08,497 DEBUG org.hibernate.boot.internal.ClassLoaderAccessImpl [main] Not known whether passed class name [com.nix.lesson10.model.vehicle.Truck] is safe
+2022-09-05 11:43:08,497 DEBUG org.hibernate.boot.internal.ClassLoaderAccessImpl [main] No temp ClassLoader provided; using live ClassLoader for loading potentially unsafe class : com.nix.lesson10.model.vehicle.Truck
+2022-09-05 11:43:08,538 DEBUG org.hibernate.service.internal.SessionFactoryServiceRegistryImpl [main] EventListenerRegistry access via ServiceRegistry is deprecated.  Use `sessionFactory.getEventEngine().getListenerRegistry()` instead
+2022-09-05 11:43:08,539 DEBUG org.hibernate.service.internal.SessionFactoryServiceRegistryImpl [main] EventListenerRegistry access via ServiceRegistry is deprecated.  Use `sessionFactory.getEventEngine().getListenerRegistry()` instead
+2022-09-05 11:43:08,552 DEBUG org.hibernate.internal.SessionFactoryImpl [main] Session factory constructed with filter configurations : {}
+2022-09-05 11:43:08,552 DEBUG org.hibernate.internal.SessionFactoryImpl [main] Instantiating session factory with properties: {java.specification.version=17, sun.cpu.isalist=amd64, sun.jnu.encoding=Cp1251, hibernate.dialect=org.hibernate.dialect.MySQL8Dialect, java.class.path=C:\Java\NIX12\target\classes;C:\Users\Стас\.m2\repository\org\projectlombok\lombok\1.18.24\lombok-1.18.24.jar;C:\Users\Стас\.m2\repository\net\bytebuddy\byte-buddy\1.12.13\byte-buddy-1.12.13.jar;C:\Users\Стас\.m2\repository\ch\qos\logback\logback-core\1.2.10\logback-core-1.2.10.jar;C:\Users\Стас\.m2\repository\ch\qos\logback\logback-classic\1.2.11\logback-classic-1.2.11.jar;C:\Users\Стас\.m2\repository\org\slf4j\slf4j-api\1.7.36\slf4j-api-1.7.36.jar;C:\Users\Стас\.m2\repository\org\reflections\reflections\0.10.2\reflections-0.10.2.jar;C:\Users\Стас\.m2\repository\org\javassist\javassist\3.28.0-GA\javassist-3.28.0-GA.jar;C:\Users\Стас\.m2\repository\com\google\code\findbugs\jsr305\3.0.2\jsr305-3.0.2.jar;C:\Users\Стас\.m2\repository\org\hibernate\hibernate-core\5.6.10.Final\hibernate-core-5.6.10.Final.jar;C:\Users\Стас\.m2\repository\org\jboss\logging\jboss-logging\3.4.3.Final\jboss-logging-3.4.3.Final.jar;C:\Users\Стас\.m2\repository\javax\persistence\javax.persistence-api\2.2\javax.persistence-api-2.2.jar;C:\Users\Стас\.m2\repository\antlr\antlr\2.7.7\antlr-2.7.7.jar;C:\Users\Стас\.m2\repository\org\jboss\spec\javax\transaction\jboss-transaction-api_1.2_spec\1.1.1.Final\jboss-transaction-api_1.2_spec-1.1.1.Final.jar;C:\Users\Стас\.m2\repository\org\jboss\jandex\2.4.2.Final\jandex-2.4.2.Final.jar;C:\Users\Стас\.m2\repository\com\fasterxml\classmate\1.5.1\classmate-1.5.1.jar;C:\Users\Стас\.m2\repository\javax\activation\javax.activation-api\1.2.0\javax.activation-api-1.2.0.jar;C:\Users\Стас\.m2\repository\org\hibernate\common\hibernate-commons-annotations\5.1.2.Final\hibernate-commons-annotations-5.1.2.Final.jar;C:\Users\Стас\.m2\repository\javax\xml\bind\jaxb-api\2.3.1\jaxb-api-2.3.1.jar;C:\Users\Стас\.m2\repository\org\glassfish\jaxb\jaxb-runtime\2.3.1\jaxb-runtime-2.3.1.jar;C:\Users\Стас\.m2\repository\org\glassfish\jaxb\txw2\2.3.1\txw2-2.3.1.jar;C:\Users\Стас\.m2\repository\com\sun\istack\istack-commons-runtime\3.0.7\istack-commons-runtime-3.0.7.jar;C:\Users\Стас\.m2\repository\org\jvnet\staxex\stax-ex\1.8\stax-ex-1.8.jar;C:\Users\Стас\.m2\repository\com\sun\xml\fastinfoset\FastInfoset\1.2.15\FastInfoset-1.2.15.jar;C:\Users\Стас\.m2\repository\mysql\mysql-connector-java\8.0.30\mysql-connector-java-8.0.30.jar;C:\Users\Стас\.m2\repository\com\google\protobuf\protobuf-java\3.19.4\protobuf-java-3.19.4.jar;C:\Users\Стас\.m2\repository\org\mongodb\mongo-java-driver\3.12.11\mongo-java-driver-3.12.11.jar;C:\Users\Стас\.m2\repository\com\google\code\gson\gson\2.9.0\gson-2.9.0.jar;C:\Users\Стас\.m2\repository\org\flywaydb\flyway-core\9.2.0\flyway-core-9.2.0.jar;C:\Users\Стас\.m2\repository\org\flywaydb\flyway-mysql\9.2.0\flyway-mysql-9.2.0.jar;C:\Users\Стас\.m2\repository\org\apache\maven\maven-plugin-api\3.8.6\maven-plugin-api-3.8.6.jar;C:\Users\Стас\.m2\repository\org\apache\maven\maven-model\3.8.6\maven-model-3.8.6.jar;C:\Users\Стас\.m2\repository\org\apache\maven\maven-artifact\3.8.6\maven-artifact-3.8.6.jar;C:\Users\Стас\.m2\repository\org\apache\commons\commons-lang3\3.8.1\commons-lang3-3.8.1.jar;C:\Users\Стас\.m2\repository\org\eclipse\sisu\org.eclipse.sisu.plexus\0.3.5\org.eclipse.sisu.plexus-0.3.5.jar;C:\Users\Стас\.m2\repository\javax\annotation\javax.annotation-api\1.2\javax.annotation-api-1.2.jar;C:\Users\Стас\.m2\repository\org\eclipse\sisu\org.eclipse.sisu.inject\0.3.5\org.eclipse.sisu.inject-0.3.5.jar;C:\Users\Стас\.m2\repository\org\codehaus\plexus\plexus-component-annotations\1.5.5\plexus-component-annotations-1.5.5.jar;C:\Users\Стас\.m2\repository\org\codehaus\plexus\plexus-utils\3.3.1\plexus-utils-3.3.1.jar;C:\Users\Стас\.m2\repository\org\codehaus\plexus\plexus-classworlds\2.6.0\plexus-classworlds-2.6.0.jar, java.vm.vendor=Oracle Corporation, sun.arch.data.model=64, user.variant=, java.vendor.url=https://java.oracle.com/, user.timezone=Europe/Kiev, javax.persistence.jdbc.user=****, javax.persistence.jdbc.url=jdbc:mysql://localhost:3306/hibernate_vehicles, user.country.format=UA, java.vm.specification.version=17, os.name=Windows 10, jakarta.persistence.jdbc.password=****, sun.java.launcher=SUN_STANDARD, user.country=RU, local.setting.IS_JTA_TXN_COORD=false, sun.boot.library.path=C:\Program Files\Java\jdk-17\bin, sun.java.command=com.nix.lesson10.Main, jdk.debug=release, jakarta.persistence.jdbc.driver=com.mysql.cj.jdbc.Driver, sun.cpu.endian=little, user.home=C:\Users\Стас, user.language=ru, java.specification.vendor=Oracle Corporation, java.version.date=2021-09-14, java.home=C:\Program Files\Java\jdk-17, file.separator=\, java.vm.compressedOopsMode=32-bit, jakarta.persistence.jdbc.user=****, line.separator=
+, hibernate.persistenceUnitName=persistence, java.vm.specification.vendor=Oracle Corporation, java.specification.name=Java Platform API Specification, hibernate.transaction.coordinator_class=class org.hibernate.resource.transaction.backend.jdbc.internal.JdbcResourceLocalTransactionCoordinatorBuilderImpl, javax.persistence.jdbc.driver=com.mysql.cj.jdbc.Driver, user.script=, sun.management.compiler=HotSpot 64-Bit Tiered Compilers, java.runtime.version=17+35-LTS-2724, user.name=Стас, path.separator=;, hibernate.connection.username=****, os.version=10.0, java.runtime.name=Java(TM) SE Runtime Environment, hibernate.connection.url=jdbc:mysql://localhost:3306/hibernate_vehicles, file.encoding=UTF-8, hibernate.ejb.persistenceUnitName=persistence, java.vm.name=Java HotSpot(TM) 64-Bit Server VM, hibernate.connection.driver_class=com.mysql.cj.jdbc.Driver, java.vendor.url.bug=https://bugreport.java.com/bugreport/, java.io.tmpdir=C:\Users\91AF~1\AppData\Local\Temp\, java.version=17, user.dir=C:\Java\NIX12, os.arch=amd64, java.vm.specification.name=Java Virtual Machine Specification, hibernate.connection.password=****, sun.os.patch.level=, jakarta.persistence.jdbc.url=jdbc:mysql://localhost:3306/hibernate_vehicles, hibernate.boot.CfgXmlAccessService.key=org.hibernate.boot.registry.StandardServiceRegistryBuilder$1@367f0121, native.encoding=Cp1251, java.library.path=C:\Program Files\Java\jdk-17\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;C:\Program Files\Java\jdk-17\bin;C:\Program Files\Common Files\Oracle\Java\javapath;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files\NVIDIA Corporation\NVIDIA NvDLISR;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files\Microsoft SQL Server\130\Tools\Binn\;C:\Program Files\dotnet\;C:\Program Files\Git\cmd;C:\Java\apache-maven-3.8.4\bin;C:\Программы\nodejs\;C:\Program Files\Docker\Docker\resources\bin;C:\ProgramData\DockerDesktop\version-bin;C:\Program Files\MySQL\MySQL Shell 8.0\bin\;C:\Users\Стас\AppData\Local\Microsoft\WindowsApps;C:\Users\Стас\.dotnet\tools;C:\Program Files\Java\jdk-17\bin;C:\Программы\IntelliJ IDEA 2021.2.3\bin;;C:\Program Files\Java\jdk-17\\bin;;C:\Users\Стас\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\Стас\AppData\Roaming\npm;C:\Программы\heroku\bin;., java.vendor=Oracle Corporation, java.vm.info=mixed mode, sharing, java.vm.version=17+35-LTS-2724, hibernate.bytecode.use_reflection_optimizer=false, sun.io.unicode.encoding=UnicodeLittle, javax.persistence.jdbc.password=****, java.class.version=61.0}
+2022-09-05 11:43:08,567 DEBUG org.hibernate.secure.spi.JaccIntegrator [main] Skipping JACC integration as it was not enabled
+2022-09-05 11:43:08,574 DEBUG org.hibernate.type.EnumType [main] Using NAMED-based conversion for Enum com.nix.lesson10.model.vehicle.Type
+2022-09-05 11:43:08,575 DEBUG org.hibernate.type.EnumType [main] Using NAMED-based conversion for Enum com.nix.lesson10.model.vehicle.Brand
+2022-09-05 11:43:08,576 DEBUG org.hibernate.type.EnumType [main] Using NAMED-based conversion for Enum com.nix.lesson10.model.vehicle.Brand
+2022-09-05 11:43:08,576 DEBUG org.hibernate.internal.SessionFactoryImpl [main] Instantiated session factory
+2022-09-05 11:43:08,576 DEBUG org.hibernate.type.spi.TypeConfiguration$Scope [main] Scoping TypeConfiguration [org.hibernate.type.spi.TypeConfiguration@588307f7] to SessionFactoryImpl [org.hibernate.internal.SessionFactoryImpl@34aeacd1]
+2022-09-05 11:43:08,631 DEBUG org.hibernate.boot.internal.ClassLoaderAccessImpl [main] Not known whether passed class name [com.nix.lesson10.model.Invoice] is safe
+2022-09-05 11:43:08,631 DEBUG org.hibernate.boot.internal.ClassLoaderAccessImpl [main] No temp ClassLoader provided; using live ClassLoader for loading potentially unsafe class : com.nix.lesson10.model.Invoice
+2022-09-05 11:43:08,785 DEBUG org.hibernate.orm.bytecode.interceptor [main] To-one property `com.nix.lesson10.model.vehicle.Vehicle#engine` was mapped with LAZY + NO_PROXY but the class was not enhanced
+2022-09-05 11:43:08,785 DEBUG org.hibernate.orm.bytecode.interceptor [main] To-one property `com.nix.lesson10.model.vehicle.Vehicle#engine` was mapped with LAZY + NO_PROXY but the class was not enhanced
+2022-09-05 11:43:08,785 DEBUG org.hibernate.boot.internal.ClassLoaderAccessImpl [main] Not known whether passed class name [com.nix.lesson10.model.vehicle.Motorcycle] is safe
+2022-09-05 11:43:08,785 DEBUG org.hibernate.boot.internal.ClassLoaderAccessImpl [main] No temp ClassLoader provided; using live ClassLoader for loading potentially unsafe class : com.nix.lesson10.model.vehicle.Motorcycle
+2022-09-05 11:43:08,802 DEBUG org.hibernate.orm.bytecode.interceptor [main] To-one property `com.nix.lesson10.model.vehicle.Vehicle#engine` was mapped with LAZY + NO_PROXY but the class was not enhanced
+2022-09-05 11:43:08,802 DEBUG org.hibernate.orm.bytecode.interceptor [main] To-one property `com.nix.lesson10.model.vehicle.Vehicle#engine` was mapped with LAZY + NO_PROXY but the class was not enhanced
+2022-09-05 11:43:08,803 DEBUG org.hibernate.orm.bytecode.interceptor [main] To-one property `com.nix.lesson10.model.vehicle.Vehicle#engine` was mapped with LAZY + NO_PROXY but the class was not enhanced
+2022-09-05 11:43:08,803 DEBUG org.hibernate.orm.bytecode.interceptor [main] To-one property `com.nix.lesson10.model.vehicle.Vehicle#engine` was mapped with LAZY + NO_PROXY but the class was not enhanced
+2022-09-05 11:43:08,803 DEBUG org.hibernate.boot.internal.ClassLoaderAccessImpl [main] Not known whether passed class name [com.nix.lesson10.model.vehicle.Auto] is safe
+2022-09-05 11:43:08,803 DEBUG org.hibernate.boot.internal.ClassLoaderAccessImpl [main] No temp ClassLoader provided; using live ClassLoader for loading potentially unsafe class : com.nix.lesson10.model.vehicle.Auto
+2022-09-05 11:43:08,816 DEBUG org.hibernate.orm.bytecode.interceptor [main] To-one property `com.nix.lesson10.model.vehicle.Vehicle#engine` was mapped with LAZY + NO_PROXY but the class was not enhanced
+2022-09-05 11:43:08,816 DEBUG org.hibernate.orm.bytecode.interceptor [main] To-one property `com.nix.lesson10.model.vehicle.Vehicle#engine` was mapped with LAZY + NO_PROXY but the class was not enhanced
+2022-09-05 11:43:08,816 DEBUG org.hibernate.orm.bytecode.interceptor [main] To-one property `com.nix.lesson10.model.vehicle.Vehicle#engine` was mapped with LAZY + NO_PROXY but the class was not enhanced
+2022-09-05 11:43:08,816 DEBUG org.hibernate.orm.bytecode.interceptor [main] To-one property `com.nix.lesson10.model.vehicle.Vehicle#engine` was mapped with LAZY + NO_PROXY but the class was not enhanced
+2022-09-05 11:43:08,816 DEBUG org.hibernate.boot.internal.ClassLoaderAccessImpl [main] Not known whether passed class name [com.nix.lesson10.model.vehicle.Vehicle] is safe
+2022-09-05 11:43:08,816 DEBUG org.hibernate.boot.internal.ClassLoaderAccessImpl [main] No temp ClassLoader provided; using live ClassLoader for loading potentially unsafe class : com.nix.lesson10.model.vehicle.Vehicle
+2022-09-05 11:43:08,817 DEBUG org.hibernate.boot.internal.ClassLoaderAccessImpl [main] Not known whether passed class name [com.nix.lesson10.model.vehicle.Truck] is safe
+2022-09-05 11:43:08,817 DEBUG org.hibernate.boot.internal.ClassLoaderAccessImpl [main] No temp ClassLoader provided; using live ClassLoader for loading potentially unsafe class : com.nix.lesson10.model.vehicle.Truck
+2022-09-05 11:43:08,826 DEBUG org.hibernate.orm.bytecode.interceptor [main] To-one property `com.nix.lesson10.model.vehicle.Vehicle#engine` was mapped with LAZY + NO_PROXY but the class was not enhanced
+2022-09-05 11:43:08,826 DEBUG org.hibernate.orm.bytecode.interceptor [main] To-one property `com.nix.lesson10.model.vehicle.Vehicle#engine` was mapped with LAZY + NO_PROXY but the class was not enhanced
+2022-09-05 11:43:08,827 DEBUG org.hibernate.boot.internal.ClassLoaderAccessImpl [main] Not known whether passed class name [com.nix.lesson10.model.vehicle.Engine] is safe
+2022-09-05 11:43:08,827 DEBUG org.hibernate.boot.internal.ClassLoaderAccessImpl [main] No temp ClassLoader provided; using live ClassLoader for loading potentially unsafe class : com.nix.lesson10.model.vehicle.Engine
+2022-09-05 11:43:08,835 DEBUG org.hibernate.orm.bytecode.interceptor [main] To-one property `com.nix.lesson10.model.vehicle.Vehicle#engine` was mapped with LAZY + NO_PROXY but the class was not enhanced
+2022-09-05 11:43:08,835 DEBUG org.hibernate.orm.bytecode.interceptor [main] To-one property `com.nix.lesson10.model.vehicle.Vehicle#engine` was mapped with LAZY + NO_PROXY but the class was not enhanced
+2022-09-05 11:43:08,843 DEBUG org.hibernate.orm.bytecode.interceptor [main] To-one property `com.nix.lesson10.model.vehicle.Vehicle#engine` was mapped with LAZY + NO_PROXY but the class was not enhanced
+2022-09-05 11:43:08,844 DEBUG org.hibernate.orm.bytecode.interceptor [main] To-one property `com.nix.lesson10.model.vehicle.Vehicle#engine` was mapped with LAZY + NO_PROXY but the class was not enhanced
+2022-09-05 11:43:08,855 DEBUG org.hibernate.persister.collection.AbstractCollectionPersister [main] Static SQL for collection: com.nix.lesson10.model.vehicle.Vehicle.invoices
+2022-09-05 11:43:08,855 DEBUG org.hibernate.persister.collection.AbstractCollectionPersister [main]  Row insert: insert into vehicles_in_invoice (vehicle_id, invoice_id) values (?, ?)
+2022-09-05 11:43:08,855 DEBUG org.hibernate.persister.collection.AbstractCollectionPersister [main]  Row update: update vehicles_in_invoice set invoice_id=? where vehicle_id=? and invoice_id=?
+2022-09-05 11:43:08,855 DEBUG org.hibernate.persister.collection.AbstractCollectionPersister [main]  Row delete: delete from vehicles_in_invoice where vehicle_id=? and invoice_id=?
+2022-09-05 11:43:08,855 DEBUG org.hibernate.persister.collection.AbstractCollectionPersister [main]  One-shot delete: delete from vehicles_in_invoice where vehicle_id=?
+2022-09-05 11:43:08,855 DEBUG org.hibernate.persister.collection.AbstractCollectionPersister [main] Static SQL for collection: com.nix.lesson10.model.Invoice.vehicles
+2022-09-05 11:43:08,855 DEBUG org.hibernate.persister.collection.AbstractCollectionPersister [main]  Row insert: insert into vehicles_in_invoice (invoice_id, vehicle_id) values (?, ?)
+2022-09-05 11:43:08,855 DEBUG org.hibernate.persister.collection.AbstractCollectionPersister [main]  Row update: update vehicles_in_invoice set vehicle_id=? where invoice_id=? and vehicle_id=?
+2022-09-05 11:43:08,855 DEBUG org.hibernate.persister.collection.AbstractCollectionPersister [main]  Row delete: delete from vehicles_in_invoice where invoice_id=? and vehicle_id=?
+2022-09-05 11:43:08,856 DEBUG org.hibernate.persister.collection.AbstractCollectionPersister [main]  One-shot delete: delete from vehicles_in_invoice where invoice_id=?
+2022-09-05 11:43:08,859 DEBUG org.hibernate.persister.entity.AbstractEntityPersister [main] Static SQL for entity: com.nix.lesson10.model.Invoice
+2022-09-05 11:43:08,859 DEBUG org.hibernate.persister.entity.AbstractEntityPersister [main]  Version select: select id from Invoice where id =?
+2022-09-05 11:43:08,859 DEBUG org.hibernate.persister.entity.AbstractEntityPersister [main]  Snapshot select: select invoice_.id, invoice_.created as created2_2_ from Invoice invoice_ where invoice_.id=?
+2022-09-05 11:43:08,859 DEBUG org.hibernate.persister.entity.AbstractEntityPersister [main]  Insert 0: insert into Invoice (created, id) values (?, ?)
+2022-09-05 11:43:08,859 DEBUG org.hibernate.persister.entity.AbstractEntityPersister [main]  Update 0: update Invoice set created=? where id=?
+2022-09-05 11:43:08,859 DEBUG org.hibernate.persister.entity.AbstractEntityPersister [main]  Delete 0: delete from Invoice where id=?
+2022-09-05 11:43:08,876 DEBUG org.hibernate.loader.plan.build.internal.spaces.QuerySpacesImpl [main] Adding QuerySpace : uid = <gen:0> -> org.hibernate.loader.plan.build.internal.spaces.EntityQuerySpaceImpl@42ea7565]
+2022-09-05 11:43:08,877 DEBUG org.hibernate.persister.walking.spi.MetamodelGraphWalker [main] Visiting attribute path : created
+2022-09-05 11:43:08,877 DEBUG org.hibernate.persister.walking.spi.MetamodelGraphWalker [main] Visiting attribute path : vehicles
+2022-09-05 11:43:08,881 DEBUG org.hibernate.loader.plan.build.internal.spaces.QuerySpacesImpl [main] Adding QuerySpace : uid = <gen:1> -> org.hibernate.loader.plan.build.internal.spaces.CollectionQuerySpaceImpl@17d2b075]
+2022-09-05 11:43:08,882 DEBUG org.hibernate.loader.plan.build.internal.spaces.QuerySpacesImpl [main] Adding QuerySpace : uid = <gen:2> -> org.hibernate.loader.plan.build.internal.spaces.EntityQuerySpaceImpl@1f782c05]
+2022-09-05 11:43:08,883 DEBUG org.hibernate.persister.walking.spi.MetamodelGraphWalker [main] Visiting attribute path : vehicles.created
+2022-09-05 11:43:08,883 DEBUG org.hibernate.persister.walking.spi.MetamodelGraphWalker [main] Visiting attribute path : vehicles.engine
+2022-09-05 11:43:08,883 DEBUG org.hibernate.loader.plan.build.internal.spaces.QuerySpacesImpl [main] Adding QuerySpace : uid = <gen:3> -> org.hibernate.loader.plan.build.internal.spaces.EntityQuerySpaceImpl@77b3752b]
+2022-09-05 11:43:08,883 DEBUG org.hibernate.persister.walking.spi.MetamodelGraphWalker [main] Visiting attribute path : vehicles.engine.brand
+2022-09-05 11:43:08,883 DEBUG org.hibernate.persister.walking.spi.MetamodelGraphWalker [main] Visiting attribute path : vehicles.engine.valves
+2022-09-05 11:43:08,883 DEBUG org.hibernate.persister.walking.spi.MetamodelGraphWalker [main] Visiting attribute path : vehicles.engine.volume
+2022-09-05 11:43:08,884 DEBUG org.hibernate.persister.walking.spi.MetamodelGraphWalker [main] Visiting attribute path : vehicles.invoices
+2022-09-05 11:43:08,884 DEBUG org.hibernate.persister.walking.spi.MetamodelGraphWalker [main] Property path deemed to be circular : vehicles.invoices
+2022-09-05 11:43:08,884 DEBUG org.hibernate.persister.walking.spi.MetamodelGraphWalker [main] Visiting attribute path : vehicles.manufacturer
+2022-09-05 11:43:08,884 DEBUG org.hibernate.persister.walking.spi.MetamodelGraphWalker [main] Visiting attribute path : vehicles.model
+2022-09-05 11:43:08,884 DEBUG org.hibernate.persister.walking.spi.MetamodelGraphWalker [main] Visiting attribute path : vehicles.price
+2022-09-05 11:43:08,884 DEBUG org.hibernate.persister.walking.spi.MetamodelGraphWalker [main] Visiting attribute path : vehicles.landing
+2022-09-05 11:43:08,884 DEBUG org.hibernate.persister.walking.spi.MetamodelGraphWalker [main] Visiting attribute path : vehicles.bodyType
+2022-09-05 11:43:08,884 DEBUG org.hibernate.persister.walking.spi.MetamodelGraphWalker [main] Visiting attribute path : vehicles.capacity
+2022-09-05 11:43:08,884 DEBUG org.hibernate.loader.plan.build.internal.FetchStyleLoadPlanBuildingAssociationVisitationStrategy [main] Building LoadPlan...
+2022-09-05 11:43:08,890 DEBUG org.hibernate.loader.plan.exec.internal.LoadQueryJoinAndFetchProcessor [main] processing queryspace <gen:0>
+2022-09-05 11:43:08,894 DEBUG org.hibernate.loader.plan.build.spi.LoadPlanTreePrinter [main] LoadPlan(entity=com.nix.lesson10.model.Invoice)
+    - Returns
+       - EntityReturnImpl(entity=com.nix.lesson10.model.Invoice, querySpaceUid=<gen:0>, path=com.nix.lesson10.model.Invoice)
+          - CollectionAttributeFetchImpl(collection=com.nix.lesson10.model.Invoice.vehicles, querySpaceUid=<gen:1>, path=com.nix.lesson10.model.Invoice.vehicles)
+             - (collection element) CollectionFetchableElementEntityGraph(entity=com.nix.lesson10.model.vehicle.Vehicle, querySpaceUid=<gen:2>, path=com.nix.lesson10.model.Invoice.vehicles.<elements>)
+                - EntityAttributeFetchImpl(entity=com.nix.lesson10.model.vehicle.Engine, querySpaceUid=<gen:3>, path=com.nix.lesson10.model.Invoice.vehicles.<elements>.engine)
+    - QuerySpaces
+       - EntityQuerySpaceImpl(uid=<gen:0>, entity=com.nix.lesson10.model.Invoice)
+          - SQL table alias mapping - invoice0_
+          - alias suffix - 0_
+          - suffixed key columns - {id1_2_0_}
+          - JOIN (JoinDefinedByMetadata(vehicles)) : <gen:0> -> <gen:1>
+             - CollectionQuerySpaceImpl(uid=<gen:1>, collection=com.nix.lesson10.model.Invoice.vehicles)
+                - SQL table alias mapping - vehicles1_
+                - alias suffix - 1_
+                - suffixed key columns - {invoice_1_6_1_}
+                - entity-element alias suffix - 2_
+                - 2_entity-element suffixed key columns - id1_5_2_
+                - JOIN (JoinDefinedByMetadata(elements)) : <gen:1> -> <gen:2>
+                   - EntityQuerySpaceImpl(uid=<gen:2>, entity=com.nix.lesson10.model.vehicle.Vehicle)
+                      - SQL table alias mapping - vehicle2_
+                      - alias suffix - 2_
+                      - suffixed key columns - {id1_5_2_}
+                      - JOIN (JoinDefinedByMetadata(engine)) : <gen:2> -> <gen:3>
+                         - EntityQuerySpaceImpl(uid=<gen:3>, entity=com.nix.lesson10.model.vehicle.Engine)
+                            - SQL table alias mapping - engine3_
+                            - alias suffix - 3_
+                            - suffixed key columns - {id1_1_3_}
+
+2022-09-05 11:43:08,896 DEBUG org.hibernate.loader.entity.plan.EntityLoader [main] Static select for entity com.nix.lesson10.model.Invoice [NONE]: select invoice0_.id as id1_2_0_, invoice0_.created as created2_2_0_, vehicles1_.invoice_id as invoice_1_6_1_, vehicle2_.id as vehicle_2_6_1_, vehicle2_.id as id1_5_2_, vehicle2_.created as created2_5_2_, vehicle2_.Engine_id as engine_i6_5_2_, vehicle2_.manufacturer as manufact3_5_2_, vehicle2_.model as model4_5_2_, vehicle2_.price as price5_5_2_, vehicle2_.landing as landing1_3_2_, vehicle2_.bodyType as bodytype1_0_2_, vehicle2_.capacity as capacity1_4_2_, vehicle2_.clazz_ as clazz_2_, engine3_.id as id1_1_3_, engine3_.brand as brand2_1_3_, engine3_.valves as valves3_1_3_, engine3_.volume as volume4_1_3_ from Invoice invoice0_ left outer join vehicles_in_invoice vehicles1_ on invoice0_.id=vehicles1_.invoice_id left outer join ( select id, created, manufacturer, model, price, Engine_id, landing, null as bodyType, null as capacity, 1 as clazz_ from Motorcycle union all select id, created, manufacturer, model, price, Engine_id, null as landing, bodyType, null as capacity, 2 as clazz_ from Auto union all select id, created, manufacturer, model, price, Engine_id, null as landing, null as bodyType, capacity, 3 as clazz_ from Truck ) vehicle2_ on vehicles1_.vehicle_id=vehicle2_.id left outer join Engine engine3_ on vehicle2_.Engine_id=engine3_.id where invoice0_.id=?
+2022-09-05 11:43:08,896 DEBUG org.hibernate.persister.entity.AbstractEntityPersister [main] Static SQL for entity: com.nix.lesson10.model.vehicle.Motorcycle
+2022-09-05 11:43:08,896 DEBUG org.hibernate.persister.entity.AbstractEntityPersister [main]  Version select: select id from Motorcycle where id =?
+2022-09-05 11:43:08,896 DEBUG org.hibernate.persister.entity.AbstractEntityPersister [main]  Snapshot select: select motorcycle_.id, motorcycle_.created as created2_5_, motorcycle_.Engine_id as engine_i6_5_, motorcycle_.manufacturer as manufact3_5_, motorcycle_.model as model4_5_, motorcycle_.price as price5_5_, motorcycle_.landing as landing1_3_ from Motorcycle motorcycle_ where motorcycle_.id=?
+2022-09-05 11:43:08,896 DEBUG org.hibernate.persister.entity.AbstractEntityPersister [main]  Insert 0: insert into Motorcycle (created, Engine_id, manufacturer, model, price, landing, id) values (?, ?, ?, ?, ?, ?, ?)
+2022-09-05 11:43:08,896 DEBUG org.hibernate.persister.entity.AbstractEntityPersister [main]  Update 0: update Motorcycle set created=?, Engine_id=?, manufacturer=?, model=?, price=?, landing=? where id=?
+2022-09-05 11:43:08,896 DEBUG org.hibernate.persister.entity.AbstractEntityPersister [main]  Delete 0: delete from Motorcycle where id=?
+2022-09-05 11:43:08,896 DEBUG org.hibernate.loader.plan.build.internal.spaces.QuerySpacesImpl [main] Adding QuerySpace : uid = <gen:0> -> org.hibernate.loader.plan.build.internal.spaces.EntityQuerySpaceImpl@32a4ecbe]
+2022-09-05 11:43:08,896 DEBUG org.hibernate.persister.walking.spi.MetamodelGraphWalker [main] Visiting attribute path : created
+2022-09-05 11:43:08,896 DEBUG org.hibernate.persister.walking.spi.MetamodelGraphWalker [main] Visiting attribute path : engine
+2022-09-05 11:43:08,896 DEBUG org.hibernate.loader.plan.build.internal.spaces.QuerySpacesImpl [main] Adding QuerySpace : uid = <gen:1> -> org.hibernate.loader.plan.build.internal.spaces.EntityQuerySpaceImpl@23cd5d42]
+2022-09-05 11:43:08,896 DEBUG org.hibernate.persister.walking.spi.MetamodelGraphWalker [main] Visiting attribute path : engine.brand
+2022-09-05 11:43:08,896 DEBUG org.hibernate.persister.walking.spi.MetamodelGraphWalker [main] Visiting attribute path : engine.valves
+2022-09-05 11:43:08,896 DEBUG org.hibernate.persister.walking.spi.MetamodelGraphWalker [main] Visiting attribute path : engine.volume
+2022-09-05 11:43:08,896 DEBUG org.hibernate.persister.walking.spi.MetamodelGraphWalker [main] Visiting attribute path : invoices
+2022-09-05 11:43:08,896 DEBUG org.hibernate.loader.plan.build.internal.spaces.QuerySpacesImpl [main] Adding QuerySpace : uid = <gen:2> -> org.hibernate.loader.plan.build.internal.spaces.CollectionQuerySpaceImpl@3e900e1a]
+2022-09-05 11:43:08,896 DEBUG org.hibernate.loader.plan.build.internal.spaces.QuerySpacesImpl [main] Adding QuerySpace : uid = <gen:3> -> org.hibernate.loader.plan.build.internal.spaces.EntityQuerySpaceImpl@196624bf]
+2022-09-05 11:43:08,896 DEBUG org.hibernate.persister.walking.spi.MetamodelGraphWalker [main] Visiting attribute path : manufacturer
+2022-09-05 11:43:08,896 DEBUG org.hibernate.persister.walking.spi.MetamodelGraphWalker [main] Visiting attribute path : model
+2022-09-05 11:43:08,896 DEBUG org.hibernate.persister.walking.spi.MetamodelGraphWalker [main] Visiting attribute path : price
+2022-09-05 11:43:08,896 DEBUG org.hibernate.persister.walking.spi.MetamodelGraphWalker [main] Visiting attribute path : landing
+2022-09-05 11:43:08,896 DEBUG org.hibernate.loader.plan.build.internal.FetchStyleLoadPlanBuildingAssociationVisitationStrategy [main] Building LoadPlan...
+2022-09-05 11:43:08,897 DEBUG org.hibernate.loader.plan.exec.internal.LoadQueryJoinAndFetchProcessor [main] processing queryspace <gen:0>
+2022-09-05 11:43:08,897 DEBUG org.hibernate.loader.plan.build.spi.LoadPlanTreePrinter [main] LoadPlan(entity=com.nix.lesson10.model.vehicle.Motorcycle)
+    - Returns
+       - EntityReturnImpl(entity=com.nix.lesson10.model.vehicle.Motorcycle, querySpaceUid=<gen:0>, path=com.nix.lesson10.model.vehicle.Motorcycle)
+          - EntityAttributeFetchImpl(entity=com.nix.lesson10.model.vehicle.Engine, querySpaceUid=<gen:1>, path=com.nix.lesson10.model.vehicle.Motorcycle.engine)
+          - CollectionAttributeFetchImpl(collection=com.nix.lesson10.model.vehicle.Vehicle.invoices, querySpaceUid=<gen:2>, path=com.nix.lesson10.model.vehicle.Motorcycle.invoices)
+             - (collection element) CollectionFetchableElementEntityGraph(entity=com.nix.lesson10.model.Invoice, querySpaceUid=<gen:3>, path=com.nix.lesson10.model.vehicle.Motorcycle.invoices.<elements>)
+    - QuerySpaces
+       - EntityQuerySpaceImpl(uid=<gen:0>, entity=com.nix.lesson10.model.vehicle.Motorcycle)
+          - SQL table alias mapping - motorcycle0_
+          - alias suffix - 0_
+          - suffixed key columns - {id1_5_0_}
+          - JOIN (JoinDefinedByMetadata(engine)) : <gen:0> -> <gen:1>
+             - EntityQuerySpaceImpl(uid=<gen:1>, entity=com.nix.lesson10.model.vehicle.Engine)
+                - SQL table alias mapping - engine1_
+                - alias suffix - 1_
+                - suffixed key columns - {id1_1_1_}
+
+2022-09-05 11:43:08,897 DEBUG org.hibernate.loader.entity.plan.EntityLoader [main] Static select for entity com.nix.lesson10.model.vehicle.Motorcycle [NONE]: select motorcycle0_.id as id1_5_0_, motorcycle0_.created as created2_5_0_, motorcycle0_.Engine_id as engine_i6_5_0_, motorcycle0_.manufacturer as manufact3_5_0_, motorcycle0_.model as model4_5_0_, motorcycle0_.price as price5_5_0_, motorcycle0_.landing as landing1_3_0_, engine1_.id as id1_1_1_, engine1_.brand as brand2_1_1_, engine1_.valves as valves3_1_1_, engine1_.volume as volume4_1_1_ from Motorcycle motorcycle0_ left outer join Engine engine1_ on motorcycle0_.Engine_id=engine1_.id where motorcycle0_.id=?
+2022-09-05 11:43:08,897 DEBUG org.hibernate.persister.entity.AbstractEntityPersister [main] Static SQL for entity: com.nix.lesson10.model.vehicle.Auto
+2022-09-05 11:43:08,897 DEBUG org.hibernate.persister.entity.AbstractEntityPersister [main]  Version select: select id from Auto where id =?
+2022-09-05 11:43:08,897 DEBUG org.hibernate.persister.entity.AbstractEntityPersister [main]  Snapshot select: select auto_.id, auto_.created as created2_5_, auto_.Engine_id as engine_i6_5_, auto_.manufacturer as manufact3_5_, auto_.model as model4_5_, auto_.price as price5_5_, auto_.bodyType as bodytype1_0_ from Auto auto_ where auto_.id=?
+2022-09-05 11:43:08,897 DEBUG org.hibernate.persister.entity.AbstractEntityPersister [main]  Insert 0: insert into Auto (created, Engine_id, manufacturer, model, price, bodyType, id) values (?, ?, ?, ?, ?, ?, ?)
+2022-09-05 11:43:08,897 DEBUG org.hibernate.persister.entity.AbstractEntityPersister [main]  Update 0: update Auto set created=?, Engine_id=?, manufacturer=?, model=?, price=?, bodyType=? where id=?
+2022-09-05 11:43:08,897 DEBUG org.hibernate.persister.entity.AbstractEntityPersister [main]  Delete 0: delete from Auto where id=?
+2022-09-05 11:43:08,897 DEBUG org.hibernate.loader.plan.build.internal.spaces.QuerySpacesImpl [main] Adding QuerySpace : uid = <gen:0> -> org.hibernate.loader.plan.build.internal.spaces.EntityQuerySpaceImpl@50085d9c]
+2022-09-05 11:43:08,897 DEBUG org.hibernate.persister.walking.spi.MetamodelGraphWalker [main] Visiting attribute path : created
+2022-09-05 11:43:08,897 DEBUG org.hibernate.persister.walking.spi.MetamodelGraphWalker [main] Visiting attribute path : engine
+2022-09-05 11:43:08,897 DEBUG org.hibernate.loader.plan.build.internal.spaces.QuerySpacesImpl [main] Adding QuerySpace : uid = <gen:1> -> org.hibernate.loader.plan.build.internal.spaces.EntityQuerySpaceImpl@63a9c661]
+2022-09-05 11:43:08,897 DEBUG org.hibernate.persister.walking.spi.MetamodelGraphWalker [main] Visiting attribute path : engine.brand
+2022-09-05 11:43:08,897 DEBUG org.hibernate.persister.walking.spi.MetamodelGraphWalker [main] Visiting attribute path : engine.valves
+2022-09-05 11:43:08,897 DEBUG org.hibernate.persister.walking.spi.MetamodelGraphWalker [main] Visiting attribute path : engine.volume
+2022-09-05 11:43:08,898 DEBUG org.hibernate.persister.walking.spi.MetamodelGraphWalker [main] Visiting attribute path : invoices
+2022-09-05 11:43:08,898 DEBUG org.hibernate.loader.plan.build.internal.spaces.QuerySpacesImpl [main] Adding QuerySpace : uid = <gen:2> -> org.hibernate.loader.plan.build.internal.spaces.CollectionQuerySpaceImpl@5934153e]
+2022-09-05 11:43:08,898 DEBUG org.hibernate.loader.plan.build.internal.spaces.QuerySpacesImpl [main] Adding QuerySpace : uid = <gen:3> -> org.hibernate.loader.plan.build.internal.spaces.EntityQuerySpaceImpl@3bb9ca38]
+2022-09-05 11:43:08,898 DEBUG org.hibernate.persister.walking.spi.MetamodelGraphWalker [main] Visiting attribute path : manufacturer
+2022-09-05 11:43:08,898 DEBUG org.hibernate.persister.walking.spi.MetamodelGraphWalker [main] Visiting attribute path : model
+2022-09-05 11:43:08,898 DEBUG org.hibernate.persister.walking.spi.MetamodelGraphWalker [main] Visiting attribute path : price
+2022-09-05 11:43:08,898 DEBUG org.hibernate.persister.walking.spi.MetamodelGraphWalker [main] Visiting attribute path : bodyType
+2022-09-05 11:43:08,898 DEBUG org.hibernate.loader.plan.build.internal.FetchStyleLoadPlanBuildingAssociationVisitationStrategy [main] Building LoadPlan...
+2022-09-05 11:43:08,898 DEBUG org.hibernate.loader.plan.exec.internal.LoadQueryJoinAndFetchProcessor [main] processing queryspace <gen:0>
+2022-09-05 11:43:08,898 DEBUG org.hibernate.loader.plan.build.spi.LoadPlanTreePrinter [main] LoadPlan(entity=com.nix.lesson10.model.vehicle.Auto)
+    - Returns
+       - EntityReturnImpl(entity=com.nix.lesson10.model.vehicle.Auto, querySpaceUid=<gen:0>, path=com.nix.lesson10.model.vehicle.Auto)
+          - EntityAttributeFetchImpl(entity=com.nix.lesson10.model.vehicle.Engine, querySpaceUid=<gen:1>, path=com.nix.lesson10.model.vehicle.Auto.engine)
+          - CollectionAttributeFetchImpl(collection=com.nix.lesson10.model.vehicle.Vehicle.invoices, querySpaceUid=<gen:2>, path=com.nix.lesson10.model.vehicle.Auto.invoices)
+             - (collection element) CollectionFetchableElementEntityGraph(entity=com.nix.lesson10.model.Invoice, querySpaceUid=<gen:3>, path=com.nix.lesson10.model.vehicle.Auto.invoices.<elements>)
+    - QuerySpaces
+       - EntityQuerySpaceImpl(uid=<gen:0>, entity=com.nix.lesson10.model.vehicle.Auto)
+          - SQL table alias mapping - auto0_
+          - alias suffix - 0_
+          - suffixed key columns - {id1_5_0_}
+          - JOIN (JoinDefinedByMetadata(engine)) : <gen:0> -> <gen:1>
+             - EntityQuerySpaceImpl(uid=<gen:1>, entity=com.nix.lesson10.model.vehicle.Engine)
+                - SQL table alias mapping - engine1_
+                - alias suffix - 1_
+                - suffixed key columns - {id1_1_1_}
+
+2022-09-05 11:43:08,898 DEBUG org.hibernate.loader.entity.plan.EntityLoader [main] Static select for entity com.nix.lesson10.model.vehicle.Auto [NONE]: select auto0_.id as id1_5_0_, auto0_.created as created2_5_0_, auto0_.Engine_id as engine_i6_5_0_, auto0_.manufacturer as manufact3_5_0_, auto0_.model as model4_5_0_, auto0_.price as price5_5_0_, auto0_.bodyType as bodytype1_0_0_, engine1_.id as id1_1_1_, engine1_.brand as brand2_1_1_, engine1_.valves as valves3_1_1_, engine1_.volume as volume4_1_1_ from Auto auto0_ left outer join Engine engine1_ on auto0_.Engine_id=engine1_.id where auto0_.id=?
+2022-09-05 11:43:08,898 DEBUG org.hibernate.persister.entity.AbstractEntityPersister [main] Static SQL for entity: com.nix.lesson10.model.vehicle.Vehicle
+2022-09-05 11:43:08,898 DEBUG org.hibernate.persister.entity.AbstractEntityPersister [main]  Version select: select id from Vehicle where id =?
+2022-09-05 11:43:08,898 DEBUG org.hibernate.persister.entity.AbstractEntityPersister [main]  Snapshot select: select vehicle_.id, vehicle_.created as created2_5_, vehicle_.Engine_id as engine_i6_5_, vehicle_.manufacturer as manufact3_5_, vehicle_.model as model4_5_, vehicle_.price as price5_5_ from ( select id, created, manufacturer, model, price, Engine_id, landing, null as bodyType, null as capacity, 1 as clazz_ from Motorcycle union all select id, created, manufacturer, model, price, Engine_id, null as landing, bodyType, null as capacity, 2 as clazz_ from Auto union all select id, created, manufacturer, model, price, Engine_id, null as landing, null as bodyType, capacity, 3 as clazz_ from Truck ) vehicle_ where vehicle_.id=?
+2022-09-05 11:43:08,899 DEBUG org.hibernate.persister.entity.AbstractEntityPersister [main]  Insert 0: insert into Vehicle (created, Engine_id, manufacturer, model, price, id) values (?, ?, ?, ?, ?, ?)
+2022-09-05 11:43:08,899 DEBUG org.hibernate.persister.entity.AbstractEntityPersister [main]  Update 0: update Vehicle set created=?, Engine_id=?, manufacturer=?, model=?, price=? where id=?
+2022-09-05 11:43:08,899 DEBUG org.hibernate.persister.entity.AbstractEntityPersister [main]  Delete 0: delete from Vehicle where id=?
+2022-09-05 11:43:08,899 DEBUG org.hibernate.loader.plan.build.internal.spaces.QuerySpacesImpl [main] Adding QuerySpace : uid = <gen:0> -> org.hibernate.loader.plan.build.internal.spaces.EntityQuerySpaceImpl@160e99e0]
+2022-09-05 11:43:08,899 DEBUG org.hibernate.persister.walking.spi.MetamodelGraphWalker [main] Visiting attribute path : created
+2022-09-05 11:43:08,899 DEBUG org.hibernate.persister.walking.spi.MetamodelGraphWalker [main] Visiting attribute path : engine
+2022-09-05 11:43:08,899 DEBUG org.hibernate.loader.plan.build.internal.spaces.QuerySpacesImpl [main] Adding QuerySpace : uid = <gen:1> -> org.hibernate.loader.plan.build.internal.spaces.EntityQuerySpaceImpl@365afe87]
+2022-09-05 11:43:08,899 DEBUG org.hibernate.persister.walking.spi.MetamodelGraphWalker [main] Visiting attribute path : engine.brand
+2022-09-05 11:43:08,899 DEBUG org.hibernate.persister.walking.spi.MetamodelGraphWalker [main] Visiting attribute path : engine.valves
+2022-09-05 11:43:08,899 DEBUG org.hibernate.persister.walking.spi.MetamodelGraphWalker [main] Visiting attribute path : engine.volume
+2022-09-05 11:43:08,899 DEBUG org.hibernate.persister.walking.spi.MetamodelGraphWalker [main] Visiting attribute path : invoices
+2022-09-05 11:43:08,899 DEBUG org.hibernate.loader.plan.build.internal.spaces.QuerySpacesImpl [main] Adding QuerySpace : uid = <gen:2> -> org.hibernate.loader.plan.build.internal.spaces.CollectionQuerySpaceImpl@21e45a6f]
+2022-09-05 11:43:08,899 DEBUG org.hibernate.loader.plan.build.internal.spaces.QuerySpacesImpl [main] Adding QuerySpace : uid = <gen:3> -> org.hibernate.loader.plan.build.internal.spaces.EntityQuerySpaceImpl@1a1ccaaf]
+2022-09-05 11:43:08,899 DEBUG org.hibernate.persister.walking.spi.MetamodelGraphWalker [main] Visiting attribute path : manufacturer
+2022-09-05 11:43:08,899 DEBUG org.hibernate.persister.walking.spi.MetamodelGraphWalker [main] Visiting attribute path : model
+2022-09-05 11:43:08,899 DEBUG org.hibernate.persister.walking.spi.MetamodelGraphWalker [main] Visiting attribute path : price
+2022-09-05 11:43:08,899 DEBUG org.hibernate.persister.walking.spi.MetamodelGraphWalker [main] Visiting attribute path : landing
+2022-09-05 11:43:08,899 DEBUG org.hibernate.persister.walking.spi.MetamodelGraphWalker [main] Visiting attribute path : bodyType
+2022-09-05 11:43:08,899 DEBUG org.hibernate.persister.walking.spi.MetamodelGraphWalker [main] Visiting attribute path : capacity
+2022-09-05 11:43:08,899 DEBUG org.hibernate.loader.plan.build.internal.FetchStyleLoadPlanBuildingAssociationVisitationStrategy [main] Building LoadPlan...
+2022-09-05 11:43:08,899 DEBUG org.hibernate.loader.plan.exec.internal.LoadQueryJoinAndFetchProcessor [main] processing queryspace <gen:0>
+2022-09-05 11:43:08,899 DEBUG org.hibernate.loader.plan.build.spi.LoadPlanTreePrinter [main] LoadPlan(entity=com.nix.lesson10.model.vehicle.Vehicle)
+    - Returns
+       - EntityReturnImpl(entity=com.nix.lesson10.model.vehicle.Vehicle, querySpaceUid=<gen:0>, path=com.nix.lesson10.model.vehicle.Vehicle)
+          - EntityAttributeFetchImpl(entity=com.nix.lesson10.model.vehicle.Engine, querySpaceUid=<gen:1>, path=com.nix.lesson10.model.vehicle.Vehicle.engine)
+          - CollectionAttributeFetchImpl(collection=com.nix.lesson10.model.vehicle.Vehicle.invoices, querySpaceUid=<gen:2>, path=com.nix.lesson10.model.vehicle.Vehicle.invoices)
+             - (collection element) CollectionFetchableElementEntityGraph(entity=com.nix.lesson10.model.Invoice, querySpaceUid=<gen:3>, path=com.nix.lesson10.model.vehicle.Vehicle.invoices.<elements>)
+    - QuerySpaces
+       - EntityQuerySpaceImpl(uid=<gen:0>, entity=com.nix.lesson10.model.vehicle.Vehicle)
+          - SQL table alias mapping - vehicle0_
+          - alias suffix - 0_
+          - suffixed key columns - {id1_5_0_}
+          - JOIN (JoinDefinedByMetadata(engine)) : <gen:0> -> <gen:1>
+             - EntityQuerySpaceImpl(uid=<gen:1>, entity=com.nix.lesson10.model.vehicle.Engine)
+                - SQL table alias mapping - engine1_
+                - alias suffix - 1_
+                - suffixed key columns - {id1_1_1_}
+
+2022-09-05 11:43:08,899 DEBUG org.hibernate.loader.entity.plan.EntityLoader [main] Static select for entity com.nix.lesson10.model.vehicle.Vehicle [NONE]: select vehicle0_.id as id1_5_0_, vehicle0_.created as created2_5_0_, vehicle0_.Engine_id as engine_i6_5_0_, vehicle0_.manufacturer as manufact3_5_0_, vehicle0_.model as model4_5_0_, vehicle0_.price as price5_5_0_, vehicle0_.landing as landing1_3_0_, vehicle0_.bodyType as bodytype1_0_0_, vehicle0_.capacity as capacity1_4_0_, vehicle0_.clazz_ as clazz_0_, engine1_.id as id1_1_1_, engine1_.brand as brand2_1_1_, engine1_.valves as valves3_1_1_, engine1_.volume as volume4_1_1_ from ( select id, created, manufacturer, model, price, Engine_id, landing, null as bodyType, null as capacity, 1 as clazz_ from Motorcycle union all select id, created, manufacturer, model, price, Engine_id, null as landing, bodyType, null as capacity, 2 as clazz_ from Auto union all select id, created, manufacturer, model, price, Engine_id, null as landing, null as bodyType, capacity, 3 as clazz_ from Truck ) vehicle0_ left outer join Engine engine1_ on vehicle0_.Engine_id=engine1_.id where vehicle0_.id=?
+2022-09-05 11:43:08,900 DEBUG org.hibernate.persister.entity.AbstractEntityPersister [main] Static SQL for entity: com.nix.lesson10.model.vehicle.Engine
+2022-09-05 11:43:08,900 DEBUG org.hibernate.persister.entity.AbstractEntityPersister [main]  Version select: select id from Engine where id =?
+2022-09-05 11:43:08,900 DEBUG org.hibernate.persister.entity.AbstractEntityPersister [main]  Snapshot select: select engine_.id, engine_.brand as brand2_1_, engine_.valves as valves3_1_, engine_.volume as volume4_1_ from Engine engine_ where engine_.id=?
+2022-09-05 11:43:08,900 DEBUG org.hibernate.persister.entity.AbstractEntityPersister [main]  Insert 0: insert into Engine (brand, valves, volume, id) values (?, ?, ?, ?)
+2022-09-05 11:43:08,900 DEBUG org.hibernate.persister.entity.AbstractEntityPersister [main]  Update 0: update Engine set brand=?, valves=?, volume=? where id=?
+2022-09-05 11:43:08,900 DEBUG org.hibernate.persister.entity.AbstractEntityPersister [main]  Delete 0: delete from Engine where id=?
+2022-09-05 11:43:08,900 DEBUG org.hibernate.loader.plan.build.internal.spaces.QuerySpacesImpl [main] Adding QuerySpace : uid = <gen:0> -> org.hibernate.loader.plan.build.internal.spaces.EntityQuerySpaceImpl@7b53b1ad]
+2022-09-05 11:43:08,900 DEBUG org.hibernate.persister.walking.spi.MetamodelGraphWalker [main] Visiting attribute path : brand
+2022-09-05 11:43:08,900 DEBUG org.hibernate.persister.walking.spi.MetamodelGraphWalker [main] Visiting attribute path : valves
+2022-09-05 11:43:08,900 DEBUG org.hibernate.persister.walking.spi.MetamodelGraphWalker [main] Visiting attribute path : volume
+2022-09-05 11:43:08,900 DEBUG org.hibernate.loader.plan.build.internal.FetchStyleLoadPlanBuildingAssociationVisitationStrategy [main] Building LoadPlan...
+2022-09-05 11:43:08,900 DEBUG org.hibernate.loader.plan.exec.internal.LoadQueryJoinAndFetchProcessor [main] processing queryspace <gen:0>
+2022-09-05 11:43:08,900 DEBUG org.hibernate.loader.plan.build.spi.LoadPlanTreePrinter [main] LoadPlan(entity=com.nix.lesson10.model.vehicle.Engine)
+    - Returns
+       - EntityReturnImpl(entity=com.nix.lesson10.model.vehicle.Engine, querySpaceUid=<gen:0>, path=com.nix.lesson10.model.vehicle.Engine)
+    - QuerySpaces
+       - EntityQuerySpaceImpl(uid=<gen:0>, entity=com.nix.lesson10.model.vehicle.Engine)
+          - SQL table alias mapping - engine0_
+          - alias suffix - 0_
+          - suffixed key columns - {id1_1_0_}
+
+2022-09-05 11:43:08,900 DEBUG org.hibernate.loader.entity.plan.EntityLoader [main] Static select for entity com.nix.lesson10.model.vehicle.Engine [NONE]: select engine0_.id as id1_1_0_, engine0_.brand as brand2_1_0_, engine0_.valves as valves3_1_0_, engine0_.volume as volume4_1_0_ from Engine engine0_ where engine0_.id=?
+2022-09-05 11:43:08,900 DEBUG org.hibernate.persister.entity.AbstractEntityPersister [main] Static SQL for entity: com.nix.lesson10.model.vehicle.Truck
+2022-09-05 11:43:08,900 DEBUG org.hibernate.persister.entity.AbstractEntityPersister [main]  Version select: select id from Truck where id =?
+2022-09-05 11:43:08,900 DEBUG org.hibernate.persister.entity.AbstractEntityPersister [main]  Snapshot select: select truck_.id, truck_.created as created2_5_, truck_.Engine_id as engine_i6_5_, truck_.manufacturer as manufact3_5_, truck_.model as model4_5_, truck_.price as price5_5_, truck_.capacity as capacity1_4_ from Truck truck_ where truck_.id=?
+2022-09-05 11:43:08,900 DEBUG org.hibernate.persister.entity.AbstractEntityPersister [main]  Insert 0: insert into Truck (created, Engine_id, manufacturer, model, price, capacity, id) values (?, ?, ?, ?, ?, ?, ?)
+2022-09-05 11:43:08,900 DEBUG org.hibernate.persister.entity.AbstractEntityPersister [main]  Update 0: update Truck set created=?, Engine_id=?, manufacturer=?, model=?, price=?, capacity=? where id=?
+2022-09-05 11:43:08,900 DEBUG org.hibernate.persister.entity.AbstractEntityPersister [main]  Delete 0: delete from Truck where id=?
+2022-09-05 11:43:08,900 DEBUG org.hibernate.loader.plan.build.internal.spaces.QuerySpacesImpl [main] Adding QuerySpace : uid = <gen:0> -> org.hibernate.loader.plan.build.internal.spaces.EntityQuerySpaceImpl@388c519]
+2022-09-05 11:43:08,900 DEBUG org.hibernate.persister.walking.spi.MetamodelGraphWalker [main] Visiting attribute path : created
+2022-09-05 11:43:08,900 DEBUG org.hibernate.persister.walking.spi.MetamodelGraphWalker [main] Visiting attribute path : engine
+2022-09-05 11:43:08,900 DEBUG org.hibernate.loader.plan.build.internal.spaces.QuerySpacesImpl [main] Adding QuerySpace : uid = <gen:1> -> org.hibernate.loader.plan.build.internal.spaces.EntityQuerySpaceImpl@198536f6]
+2022-09-05 11:43:08,901 DEBUG org.hibernate.persister.walking.spi.MetamodelGraphWalker [main] Visiting attribute path : engine.brand
+2022-09-05 11:43:08,901 DEBUG org.hibernate.persister.walking.spi.MetamodelGraphWalker [main] Visiting attribute path : engine.valves
+2022-09-05 11:43:08,901 DEBUG org.hibernate.persister.walking.spi.MetamodelGraphWalker [main] Visiting attribute path : engine.volume
+2022-09-05 11:43:08,901 DEBUG org.hibernate.persister.walking.spi.MetamodelGraphWalker [main] Visiting attribute path : invoices
+2022-09-05 11:43:08,901 DEBUG org.hibernate.loader.plan.build.internal.spaces.QuerySpacesImpl [main] Adding QuerySpace : uid = <gen:2> -> org.hibernate.loader.plan.build.internal.spaces.CollectionQuerySpaceImpl@3a38f122]
+2022-09-05 11:43:08,901 DEBUG org.hibernate.loader.plan.build.internal.spaces.QuerySpacesImpl [main] Adding QuerySpace : uid = <gen:3> -> org.hibernate.loader.plan.build.internal.spaces.EntityQuerySpaceImpl@2ce03e86]
+2022-09-05 11:43:08,901 DEBUG org.hibernate.persister.walking.spi.MetamodelGraphWalker [main] Visiting attribute path : manufacturer
+2022-09-05 11:43:08,901 DEBUG org.hibernate.persister.walking.spi.MetamodelGraphWalker [main] Visiting attribute path : model
+2022-09-05 11:43:08,901 DEBUG org.hibernate.persister.walking.spi.MetamodelGraphWalker [main] Visiting attribute path : price
+2022-09-05 11:43:08,901 DEBUG org.hibernate.persister.walking.spi.MetamodelGraphWalker [main] Visiting attribute path : capacity
+2022-09-05 11:43:08,901 DEBUG org.hibernate.loader.plan.build.internal.FetchStyleLoadPlanBuildingAssociationVisitationStrategy [main] Building LoadPlan...
+2022-09-05 11:43:08,901 DEBUG org.hibernate.loader.plan.exec.internal.LoadQueryJoinAndFetchProcessor [main] processing queryspace <gen:0>
+2022-09-05 11:43:08,901 DEBUG org.hibernate.loader.plan.build.spi.LoadPlanTreePrinter [main] LoadPlan(entity=com.nix.lesson10.model.vehicle.Truck)
+    - Returns
+       - EntityReturnImpl(entity=com.nix.lesson10.model.vehicle.Truck, querySpaceUid=<gen:0>, path=com.nix.lesson10.model.vehicle.Truck)
+          - EntityAttributeFetchImpl(entity=com.nix.lesson10.model.vehicle.Engine, querySpaceUid=<gen:1>, path=com.nix.lesson10.model.vehicle.Truck.engine)
+          - CollectionAttributeFetchImpl(collection=com.nix.lesson10.model.vehicle.Vehicle.invoices, querySpaceUid=<gen:2>, path=com.nix.lesson10.model.vehicle.Truck.invoices)
+             - (collection element) CollectionFetchableElementEntityGraph(entity=com.nix.lesson10.model.Invoice, querySpaceUid=<gen:3>, path=com.nix.lesson10.model.vehicle.Truck.invoices.<elements>)
+    - QuerySpaces
+       - EntityQuerySpaceImpl(uid=<gen:0>, entity=com.nix.lesson10.model.vehicle.Truck)
+          - SQL table alias mapping - truck0_
+          - alias suffix - 0_
+          - suffixed key columns - {id1_5_0_}
+          - JOIN (JoinDefinedByMetadata(engine)) : <gen:0> -> <gen:1>
+             - EntityQuerySpaceImpl(uid=<gen:1>, entity=com.nix.lesson10.model.vehicle.Engine)
+                - SQL table alias mapping - engine1_
+                - alias suffix - 1_
+                - suffixed key columns - {id1_1_1_}
+
+2022-09-05 11:43:08,901 DEBUG org.hibernate.loader.entity.plan.EntityLoader [main] Static select for entity com.nix.lesson10.model.vehicle.Truck [NONE]: select truck0_.id as id1_5_0_, truck0_.created as created2_5_0_, truck0_.Engine_id as engine_i6_5_0_, truck0_.manufacturer as manufact3_5_0_, truck0_.model as model4_5_0_, truck0_.price as price5_5_0_, truck0_.capacity as capacity1_4_0_, engine1_.id as id1_1_1_, engine1_.brand as brand2_1_1_, engine1_.valves as valves3_1_1_, engine1_.volume as volume4_1_1_ from Truck truck0_ left outer join Engine engine1_ on truck0_.Engine_id=engine1_.id where truck0_.id=?
+2022-09-05 11:43:08,906 DEBUG org.hibernate.loader.plan.build.internal.spaces.QuerySpacesImpl [main] Adding QuerySpace : uid = <gen:0> -> org.hibernate.loader.plan.build.internal.spaces.CollectionQuerySpaceImpl@42e4e589]
+2022-09-05 11:43:08,906 DEBUG org.hibernate.loader.plan.build.internal.spaces.QuerySpacesImpl [main] Adding QuerySpace : uid = <gen:1> -> org.hibernate.loader.plan.build.internal.spaces.EntityQuerySpaceImpl@499ee966]
+2022-09-05 11:43:08,906 DEBUG org.hibernate.persister.walking.spi.MetamodelGraphWalker [main] Visiting attribute path : created
+2022-09-05 11:43:08,906 DEBUG org.hibernate.persister.walking.spi.MetamodelGraphWalker [main] Visiting attribute path : vehicles
+2022-09-05 11:43:08,906 DEBUG org.hibernate.persister.walking.spi.MetamodelGraphWalker [main] Property path deemed to be circular : vehicles
+2022-09-05 11:43:08,906 DEBUG org.hibernate.loader.plan.build.internal.FetchStyleLoadPlanBuildingAssociationVisitationStrategy [main] Building LoadPlan...
+2022-09-05 11:43:08,908 DEBUG org.hibernate.loader.plan.exec.internal.LoadQueryJoinAndFetchProcessor [main] processing queryspace <gen:0>
+2022-09-05 11:43:08,908 DEBUG org.hibernate.loader.plan.build.spi.LoadPlanTreePrinter [main] LoadPlan(collection=com.nix.lesson10.model.vehicle.Vehicle.invoices)
+    - Returns
+       - CollectionReturnImpl(collection=com.nix.lesson10.model.vehicle.Vehicle.invoices, querySpaceUid=<gen:0>, path=[com.nix.lesson10.model.vehicle.Vehicle.invoices])
+          - (collection element) CollectionFetchableElementEntityGraph(entity=com.nix.lesson10.model.Invoice, querySpaceUid=<gen:1>, path=[com.nix.lesson10.model.vehicle.Vehicle.invoices].<elements>)
+    - QuerySpaces
+       - CollectionQuerySpaceImpl(uid=<gen:0>, collection=com.nix.lesson10.model.vehicle.Vehicle.invoices)
+          - SQL table alias mapping - invoices0_
+          - alias suffix - 0_
+          - suffixed key columns - {vehicle_2_6_0_}
+          - entity-element alias suffix - 1_
+          - 1_entity-element suffixed key columns - id1_2_1_
+          - JOIN (JoinDefinedByMetadata(elements)) : <gen:0> -> <gen:1>
+             - EntityQuerySpaceImpl(uid=<gen:1>, entity=com.nix.lesson10.model.Invoice)
+                - SQL table alias mapping - invoice1_
+                - alias suffix - 1_
+                - suffixed key columns - {id1_2_1_}
+
+2022-09-05 11:43:08,908 DEBUG org.hibernate.loader.collection.plan.CollectionLoader [main] Static select for collection com.nix.lesson10.model.vehicle.Vehicle.invoices: select invoices0_.vehicle_id as vehicle_2_6_0_, invoices0_.invoice_id as invoice_1_6_0_, invoice1_.id as id1_2_1_, invoice1_.created as created2_2_1_ from vehicles_in_invoice invoices0_ inner join Invoice invoice1_ on invoices0_.invoice_id=invoice1_.id where invoices0_.vehicle_id=?
+2022-09-05 11:43:08,909 DEBUG org.hibernate.loader.plan.build.internal.spaces.QuerySpacesImpl [main] Adding QuerySpace : uid = <gen:0> -> org.hibernate.loader.plan.build.internal.spaces.CollectionQuerySpaceImpl@740fefc6]
+2022-09-05 11:43:08,909 DEBUG org.hibernate.loader.plan.build.internal.spaces.QuerySpacesImpl [main] Adding QuerySpace : uid = <gen:1> -> org.hibernate.loader.plan.build.internal.spaces.EntityQuerySpaceImpl@aa61e4e]
+2022-09-05 11:43:08,909 DEBUG org.hibernate.persister.walking.spi.MetamodelGraphWalker [main] Visiting attribute path : created
+2022-09-05 11:43:08,909 DEBUG org.hibernate.persister.walking.spi.MetamodelGraphWalker [main] Visiting attribute path : engine
+2022-09-05 11:43:08,909 DEBUG org.hibernate.loader.plan.build.internal.spaces.QuerySpacesImpl [main] Adding QuerySpace : uid = <gen:2> -> org.hibernate.loader.plan.build.internal.spaces.EntityQuerySpaceImpl@741ac284]
+2022-09-05 11:43:08,909 DEBUG org.hibernate.persister.walking.spi.MetamodelGraphWalker [main] Visiting attribute path : engine.brand
+2022-09-05 11:43:08,909 DEBUG org.hibernate.persister.walking.spi.MetamodelGraphWalker [main] Visiting attribute path : engine.valves
+2022-09-05 11:43:08,909 DEBUG org.hibernate.persister.walking.spi.MetamodelGraphWalker [main] Visiting attribute path : engine.volume
+2022-09-05 11:43:08,909 DEBUG org.hibernate.persister.walking.spi.MetamodelGraphWalker [main] Visiting attribute path : invoices
+2022-09-05 11:43:08,909 DEBUG org.hibernate.persister.walking.spi.MetamodelGraphWalker [main] Property path deemed to be circular : invoices
+2022-09-05 11:43:08,909 DEBUG org.hibernate.persister.walking.spi.MetamodelGraphWalker [main] Visiting attribute path : manufacturer
+2022-09-05 11:43:08,909 DEBUG org.hibernate.persister.walking.spi.MetamodelGraphWalker [main] Visiting attribute path : model
+2022-09-05 11:43:08,909 DEBUG org.hibernate.persister.walking.spi.MetamodelGraphWalker [main] Visiting attribute path : price
+2022-09-05 11:43:08,909 DEBUG org.hibernate.persister.walking.spi.MetamodelGraphWalker [main] Visiting attribute path : landing
+2022-09-05 11:43:08,909 DEBUG org.hibernate.persister.walking.spi.MetamodelGraphWalker [main] Visiting attribute path : bodyType
+2022-09-05 11:43:08,909 DEBUG org.hibernate.persister.walking.spi.MetamodelGraphWalker [main] Visiting attribute path : capacity
+2022-09-05 11:43:08,909 DEBUG org.hibernate.loader.plan.build.internal.FetchStyleLoadPlanBuildingAssociationVisitationStrategy [main] Building LoadPlan...
+2022-09-05 11:43:08,909 DEBUG org.hibernate.loader.plan.exec.internal.LoadQueryJoinAndFetchProcessor [main] processing queryspace <gen:0>
+2022-09-05 11:43:08,909 DEBUG org.hibernate.loader.plan.build.spi.LoadPlanTreePrinter [main] LoadPlan(collection=com.nix.lesson10.model.Invoice.vehicles)
+    - Returns
+       - CollectionReturnImpl(collection=com.nix.lesson10.model.Invoice.vehicles, querySpaceUid=<gen:0>, path=[com.nix.lesson10.model.Invoice.vehicles])
+          - (collection element) CollectionFetchableElementEntityGraph(entity=com.nix.lesson10.model.vehicle.Vehicle, querySpaceUid=<gen:1>, path=[com.nix.lesson10.model.Invoice.vehicles].<elements>)
+             - EntityAttributeFetchImpl(entity=com.nix.lesson10.model.vehicle.Engine, querySpaceUid=<gen:2>, path=[com.nix.lesson10.model.Invoice.vehicles].<elements>.engine)
+    - QuerySpaces
+       - CollectionQuerySpaceImpl(uid=<gen:0>, collection=com.nix.lesson10.model.Invoice.vehicles)
+          - SQL table alias mapping - vehicles0_
+          - alias suffix - 0_
+          - suffixed key columns - {invoice_1_6_0_}
+          - entity-element alias suffix - 1_
+          - 1_entity-element suffixed key columns - id1_5_1_
+          - JOIN (JoinDefinedByMetadata(elements)) : <gen:0> -> <gen:1>
+             - EntityQuerySpaceImpl(uid=<gen:1>, entity=com.nix.lesson10.model.vehicle.Vehicle)
+                - SQL table alias mapping - vehicle1_
+                - alias suffix - 1_
+                - suffixed key columns - {id1_5_1_}
+                - JOIN (JoinDefinedByMetadata(engine)) : <gen:1> -> <gen:2>
+                   - EntityQuerySpaceImpl(uid=<gen:2>, entity=com.nix.lesson10.model.vehicle.Engine)
+                      - SQL table alias mapping - engine2_
+                      - alias suffix - 2_
+                      - suffixed key columns - {id1_1_2_}
+
+2022-09-05 11:43:08,909 DEBUG org.hibernate.loader.collection.plan.CollectionLoader [main] Static select for collection com.nix.lesson10.model.Invoice.vehicles: select vehicles0_.invoice_id as invoice_1_6_0_, vehicles0_.vehicle_id as vehicle_2_6_0_, vehicle1_.id as id1_5_1_, vehicle1_.created as created2_5_1_, vehicle1_.Engine_id as engine_i6_5_1_, vehicle1_.manufacturer as manufact3_5_1_, vehicle1_.model as model4_5_1_, vehicle1_.price as price5_5_1_, vehicle1_.landing as landing1_3_1_, vehicle1_.bodyType as bodytype1_0_1_, vehicle1_.capacity as capacity1_4_1_, vehicle1_.clazz_ as clazz_1_, engine2_.id as id1_1_2_, engine2_.brand as brand2_1_2_, engine2_.valves as valves3_1_2_, engine2_.volume as volume4_1_2_ from vehicles_in_invoice vehicles0_ inner join ( select id, created, manufacturer, model, price, Engine_id, landing, null as bodyType, null as capacity, 1 as clazz_ from Motorcycle union all select id, created, manufacturer, model, price, Engine_id, null as landing, bodyType, null as capacity, 2 as clazz_ from Auto union all select id, created, manufacturer, model, price, Engine_id, null as landing, null as bodyType, capacity, 3 as clazz_ from Truck ) vehicle1_ on vehicles0_.vehicle_id=vehicle1_.id left outer join Engine engine2_ on vehicle1_.Engine_id=engine2_.id where vehicles0_.invoice_id=?
+2022-09-05 11:43:08,930 DEBUG org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator [main] No schema actions specified
+2022-09-05 11:43:08,930 DEBUG org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator [main] No actions specified; doing nothing
+2022-09-05 11:43:08,930 DEBUG org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator [main] No JtaPlatform was specified, checking resolver
+2022-09-05 11:43:08,930 DEBUG org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformResolverInitiator [main] No JtaPlatformResolver was specified, using default [org.hibernate.engine.transaction.jta.platform.internal.StandardJtaPlatformResolver]
+2022-09-05 11:43:08,933 DEBUG org.hibernate.engine.transaction.jta.platform.internal.StandardJtaPlatformResolver [main] Could not resolve JtaPlatform, using default [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-09-05 11:43:08,933 INFO org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator [main] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-09-05 11:43:08,934 DEBUG org.hibernate.query.spi.NamedQueryRepository [main] Checking 0 named HQL queries
+2022-09-05 11:43:08,934 DEBUG org.hibernate.query.spi.NamedQueryRepository [main] Checking 0 named SQL queries
+2022-09-05 11:43:08,936 DEBUG org.hibernate.service.internal.SessionFactoryServiceRegistryImpl [main] EventListenerRegistry access via ServiceRegistry is deprecated.  Use `sessionFactory.getEventEngine().getListenerRegistry()` instead
+2022-09-05 11:43:08,940 DEBUG org.hibernate.internal.SessionFactoryRegistry [main] Initializing SessionFactoryRegistry : org.hibernate.internal.SessionFactoryRegistry@1961d75a
+2022-09-05 11:43:08,942 DEBUG org.hibernate.internal.SessionFactoryRegistry [main] Registering SessionFactory: b0cb5f4b-f68b-4644-8f1c-94e84e82002b (<unnamed>)
+2022-09-05 11:43:08,942 DEBUG org.hibernate.internal.SessionFactoryRegistry [main] Not binding SessionFactory to JNDI, no JNDI name configured
+2022-09-05 11:43:08,977 DEBUG org.hibernate.stat.internal.StatisticsInitiator [main] Statistics initialized [enabled=false]
