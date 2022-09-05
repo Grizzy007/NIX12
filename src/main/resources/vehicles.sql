@@ -1,139 +1,106 @@
-CREATE DATABASE invoices;
-USE `invoices` ;
+USE `heroku_798da66bf65e891` ;
 
-CREATE TABLE `invoices`.`brand` (
-  `id` VARCHAR(45) NOT NULL,
-  `Name` VARCHAR(45) NOT NULL,
-  UNIQUE INDEX `id_UNIQUE` (`id` ASC) VISIBLE,
-  PRIMARY KEY (`id`));
+create table engine
+(
+    id     varchar(255) not null
+        primary key,
+    brand  varchar(255) null,
+    valves int          not null,
+    volume double       not null
+);
 
+create table auto
+(
+    id           varchar(255)   not null
+        primary key,
+    created      datetime(6)    null,
+    manufacturer varchar(255)   null,
+    model        varchar(255)   null,
+    price        decimal(19, 2) null,
+    bodyType     varchar(255)   null,
+    Engine_id    varchar(255)   null,
+    constraint FKpk2544ixoamra9efk136rh5ar
+        foreign key (Engine_id) references engine (id)
+);
 
-CREATE TABLE IF NOT EXISTS `invoices`.`engine` (
-  `id` VARCHAR(45) NOT NULL,
-  `volume` DOUBLE NOT NULL,
-  `valves` INT NOT NULL,
-  `Brand_id` VARCHAR(45) NOT NULL,
-  PRIMARY KEY (`id`),
-  INDEX `fk_Engine_Brand1_idx` (`Brand_id` ASC) VISIBLE,
-  INDEX `fk_Engine_Brand1` (`Brand_id` ASC) VISIBLE,
-  CONSTRAINT `fk_Engine_Brand1`
-    FOREIGN KEY (`Brand_id`)
-    REFERENCES `invoices`.`brand` (`id`)
-    ON DELETE cascade
-    ON UPDATE cascade);
+create table flyway_schema_history
+(
+    installed_rank int                                 not null
+        primary key,
+    version        varchar(50)                         null,
+    description    varchar(200)                        not null,
+    type           varchar(20)                         not null,
+    script         varchar(1000)                       not null,
+    checksum       int                                 null,
+    installed_by   varchar(100)                        not null,
+    installed_on   timestamp default CURRENT_TIMESTAMP not null,
+    execution_time int                                 not null,
+    success        tinyint(1)                          not null
+);
 
+create index flyway_schema_history_s_idx
+    on flyway_schema_history (success);
 
-CREATE TABLE IF NOT EXISTS `invoices`.`invoices` (
-  `id` VARCHAR(45) NOT NULL,
-  `Created` TIMESTAMP NOT NULL,
-  UNIQUE INDEX `id_UNIQUE` (`id` ASC) VISIBLE,
-  PRIMARY KEY (`id`));
+create table invoice
+(
+    id      varchar(255) not null
+        primary key,
+    created datetime(6)  null
+);
 
+create table motorcycle
+(
+    id           varchar(255)   not null
+        primary key,
+    created      datetime(6)    null,
+    manufacturer varchar(255)   null,
+    model        varchar(255)   null,
+    price        decimal(19, 2) null,
+    landing      int            not null,
+    Engine_id    varchar(255)   null,
+    constraint FK6mr900dumwnx5287nhkop376x
+        foreign key (Engine_id) references engine (id)
+);
 
-CREATE TABLE IF NOT EXISTS `invoices`.`motos` (
-  `id` VARCHAR(45) NOT NULL,
-  `Model` VARCHAR(45) NOT NULL,
-  `Price` DECIMAL NOT NULL,
-  `Created` TIMESTAMP NOT NULL,
-  `Landing` INT NOT NULL,
-  `Brand_id` VARCHAR(45) NOT NULL,
-  `Engine_id` VARCHAR(45) NOT NULL,
-  UNIQUE INDEX `id_UNIQUE` (`id` ASC) VISIBLE,
-  INDEX `fk_Motos_Brand1_idx` (`Brand_id` ASC) VISIBLE,
-  PRIMARY KEY (`id`),
-  INDEX `fk_Motos_Brand1` (`Brand_id` ASC) VISIBLE,
-  INDEX `motos___engine_fk` (`Engine_id` ASC) VISIBLE,
-  CONSTRAINT `fk_Motos_Brand1`
-    FOREIGN KEY (`Brand_id`)
-    REFERENCES `invoices`.`brand` (`id`),
-  CONSTRAINT `motos___engine_fk`
-    FOREIGN KEY (`Engine_id`)
-    REFERENCES `invoices`.`engine` (`id`)
-    ON DELETE cascade
-    ON UPDATE cascade);
+create table truck
+(
+    id           varchar(255)   not null
+        primary key,
+    created      datetime(6)    null,
+    manufacturer varchar(255)   null,
+    model        varchar(255)   null,
+    price        decimal(19, 2) null,
+    capacity     int            not null,
+    Engine_id    varchar(255)   null,
+    constraint FKgajqmf9ur7w5s3v3h4wb6bxba
+        foreign key (Engine_id) references engine (id)
+);
 
+create table vehicle
+(
+    DTYPE        varchar(31)    not null,
+    id           varchar(255)   not null
+        primary key,
+    created      datetime(6)    null,
+    manufacturer varchar(255)   null,
+    model        varchar(255)   null,
+    price        decimal(19, 2) null,
+    landing      int            null,
+    capacity     int            null,
+    bodyType     varchar(255)   null,
+    Engine_id    varchar(255)   null,
+    constraint FK25yaj8eh3o6cyjiuqoppug81q
+        foreign key (Engine_id) references engine (id)
+);
 
-CREATE TABLE IF NOT EXISTS `invoices`.`trucks` (
-  `id` VARCHAR(45) NOT NULL,
-  `Model` VARCHAR(45) NOT NULL,
-  `Price` DECIMAL NOT NULL,
-  `Created` TIMESTAMP NOT NULL,
-  `Capacity` INT NOT NULL,
-  `Brand_id` VARCHAR(45) NOT NULL,
-  `Engine_id` VARCHAR(45) NOT NULL,
-  UNIQUE INDEX `id_UNIQUE` (`id` ASC) VISIBLE,
-  INDEX `fk_Trucks_Brand1_idx` (`Brand_id` ASC) VISIBLE,
-  PRIMARY KEY (`id`),
-  INDEX `fk_Trucks_Brand1` (`Brand_id` ASC) VISIBLE,
-  INDEX `trucks__Engine_fk` (`Engine_id` ASC) VISIBLE,
-  CONSTRAINT `fk_Trucks_Brand1`
-    FOREIGN KEY (`Brand_id`)
-    REFERENCES `invoices`.`brand` (`id`),
-  CONSTRAINT `trucks__Engine_fk`
-    FOREIGN KEY (`Engine_id`)
-    REFERENCES `invoices`.`engine` (`id`)
-    ON DELETE cascade
-    ON UPDATE cascade);
+create table vehicles_in_invoice
+(
+    invoice_id varchar(255) not null,
+    vehicle_id varchar(255) not null,
+    primary key (invoice_id, vehicle_id),
+    constraint FK2pb1264eg2y0i7jgkokbrwenr
+        foreign key (vehicle_id) references vehicle (id),
+    constraint FKae9ww6hksv9hxcu9q11ybb02e
+        foreign key (invoice_id) references invoice (id)
+);
 
-
-CREATE TABLE IF NOT EXISTS `invoices`.`type` (
-  `id` VARCHAR(45) NOT NULL,
-  `Name` VARCHAR(45) NOT NULL,
-  UNIQUE INDEX `id_UNIQUE` (`id` ASC) VISIBLE,
-  PRIMARY KEY (`id`));
-
-
-CREATE TABLE IF NOT EXISTS `invoices`.`autos` (
-  `id` VARCHAR(45) NOT NULL,
-  `Model` VARCHAR(45) NOT NULL,
-  `Price` DECIMAL NOT NULL,
-  `Created` TIMESTAMP NOT NULL,
-  `Type_id` VARCHAR(45) NOT NULL,
-  `Brand_id` VARCHAR(45) NOT NULL,
-  `Engine_id` VARCHAR(45) NULL DEFAULT NULL,
-  UNIQUE INDEX `id_UNIQUE` (`id` ASC) VISIBLE,
-  INDEX `fk_Autos_Brand1_idx` (`Brand_id` ASC) VISIBLE,
-  INDEX `fk_Autos_Engine1_idx` (`Engine_id` ASC) VISIBLE,
-  INDEX `fk_Autos_Type_idx` (`Type_id` ASC) VISIBLE,
-  PRIMARY KEY (`id`),
-  INDEX `fk_Autos_Brand1` (`Brand_id` ASC) VISIBLE,
-  INDEX `fk_Autos_Engine1` (`Engine_id` ASC) VISIBLE,
-  INDEX `fk_Autos_Type` (`Type_id` ASC) VISIBLE,
-  CONSTRAINT `fk_Autos_Brand1`
-    FOREIGN KEY (`Brand_id`)
-    REFERENCES `invoices`.`brand` (`id`),
-  CONSTRAINT `fk_Autos_Engine1`
-    FOREIGN KEY (`Engine_id`)
-    REFERENCES `invoices`.`engine` (`id`),
-  CONSTRAINT `fk_Autos_Type`
-    FOREIGN KEY (`Type_id`)
-    REFERENCES `invoices`.`type` (`id`));
-
-
-CREATE TABLE IF NOT EXISTS `invoices`.`factory_in_invoice` (
-  `Invoices_id` VARCHAR(45) NOT NULL,
-  `Autos_id` VARCHAR(45) NULL DEFAULT NULL,
-  `Trucks_id` VARCHAR(45) NULL DEFAULT NULL,
-  `Motos_id` VARCHAR(45) NULL DEFAULT NULL,
-  `id` VARCHAR(45) NOT NULL,
-  PRIMARY KEY (`id`),
-  INDEX `fk_invoices_in_Invoice_Autos1_idx` (`Autos_id` ASC) VISIBLE,
-  INDEX `fk_invoices_in_Invoice_Invoices1_idx` (`Invoices_id` ASC) VISIBLE,
-  INDEX `fk_invoices_in_Invoice_Motos1_idx` (`Motos_id` ASC) VISIBLE,
-  INDEX `fk_invoices_in_Invoice_Trucks1_idx` (`Trucks_id` ASC) VISIBLE,
-  INDEX `fk_invoices_in_Invoice_Autos1` (`Autos_id` ASC) VISIBLE,
-  INDEX `fk_invoices_in_Invoice_Invoices1` (`Invoices_id` ASC) VISIBLE,
-  INDEX `fk_invoices_in_Invoice_Motos1` (`Motos_id` ASC) VISIBLE,
-  INDEX `fk_invoices_in_Invoice_Trucks1` (`Trucks_id` ASC) VISIBLE,
-  CONSTRAINT `fk_invoices_in_Invoice_Autos1`
-    FOREIGN KEY (`Autos_id`)
-    REFERENCES `invoices`.`autos` (`id`),
-  CONSTRAINT `fk_invoices_in_Invoice_Invoices1`
-    FOREIGN KEY (`Invoices_id`)
-    REFERENCES `invoices`.`invoices` (`id`),
-  CONSTRAINT `fk_invoices_in_Invoice_Motos1`
-    FOREIGN KEY (`Motos_id`)
-    REFERENCES `invoices`.`motos` (`id`),
-  CONSTRAINT `fk_invoices_in_Invoice_Trucks1`
-    FOREIGN KEY (`Trucks_id`)
-    REFERENCES `invoices`.`trucks` (`id`));

@@ -99,3 +99,5 @@ A
 flyway.properties,1\7\1755c359785506f25e26f2afe959499fe1169ee6
 i
 9src/main/java/com/nix/lesson10/model/vehicle/Vehicle.java,3\b\3b445d4c854bf971303ad74736e4f28ddcef1d6f
+7
+pom.xml,4\4\442292b8a7efeabbe4cc176709b833b1792140ec
