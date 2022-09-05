@@ -5,9 +5,9 @@
     <session-factory>
         <property name="hibernate.dialect">org.hibernate.dialect.MySQL8Dialect</property>
         <property name="hibernate.connection.driver_class">com.mysql.cj.jdbc.Driver</property>
-        <property name="hibernate.connection.username">root</property>
-        <property name="hibernate.connection.password">Agent8998Agent_007</property>
-        <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/hibernate_vehicles</property>
+        <property name="hibernate.connection.username">baa726347944ec</property>
+        <property name="hibernate.connection.password">bf64f7ff</property>
+        <property name="hibernate.connection.url">jdbc:mysql://us-cdbr-east-06.cleardb.net/heroku_798da66bf65e891?reconnect=true</property>
         <property name="hibernate.hbm2ddl.auto">validate</property>
 
         <mapping class="com.nix.lesson10.model.vehicle.Motorcycle"/>
