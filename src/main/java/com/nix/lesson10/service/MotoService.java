@@ -9,6 +9,8 @@ import com.nix.lesson10.repository.CrudRepository;
 import com.nix.lesson10.repository.collection.MotoRepository;
 import com.nix.lesson10.repository.db.DBMotoRepository;
 import com.nix.lesson10.repository.hibernate.HibernateMotoRepository;
+import com.nix.lesson10.repository.nosql.MongoMotoRepository;
+import com.nix.lesson10.util.MongoUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -30,7 +32,7 @@ public class MotoService extends VehicleService<Motorcycle> {
 
     public static MotoService getInstance(){
         if(instance==null){
-            instance = new MotoService(HibernateMotoRepository.getInstance());
+            instance = new MotoService(MongoMotoRepository.getInstance(MongoUtil.connect("vehicles")));
         }
         return instance;
     }

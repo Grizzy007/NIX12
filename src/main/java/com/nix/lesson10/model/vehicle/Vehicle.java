@@ -8,10 +8,11 @@ import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.LinkedHashSet;
 import java.util.Set;
+import java.util.UUID;
 
 @Entity
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
-public abstract class Vehicle {
+public class Vehicle {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO, generator = "UUID")
     @GenericGenerator(name = "UUID", strategy = "org.hibernate.id.UUIDGenerator")
@@ -30,6 +31,7 @@ public abstract class Vehicle {
     private Set<Invoice> invoices = new LinkedHashSet<>();
 
     protected Vehicle(String model, BigDecimal price, Brand manufacturer, double volume, int valves) {
+        id = UUID.randomUUID().toString();
         this.model = model;
         this.price = price;
         this.manufacturer = manufacturer;
@@ -40,6 +42,7 @@ public abstract class Vehicle {
 
     protected Vehicle(String model, BigDecimal price, char currency, Brand manufacturer, LocalDateTime created,
                       double volume, int valves) {
+        id=UUID.randomUUID().toString();
         this.model = model;
         this.price = price;
         this.currency = currency;
@@ -49,7 +52,7 @@ public abstract class Vehicle {
     }
 
     protected Vehicle() {
-
+        id=UUID.randomUUID().toString();
     }
 
     public LocalDateTime getCreated() {
@@ -99,4 +102,18 @@ public abstract class Vehicle {
     public void setBrand(Brand manufacturer) {
         this.manufacturer = manufacturer;
     }
+
+    @Override
+    public String toString() {
+        return "Vehicle{" +
+                ", model='" + model + '\'' +
+                ", price=" + price +
+                ", currency=" + currency +
+                ", manufacturer=" + manufacturer +
+                ", created=" + created +
+                ", engine=" + engine +
+                ", invoices=" + invoices +
+                '}';
+    }
+
 }

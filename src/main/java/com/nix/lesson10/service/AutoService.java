@@ -8,6 +8,8 @@ import com.nix.lesson10.repository.collection.AutoRepository;
 import com.nix.lesson10.repository.CrudRepository;
 import com.nix.lesson10.repository.db.DBAutoRepository;
 import com.nix.lesson10.repository.hibernate.HibernateAutoRepository;
+import com.nix.lesson10.repository.nosql.MongoAutoRepository;
+import com.nix.lesson10.util.MongoUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -31,7 +33,7 @@ public class AutoService extends VehicleService<Auto> {
 
     public static AutoService getInstance() {
         if (instance == null) {
-            instance = new AutoService(HibernateAutoRepository.getInstance());
+            instance = new AutoService(MongoAutoRepository.getInstance(MongoUtil.connect("vehicles")));
         }
         return instance;
     }

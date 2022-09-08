@@ -10,7 +10,6 @@ public interface InvoiceRepository {
 
     Optional<Invoice> getById(String id);
 
-
     Invoice create(Invoice invoice);
 
     boolean createList(List<Invoice> list);

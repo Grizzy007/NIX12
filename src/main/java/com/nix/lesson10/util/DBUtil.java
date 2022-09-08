@@ -1,4 +1,4 @@
-package com.nix.lesson10.repository.db;
+package com.nix.lesson10.util;
 
 import com.nix.lesson10.config.JDBCConfig;
 import lombok.SneakyThrows;
