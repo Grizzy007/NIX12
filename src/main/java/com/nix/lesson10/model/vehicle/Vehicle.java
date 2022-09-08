@@ -8,11 +8,10 @@ import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.LinkedHashSet;
 import java.util.Set;
-import java.util.UUID;
 
 @Entity
-@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
-public class Vehicle {
+@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
+public abstract class Vehicle {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO, generator = "UUID")
     @GenericGenerator(name = "UUID", strategy = "org.hibernate.id.UUIDGenerator")
@@ -31,7 +30,6 @@ public class Vehicle {
     private Set<Invoice> invoices = new LinkedHashSet<>();
 
     protected Vehicle(String model, BigDecimal price, Brand manufacturer, double volume, int valves) {
-        id = UUID.randomUUID().toString();
         this.model = model;
         this.price = price;
         this.manufacturer = manufacturer;
@@ -42,7 +40,6 @@ public class Vehicle {
 
     protected Vehicle(String model, BigDecimal price, char currency, Brand manufacturer, LocalDateTime created,
                       double volume, int valves) {
-        id=UUID.randomUUID().toString();
         this.model = model;
         this.price = price;
         this.currency = currency;
@@ -52,7 +49,6 @@ public class Vehicle {
     }
 
     protected Vehicle() {
-        id=UUID.randomUUID().toString();
     }
 
     public LocalDateTime getCreated() {
