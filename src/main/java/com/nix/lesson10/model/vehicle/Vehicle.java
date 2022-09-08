@@ -98,4 +98,18 @@ public abstract class Vehicle {
     public void setBrand(Brand manufacturer) {
         this.manufacturer = manufacturer;
     }
+
+    @Override
+    public String toString() {
+        return "Vehicle{" +
+                ", model='" + model + '\'' +
+                ", price=" + price +
+                ", currency=" + currency +
+                ", manufacturer=" + manufacturer +
+                ", created=" + created +
+                ", engine=" + engine +
+                ", invoices=" + invoices +
+                '}';
+    }
+
 }

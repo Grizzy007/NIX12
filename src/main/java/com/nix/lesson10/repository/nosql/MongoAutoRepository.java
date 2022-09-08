@@ -7,7 +7,6 @@ import com.nix.lesson10.model.vehicle.Auto;
 import com.nix.lesson10.repository.CrudRepository;
 import org.bson.Document;
 import org.bson.conversions.Bson;
-import org.bson.types.ObjectId;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
@@ -30,6 +29,7 @@ public class MongoAutoRepository implements CrudRepository<Auto> {
                 localDateTime == null ? null : new JsonPrimitive(localDateTime.toString());
         JsonDeserializer<LocalDateTime> deser = (json, typeOfT, context) -> {
             DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss.S");
+//            return LocalDateTime.parse(json.getAsString(), formatter);
             return LocalDateTime.now();
         };
         gson = new GsonBuilder()
@@ -81,7 +81,7 @@ public class MongoAutoRepository implements CrudRepository<Auto> {
 
     @Override
     public Auto delete(String id) {
-        Document d = new Document("id",id);
+        Document d = new Document("id", id);
         autos.deleteOne(d);
         return null;
     }

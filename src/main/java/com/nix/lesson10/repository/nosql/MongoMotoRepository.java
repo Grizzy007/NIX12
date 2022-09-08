@@ -29,6 +29,7 @@ public class MongoMotoRepository implements CrudRepository<Motorcycle> {
                 localDateTime == null ? null : new JsonPrimitive(localDateTime.toString());
         JsonDeserializer<LocalDateTime> deser = (json, typeOfT, context) -> {
             DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss.S");
+//            return LocalDateTime.parse(json.getAsString(), formatter);
             return LocalDateTime.now();
         };
         gson = new GsonBuilder()
@@ -80,7 +81,7 @@ public class MongoMotoRepository implements CrudRepository<Motorcycle> {
 
     @Override
     public Motorcycle delete(String id) {
-        Document d = new Document("id",id);
+        Document d = new Document("id", id);
         motos.deleteOne(d);
         return null;
     }
