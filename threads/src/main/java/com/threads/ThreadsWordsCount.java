@@ -1,6 +1,5 @@
 package com.threads;
 
-import java.math.BigInteger;
 import java.util.List;
 
 public class ThreadsWordsCount {
