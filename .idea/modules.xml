@@ -3,6 +3,8 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/NIX12.iml" filepath="$PROJECT_DIR$/NIX12.iml" />
+      <module fileurl="file://$PROJECT_DIR$/servlets/src/main/java/servlets.iml" filepath="$PROJECT_DIR$/servlets/src/main/java/servlets.iml" />
+      <module fileurl="file://$PROJECT_DIR$/servlets/src/main/java/ua/nix/servlets/web.iml" filepath="$PROJECT_DIR$/servlets/src/main/java/ua/nix/servlets/web.iml" />
     </modules>
   </component>
 </project>

@@ -1,6 +1,6 @@
 
-G
-java:S1481"*Remove this unused "names" local variable.(ù¯öÃ8´÷Û‡®0
-Z	java:S106"9Replace this use of System.out or System.err by a logger.(°£Ö‹üÿÿÿÿ8Ã÷Û‡®0
-U	java:S106"9Replace this use of System.out or System.err by a logger.(ŸÎ›ú8Å÷Û‡®0
-U	java:S106"9Replace this use of System.out or System.err by a logger.(Õˆÿ‰8Æ÷Û‡®0
+@
+java:S1481"*Remove this unused "names" local variable.(ù¯öÃ
+S	java:S106"9Replace this use of System.out or System.err by a logger.(°£Ö‹üÿÿÿÿ
+N	java:S106"9Replace this use of System.out or System.err by a logger.(ŸÎ›ú
+N	java:S106"9Replace this use of System.out or System.err by a logger.(Õˆÿ‰

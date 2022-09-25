@@ -1,6 +1,4 @@
 
-9
-	README.md,8\e\8ec9a00bfd09b3190ac6b22251dbb1aa95a0579d
 X
 (NIX12/src/main/java/com/model/Order.java,b\e\be64061a92d44083cf52d1c63d9f3fc9f5ca9904
 m
@@ -15,8 +13,6 @@ Hsrc/main/java/com/nix/lesson10/repository/collection/MotoRepository.java,4\9\4
 -src/main/java/com/nix/lesson10/ui/Update.java,4\d\4dc22d138660e01122d8d3a5109f30bb6367bb4b
 d
 4src/main/java/com/nix/lesson10/ui/RestyleGarage.java,a\8\a87010522bf5260130d7fc47222e2f5d212d53ee
-^
-.src/main/java/com/nix/lesson10/ui/Command.java,1\6\16e9abb93908e8740d892ed86b31be0898cce6b1
 ]
 -src/main/java/com/nix/lesson10/ui/Delete.java,9\3\9350d714e76e78c7c98461deacb580b885186402
 i
@@ -25,8 +21,6 @@ i
 Ksrc/main/java/com/nix/lesson10/repository/collection/VehicleFileReader.java,c\5\c525e0e7bdaeef79770691ff2ab25f8f5cac0695
 `
 0src/main/java/com/nix/lesson10/ui/DBCommand.java,d\2\d297745886113a71772651d913566eed044527a8
-c
-3src/main/java/com/nix/lesson10/ui/Instructions.java,8\9\8920e1b00fd45e9d53086538779dce656d6911e3
 ]
 -src/main/java/com/nix/lesson10/ui/Create.java,8\4\842df2b709bd483c35ac316ea3c6d01b3b95bd3f
 `
@@ -39,20 +33,14 @@ u
 Esrc/main/java/com/nix/lesson10/repository/db/DBInvoiceRepository.java,7\7\7716ea603413b04ed27fd4f161c90162336cf1d9
 r
 Bsrc/main/java/com/nix/lesson10/repository/db/DBAutoRepository.java,7\f\7ff0b1af11ecd29733514e4a4c1be0cf9c3ace80
-e
-5src/main/java/com/nix/lesson10/model/VehicleType.java,0\f\0f0f3dd8b3f7549e6927d9470b81d23b8663c63f
 s
 Csrc/main/java/com/nix/lesson10/repository/db/DBTruckRepository.java,e\b\eb7173493288793689f216555503df4525605be9
 Å
 Qsrc/main/java/com/nix/lesson10/repository/hibernate/HibernateTruckRepository.java,e\7\e7b728bcd793c42f156580396d1ecd97fa66f9a9
 x
 Hsrc/main/java/com/nix/lesson10/repository/collection/AutoRepository.java,6\f\6ff67aab93c8aab84986669d6d892fff1c49f062
-_
-/src/main/java/com/nix/lesson10/util/DBUtil.java,f\e\fee2c03d45b242a32a6196d2e4b9f9849b76a0d5
 r
 Bsrc/main/java/com/nix/lesson10/model/functionals/FunctionImpl.java,9\4\94141a7cedd3e097639da23d62c477d62358465d
-b
-2src/main/java/com/nix/lesson10/util/MongoUtil.java,2\2\22428820ba0dbc9a92c665f890fd9d49728597b1
 j
 :src/main/java/com/nix/lesson10/service/VehicleService.java,c\f\cf03b0565934d173928f76fb128696504ad77967
 p
@@ -66,11 +54,7 @@ Ssrc/main/java/com/nix/lesson10/repository/hibernate/HibernateInvoiceRepository.
 Ä
 Psrc/main/java/com/nix/lesson10/repository/hibernate/HibernateMotoRepository.java,2\3\2312012bd6a17416efd6d0c141942ef6d7641437
 x
-Hsrc/main/java/com/nix/lesson10/repository/nosql/MongoAutoRepository.java,e\4\e40faf742aca7e188baf970f3f840bb66980c8af
-x
 Hsrc/main/java/com/nix/lesson10/repository/nosql/MongoMotoRepository.java,4\1\418d127b69660251a18e7d4e8b27b6d554c858e1
-{
-Ksrc/main/java/com/nix/lesson10/repository/nosql/MongoInvoiceRepository.java,3\3\33b774761f3cf96c1e288b931169caa94a9be5c0
 d
 4src/main/java/com/nix/lesson10/ui/UserInterface.java,2\9\29941f8bfb6b8d24786f55e74ab1417b2dc6d017
 g
@@ -91,3 +75,39 @@ h
 8src/main/java/com/nix/lesson10/model/vehicle/Engine.java,5\8\587e664a1b8d1b12567d236c25bd76dbe580a8cc
 i
 9src/main/java/com/nix/lesson10/model/vehicle/Vehicle.java,3\b\3b445d4c854bf971303ad74736e4f28ddcef1d6f
+a
+1src/main/java/com/nix/lesson10/model/Invoice.java,3\9\396653bf9b879eec7483313f5435763954f67254
+^
+.src/main/java/com/nix/lesson10/ui/Command.java,1\6\16e9abb93908e8740d892ed86b31be0898cce6b1
+c
+3src/main/java/com/nix/lesson10/ui/Instructions.java,8\9\8920e1b00fd45e9d53086538779dce656d6911e3
+\
+,src/main/java/com/nix/lesson10/ui/Print.java,c\3\c35181716ebc5fea737a592f373af4755dd35e83
+9
+	README.md,8\e\8ec9a00bfd09b3190ac6b22251dbb1aa95a0579d
+Ä
+Psrc/main/java/com/nix/lesson10/repository/hibernate/HibernateAutoRepository.java,d\8\d82ba4b17889ac4366fece0a6a954dabc73166dc
+c
+3threads/src/main/java/com/threads/ThreadsHello.java,1\c\1c66a076e09138bd78d2e4de5c64df9fe4a0e87b
+{
+Ksrc/main/java/com/nix/lesson10/repository/nosql/MongoInvoiceRepository.java,3\3\33b774761f3cf96c1e288b931169caa94a9be5c0
+x
+Hsrc/main/java/com/nix/lesson10/repository/nosql/MongoAutoRepository.java,e\4\e40faf742aca7e188baf970f3f840bb66980c8af
+h
+8threads/src/main/java/com/threads/ThreadsWordsCount.java,a\9\a9b731b1598bad0017f7af0ce1d16e6e5368d7cc
+d
+4threads/src/main/java/com/threads/NumberCounter.java,1\c\1ca38669d8b6f0c6be93232f055de9694bca8a1e
+e
+5threads/src/main/java/com/threads/factory/Robots.java,b\9\b933353d5cde62e9f475d66ad271cb5c642f496e
+[
++threads/src/main/java/com/threads/Main.java,b\a\bac9c402035c01a24dc0691088eb565791e7efcc
+b
+2src/main/java/com/nix/lesson10/util/MongoUtil.java,2\2\22428820ba0dbc9a92c665f890fd9d49728597b1
+_
+/src/main/java/com/nix/lesson10/util/DBUtil.java,f\e\fee2c03d45b242a32a6196d2e4b9f9849b76a0d5
+A
+system.properties,a\5\a5db35984da8ffa0e255c16a2e31ae7b26e7d222
+X
+(src/main/java/com/nix/lesson10/Main.java,4\9\49ca5a75670f2ed30877fb3551478bf801629545
+7
+pom.xml,4\4\442292b8a7efeabbe4cc176709b833b1792140ec
