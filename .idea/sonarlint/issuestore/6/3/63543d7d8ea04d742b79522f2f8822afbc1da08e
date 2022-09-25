@@ -1,29 +1,0 @@
-
-N	java:S106+"9Replace this use of System.out or System.err by a logger.(ÓäùË
-S	java:S106-"9Replace this use of System.out or System.err by a logger.(“¬Û—ûÿÿÿÿ
-S	java:S1067"9Replace this use of System.out or System.err by a logger.(Ìªóùÿÿÿÿ
-S	java:S106@"9Replace this use of System.out or System.err by a logger.(’Ó„Ïşÿÿÿÿ
-N	java:S106c"9Replace this use of System.out or System.err by a logger.(¬à¿
-S	java:S106e"9Replace this use of System.out or System.err by a logger.(€¿¦¾øÿÿÿÿ
-N	java:S106g"9Replace this use of System.out or System.err by a logger.(êåƒ
-S	java:S106i"9Replace this use of System.out or System.err by a logger.(“¬Û—ûÿÿÿÿ
-S	java:S106s"9Replace this use of System.out or System.err by a logger.(Ìªóùÿÿÿÿ
-S	java:S106|"9Replace this use of System.out or System.err by a logger.(’Ó„Ïşÿÿÿÿ
-6
-java:S2676"Use the original value instead.(ìœ´
-W
-java:S1612";Replace this lambda with method reference 'Vehicle::getId'.(©½ùĞşÿÿÿÿ
-Z
-java:S1612">Replace this lambda with method reference 'Auto::getBodyType'.(©½ùĞşÿÿÿÿ
-O	java:S106"9Replace this use of System.out or System.err by a logger.(ó½¼Î
-F
-java:S1611›"/Remove the parentheses around the "a" parameter(ı¢±¤
-T	java:S106¥"9Replace this use of System.out or System.err by a logger.(²­«ûüÿÿÿÿ
-t
-java:S1128"RRemove this unused import 'com.nix.lesson10.repository.collection.AutoRepository'.(ÆÍ¯èÿÿÿÿÿ8æÚ¯œ°0
-h
-java:S1128	"LRemove this unused import 'com.nix.lesson10.repository.db.DBAutoRepository'.(ï•ª8æÚ¯œ°0
-t
-java:S1128"RRemove this unused import 'com.nix.lesson10.repository.nosql.MongoAutoRepository'.(íßûûÿÿÿÿ8çÚ¯œ°0
-^
-java:S1128"<Remove this unused import 'com.nix.lesson10.util.MongoUtil'.(·ˆëÿÿÿÿÿ8èÚ¯œ°0

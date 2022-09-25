@@ -1,8 +1,0 @@
-
-W
-java:S4973~"<Strings and Boxed types should be compared using "equals()".(¨Â·Éüÿÿÿÿ
-S	java:S106'"9Replace this use of System.out or System.err by a logger.(çĞÒêÿÿÿÿÿ
-N	java:S106F"9Replace this use of System.out or System.err by a logger.(ö¬
-[
-java:S1612Z"@Replace this lambda with method reference 'System.out::println'.(€¥ûÿÿÿÿ
-S	java:S106Z"9Replace this use of System.out or System.err by a logger.(€¥ûÿÿÿÿ

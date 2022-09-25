@@ -1,26 +1,0 @@
-
-a
-java:S3655š"JCall "truck.isPresent()" or "!truck.isEmpty()" before accessing the value.(ØÊÅ¥
-N	java:S106."9Replace this use of System.out or System.err by a logger.(ÓäùË
-S	java:S1060"9Replace this use of System.out or System.err by a logger.(“¬Û—ûÿÿÿÿ
-S	java:S106:"9Replace this use of System.out or System.err by a logger.(µİŸ¶ÿÿÿÿÿ
-S	java:S106<"9Replace this use of System.out or System.err by a logger.(’Ó„Ïşÿÿÿÿ
-N	java:S106I"9Replace this use of System.out or System.err by a logger.(·ì©
-S	java:S106K"9Replace this use of System.out or System.err by a logger.(€¿¦¾øÿÿÿÿ
-N	java:S106M"9Replace this use of System.out or System.err by a logger.(êåƒ
-S	java:S106O"9Replace this use of System.out or System.err by a logger.(“¬Û—ûÿÿÿÿ
-S	java:S106Y"9Replace this use of System.out or System.err by a logger.(µİŸ¶ÿÿÿÿÿ
-S	java:S106["9Replace this use of System.out or System.err by a logger.(’Ó„Ïşÿÿÿÿ
-N	java:S106z"9Replace this use of System.out or System.err by a logger.(¨Öô¨
-O	java:S106‰"9Replace this use of System.out or System.err by a logger.(ŸâØ‰
-K
-java:S1611”"/Remove the parentheses around the "t" parameter(ì‡º«ûÿÿÿÿ
-p
-java:S1128
-"SRemove this unused import 'com.nix.lesson10.repository.collection.TruckRepository'.(ñıæ8Ê‚²œ°0
-o
-java:S1128"MRemove this unused import 'com.nix.lesson10.repository.db.DBTruckRepository'.(’ù¸ÿÿÿÿÿ8Ë‚²œ°0
-o
-java:S1128"SRemove this unused import 'com.nix.lesson10.repository.nosql.MongoTruckRepository'.(Û±F8Ë‚²œ°0
-^
-java:S1128"<Remove this unused import 'com.nix.lesson10.util.MongoUtil'.(·ˆëÿÿÿÿÿ8Ë‚²œ°0

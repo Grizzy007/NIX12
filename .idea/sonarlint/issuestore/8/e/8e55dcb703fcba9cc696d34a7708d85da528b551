@@ -1,6 +1,0 @@
-
-b	java:S107$"AConstructor has 8 parameters, which is greater than 7 authorized.(šÆòîøÿÿÿÿ8¦à¯Ö®0
-K
-java:S2140D")Use "java.util.Random.nextInt()" instead.(–šÎÆüÿÿÿÿ8Éà¯Ö®0
-P
-java:S1144$".Remove this unused private "Auto" constructor.(šÆòîøÿÿÿÿ8Ïà¯Ö®0
