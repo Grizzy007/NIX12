@@ -15,7 +15,7 @@ public class DBUtil {
     private static final ClassLoader classLoader = Thread.currentThread().getContextClassLoader();
     private static Connection connection;
 
-    private DBUtil(){
+    public DBUtil(){
         connection = JDBCConfig.getInstance();
     }
 
