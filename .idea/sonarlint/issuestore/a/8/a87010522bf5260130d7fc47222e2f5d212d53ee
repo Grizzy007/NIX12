@@ -1,24 +1,0 @@
-
-{
-java:S1192"eDefine a constant instead of duplicating this literal "Input number of restyle of vehicle: " 3 times.(—“î÷
-m
-java:S3008"RRename this field "COUNTER" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(×¥ÆËùÿÿÿÿ
-S	java:S106"9Replace this use of System.out or System.err by a logger.(­ÎÒÊùÿÿÿÿ
-Q
-java:S2696"6Make the enclosing method "static" or remove this set.(­ÎÒÊùÿÿÿÿ
-S	java:S106"9Replace this use of System.out or System.err by a logger.(ğş¨°ÿÿÿÿÿ
-Q
-java:S2696"6Make the enclosing method "static" or remove this set.(ğş¨°ÿÿÿÿÿ
-S	java:S106"9Replace this use of System.out or System.err by a logger.(±‚„àûÿÿÿÿ
-N	java:S106"9Replace this use of System.out or System.err by a logger.(²™‘¾
-N	java:S106"9Replace this use of System.out or System.err by a logger.(—“î÷
-N	java:S106"9Replace this use of System.out or System.err by a logger.(µïÎÑ
-N	java:S106 "9Replace this use of System.out or System.err by a logger.(—“î÷
-S	java:S106!"9Replace this use of System.out or System.err by a logger.(Æò¨…ûÿÿÿÿ
-N	java:S106$"9Replace this use of System.out or System.err by a logger.(—“î÷
-S	java:S106%"9Replace this use of System.out or System.err by a logger.(›‚‰àøÿÿÿÿ
-S	java:S106("9Replace this use of System.out or System.err by a logger.(Ù…Ä´ùÿÿÿÿ
-N	java:S106)"9Replace this use of System.out or System.err by a logger.(áÃ´°
-S	java:S106*"9Replace this use of System.out or System.err by a logger.(øÖØşşÿÿÿÿ
-S	java:S106+"9Replace this use of System.out or System.err by a logger.(Àƒº—üÿÿÿÿ
-N	java:S1061"9Replace this use of System.out or System.err by a logger.(Îñë
